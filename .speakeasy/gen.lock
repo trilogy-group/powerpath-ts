@@ -5,8 +5,11 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.541.2
   generationVersion: 2.595.4
-  releaseVersion: 0.1.0
-  configChecksum: 12570005004776a3c085527f975ddd04
+  releaseVersion: 0.1.1
+  configChecksum: 88704b73addb8d9a89ba8cfe8c414037
+  repoURL: https://github.com/trilogy-group/powerpath-ts.git
+  installationURL: https://github.com/trilogy-group/powerpath-ts
+  published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -74,18 +77,19 @@ generatedFiles:
   - docs/models/components/student.md
   - docs/models/components/updatestudentquestionresponseinput.md
   - docs/models/components/updatestudentquestionresponseinputresponse.md
-  - docs/models/errors/badrequestresponseerror1.md
-  - docs/models/errors/badrequestresponseerror2.md
+  - docs/models/errors/badrequestresponseerror.md
   - docs/models/errors/badrequestresponseimsxcodeminor.md
-  - docs/models/errors/badrequestresponseimsxcodeminorfield1.md
-  - docs/models/errors/forbiddenresponseerror.md
+  - docs/models/errors/badrequestresponseimsxcodeminorfield.md
+  - docs/models/errors/forbiddenresponseerror1.md
+  - docs/models/errors/forbiddenresponseerror2.md
   - docs/models/errors/forbiddenresponseimsxcodeminor.md
-  - docs/models/errors/forbiddenresponseimsxcodeminorfield.md
+  - docs/models/errors/forbiddenresponseimsxcodeminorfield1.md
   - docs/models/errors/internalservererrorresponse1.md
   - docs/models/errors/internalservererrorresponse2.md
   - docs/models/errors/internalservererrorresponseimsxcodeminor.md
   - docs/models/errors/internalservererrorresponseimsxcodeminorfield1.md
-  - docs/models/errors/notfoundresponseerror.md
+  - docs/models/errors/notfoundresponseerror1.md
+  - docs/models/errors/notfoundresponseerror2.md
   - docs/models/errors/notfoundresponseimsxcodeminor.md
   - docs/models/errors/notfoundresponseimsxcodeminorfield1.md
   - docs/models/errors/toomanyrequestsresponseerror1.md
@@ -215,12 +219,12 @@ generatedFiles:
   - src/models/components/security.ts
   - src/models/components/updatestudentquestionresponseinput.ts
   - src/models/errors/apierror.ts
-  - src/models/errors/badrequestresponseerror1.ts
-  - src/models/errors/forbiddenresponseerror.ts
+  - src/models/errors/badrequestresponseerror.ts
+  - src/models/errors/forbiddenresponseerror1.ts
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/index.ts
   - src/models/errors/internalservererrorresponse1.ts
-  - src/models/errors/notfoundresponseerror.ts
+  - src/models/errors/notfoundresponseerror1.ts
   - src/models/errors/sdkvalidationerror.ts
   - src/models/errors/toomanyrequestsresponseerror1.ts
   - src/models/errors/unauthorizedrequestresponseerror1.ts

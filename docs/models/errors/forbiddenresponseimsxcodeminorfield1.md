@@ -1,11 +1,11 @@
-# ForbiddenResponseImsxCodeMinorField
+# ForbiddenResponseImsxCodeMinorField1
 
 ## Example Usage
 
 ```typescript
-import { ForbiddenResponseImsxCodeMinorField } from "@superbuilders/powerpath/models/errors";
+import { ForbiddenResponseImsxCodeMinorField1 } from "@superbuilders/powerpath/models/errors";
 
-let value: ForbiddenResponseImsxCodeMinorField = {};
+let value: ForbiddenResponseImsxCodeMinorField1 = {};
 ```
 
 ## Fields

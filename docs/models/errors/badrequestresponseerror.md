@@ -1,9 +1,9 @@
-# BadRequestResponseError1
+# BadRequestResponseError
 
 ## Example Usage
 
 ```typescript
-import { BadRequestResponseError1 } from "@superbuilders/powerpath/models/errors";
+import { BadRequestResponseError } from "@superbuilders/powerpath/models/errors";
 
 // No examples available for this model
 ```

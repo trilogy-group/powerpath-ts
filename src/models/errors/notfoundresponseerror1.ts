@@ -17,23 +17,23 @@ export type NotFoundResponseImsxCodeMinor = {
   imsxCodeMinorField: Array<NotFoundResponseImsxCodeMinorField1>;
 };
 
-export type NotFoundResponseErrorData = {
+export type NotFoundResponseError1Data = {
   imsxCodeMajor: "failure";
   imsxSeverity: "error";
   imsxDescription: string;
   imsxCodeMinor: NotFoundResponseImsxCodeMinor;
 };
 
-export class NotFoundResponseError extends Error {
+export class NotFoundResponseError1 extends Error {
   imsxCodeMajor: "failure";
   imsxSeverity: "error";
   imsxDescription: string;
   imsxCodeMinor: NotFoundResponseImsxCodeMinor;
 
   /** The original data that was passed to this error instance. */
-  data$: NotFoundResponseErrorData;
+  data$: NotFoundResponseError1Data;
 
-  constructor(err: NotFoundResponseErrorData) {
+  constructor(err: NotFoundResponseError1Data) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -45,7 +45,39 @@ export class NotFoundResponseError extends Error {
     this.imsxDescription = err.imsxDescription;
     this.imsxCodeMinor = err.imsxCodeMinor;
 
-    this.name = "NotFoundResponseError";
+    this.name = "NotFoundResponseError1";
+  }
+}
+
+export type NotFoundResponseError2Data = {
+  imsxCodeMajor: "failure";
+  imsxSeverity: "error";
+  imsxDescription: string;
+  imsxCodeMinor: NotFoundResponseImsxCodeMinor;
+};
+
+export class NotFoundResponseError2 extends Error {
+  imsxCodeMajor: "failure";
+  imsxSeverity: "error";
+  imsxDescription: string;
+  imsxCodeMinor: NotFoundResponseImsxCodeMinor;
+
+  /** The original data that was passed to this error instance. */
+  data$: NotFoundResponseError2Data;
+
+  constructor(err: NotFoundResponseError2Data) {
+    const message = "message" in err && typeof err.message === "string"
+      ? err.message
+      : `API error occurred: ${JSON.stringify(err)}`;
+    super(message);
+    this.data$ = err;
+
+    this.imsxCodeMajor = err.imsxCodeMajor;
+    this.imsxSeverity = err.imsxSeverity;
+    this.imsxDescription = err.imsxDescription;
+    this.imsxCodeMinor = err.imsxCodeMinor;
+
+    this.name = "NotFoundResponseError2";
   }
 }
 
@@ -194,8 +226,8 @@ export function notFoundResponseImsxCodeMinorFromJSON(
 }
 
 /** @internal */
-export const NotFoundResponseError$inboundSchema: z.ZodType<
-  NotFoundResponseError,
+export const NotFoundResponseError1$inboundSchema: z.ZodType<
+  NotFoundResponseError1,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -212,11 +244,11 @@ export const NotFoundResponseError$inboundSchema: z.ZodType<
       "imsx_CodeMinor": "imsxCodeMinor",
     });
 
-    return new NotFoundResponseError(remapped);
+    return new NotFoundResponseError1(remapped);
   });
 
 /** @internal */
-export type NotFoundResponseError$Outbound = {
+export type NotFoundResponseError1$Outbound = {
   imsx_codeMajor: "failure";
   imsx_severity: "error";
   imsx_description: string;
@@ -224,11 +256,11 @@ export type NotFoundResponseError$Outbound = {
 };
 
 /** @internal */
-export const NotFoundResponseError$outboundSchema: z.ZodType<
-  NotFoundResponseError$Outbound,
+export const NotFoundResponseError1$outboundSchema: z.ZodType<
+  NotFoundResponseError1$Outbound,
   z.ZodTypeDef,
-  NotFoundResponseError
-> = z.instanceof(NotFoundResponseError)
+  NotFoundResponseError1
+> = z.instanceof(NotFoundResponseError1)
   .transform(v => v.data$)
   .pipe(
     z.object({
@@ -250,11 +282,77 @@ export const NotFoundResponseError$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace NotFoundResponseError$ {
-  /** @deprecated use `NotFoundResponseError$inboundSchema` instead. */
-  export const inboundSchema = NotFoundResponseError$inboundSchema;
-  /** @deprecated use `NotFoundResponseError$outboundSchema` instead. */
-  export const outboundSchema = NotFoundResponseError$outboundSchema;
-  /** @deprecated use `NotFoundResponseError$Outbound` instead. */
-  export type Outbound = NotFoundResponseError$Outbound;
+export namespace NotFoundResponseError1$ {
+  /** @deprecated use `NotFoundResponseError1$inboundSchema` instead. */
+  export const inboundSchema = NotFoundResponseError1$inboundSchema;
+  /** @deprecated use `NotFoundResponseError1$outboundSchema` instead. */
+  export const outboundSchema = NotFoundResponseError1$outboundSchema;
+  /** @deprecated use `NotFoundResponseError1$Outbound` instead. */
+  export type Outbound = NotFoundResponseError1$Outbound;
+}
+
+/** @internal */
+export const NotFoundResponseError2$inboundSchema: z.ZodType<
+  NotFoundResponseError2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  imsx_codeMajor: z.literal("failure"),
+  imsx_severity: z.literal("error"),
+  imsx_description: z.string(),
+  imsx_CodeMinor: z.lazy(() => NotFoundResponseImsxCodeMinor$inboundSchema),
+})
+  .transform((v) => {
+    const remapped = remap$(v, {
+      "imsx_codeMajor": "imsxCodeMajor",
+      "imsx_severity": "imsxSeverity",
+      "imsx_description": "imsxDescription",
+      "imsx_CodeMinor": "imsxCodeMinor",
+    });
+
+    return new NotFoundResponseError2(remapped);
+  });
+
+/** @internal */
+export type NotFoundResponseError2$Outbound = {
+  imsx_codeMajor: "failure";
+  imsx_severity: "error";
+  imsx_description: string;
+  imsx_CodeMinor: NotFoundResponseImsxCodeMinor$Outbound;
+};
+
+/** @internal */
+export const NotFoundResponseError2$outboundSchema: z.ZodType<
+  NotFoundResponseError2$Outbound,
+  z.ZodTypeDef,
+  NotFoundResponseError2
+> = z.instanceof(NotFoundResponseError2)
+  .transform(v => v.data$)
+  .pipe(
+    z.object({
+      imsxCodeMajor: z.literal("failure").default("failure" as const),
+      imsxSeverity: z.literal("error").default("error" as const),
+      imsxDescription: z.string(),
+      imsxCodeMinor: z.lazy(() => NotFoundResponseImsxCodeMinor$outboundSchema),
+    }).transform((v) => {
+      return remap$(v, {
+        imsxCodeMajor: "imsx_codeMajor",
+        imsxSeverity: "imsx_severity",
+        imsxDescription: "imsx_description",
+        imsxCodeMinor: "imsx_CodeMinor",
+      });
+    }),
+  );
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace NotFoundResponseError2$ {
+  /** @deprecated use `NotFoundResponseError2$inboundSchema` instead. */
+  export const inboundSchema = NotFoundResponseError2$inboundSchema;
+  /** @deprecated use `NotFoundResponseError2$outboundSchema` instead. */
+  export const outboundSchema = NotFoundResponseError2$outboundSchema;
+  /** @deprecated use `NotFoundResponseError2$Outbound` instead. */
+  export type Outbound = NotFoundResponseError2$Outbound;
 }
