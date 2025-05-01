@@ -12,6 +12,9 @@ targets:
     power-path:
         target: typescript
         source: PowerPath API
+        publish:
+            npm:
+                token: $npm_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/emu-farm/timeback/power-path-api-typescript-code-samples
