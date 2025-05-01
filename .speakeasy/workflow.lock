@@ -2,19 +2,20 @@ speakeasyVersion: 1.541.2
 sources:
     PowerPath API:
         sourceNamespace: power-path-api
-        sourceRevisionDigest: sha256:8a74b9c4a880065916721334f6d0e7b9aab5e7d86dd7dce020b6379f5c26d15e
+        sourceRevisionDigest: sha256:8554c82a2a6761eb3339491c3346dbb4f9ec6d56dbcb0a7a402913e1db3b1033
         sourceBlobDigest: sha256:747823a0de059da78abaa617f9b39930f3e96c30984c2aaae55cfc6786b2a740
         tags:
             - latest
+            - speakeasy-sdk-regen-1746108759
             - 1.0.0
 targets:
     power-path:
         source: PowerPath API
         sourceNamespace: power-path-api
-        sourceRevisionDigest: sha256:8a74b9c4a880065916721334f6d0e7b9aab5e7d86dd7dce020b6379f5c26d15e
+        sourceRevisionDigest: sha256:8554c82a2a6761eb3339491c3346dbb4f9ec6d56dbcb0a7a402913e1db3b1033
         sourceBlobDigest: sha256:747823a0de059da78abaa617f9b39930f3e96c30984c2aaae55cfc6786b2a740
         codeSamplesNamespace: power-path-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:a94808d26cac38a1e89742a7c56f6798da0444a8eb52dc08e4ee8fc8d79b40e1
+        codeSamplesRevisionDigest: sha256:60202e2100b7149ed513d0c9d1ec0fa65805ae74ff64a89a9e6891606d619702
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -30,6 +31,9 @@ workflow:
         power-path:
             target: typescript
             source: PowerPath API
+            publish:
+                npm:
+                    token: $npm_token
             codeSamples:
                 registry:
                     location: registry.speakeasyapi.dev/emu-farm/timeback/power-path-api-typescript-code-samples

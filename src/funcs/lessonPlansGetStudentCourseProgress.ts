@@ -48,10 +48,10 @@ export function lessonPlansGetStudentCourseProgress(
 ): APIPromise<
   Result<
     operations.GetCourseProgressResponse,
-    | errors.BadRequestResponseError1
+    | errors.BadRequestResponseError
     | errors.UnauthorizedRequestResponseError1
-    | errors.ForbiddenResponseError
-    | errors.NotFoundResponseError
+    | errors.ForbiddenResponseError1
+    | errors.NotFoundResponseError1
     | errors.UnprocessableEntityResponseError1
     | errors.TooManyRequestsResponseError1
     | errors.InternalServerErrorResponse1
@@ -79,10 +79,10 @@ async function $do(
   [
     Result<
       operations.GetCourseProgressResponse,
-      | errors.BadRequestResponseError1
+      | errors.BadRequestResponseError
       | errors.UnauthorizedRequestResponseError1
-      | errors.ForbiddenResponseError
-      | errors.NotFoundResponseError
+      | errors.ForbiddenResponseError1
+      | errors.NotFoundResponseError1
       | errors.UnprocessableEntityResponseError1
       | errors.TooManyRequestsResponseError1
       | errors.InternalServerErrorResponse1
@@ -175,10 +175,10 @@ async function $do(
 
   const [result] = await M.match<
     operations.GetCourseProgressResponse,
-    | errors.BadRequestResponseError1
+    | errors.BadRequestResponseError
     | errors.UnauthorizedRequestResponseError1
-    | errors.ForbiddenResponseError
-    | errors.NotFoundResponseError
+    | errors.ForbiddenResponseError1
+    | errors.NotFoundResponseError1
     | errors.UnprocessableEntityResponseError1
     | errors.TooManyRequestsResponseError1
     | errors.InternalServerErrorResponse1
@@ -191,10 +191,10 @@ async function $do(
     | ConnectionError
   >(
     M.json(200, operations.GetCourseProgressResponse$inboundSchema),
-    M.jsonErr(400, errors.BadRequestResponseError1$inboundSchema),
+    M.jsonErr(400, errors.BadRequestResponseError$inboundSchema),
     M.jsonErr(401, errors.UnauthorizedRequestResponseError1$inboundSchema),
-    M.jsonErr(403, errors.ForbiddenResponseError$inboundSchema),
-    M.jsonErr(404, errors.NotFoundResponseError$inboundSchema),
+    M.jsonErr(403, errors.ForbiddenResponseError1$inboundSchema),
+    M.jsonErr(404, errors.NotFoundResponseError1$inboundSchema),
     M.jsonErr(422, errors.UnprocessableEntityResponseError1$inboundSchema),
     M.jsonErr(429, errors.TooManyRequestsResponseError1$inboundSchema),
     M.jsonErr(500, errors.InternalServerErrorResponse1$inboundSchema),

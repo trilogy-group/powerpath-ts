@@ -120,34 +120,30 @@ GET /ims/oneroster/rostering/v1p2/users?sort=lastName&orderBy=asc
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-> [!TIP]
-> To finish publishing your SDK to npm and others you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
-
-
 The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
 
 ### NPM
 
 ```bash
-npm add <UNSET>
+npm add @superbuilders/powerpath
 ```
 
 ### PNPM
 
 ```bash
-pnpm add <UNSET>
+pnpm add @superbuilders/powerpath
 ```
 
 ### Bun
 
 ```bash
-bun add <UNSET>
+bun add @superbuilders/powerpath
 ```
 
 ### Yarn
 
 ```bash
-yarn add <UNSET> zod
+yarn add @superbuilders/powerpath zod
 
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
@@ -457,10 +453,10 @@ Some methods specify known errors which can be thrown. All the known errors are 
 
 | Error Type                               | Status Code | Content Type     |
 | ---------------------------------------- | ----------- | ---------------- |
-| errors.BadRequestResponseError1          | 400         | application/json |
+| errors.BadRequestResponseError           | 400         | application/json |
 | errors.UnauthorizedRequestResponseError1 | 401         | application/json |
-| errors.ForbiddenResponseError            | 403         | application/json |
-| errors.NotFoundResponseError             | 404         | application/json |
+| errors.ForbiddenResponseError1           | 403         | application/json |
+| errors.NotFoundResponseError1            | 404         | application/json |
 | errors.UnprocessableEntityResponseError1 | 422         | application/json |
 | errors.TooManyRequestsResponseError1     | 429         | application/json |
 | errors.InternalServerErrorResponse1      | 500         | application/json |
@@ -471,10 +467,10 @@ If the method throws an error and it is not captured by the known errors, it wil
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 import {
-  BadRequestResponseError1,
-  ForbiddenResponseError,
+  BadRequestResponseError,
+  ForbiddenResponseError1,
   InternalServerErrorResponse1,
-  NotFoundResponseError,
+  NotFoundResponseError1,
   SDKValidationError,
   TooManyRequestsResponseError1,
   UnauthorizedRequestResponseError1,
@@ -508,8 +504,8 @@ async function run() {
         console.error(err.rawValue);
         return;
       }
-      case (err instanceof BadRequestResponseError1): {
-        // Handle err.data$: BadRequestResponseError1Data
+      case (err instanceof BadRequestResponseError): {
+        // Handle err.data$: BadRequestResponseErrorData
         console.error(err);
         return;
       }
@@ -518,13 +514,13 @@ async function run() {
         console.error(err);
         return;
       }
-      case (err instanceof ForbiddenResponseError): {
-        // Handle err.data$: ForbiddenResponseErrorData
+      case (err instanceof ForbiddenResponseError1): {
+        // Handle err.data$: ForbiddenResponseError1Data
         console.error(err);
         return;
       }
-      case (err instanceof NotFoundResponseError): {
-        // Handle err.data$: NotFoundResponseErrorData
+      case (err instanceof NotFoundResponseError1): {
+        // Handle err.data$: NotFoundResponseError1Data
         console.error(err);
         return;
       }

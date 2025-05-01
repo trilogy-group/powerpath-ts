@@ -1,11 +1,11 @@
-# BadRequestResponseImsxCodeMinorField1
+# BadRequestResponseImsxCodeMinorField
 
 ## Example Usage
 
 ```typescript
-import { BadRequestResponseImsxCodeMinorField1 } from "@superbuilders/powerpath/models/errors";
+import { BadRequestResponseImsxCodeMinorField } from "@superbuilders/powerpath/models/errors";
 
-let value: BadRequestResponseImsxCodeMinorField1 = {};
+let value: BadRequestResponseImsxCodeMinorField = {};
 ```
 
 ## Fields
