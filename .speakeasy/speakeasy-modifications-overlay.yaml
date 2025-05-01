@@ -1,0 +1,97 @@
+overlay: 1.0.0
+x-speakeasy-jsonpath: rfc9535
+info:
+  title: Speakeasy Modifications
+  version: 0.0.1
+  x-speakeasy-metadata:
+    type: speakeasy-modifications
+    before: ""
+    after: ""
+actions:
+  - target: $["paths"]["/powerpath/finalStudentAssessmentResponse"]["post"]
+    update:
+      x-speakeasy-group: lessons
+      x-speakeasy-name-override: finalizeResponse
+    x-speakeasy-metadata:
+      after: sdk.lessons.finalizeResponse()
+      before: sdk.PowerPath - Lesson Mastery.finalStudentAssessmentResponse()
+      created_at: 1746024429969
+      type: method-name
+  - target: $["paths"]["/powerpath/updateStudentQuestionResponse"]["put"]
+    update:
+      x-speakeasy-group: lessons
+      x-speakeasy-name-override: updateStudentResponse
+    x-speakeasy-metadata:
+      after: sdk.lessons.updateStudentResponse()
+      before: sdk.PowerPath - Lesson Mastery.updateStudentQuestionResponse()
+      created_at: 1746024429969
+      type: method-name
+  - target: $["paths"]["/powerpath/syllabus/{courseSourcedId}"]["get"]
+    update:
+      x-speakeasy-group: lessonPlans
+      x-speakeasy-name-override: getSyllabus
+    x-speakeasy-metadata:
+      after: sdk.lessonPlans.getSyllabus()
+      before: sdk.PowerPath - Lesson Plans.getCourseSyllabus()
+      created_at: 1746024429969
+      type: method-name
+  - target: $["paths"]["/powerpath/lessonPlans/updateStudentItemResponse"]["post"]
+    update:
+      x-speakeasy-group: lessonPlans
+      x-speakeasy-name-override: updateStudentResponse
+    x-speakeasy-metadata:
+      after: sdk.lessonPlans.updateStudentResponse()
+      before: sdk.PowerPath - Lesson Plans.updateStudentItemResponse()
+      created_at: 1746024429969
+      type: method-name
+  - target: $["paths"]["/powerpath/createNewAttempt"]["post"]
+    update:
+      x-speakeasy-group: lessons
+      x-speakeasy-name-override: createAttempt
+    x-speakeasy-metadata:
+      after: sdk.lessons.createAttempt()
+      before: sdk.PowerPath - Lesson Mastery.createNewAttempt()
+      created_at: 1746024429969
+      type: method-name
+  - target: $["paths"]["/powerpath/getAttempts"]["get"]
+    update:
+      x-speakeasy-group: lessons
+    x-speakeasy-metadata:
+      after: sdk.lessons.getAttempts()
+      before: sdk.PowerPath - Lesson Mastery.getAttempts()
+      created_at: 1746024429969
+      type: method-name
+  - target: $["paths"]["/powerpath/getAssessmentProgress"]["get"]
+    update:
+      x-speakeasy-group: lessons
+      x-speakeasy-name-override: getProgress
+    x-speakeasy-metadata:
+      after: sdk.lessons.getProgress()
+      before: sdk.PowerPath - Lesson Mastery.getAssessmentProgress()
+      created_at: 1746024429969
+      type: method-name
+  - target: $["paths"]["/powerpath/resetAttempt"]["post"]
+    update:
+      x-speakeasy-group: lessons
+    x-speakeasy-metadata:
+      after: sdk.lessons.resetAttempt()
+      before: sdk.PowerPath - Lesson Mastery.resetAttempt()
+      created_at: 1746024429969
+      type: method-name
+  - target: $["paths"]["/powerpath/lessonPlans/getCourseProgress/{courseId}/student/{studentId}"]["get"]
+    update:
+      x-speakeasy-group: lessonPlans
+      x-speakeasy-name-override: getStudentCourseProgress
+    x-speakeasy-metadata:
+      after: sdk.lessonPlans.getStudentCourseProgress()
+      before: sdk.PowerPath - Lesson Plans.getCourseProgress()
+      created_at: 1746024429969
+      type: method-name
+  - target: $["paths"]["/powerpath/getNextQuestion"]["get"]
+    update:
+      x-speakeasy-group: lessons
+    x-speakeasy-metadata:
+      after: sdk.lessons.getNextQuestion()
+      before: sdk.PowerPath - Lesson Mastery.getNextQuestion()
+      created_at: 1746024429969
+      type: method-name

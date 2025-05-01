@@ -1,0 +1,38 @@
+speakeasyVersion: 1.541.2
+sources:
+    PowerPath API:
+        sourceNamespace: power-path-api
+        sourceRevisionDigest: sha256:8a74b9c4a880065916721334f6d0e7b9aab5e7d86dd7dce020b6379f5c26d15e
+        sourceBlobDigest: sha256:747823a0de059da78abaa617f9b39930f3e96c30984c2aaae55cfc6786b2a740
+        tags:
+            - latest
+            - 1.0.0
+targets:
+    power-path:
+        source: PowerPath API
+        sourceNamespace: power-path-api
+        sourceRevisionDigest: sha256:8a74b9c4a880065916721334f6d0e7b9aab5e7d86dd7dce020b6379f5c26d15e
+        sourceBlobDigest: sha256:747823a0de059da78abaa617f9b39930f3e96c30984c2aaae55cfc6786b2a740
+        codeSamplesNamespace: power-path-api-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:a94808d26cac38a1e89742a7c56f6798da0444a8eb52dc08e4ee8fc8d79b40e1
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        PowerPath API:
+            inputs:
+                - location: .speakeasy/openapi-fixes.yaml
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/emu-farm/timeback/power-path-api
+    targets:
+        power-path:
+            target: typescript
+            source: PowerPath API
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/emu-farm/timeback/power-path-api-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (SDK)
+                blocking: false

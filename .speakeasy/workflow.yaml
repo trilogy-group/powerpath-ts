@@ -1,0 +1,20 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    PowerPath API:
+        inputs:
+            - location: .speakeasy/openapi-fixes.yaml
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        registry:
+            location: registry.speakeasyapi.dev/emu-farm/timeback/power-path-api
+targets:
+    power-path:
+        target: typescript
+        source: PowerPath API
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/emu-farm/timeback/power-path-api-typescript-code-samples
+            labelOverride:
+                fixedValue: Typescript (SDK)
+            blocking: false

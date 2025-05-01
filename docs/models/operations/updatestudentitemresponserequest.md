@@ -1,0 +1,25 @@
+# UpdateStudentItemResponseRequest
+
+## Example Usage
+
+```typescript
+import { UpdateStudentItemResponseRequest } from "@superbuilders/powerpath/models/operations";
+
+let value: UpdateStudentItemResponseRequest = {
+  studentId: "<id>",
+  result: {
+    status: "active",
+    scoreDate: new Date("2025-10-10T01:11:16.050Z"),
+    scoreStatus: "not submitted",
+  },
+};
+```
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `studentId`                                                                                              | *string*                                                                                                 | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `componentId`                                                                                            | *string*                                                                                                 | :heavy_minus_sign:                                                                                       | N/A                                                                                                      |
+| `componentResourceId`                                                                                    | *string*                                                                                                 | :heavy_minus_sign:                                                                                       | N/A                                                                                                      |
+| `result`                                                                                                 | [operations.UpdateStudentItemResponseResult](../../models/operations/updatestudentitemresponseresult.md) | :heavy_check_mark:                                                                                       | The student's result for the item, either a component or a componentResource                             |
