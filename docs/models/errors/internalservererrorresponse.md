@@ -1,9 +1,9 @@
-# UnauthorizedRequestResponseError2
+# InternalServerErrorResponse
 
 ## Example Usage
 
 ```typescript
-import { UnauthorizedRequestResponseError2 } from "@superbuilders/powerpath/models/errors";
+import { InternalServerErrorResponse } from "@superbuilders/powerpath/models/errors";
 
 // No examples available for this model
 ```
@@ -15,4 +15,4 @@ import { UnauthorizedRequestResponseError2 } from "@superbuilders/powerpath/mode
 | `imsxCodeMajor`                                                                                                    | *string*                                                                                                           | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
 | `imsxSeverity`                                                                                                     | *string*                                                                                                           | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
 | `imsxDescription`                                                                                                  | *string*                                                                                                           | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
-| `imsxCodeMinor`                                                                                                    | [errors.UnauthorizedRequestResponseImsxCodeMinor](../../models/errors/unauthorizedrequestresponseimsxcodeminor.md) | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
+| `imsxCodeMinor`                                                                                                    | [errors.InternalServerErrorResponseImsxCodeMinor](../../models/errors/internalservererrorresponseimsxcodeminor.md) | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |

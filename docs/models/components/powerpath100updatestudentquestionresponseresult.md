@@ -8,15 +8,15 @@ Represents the result of updating the student's response to the question in the 
 import { PowerPath100UpdateStudentQuestionResponseResult } from "@superbuilders/powerpath/models/components";
 
 let value: PowerPath100UpdateStudentQuestionResponseResult = {
-  powerpathScore: 622.28,
+  powerpathScore: 7701.48,
   responseResult: {
-    score: 6422.56,
+    score: 3665.39,
   },
-  accuracy: 7066.27,
-  correctQuestions: 624.72,
-  totalQuestions: 60.72,
-  xp: 8010.23,
-  multiplier: 574.38,
+  accuracy: 7975.48,
+  correctQuestions: 1567.73,
+  totalQuestions: 489.68,
+  xp: 1745.52,
+  multiplier: null,
 };
 ```
 

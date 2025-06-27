@@ -12,11 +12,11 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Success
  */
 export type UpdateStudentQuestionResponseResponse =
-  | (components.QuizUpdateStudentQuestionResponseResult & {
-    lessonType: "quiz";
-  })
   | (components.PowerPath100UpdateStudentQuestionResponseResult & {
     lessonType: "powerpath-100";
+  })
+  | (components.QuizUpdateStudentQuestionResponseResult & {
+    lessonType: "quiz";
   });
 
 /** @internal */
@@ -25,13 +25,13 @@ export const UpdateStudentQuestionResponseResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.QuizUpdateStudentQuestionResponseResult$inboundSchema.and(
-    z.object({ lessonType: z.literal("quiz") }).transform((v) => ({
+  components.PowerPath100UpdateStudentQuestionResponseResult$inboundSchema.and(
+    z.object({ lessonType: z.literal("powerpath-100") }).transform((v) => ({
       lessonType: v.lessonType,
     })),
   ),
-  components.PowerPath100UpdateStudentQuestionResponseResult$inboundSchema.and(
-    z.object({ lessonType: z.literal("powerpath-100") }).transform((v) => ({
+  components.QuizUpdateStudentQuestionResponseResult$inboundSchema.and(
+    z.object({ lessonType: z.literal("quiz") }).transform((v) => ({
       lessonType: v.lessonType,
     })),
   ),
@@ -39,11 +39,11 @@ export const UpdateStudentQuestionResponseResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type UpdateStudentQuestionResponseResponse$Outbound =
-  | (components.QuizUpdateStudentQuestionResponseResult$Outbound & {
-    lessonType: "quiz";
-  })
   | (components.PowerPath100UpdateStudentQuestionResponseResult$Outbound & {
     lessonType: "powerpath-100";
+  })
+  | (components.QuizUpdateStudentQuestionResponseResult$Outbound & {
+    lessonType: "quiz";
   });
 
 /** @internal */
@@ -52,13 +52,13 @@ export const UpdateStudentQuestionResponseResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   UpdateStudentQuestionResponseResponse
 > = z.union([
-  components.QuizUpdateStudentQuestionResponseResult$outboundSchema.and(
-    z.object({ lessonType: z.literal("quiz") }).transform((v) => ({
+  components.PowerPath100UpdateStudentQuestionResponseResult$outboundSchema.and(
+    z.object({ lessonType: z.literal("powerpath-100") }).transform((v) => ({
       lessonType: v.lessonType,
     })),
   ),
-  components.PowerPath100UpdateStudentQuestionResponseResult$outboundSchema.and(
-    z.object({ lessonType: z.literal("powerpath-100") }).transform((v) => ({
+  components.QuizUpdateStudentQuestionResponseResult$outboundSchema.and(
+    z.object({ lessonType: z.literal("quiz") }).transform((v) => ({
       lessonType: v.lessonType,
     })),
   ),

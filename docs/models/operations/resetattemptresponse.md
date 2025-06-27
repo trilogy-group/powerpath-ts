@@ -8,8 +8,8 @@ Success
 import { ResetAttemptResponse } from "@superbuilders/powerpath/models/operations";
 
 let value: ResetAttemptResponse = {
-  success: false,
-  score: 4090.13,
+  success: true,
+  score: 4820.8,
 };
 ```
 

@@ -23,16 +23,12 @@ Creates a new attempt for a student in a lesson if current attempt is completed
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
   const result = await powerPath.lessons.createAttempt();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -50,23 +46,17 @@ import { lessonsCreateAttempt } from "@superbuilders/powerpath/funcs/lessonsCrea
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
   const res = await lessonsCreateAttempt(powerPath);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("lessonsCreateAttempt failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -87,16 +77,16 @@ run();
 
 ### Errors
 
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| errors.BadRequestResponseError           | 400                                      | application/json                         |
-| errors.UnauthorizedRequestResponseError1 | 401                                      | application/json                         |
-| errors.ForbiddenResponseError2           | 403                                      | application/json                         |
-| errors.NotFoundResponseError1            | 404                                      | application/json                         |
-| errors.UnprocessableEntityResponseError1 | 422                                      | application/json                         |
-| errors.TooManyRequestsResponseError1     | 429                                      | application/json                         |
-| errors.InternalServerErrorResponse1      | 500                                      | application/json                         |
-| errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| errors.BadRequestResponseError          | 400                                     | application/json                        |
+| errors.UnauthorizedRequestResponseError | 401                                     | application/json                        |
+| errors.ForbiddenResponseError           | 403                                     | application/json                        |
+| errors.NotFoundResponseError            | 404                                     | application/json                        |
+| errors.UnprocessableEntityResponseError | 422                                     | application/json                        |
+| errors.TooManyRequestsResponseError     | 429                                     | application/json                        |
+| errors.InternalServerErrorResponse      | 500                                     | application/json                        |
+| errors.APIError                         | 4XX, 5XX                                | \*/\*                                   |
 
 ## finalizeResponse
 
@@ -117,16 +107,12 @@ Returns the final assessment result for the student.
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
   const result = await powerPath.lessons.finalizeResponse();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -144,23 +130,17 @@ import { lessonsFinalizeResponse } from "@superbuilders/powerpath/funcs/lessonsF
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
   const res = await lessonsFinalizeResponse(powerPath);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("lessonsFinalizeResponse failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -181,16 +161,16 @@ run();
 
 ### Errors
 
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| errors.BadRequestResponseError           | 400                                      | application/json                         |
-| errors.UnauthorizedRequestResponseError1 | 401                                      | application/json                         |
-| errors.ForbiddenResponseError1           | 403                                      | application/json                         |
-| errors.NotFoundResponseError1            | 404                                      | application/json                         |
-| errors.UnprocessableEntityResponseError1 | 422                                      | application/json                         |
-| errors.TooManyRequestsResponseError1     | 429                                      | application/json                         |
-| errors.InternalServerErrorResponse1      | 500                                      | application/json                         |
-| errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| errors.BadRequestResponseError          | 400                                     | application/json                        |
+| errors.UnauthorizedRequestResponseError | 401                                     | application/json                        |
+| errors.ForbiddenResponseError           | 403                                     | application/json                        |
+| errors.NotFoundResponseError            | 404                                     | application/json                        |
+| errors.UnprocessableEntityResponseError | 422                                     | application/json                        |
+| errors.TooManyRequestsResponseError     | 429                                     | application/json                        |
+| errors.InternalServerErrorResponse      | 500                                     | application/json                        |
+| errors.APIError                         | 4XX, 5XX                                | \*/\*                                   |
 
 ## getProgress
 
@@ -202,10 +182,7 @@ Returns the progress the student has made in the given PowerPath lesson
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -214,7 +191,6 @@ async function run() {
     lesson: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -232,10 +208,7 @@ import { lessonsGetProgress } from "@superbuilders/powerpath/funcs/lessonsGetPro
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -243,15 +216,12 @@ async function run() {
     student: "<value>",
     lesson: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("lessonsGetProgress failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -272,16 +242,16 @@ run();
 
 ### Errors
 
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| errors.BadRequestResponseError           | 400                                      | application/json                         |
-| errors.UnauthorizedRequestResponseError1 | 401                                      | application/json                         |
-| errors.ForbiddenResponseError1           | 403                                      | application/json                         |
-| errors.NotFoundResponseError1            | 404                                      | application/json                         |
-| errors.UnprocessableEntityResponseError1 | 422                                      | application/json                         |
-| errors.TooManyRequestsResponseError1     | 429                                      | application/json                         |
-| errors.InternalServerErrorResponse1      | 500                                      | application/json                         |
-| errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| errors.BadRequestResponseError          | 400                                     | application/json                        |
+| errors.UnauthorizedRequestResponseError | 401                                     | application/json                        |
+| errors.ForbiddenResponseError           | 403                                     | application/json                        |
+| errors.NotFoundResponseError            | 404                                     | application/json                        |
+| errors.UnprocessableEntityResponseError | 422                                     | application/json                        |
+| errors.TooManyRequestsResponseError     | 429                                     | application/json                        |
+| errors.InternalServerErrorResponse      | 500                                     | application/json                        |
+| errors.APIError                         | 4XX, 5XX                                | \*/\*                                   |
 
 ## getAttempts
 
@@ -293,10 +263,7 @@ Returns a list of all attempts for a student in a lesson
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -305,7 +272,6 @@ async function run() {
     lesson: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -323,10 +289,7 @@ import { lessonsGetAttempts } from "@superbuilders/powerpath/funcs/lessonsGetAtt
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -334,15 +297,12 @@ async function run() {
     student: "<value>",
     lesson: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("lessonsGetAttempts failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -363,16 +323,16 @@ run();
 
 ### Errors
 
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| errors.BadRequestResponseError           | 400                                      | application/json                         |
-| errors.UnauthorizedRequestResponseError1 | 401                                      | application/json                         |
-| errors.ForbiddenResponseError1           | 403                                      | application/json                         |
-| errors.NotFoundResponseError1            | 404                                      | application/json                         |
-| errors.UnprocessableEntityResponseError1 | 422                                      | application/json                         |
-| errors.TooManyRequestsResponseError1     | 429                                      | application/json                         |
-| errors.InternalServerErrorResponse1      | 500                                      | application/json                         |
-| errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| errors.BadRequestResponseError          | 400                                     | application/json                        |
+| errors.UnauthorizedRequestResponseError | 401                                     | application/json                        |
+| errors.ForbiddenResponseError           | 403                                     | application/json                        |
+| errors.NotFoundResponseError            | 404                                     | application/json                        |
+| errors.UnprocessableEntityResponseError | 422                                     | application/json                        |
+| errors.TooManyRequestsResponseError     | 429                                     | application/json                        |
+| errors.InternalServerErrorResponse      | 500                                     | application/json                        |
+| errors.APIError                         | 4XX, 5XX                                | \*/\*                                   |
 
 ## getNextQuestion
 
@@ -384,10 +344,7 @@ Returns the next question in the given PowerPath lesson
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -396,7 +353,6 @@ async function run() {
     lesson: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -414,10 +370,7 @@ import { lessonsGetNextQuestion } from "@superbuilders/powerpath/funcs/lessonsGe
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -425,15 +378,12 @@ async function run() {
     student: "<value>",
     lesson: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("lessonsGetNextQuestion failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -454,16 +404,16 @@ run();
 
 ### Errors
 
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| errors.BadRequestResponseError           | 400                                      | application/json                         |
-| errors.UnauthorizedRequestResponseError1 | 401                                      | application/json                         |
-| errors.ForbiddenResponseError1           | 403                                      | application/json                         |
-| errors.NotFoundResponseError1            | 404                                      | application/json                         |
-| errors.UnprocessableEntityResponseError1 | 422                                      | application/json                         |
-| errors.TooManyRequestsResponseError1     | 429                                      | application/json                         |
-| errors.InternalServerErrorResponse1      | 500                                      | application/json                         |
-| errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| errors.BadRequestResponseError          | 400                                     | application/json                        |
+| errors.UnauthorizedRequestResponseError | 401                                     | application/json                        |
+| errors.ForbiddenResponseError           | 403                                     | application/json                        |
+| errors.NotFoundResponseError            | 404                                     | application/json                        |
+| errors.UnprocessableEntityResponseError | 422                                     | application/json                        |
+| errors.TooManyRequestsResponseError     | 429                                     | application/json                        |
+| errors.InternalServerErrorResponse      | 500                                     | application/json                        |
+| errors.APIError                         | 4XX, 5XX                                | \*/\*                                   |
 
 ## resetAttempt
 
@@ -475,16 +425,12 @@ Resets the attempt for the given PowerPath lesson of a student, removing all pre
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
   const result = await powerPath.lessons.resetAttempt();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -502,23 +448,17 @@ import { lessonsResetAttempt } from "@superbuilders/powerpath/funcs/lessonsReset
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
   const res = await lessonsResetAttempt(powerPath);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("lessonsResetAttempt failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -539,16 +479,16 @@ run();
 
 ### Errors
 
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| errors.BadRequestResponseError           | 400                                      | application/json                         |
-| errors.UnauthorizedRequestResponseError1 | 401                                      | application/json                         |
-| errors.ForbiddenResponseError1           | 403                                      | application/json                         |
-| errors.NotFoundResponseError1            | 404                                      | application/json                         |
-| errors.UnprocessableEntityResponseError1 | 422                                      | application/json                         |
-| errors.TooManyRequestsResponseError1     | 429                                      | application/json                         |
-| errors.InternalServerErrorResponse1      | 500                                      | application/json                         |
-| errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| errors.BadRequestResponseError          | 400                                     | application/json                        |
+| errors.UnauthorizedRequestResponseError | 401                                     | application/json                        |
+| errors.ForbiddenResponseError           | 403                                     | application/json                        |
+| errors.NotFoundResponseError            | 404                                     | application/json                        |
+| errors.UnprocessableEntityResponseError | 422                                     | application/json                        |
+| errors.TooManyRequestsResponseError     | 429                                     | application/json                        |
+| errors.InternalServerErrorResponse      | 500                                     | application/json                        |
+| errors.APIError                         | 4XX, 5XX                                | \*/\*                                   |
 
 ## updateStudentResponse
 
@@ -565,16 +505,12 @@ PowerPath will create/update the required AssessmentLineItem and AssessmentResul
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
   const result = await powerPath.lessons.updateStudentResponse();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -592,23 +528,17 @@ import { lessonsUpdateStudentResponse } from "@superbuilders/powerpath/funcs/les
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
   const res = await lessonsUpdateStudentResponse(powerPath);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("lessonsUpdateStudentResponse failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -629,13 +559,13 @@ run();
 
 ### Errors
 
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| errors.BadRequestResponseError           | 400                                      | application/json                         |
-| errors.UnauthorizedRequestResponseError2 | 401                                      | application/json                         |
-| errors.ForbiddenResponseError1           | 403                                      | application/json                         |
-| errors.NotFoundResponseError1            | 404                                      | application/json                         |
-| errors.UnprocessableEntityResponseError1 | 422                                      | application/json                         |
-| errors.TooManyRequestsResponseError1     | 429                                      | application/json                         |
-| errors.InternalServerErrorResponse2      | 500                                      | application/json                         |
-| errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| errors.BadRequestResponseError          | 400                                     | application/json                        |
+| errors.UnauthorizedRequestResponseError | 401                                     | application/json                        |
+| errors.ForbiddenResponseError           | 403                                     | application/json                        |
+| errors.NotFoundResponseError            | 404                                     | application/json                        |
+| errors.UnprocessableEntityResponseError | 422                                     | application/json                        |
+| errors.TooManyRequestsResponseError     | 429                                     | application/json                        |
+| errors.InternalServerErrorResponse      | 500                                     | application/json                        |
+| errors.APIError                         | 4XX, 5XX                                | \*/\*                                   |

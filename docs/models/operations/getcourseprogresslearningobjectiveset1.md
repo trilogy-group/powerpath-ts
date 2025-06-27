@@ -7,11 +7,7 @@ import { GetCourseProgressLearningObjectiveSet1 } from "@superbuilders/powerpath
 
 let value: GetCourseProgressLearningObjectiveSet1 = {
   source: "<value>",
-  learningObjectiveIds: [
-    {
-      learningObjectiveId: "<id>",
-    },
-  ],
+  learningObjectiveIds: [],
 };
 ```
 

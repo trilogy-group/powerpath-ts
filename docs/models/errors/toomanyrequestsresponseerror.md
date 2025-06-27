@@ -1,9 +1,9 @@
-# TooManyRequestsResponseError1
+# TooManyRequestsResponseError
 
 ## Example Usage
 
 ```typescript
-import { TooManyRequestsResponseError1 } from "@superbuilders/powerpath/models/errors";
+import { TooManyRequestsResponseError } from "@superbuilders/powerpath/models/errors";
 
 // No examples available for this model
 ```

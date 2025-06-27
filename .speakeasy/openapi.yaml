@@ -127,15 +127,1923 @@ servers:
   - url: https://api.alpha-1edtech.com
     description: PowerPath API
 tags:
+  - name: PowerPath - Course Mastery
   - name: PowerPath - Lesson Mastery
     description: >-
       Track and manage student mastery of lesson objectives, through PowerPath
       100 lessons
   - name: PowerPath - Lesson Plans
     description: Manage lesson plans and instructional content
+  - name: PowerPath - Placement
 security:
   - OAuth2: []
 paths:
+  /powerpath/placement/getAllPlacementTests:
+    get:
+      operationId: getAllPlacementTests
+      summary: Get all placement tests
+      description: >
+
+        Returns all placement tests for a subject, including available results
+        for each.
+
+
+        A 'Lesson' (placement test) in this context is a ComponentResource
+        object which has a Resource object with metadata.lessonType =
+        "placement" associated with it.
+      tags:
+        - PowerPath - Placement
+      parameters:
+        - in: query
+          name: student
+          description: The sourcedId of the student
+          schema:
+            type: string
+            description: The sourcedId of the student
+          required: true
+        - in: query
+          name: subject
+          description: The subject name
+          schema:
+            type: string
+            minLength: 1
+            description: The subject name
+          required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  placementTests:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        component_resources:
+                          type: object
+                        resources:
+                          type: object
+                        resources_metadata:
+                          type: object
+                        assessment_line_items:
+                          type:
+                            - object
+                            - 'null'
+                        assessment_results:
+                          type:
+                            - array
+                            - 'null'
+                          items:
+                            type: object
+                      required:
+                        - component_resources
+                        - resources
+                        - resources_metadata
+                        - assessment_line_items
+                        - assessment_results
+                required:
+                  - placementTests
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        '422':
+          description: Unprocessable Entity / Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponse'
+  /powerpath/placement/getCurrentLevel:
+    get:
+      operationId: getCurrentLevel
+      summary: Get current level
+      description: >
+
+        Returns the current level of the student in a placement process:
+
+        - The level is determined by the last completed placement test's grade
+        level, starting from the lowest grade level available for the subject's
+        placement tests.
+
+        - As the student completes placement tests and attains scores of 90 or
+        greater, their level updates to the next level available for the
+        subject.
+
+
+        Also returns the 'onboarded' boolean that indicates if the student
+        completed the onboarding process for the subject:
+
+        - A 'onboarded = true' means they either completed and passed all
+        placement tests or they have gotten a score smaller than 90 in the last
+        completed placement test.
+
+        - A 'onboarded = false' means they haven't completed placement tests yet
+        or have achieved a score of 90 or greater in the last completed
+        placement test and there are more tests to take.
+      tags:
+        - PowerPath - Placement
+      parameters:
+        - in: query
+          name: student
+          description: The sourcedId of the student
+          schema:
+            type: string
+            description: The sourcedId of the student
+          required: true
+        - in: query
+          name: subject
+          description: The subject name
+          schema:
+            type: string
+            minLength: 1
+            description: The subject name
+          required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  gradeLevel:
+                    type:
+                      - number
+                      - 'null'
+                    description: The grade level of the current level in the subject
+                  onboarded:
+                    type: boolean
+                    description: >-
+                      Whether the student has completed the onboarding process
+                      for the subject
+                  availableTests:
+                    type: number
+                    description: The number of placement tests available for the subject
+                required:
+                  - gradeLevel
+                  - onboarded
+                  - availableTests
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        '422':
+          description: Unprocessable Entity / Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponse'
+  /powerpath/placement/getNextPlacementTest:
+    get:
+      operationId: getNextPlacementTest
+      summary: Get next placement test
+      description: >
+
+        Returns the next placement test for the student in a subject:
+
+        - If the student has completed all placement tests for the subject, the
+        next test's lesson ID will be null. Tests will also be marked as
+        exhausted.
+
+        - If the student hasn't completed a single placement test, returns the
+        first placement test's lesson ID for the subject.
+
+        - If the student has completed some placement tests, it will return null
+        for the next test's lesson ID if the last completed test had a score
+        smaller than 90.
+
+        - Alternatively, it will return the next available placement test's
+        lesson ID if the score was greater than or equal to 90.
+
+
+        Also returns the 'onboarded' boolean that indicates if the student
+        completed the onboarding process for the subject:
+
+        - A 'onboarded = true' means they either completed and passed all
+        placement tests or they have gotten a score smaller than 90 in the last
+        completed placement test.
+
+        - A 'onboarded = false' means they haven't completed placement tests yet
+        or have achieved a score of 90 or greater in the last completed
+        placement test and there are more tests to take.
+
+
+        A 'Lesson' in this context is a ComponentResource object which has a
+        Resource object with metadata.lessonType = "placement" associated with
+        it.
+      tags:
+        - PowerPath - Placement
+      parameters:
+        - in: query
+          name: student
+          description: The sourcedId of the student
+          schema:
+            type: string
+            description: The sourcedId of the student
+          required: true
+        - in: query
+          name: subject
+          description: The subject name
+          schema:
+            type: string
+            minLength: 1
+            description: The subject name
+          required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  exhaustedTests:
+                    type: boolean
+                    description: Whether the student has exhausted all placement tests
+                  gradeLevel:
+                    type:
+                      - number
+                      - 'null'
+                    description: The grade level of the next placement test
+                  lesson:
+                    type:
+                      - string
+                      - 'null'
+                    description: >-
+                      The sourcedId of the next placement test
+                      (ComponentResource)
+                  onboarded:
+                    type: boolean
+                    description: >-
+                      Whether the student has completed the onboarding process
+                      for the subject
+                  availableTests:
+                    type: number
+                    description: The number of placement tests available for the subject
+                required:
+                  - exhaustedTests
+                  - gradeLevel
+                  - lesson
+                  - onboarded
+                  - availableTests
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        '422':
+          description: Unprocessable Entity / Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponse'
+  /powerpath/placement/getSubjectProgress:
+    get:
+      operationId: getSubjectProgress
+      summary: Get subject progress
+      description: |
+
+        Returns the progress the student has made in the given subject
+      tags:
+        - PowerPath - Placement
+      parameters:
+        - in: query
+          name: student
+          description: The sourcedId of the student
+          schema:
+            type: string
+            description: The sourcedId of the student
+          required: true
+        - in: query
+          name: subject
+          description: The subject name
+          schema:
+            type: string
+            minLength: 1
+            description: The subject name
+          required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  progress:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        course:
+                          type: object
+                          properties:
+                            courseCode:
+                              type:
+                                - string
+                                - 'null'
+                            dateLastModified:
+                              type: string
+                            grades:
+                              type:
+                                - array
+                                - 'null'
+                              items:
+                                type: string
+                            level:
+                              type:
+                                - string
+                                - 'null'
+                            orgSourcedId:
+                              type: string
+                            sourcedId:
+                              type: string
+                            status:
+                              type: string
+                            subjects:
+                              type:
+                                - array
+                                - 'null'
+                              items:
+                                type: string
+                            title:
+                              type: string
+                          required:
+                            - courseCode
+                            - dateLastModified
+                            - grades
+                            - level
+                            - orgSourcedId
+                            - sourcedId
+                            - status
+                            - subjects
+                            - title
+                        inEnrolled:
+                          type: boolean
+                        hasUsedTestOut:
+                          type: boolean
+                          description: >-
+                            Whether the student has a fully graded assessment
+                            result for a test-out lesson in the course
+                        testOutLessonId:
+                          type:
+                            - string
+                            - 'null'
+                          description: >-
+                            The sourcedId of the test-out lesson
+                            (ComponentResource) in the course
+                        completedLessons:
+                          type: number
+                          description: >-
+                            The number of lessons that contain an assessment
+                            result with a score status of 'fully graded'
+                        totalLessons:
+                          type: number
+                          description: The total number of lessons in the course
+                        totalAttainableXp:
+                          type: number
+                          description: >-
+                            The total XP that can be earned by the student in
+                            the course, not considering potential multipliers
+                        totalXpEarned:
+                          type: number
+                          description: >-
+                            The total XP earned by the student considering
+                            calculated multipliers
+                      required:
+                        - course
+                        - inEnrolled
+                        - hasUsedTestOut
+                        - testOutLessonId
+                        - completedLessons
+                        - totalLessons
+                        - totalAttainableXp
+                        - totalXpEarned
+                      description: The overview of the course's progress
+                    description: >-
+                      The progress of the student in each of the subject's
+                      courses
+                required:
+                  - progress
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        '422':
+          description: Unprocessable Entity / Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponse'
+  /powerpath/createExternalPlacementTest:
+    post:
+      operationId: createExternalPlacementTest
+      summary: Create an External Placement Test
+      description: >
+
+        Creates or updates a ComponentResource to act as a Placement Test lesson
+        in a course.
+
+        This allows integrating with external test-taking platforms (like
+        Edulastic) for content delivery.
+
+
+        The endpoint creates or updates (if they already exist) the following
+        entities:
+
+        - A CourseComponent for the course to hold the Placement Test lesson
+
+        - A Resource with lessonType = "placement" and the external service
+        details as metadata
+
+        - A ComponentResource acting as the Placement Test lesson
+
+
+        A test assignment is mandatory in order to obtain access credentials for
+        this test on the external platform, as well as to obtain the IDs
+        necessary for fetching test results later on:
+
+        - For test assignments, use the "makeExternalTestAssignment" endpoint.
+
+        - For test results retrieval, use the
+        "importExternalTestAssignmentResults" endpoint.
+
+
+        If a 'courseIdOnFail' parameter is supplied, its Course's sourcedId will
+        be used to automatically enroll the student when the placement test is
+        completed with a score below 90 %. When the parameter is omitted (or set
+        to null), no automatic enrollment will happen.
+
+
+        This request fails if:
+
+        - The 'course' provided does not exist, or a non-null 'courseIdOnFail'
+        references a non-existent course
+
+        - An existing Placement Test lesson in the course, targeting the same
+        grade, has a different toolProvider than the one provided (need to
+        perform an update to the Resource first, altering the "toolProvider",
+        before trying again)
+
+
+        A 'Lesson' in this context is a ComponentResource object which has a
+        Resource object with lessonType = "placement" associated with it.
+      tags:
+        - PowerPath - Course Mastery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/CreateExternalTestOutInput'
+                - $ref: '#/components/schemas/CreateExternalPlacementInput'
+              discriminator:
+                propertyName: lessonType
+                mapping:
+                  test-out: '#/components/schemas/CreateExternalTestOutInput'
+                  placement: '#/components/schemas/CreateExternalPlacementInput'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lessonType:
+                    type: string
+                    enum:
+                      - powerpath-100
+                      - quiz
+                      - test-out
+                      - placement
+                  lessonId:
+                    type: string
+                    description: >-
+                      The sourcedId of the created external test reference
+                      (ComponentResource)
+                  courseComponentId:
+                    type: string
+                    description: The sourcedId of the component (unit) containing the test
+                  resourceId:
+                    type: string
+                    description: >-
+                      The sourcedId of the resource representing the external
+                      test
+                  launchUrl:
+                    type: string
+                    description: The URL to the external test system
+                  toolProvider:
+                    type: string
+                    description: The tool provider id
+                  vendorId:
+                    type: string
+                    description: The ID of the test in the spreadsheet
+                  courseIdOnFail:
+                    type:
+                      - string
+                      - 'null'
+                    description: >-
+                      The courseId to enroll the student in if they fail the
+                      placement test (optional)
+                  grades:
+                    type: array
+                    items:
+                      type: number
+                    description: The grades for the resource
+                required:
+                  - lessonType
+                  - lessonId
+                  - courseComponentId
+                  - resourceId
+                  - toolProvider
+                  - vendorId
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        '422':
+          description: Unprocessable Entity / Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponse'
+  /powerpath/createExternalTestOut:
+    post:
+      operationId: createExternalTestOut
+      summary: Create an External TestOut
+      description: >
+
+        Creates or updates a ComponentResource to act as a TestOut lesson in a
+        course.
+
+        This allows integrating with external test-taking platforms (like
+        Edulastic) for content delivery.
+
+
+        The endpoint creates or updates (if they already exist) the following
+        entities:
+
+        - A CourseComponent for the course to hold the TestOut lesson
+
+        - A Resource with lessonType = "test-out" and the external service
+        details as metadata
+
+        - A ComponentResource acting as the TestOut lesson
+
+
+        A test assignment is mandatory in order to obtain access credentials for
+        this test on the external platform, as well as to obtain the IDs
+        necessary for fetching test results later on:
+
+        - For test assignments, use the "makeExternalTestAssignment" endpoint.
+
+        - For test results retrieval, use the
+        "importExternalTestAssignmentResults" endpoint.
+
+
+        This request fails if:
+
+        - The course provided does not exist
+
+        - An existing TestOut lesson in the course has a different toolProvider
+        than the one provided (need to perform an update to the Resource first,
+        altering the "toolProvider", before trying again)
+
+
+        A 'Lesson' in this context is a ComponentResource object which has a
+        Resource object with lessonType = "test-out" associated with it.
+      tags:
+        - PowerPath - Course Mastery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/CreateExternalTestOutInput'
+                - $ref: '#/components/schemas/CreateExternalPlacementInput'
+              discriminator:
+                propertyName: lessonType
+                mapping:
+                  test-out: '#/components/schemas/CreateExternalTestOutInput'
+                  placement: '#/components/schemas/CreateExternalPlacementInput'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lessonType:
+                    type: string
+                    enum:
+                      - powerpath-100
+                      - quiz
+                      - test-out
+                      - placement
+                  lessonId:
+                    type: string
+                    description: >-
+                      The sourcedId of the created external test reference
+                      (ComponentResource)
+                  courseComponentId:
+                    type: string
+                    description: The sourcedId of the component (unit) containing the test
+                  resourceId:
+                    type: string
+                    description: >-
+                      The sourcedId of the resource representing the external
+                      test
+                  launchUrl:
+                    type: string
+                    description: The URL to the external test system
+                  toolProvider:
+                    type: string
+                    description: The tool provider id
+                  vendorId:
+                    type: string
+                    description: The ID of the test in the spreadsheet
+                  courseIdOnFail:
+                    type:
+                      - string
+                      - 'null'
+                    description: >-
+                      The courseId to enroll the student in if they fail the
+                      placement test (optional)
+                  grades:
+                    type: array
+                    items:
+                      type: number
+                    description: The grades for the resource
+                required:
+                  - lessonType
+                  - lessonId
+                  - courseComponentId
+                  - resourceId
+                  - toolProvider
+                  - vendorId
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        '422':
+          description: Unprocessable Entity / Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponse'
+  /powerpath/importExternalTestAssignmentResults:
+    get:
+      operationId: importExternalTestAssignmentResults
+      summary: Import external test assignment results
+      description: >
+
+        Retrieves and stores the results of the external test assignment:
+
+        - Applies to both 'test-out' and 'placement' lessons.
+
+
+        This logic changes depending on the stored "toolProvider" of the lesson:
+
+        - For "edulastic" (currently the only one supported):
+          - If the lesson is already finalized, no data import is performed.
+          - If the lesson is not finalized, this will start populating the test and question results with available data, including question scores and feedback. The test will then be deemed finalized when all questions have been answered and the test grade is "GRADED".
+
+        Will fail if:
+
+        - The lesson is not an external "test-out" or "placement", or the
+        student does not exist
+
+        - Credentials for data consumption are not available in the test result
+        of this student (meaning a previous test assignment was not made)
+
+        - Any other problem on the Edulastic API being used that may happen
+
+
+        The actual test results can be retrieved by using the
+        "getAssessmentProgress" endpoint.
+
+
+        A 'Lesson' in this context is a ComponentResource object which has a
+        Resource object with lessonType = "test-out" or "placement" associated
+        with it.
+      tags:
+        - PowerPath - Course Mastery
+      parameters:
+        - in: query
+          name: student
+          description: The sourcedId of the student
+          schema:
+            type: string
+            description: The sourcedId of the student
+          required: true
+        - in: query
+          name: lesson
+          description: The sourcedId of the lesson (ComponentResource)
+          schema:
+            type: string
+            description: The sourcedId of the lesson (ComponentResource)
+          required: true
+        - in: query
+          name: applicationName
+          description: The name of the application
+          schema:
+            type: string
+            description: The name of the application
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lessonType:
+                    type: string
+                    enum:
+                      - test-out
+                      - placement
+                  lessonId:
+                    type:
+                      - string
+                      - 'null'
+                    description: The sourcedId of the lesson (ComponentResource)
+                  toolProvider:
+                    type: string
+                    description: The tool provider for the lesson (ComponentResource)
+                  finalized:
+                    type: boolean
+                    description: Whether the Test has been finalized in the current attempt
+                  attempt:
+                    type: number
+                    description: The attempt number
+                  credentials:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        format: email
+                      password:
+                        type: string
+                    required:
+                      - email
+                      - password
+                    description: >-
+                      The credentials for accessing the assigned test on
+                      Edulastic
+                  assignmentId:
+                    type: string
+                    description: >-
+                      The id of the assignment on Edulastic for results
+                      retrieval
+                  classId:
+                    type: string
+                    description: The id of the class on Edulastic for results retrieval
+                  testUrl:
+                    type: string
+                    format: uri
+                    description: The URL of the test on Edulastic
+                  testId:
+                    type: string
+                    description: The id of the test on Edulastic
+                  courseIdOnFail:
+                    type:
+                      - string
+                      - 'null'
+                    description: >-
+                      The courseId to enroll the student in if they fail the
+                      placement test (can be null)
+                  hasFallbackCourse:
+                    type: boolean
+                    description: >-
+                      Whether the test has a fallback course for auto-enrollment
+                      on failure
+                required:
+                  - lessonType
+                  - lessonId
+                  - toolProvider
+                  - finalized
+                  - attempt
+                  - courseIdOnFail
+                  - hasFallbackCourse
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        '422':
+          description: Unprocessable Entity / Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponse'
+  /powerpath/makeExternalTestAssignment:
+    post:
+      operationId: makeExternalTestAssignment
+      summary: Make external test assignment
+      description: >
+
+        Makes an external test assignment for the given student:
+
+        - Applies to both 'test-out' and 'placement' lessons.
+
+
+        This logic changes depending on the provided "toolProvider" value:
+
+        - For "edulastic" (currently the only one supported):
+          - Authenticates the student with their email on Edulastic
+          - Assigns the test to the student in Edulastic
+          - Stores the received "assignmentId" and "classId" in the lesson's AssessmentResult
+          - Returns the test link, credentials, and IDs of the test for later results consumption
+
+        Will fail if:
+
+        - The lesson is not an external "test-out" or "placement", or the
+        student does not exist
+
+        - External tool (described in the resource.metadata.toolProvider) is not
+        "edulastic"
+
+        - Any other problem on the Edulastic API being used that may happen
+
+
+        A 'Lesson' in this context is a ComponentResource object which has a
+        Resource object with lessonType = "test-out" or "placement" associated
+        with it.
+      tags:
+        - PowerPath - Course Mastery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                student:
+                  type: string
+                  description: The sourcedId of the student
+                lesson:
+                  type: string
+                  description: The sourcedId of the lesson (ComponentResource)
+                applicationName:
+                  type: string
+                  description: >-
+                    The name of the application to use for authenticating on the
+                    external tool
+              required:
+                - student
+                - lesson
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  toolProvider:
+                    type: string
+                    enum:
+                      - edulastic
+                  lessonType:
+                    type: string
+                    enum:
+                      - test-out
+                      - placement
+                  attempt:
+                    type: number
+                    description: The attempt number
+                  credentials:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        format: email
+                      password:
+                        type: string
+                    required:
+                      - email
+                      - password
+                    description: >-
+                      The credentials for accessing the assigned test on
+                      Edulastic
+                  assignmentId:
+                    type: string
+                    description: >-
+                      The id of the assignment on Edulastic for results
+                      retrieval
+                  classId:
+                    type: string
+                    description: The id of the class on Edulastic for results retrieval
+                  testUrl:
+                    type: string
+                    format: uri
+                    description: The URL of the test on Edulastic
+                  testId:
+                    type: string
+                    description: The id of the test on Edulastic
+                required:
+                  - toolProvider
+                  - lessonType
+                  - attempt
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        '422':
+          description: Unprocessable Entity / Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponse'
+  /powerpath/testOut:
+    get:
+      operationId: testOut
+      summary: Test out
+      description: >
+
+        Returns the testOut lesson reference for the given student and course.
+
+
+        - TestOut is a lesson that represents the end-of-course test, covering
+        the entire course content.
+
+        - The testOut should be specified by a Resource with metadata.lessonType
+        = "test-out".
+
+
+        Details:
+
+        - Returns a null lessonId in case no Resource with metadata.lessonType =
+        "test-out" is found in the course.
+
+        - In case student has already taken the TestOut, this will return the
+        "finalized" flag set to true.
+
+        - In case this is an external TestOut, also return external access
+        credentials, if available (i.e. test was previously assigned to
+        student).
+
+
+        A 'Lesson' in this context is a ComponentResource object which has a
+        Resource object with metadata.lessonType = "test-out" associated with
+        it.
+      tags:
+        - PowerPath - Course Mastery
+      parameters:
+        - in: query
+          name: student
+          description: The sourcedId of the student to retrieve the testOut for
+          schema:
+            type: string
+            description: The sourcedId of the student to retrieve the testOut for
+          required: true
+        - in: query
+          name: course
+          description: The sourcedId of the Course to retrieve the testOut from
+          schema:
+            type: string
+            description: The sourcedId of the Course to retrieve the testOut from
+          required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestOutResult'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        '422':
+          description: Unprocessable Entity / Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableEntityResponse'
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponse'
+  /powerpath/lessonPlans/:
+    post:
+      operationId: createLessonPlan
+      summary: Create a lesson plan
+      description: |2-
+
+            Creates a new lesson plan for a course and student.
+
+            The lesson plan is created by specifying a course sourced ID and a student sourced ID and, optionally, a class sourced ID.
+            The student must be enrolled in the class to create a lesson plan for them.
+
+            If no class sourced ID is provided, the course's default class will be used if available.
+            
+      tags:
+        - PowerPath - Lesson Plans
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                courseId:
+                  type: string
+                  description: The Sourced ID of the course
+                userId:
+                  type: string
+                  description: The Sourced ID of the student
+                classId:
+                  type: string
+                  description: >-
+                    (optional) The Sourced ID of the class. Defaults to current
+                    year's class for the student
+              required:
+                - courseId
+                - userId
+      responses:
+        '200':
+          description: Lesson plan already exists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lessonPlan:
+                    type: object
+                    properties:
+                      lessonPlan:
+                        type: object
+                        properties:
+                          course:
+                            type: object
+                            properties:
+                              sourcedId:
+                                type: string
+                              status:
+                                type: string
+                                enum: &ref_0
+                                  - active
+                                  - tobedeleted
+                              dateLastModified:
+                                type: string
+                                format: date-time
+                              metadata:
+                                type:
+                                  - object
+                                  - 'null'
+                                additionalProperties: {}
+                              title:
+                                type: string
+                              academicSession:
+                                type:
+                                  - object
+                                  - 'null'
+                                properties:
+                                  sourcedId:
+                                    type: string
+                                required:
+                                  - sourcedId
+                              courseCode:
+                                type:
+                                  - string
+                                  - 'null'
+                              grades:
+                                type:
+                                  - array
+                                  - 'null'
+                                items:
+                                  type: string
+                              subjects:
+                                type:
+                                  - array
+                                  - 'null'
+                                items:
+                                  type: string
+                              subjectCodes:
+                                type:
+                                  - array
+                                  - 'null'
+                                items:
+                                  type: string
+                              org:
+                                type: object
+                                properties:
+                                  sourcedId:
+                                    type: string
+                                required:
+                                  - sourcedId
+                              level:
+                                type:
+                                  - string
+                                  - 'null'
+                              gradingScheme:
+                                type:
+                                  - string
+                                  - 'null'
+                            required:
+                              - status
+                              - title
+                              - org
+                            description: Represents a course.
+                          subComponents:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/LessonPlanTreeComponent'
+                        required:
+                          - course
+                          - subComponents
+                    required:
+                      - lessonPlan
+                required:
+                  - lessonPlan
+        '201':
+          description: Lesson plan created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lessonPlan:
+                    type: object
+                    properties:
+                      lessonPlan:
+                        type: object
+                        properties:
+                          course:
+                            type: object
+                            properties:
+                              sourcedId:
+                                type: string
+                              status:
+                                type: string
+                                enum: *ref_0
+                              dateLastModified:
+                                type: string
+                                format: date-time
+                              metadata:
+                                type:
+                                  - object
+                                  - 'null'
+                                additionalProperties: {}
+                              title:
+                                type: string
+                              academicSession:
+                                type:
+                                  - object
+                                  - 'null'
+                                properties:
+                                  sourcedId:
+                                    type: string
+                                required:
+                                  - sourcedId
+                              courseCode:
+                                type:
+                                  - string
+                                  - 'null'
+                              grades:
+                                type:
+                                  - array
+                                  - 'null'
+                                items:
+                                  type: string
+                              subjects:
+                                type:
+                                  - array
+                                  - 'null'
+                                items:
+                                  type: string
+                              subjectCodes:
+                                type:
+                                  - array
+                                  - 'null'
+                                items:
+                                  type: string
+                              org:
+                                type: object
+                                properties:
+                                  sourcedId:
+                                    type: string
+                                required:
+                                  - sourcedId
+                              level:
+                                type:
+                                  - string
+                                  - 'null'
+                              gradingScheme:
+                                type:
+                                  - string
+                                  - 'null'
+                            required:
+                              - status
+                              - title
+                              - org
+                            description: Represents a course.
+                          subComponents:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/LessonPlanTreeComponent'
+                        required:
+                          - course
+                          - subComponents
+                    required:
+                      - lessonPlan
+                required:
+                  - lessonPlan
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Course, User or Class not found
+  /powerpath/lessonPlans/{courseId}/{userId}:
+    get:
+      operationId: getTree
+      summary: Returns the lesson plan tree for a course and student
+      description: |2-
+
+            Given a course sourced ID and a user sourced ID, returns the lesson plan tree.
+
+            The lesson plan tree is nested object comprised of several lessonPlanItems, 
+            which are nodes that contain information about the lesson plan - including which component or component resource is associated with that node, 
+            as well as which node is its parent.
+
+            A node may reference a component or a componentResource.
+            A node with no parent is considered at the root level of the lesson plan tree.
+
+            A student's lesson plan has a unique ID that can be used instead of the parameters to retrieve it.
+            
+      tags:
+        - PowerPath - Lesson Plans
+      parameters:
+        - name: courseId
+          description: Course Sourced ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: userId
+          description: User Sourced ID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lessonPlan:
+                    type: object
+                    properties:
+                      lessonPlan:
+                        type: object
+                        properties:
+                          course:
+                            type: object
+                            properties:
+                              sourcedId:
+                                type: string
+                              status:
+                                type: string
+                                enum: *ref_0
+                              dateLastModified:
+                                type: string
+                                format: date-time
+                              metadata:
+                                type:
+                                  - object
+                                  - 'null'
+                                additionalProperties: {}
+                              title:
+                                type: string
+                              academicSession:
+                                type:
+                                  - object
+                                  - 'null'
+                                properties:
+                                  sourcedId:
+                                    type: string
+                                required:
+                                  - sourcedId
+                              courseCode:
+                                type:
+                                  - string
+                                  - 'null'
+                              grades:
+                                type:
+                                  - array
+                                  - 'null'
+                                items:
+                                  type: string
+                              subjects:
+                                type:
+                                  - array
+                                  - 'null'
+                                items:
+                                  type: string
+                              subjectCodes:
+                                type:
+                                  - array
+                                  - 'null'
+                                items:
+                                  type: string
+                              org:
+                                type: object
+                                properties:
+                                  sourcedId:
+                                    type: string
+                                required:
+                                  - sourcedId
+                              level:
+                                type:
+                                  - string
+                                  - 'null'
+                              gradingScheme:
+                                type:
+                                  - string
+                                  - 'null'
+                            required:
+                              - status
+                              - title
+                              - org
+                            description: Represents a course.
+                          subComponents:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/LessonPlanTreeComponent'
+                        required:
+                          - course
+                          - subComponents
+                    required:
+                      - lessonPlan
+                required:
+                  - lessonPlan
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Lesson Plan not found
+  /powerpath/lessonPlans/{lessonPlanId}:
+    delete:
+      operationId: deleteLessonPlan
+      summary: Delete a lesson plan
+      description: |2-
+
+            Deletes a lesson plan by its ID.
+            This will delete the lesson plan and all of its associated lesson plan items.
+            
+      tags:
+        - PowerPath - Lesson Plans
+      parameters:
+        - name: lessonPlanId
+          description: Lesson plan ID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Lesson Plan deleted
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Lesson Plan not found
+  /powerpath/lessonPlans/{lessonPlanId}/component:
+    post:
+      operationId: attachComponent
+      summary: Create a lesson plan item to attach a component to a lesson plan
+      description: |2-
+
+            Creates a lessonPlanItem of type "component" and attaches it to lesson plan with the given ID.
+            The lessonPlanItem *must* reference a course component for the course associated with the lesson plan.
+            The parent lessonPlanItem, if any, must be of type "component" as well.
+
+            
+      tags:
+        - PowerPath - Lesson Plans
+      parameters:
+        - name: lessonPlanId
+          description: Lesson plan ID
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                componentId:
+                  type:
+                    - string
+                    - 'null'
+                  description: >-
+                    The Sourced ID of the Course Component to attach to the
+                    Lesson Plan
+                order:
+                  type: number
+                  description: The order of the Lesson Plan Item
+                parentId:
+                  type:
+                    - string
+                    - 'null'
+                  description: >-
+                    The Sourced ID of the parent Lesson Plan Item. It must also
+                    reference a Component.
+                skipped:
+                  type:
+                    - boolean
+                    - 'null'
+                  default: false
+                  description: Whether the Lesson Plan Item is skipped for this user
+              required:
+                - componentId
+                - order
+      responses:
+        '201':
+          description: Component attached
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lessonPlanItem:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      lessonPlanId:
+                        type: string
+                      type:
+                        type: string
+                        enum: &ref_1
+                          - component
+                          - resource
+                      componentId:
+                        type:
+                          - string
+                          - 'null'
+                      componentResourceId:
+                        type:
+                          - string
+                          - 'null'
+                      order:
+                        type: number
+                      parentId:
+                        type:
+                          - string
+                          - 'null'
+                      skipped:
+                        type: boolean
+                        default: false
+                    required:
+                      - lessonPlanId
+                      - type
+                      - order
+                      - skipped
+                required:
+                  - lessonPlanItem
+        '400':
+          description: Parent Lesson Plan Item is not of type component
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Lesson Plan or Course Component not found
+  /powerpath/lessonPlans/{lessonPlanId}/resource:
+    post:
+      operationId: attachResource
+      summary: Create a lesson plan item to attach a resource to a lesson plan
+      description: |2-
+
+            Creates a lessonPlanItem of type "resource" and attaches it to lesson plan with the given ID.
+            The lessonPlanItem *must* reference a course component resource for the course associated with the lesson plan.
+
+            The parent lessonPlanItem, if any, must be of type "component".
+            
+      tags:
+        - PowerPath - Lesson Plans
+      parameters:
+        - name: lessonPlanId
+          description: Lesson plan ID
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                componentResourceId:
+                  type: string
+                  description: >-
+                    The Sourced ID of the Component Resource to attach to the
+                    Lesson Plan
+                order:
+                  type: number
+                  description: The order of the Lesson Plan Item
+                parentId:
+                  type:
+                    - string
+                    - 'null'
+                  description: >-
+                    The Sourced ID of the parent Lesson Plan Item. It must
+                    reference a Component.
+                skipped:
+                  type:
+                    - boolean
+                    - 'null'
+                  default: false
+                  description: Whether the Lesson Plan Item is skipped for this user
+              required:
+                - componentResourceId
+                - order
+                - parentId
+      responses:
+        '201':
+          description: Resource attached
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lessonPlanItem:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      lessonPlanId:
+                        type: string
+                      type:
+                        type: string
+                        enum: *ref_1
+                      componentId:
+                        type:
+                          - string
+                          - 'null'
+                      componentResourceId:
+                        type:
+                          - string
+                          - 'null'
+                      order:
+                        type: number
+                      parentId:
+                        type:
+                          - string
+                          - 'null'
+                      skipped:
+                        type: boolean
+                        default: false
+                    required:
+                      - lessonPlanId
+                      - type
+                      - order
+                      - skipped
+                required:
+                  - lessonPlanItem
+        '400':
+          description: Parent Lesson Plan Item is not of type component
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Lesson Plan or Component Resource not found
   /powerpath/lessonPlans/getCourseProgress/{courseId}/student/{studentId}:
     get:
       operationId: getCourseProgress
@@ -163,7 +2071,7 @@ paths:
 
         Each **line item** contains a list of assessment results in the
         **results** attribute, related to student and course.
-
+            
       tags:
         - PowerPath - Lesson Plans
       parameters:
@@ -211,9 +2119,7 @@ paths:
                                     type: string
                                   status:
                                     type: string
-                                    enum: &ref_0
-                                      - active
-                                      - tobedeleted
+                                    enum: *ref_0
                                   dateLastModified:
                                     type: string
                                     format: date-time
@@ -248,7 +2154,7 @@ paths:
                                       - 'null'
                                   scoreStatus:
                                     type: string
-                                    enum: &ref_1
+                                    enum: &ref_2
                                       - exempt
                                       - fully graded
                                       - not submitted
@@ -267,7 +2173,7 @@ paths:
                                       properties:
                                         source:
                                           type: string
-                                        learningObjectiveIds:
+                                        learningObjectiveResults:
                                           type: array
                                           items:
                                             type: object
@@ -282,7 +2188,7 @@ paths:
                                               - learningObjectiveId
                                       required:
                                         - source
-                                        - learningObjectiveIds
+                                        - learningObjectiveResults
                                   inProgress:
                                     type:
                                       - string
@@ -366,7 +2272,7 @@ paths:
                                       - 'null'
                                   scoreStatus:
                                     type: string
-                                    enum: *ref_1
+                                    enum: *ref_2
                                   comment:
                                     type:
                                       - string
@@ -380,7 +2286,7 @@ paths:
                                       properties:
                                         source:
                                           type: string
-                                        learningObjectiveIds:
+                                        learningObjectiveResults:
                                           type: array
                                           items:
                                             type: object
@@ -395,7 +2301,7 @@ paths:
                                               - learningObjectiveId
                                       required:
                                         - source
-                                        - learningObjectiveIds
+                                        - learningObjectiveResults
                                   inProgress:
                                     type:
                                       - string
@@ -469,6 +2375,109 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InternalServerErrorResponse'
+  /powerpath/lessonPlans/items/{lessonPlanItemId}:
+    patch:
+      operationId: updateLessonPlanItem
+      summary: Update a lesson plan item
+      description: |2-
+
+            Updates a lesson plan item by its ID.
+
+            While many parameters of a lesson plan item can be updated, 
+            the main use case for this feature is to re-parent a lesson plan item.
+            
+      tags:
+        - PowerPath - Lesson Plans
+      parameters:
+        - name: lessonPlanItemId
+          description: Lesson plan item ID
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lessonPlanId:
+                  type: string
+                type:
+                  type: string
+                  enum: *ref_1
+                componentId:
+                  type:
+                    - string
+                    - 'null'
+                componentResourceId:
+                  type:
+                    - string
+                    - 'null'
+                order:
+                  type: number
+                parentId:
+                  type:
+                    - string
+                    - 'null'
+                skipped:
+                  type: boolean
+                  default: false
+      responses:
+        '204':
+          description: Lesson plan item updated
+        '400':
+          description: Parent Lesson Plan Item must be of type component
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Lesson Plan Item not found
+    delete:
+      operationId: deleteLessonPlanItem
+      summary: Delete a lesson plan item
+      description: |2-
+
+            Deletes a lesson plan item by its ID.
+
+            This will delete the lesson plan item and all of its associated lesson plan items.
+            WARNING: This operation is irreversible.
+            
+      tags:
+        - PowerPath - Lesson Plans
+      parameters:
+        - name: lessonPlanItemId
+          description: Lesson plan item ID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Lesson Plan Item deleted
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedRequestResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Lesson Plan Item not found
   /powerpath/lessonPlans/updateStudentItemResponse:
     post:
       operationId: updateStudentItemResponse
@@ -495,7 +2504,7 @@ paths:
         If you provide the **componentResourceId**, the data in the response
         payload should be in relation to the student's response to the specific
         resource.
-
+            
       tags:
         - PowerPath - Lesson Plans
       requestBody:
@@ -505,9 +2514,6 @@ paths:
               type: object
               properties:
                 studentId:
-                  type: string
-                  minLength: 1
-                componentId:
                   type: string
                   minLength: 1
                 componentResourceId:
@@ -541,7 +2547,7 @@ paths:
                         - 'null'
                     scoreStatus:
                       type: string
-                      enum: *ref_1
+                      enum: *ref_2
                     comment:
                       type:
                         - string
@@ -555,7 +2561,7 @@ paths:
                         properties:
                           source:
                             type: string
-                          learningObjectiveIds:
+                          learningObjectiveResults:
                             type: array
                             items:
                               type: object
@@ -570,7 +2576,7 @@ paths:
                                 - learningObjectiveId
                         required:
                           - source
-                          - learningObjectiveIds
+                          - learningObjectiveResults
                     inProgress:
                       type:
                         - string
@@ -596,6 +2602,7 @@ paths:
                     componentResource
               required:
                 - studentId
+                - componentResourceId
                 - result
       responses:
         '201':
@@ -605,10 +2612,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  componentLineItem:
-                    $ref: '#/components/schemas/AssessmentLineItem'
-                  componentResult:
-                    $ref: '#/components/schemas/AssessmentResult'
                   componentResourceLineItem:
                     $ref: '#/components/schemas/AssessmentLineItem'
                   componentResourceResult:
@@ -725,9 +2728,28 @@ paths:
     post:
       operationId: createNewAttempt
       summary: Create new attempt
-      description: >-
-        Creates a new attempt for a student in a lesson if current attempt is
-        completed
+      description: >
+
+        Creates a new attempt for a student in a lesson if the current attempt
+        is completed.
+
+
+        For Assessment Bank lessons:
+
+        - This will also update the state for the student, creating a new entry
+        to associate the new attempt number with a different sub-resource of the
+        test bank.
+
+        - If the lesson is taken again by the student, a different test may be
+        served, considering the new resource it points to configures a different
+        test.
+
+        - The sub-test is determined using round-robin logic over the
+        sub-resources of the lesson's Assessment Bank Resource object.
+          - So for example, if a lesson configures 2 sub-tests, the first attempt serves test 1, the second attempt serves test 2, the third attempt serves test 1 again, and so on.
+
+        A 'Lesson' in this context is a ComponentResource object which has a
+        Resource object associated with it.
       tags:
         - PowerPath - Lesson Mastery
       requestBody:
@@ -741,7 +2763,7 @@ paths:
                   description: The sourcedId of the student
                 lesson:
                   type: string
-                  description: The sourcedId of the lesson
+                  description: The sourcedId of the lesson (ComponentResource)
               required:
                 - student
                 - lesson
@@ -754,40 +2776,45 @@ paths:
                 type: object
                 properties:
                   attempt:
-                    type:
-                      - number
-                      - 'null'
-                    description: The attempt number
-                  score:
-                    type: number
-                    description: The current score for this attempt
-                  scoreStatus:
-                    type: string
-                    enum: &ref_2
-                      - exempt
-                      - fully graded
-                      - not submitted
-                      - partially graded
-                      - submitted
-                    description: The status of this attempt
-                  startedAt:
-                    type:
-                      - string
-                      - 'null'
-                    format: date-time
-                    description: When this attempt was started
-                  completedAt:
-                    type:
-                      - string
-                      - 'null'
-                    format: date-time
-                    description: When this attempt was completed
+                    type: object
+                    properties:
+                      attempt:
+                        type:
+                          - number
+                          - 'null'
+                        description: The attempt number
+                      score:
+                        type: number
+                        description: The current score for this attempt
+                      scoreStatus:
+                        type: string
+                        enum: &ref_3
+                          - exempt
+                          - fully graded
+                          - not submitted
+                          - partially graded
+                          - submitted
+                        description: The status of this attempt
+                      startedAt:
+                        type:
+                          - string
+                          - 'null'
+                        format: date-time
+                        description: When this attempt was started
+                      completedAt:
+                        type:
+                          - string
+                          - 'null'
+                        format: date-time
+                        description: When this attempt was completed
+                    required:
+                      - attempt
+                      - score
+                      - scoreStatus
+                      - startedAt
+                      - completedAt
                 required:
                   - attempt
-                  - score
-                  - scoreStatus
-                  - startedAt
-                  - completedAt
         '400':
           description: Bad Request
           content:
@@ -833,30 +2860,33 @@ paths:
   /powerpath/finalStudentAssessmentResponse:
     post:
       operationId: finalStudentAssessmentResponse
-      summary: Finalize a quiz assessment
+      summary: Finalize a test assessments
       description: >
 
-        Finalize a lesson/assessment of 'quiz' type after all questions have
-        been answered.
+        Finalize a lesson of type `quiz`, `test-out`, or `placement` after all
+        questions have been answered:
 
-
-        Evaluates answered questions, attribute scores for each question, and
+        - Evaluates answered questions, attribute scores for each question, and
         overall lesson score.
 
+        - Checks the correctness of the response using the QTI question's
+        `<qti-response-declaration>` element and update the score accordingly.
 
-        PowerPath will check the correctness of the response using the QTI
-        question `<qti-response-declaration>` element and update the score
-        accordingly.
-
-
-        PowerPath will create/update the required AssessmentLineItem and
-        AssessmentResult objects for the student/question pair if it doesn't
-        exist yet.
+        - Creates/updates the AssessmentLineItem and AssessmentResult objects
+        for the student/question pair if it doesn't exist yet.
 
 
-        Returns the final assessment result for the student.
+        Not supported for external test lessons as the 3rd party tool is
+        responsible for finalizing the test. Use the
+        **importExternalTestAssignmentResults** endpoint instead.
+
+
+        A 'Lesson' in this context is a ComponentResource object which has a
+        Resource object with metadata.lessonType = "quiz", "test-out", or
+        "placement" associated with it.
       tags:
         - PowerPath - Lesson Mastery
+        - PowerPath - Course Mastery
       requestBody:
         content:
           application/json:
@@ -868,7 +2898,7 @@ paths:
                   description: The sourcedId of the student
                 lesson:
                   type: string
-                  description: The sourcedId of the lesson
+                  description: The sourcedId of the lesson (ComponentResource)
               required:
                 - student
                 - lesson
@@ -882,50 +2912,22 @@ paths:
                 properties:
                   lessonType:
                     type: string
-                    const: quiz
+                    enum:
+                      - quiz
+                      - test-out
+                      - placement
                   finalized:
                     type: boolean
                     description: >-
                       Whether the lesson has been finalized in the current
                       attempt
-                  questions:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/PowerPathTestQuestion'
-                  score:
+                  attempt:
                     type: number
-                    description: The final score for the student
-                  accuracy:
-                    type: number
-                    description: The accuracy of the student's attempted questions
-                  correctQuestions:
-                    type: number
-                    description: >-
-                      The number of correct questions the student has answered
-                      in the lesson
-                  totalQuestions:
-                    type: number
-                    description: The total number of questions in the lesson
-                  xp:
-                    type:
-                      - number
-                      - 'null'
-                    description: The XP the student has earned in the lesson
-                  multiplier:
-                    type:
-                      - number
-                      - 'null'
-                    description: The multiplier for the student's XP
+                    description: The attempt number
                 required:
                   - lessonType
                   - finalized
-                  - questions
-                  - score
-                  - accuracy
-                  - correctQuestions
-                  - totalQuestions
-                  - xp
-                  - multiplier
+                  - attempt
         '400':
           description: Bad Request
           content:
@@ -972,9 +2974,16 @@ paths:
     get:
       operationId: getAssessmentProgress
       summary: Get assessment progress
-      description: Returns the progress the student has made in the given PowerPath lesson
+      description: >
+
+        Returns the progress the student has made in the given PowerPath lesson.
+
+
+        A 'Lesson' in this context is a ComponentResource object paired with a
+        Resource object representing an activity.
       tags:
         - PowerPath - Lesson Mastery
+        - PowerPath - Course Mastery
       parameters:
         - in: query
           name: student
@@ -985,20 +2994,16 @@ paths:
           required: true
         - in: query
           name: lesson
-          description: >-
-            The sourcedId of the ComponentResource that represents the PowerPath
-            lesson
+          description: The sourcedId of the lesson (ComponentResource)
           schema:
             type: string
-            description: >-
-              The sourcedId of the ComponentResource that represents the
-              PowerPath lesson
+            description: The sourcedId of the lesson (ComponentResource)
           required: true
         - in: query
           name: attempt
           description: The attempt number of the lesson that the student is answering
           schema:
-            type: number
+            type: string
             description: The attempt number of the lesson that the student is answering
       responses:
         '200':
@@ -1008,12 +3013,66 @@ paths:
               schema:
                 oneOf:
                   - $ref: '#/components/schemas/PowerPath100ProgressResult'
-                  - $ref: '#/components/schemas/QuizProgressResult'
-                discriminator:
-                  propertyName: lessonType
-                  mapping:
-                    powerpath-100: '#/components/schemas/PowerPath100ProgressResult'
-                    quiz: '#/components/schemas/QuizProgressResult'
+                  - type: object
+                    properties:
+                      lessonType:
+                        type: string
+                        enum:
+                          - quiz
+                          - test-out
+                          - placement
+                      finalized:
+                        type: boolean
+                        description: >-
+                          Whether the lesson has been finalized in the current
+                          attempt
+                      score:
+                        type: number
+                        description: The current score for this attempt
+                      questions:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/PowerPathTestQuestion'
+                      toolProvider:
+                        type:
+                          - string
+                          - 'null'
+                        description: The tool provider of the lesson if external
+                      attempt:
+                        type: number
+                        description: The attempt number
+                      xp:
+                        type:
+                          - number
+                          - 'null'
+                        description: The XP the student has earned in the lesson
+                      multiplier:
+                        type:
+                          - number
+                          - 'null'
+                        description: The multiplier for the student's XP
+                      accuracy:
+                        type: number
+                        description: The accuracy of the student's attempted questions
+                      correctQuestions:
+                        type: number
+                        description: >-
+                          The number of correct questions the student has
+                          answered in the lesson
+                      totalQuestions:
+                        type: number
+                        description: The total number of questions in the lesson
+                    required:
+                      - lessonType
+                      - finalized
+                      - questions
+                      - toolProvider
+                      - attempt
+                      - xp
+                      - multiplier
+                      - accuracy
+                      - correctQuestions
+                      - totalQuestions
         '400':
           description: Bad Request
           content:
@@ -1060,7 +3119,17 @@ paths:
     get:
       operationId: getAttempts
       summary: Get all attempts
-      description: Returns a list of all attempts for a student in a lesson
+      description: >
+
+        Returns a list of all attempts for a student in a lesson
+
+
+        For Assessment Bank lessons, each attempt may represent a different sub
+        test of the bank. Review results with care.
+
+
+        A 'Lesson' in this context is a ComponentResource object which has a
+        Resource object associated with it.
       tags:
         - PowerPath - Lesson Mastery
       parameters:
@@ -1073,10 +3142,10 @@ paths:
           required: true
         - in: query
           name: lesson
-          description: The sourcedId of the lesson
+          description: The sourcedId of the lesson (ComponentResource)
           schema:
             type: string
-            description: The sourcedId of the lesson
+            description: The sourcedId of the lesson (ComponentResource)
           required: true
       responses:
         '200':
@@ -1101,7 +3170,7 @@ paths:
                           description: The current score for this attempt
                         scoreStatus:
                           type: string
-                          enum: *ref_2
+                          enum: *ref_3
                           description: The status of this attempt
                         startedAt:
                           type:
@@ -1169,7 +3238,16 @@ paths:
     get:
       operationId: getNextQuestion
       summary: Get next question
-      description: Returns the next question in the given PowerPath lesson
+      description: >
+
+        Returns the next question in the given PowerPath component resource.
+
+
+        Works only with lessons of type 'powerpath-100'.
+
+
+        A 'Lesson' in this context is a ComponentResource object which has a
+        Resource object associated with it.
       tags:
         - PowerPath - Lesson Mastery
       parameters:
@@ -1182,14 +3260,10 @@ paths:
           required: true
         - in: query
           name: lesson
-          description: >-
-            The sourcedId of the ComponentResource that represents the PowerPath
-            lesson
+          description: The sourcedId of the lesson (ComponentResource)
           schema:
             type: string
-            description: >-
-              The sourcedId of the ComponentResource that represents the
-              PowerPath lesson
+            description: The sourcedId of the lesson (ComponentResource)
           required: true
       responses:
         '200':
@@ -1253,9 +3327,22 @@ paths:
     post:
       operationId: resetAttempt
       summary: Reset attempt
-      description: >-
-        Resets the attempt for the given PowerPath lesson of a student, removing
-        all previous responses and resetting the score to 0
+      description: >
+
+        Resets the attempt for the given PowerPath lesson of a student:
+
+        - Soft-deletes all previous question responses, resets the test score to
+        0, and updates its 'scoreStatus' to "not submitted".
+
+        - If the lesson is an external test, only resets the test score to 0.
+
+
+        For Assessment Bank lessons, this will keep the user state in the same
+        bank test for the current attempt.
+
+
+        A 'Lesson' in this context is a ComponentResource object which has a
+        Resource object associated with it.
       tags:
         - PowerPath - Lesson Mastery
       requestBody:
@@ -1271,9 +3358,7 @@ paths:
                     reset
                 lesson:
                   type: string
-                  description: >-
-                    The sourcedId of the ComponentResource that represents the
-                    PowerPath lesson
+                  description: The sourcedId of the lesson (ComponentResource)
               required:
                 - student
                 - lesson
@@ -1343,19 +3428,20 @@ paths:
       description: >
 
         Updates the student's response to a question and returns the updated
-        PowerPath score.
+        PowerPath score:
+
+        - Checks the correctness of the response using the QTI question
+        `<qti-response-declaration>` element and update the score accordingly.
+
+        - Creates/updates the AssessmentLineItem and AssessmentResult objects
+        for the student/question pair if it doesn't exist yet.
 
 
-        PowerPath will check the correctness of the response using the QTI
-        question `<qti-response-declaration>` element and update the score
-        accordingly.
-
-
-        PowerPath will create/update the required AssessmentLineItem and
-        AssessmentResult objects for the student/question pair if it doesn't
-        exist yet.
+        A 'Lesson' in this context is a ComponentResource object which has a
+        Resource object associated with it.
       tags:
         - PowerPath - Lesson Mastery
+        - PowerPath - Course Mastery
       requestBody:
         content:
           application/json:
@@ -1372,6 +3458,10 @@ paths:
                       #/components/schemas/PowerPath100UpdateStudentQuestionResponseResult
                   - $ref: >-
                       #/components/schemas/QuizUpdateStudentQuestionResponseResult
+                  - $ref: >-
+                      #/components/schemas/TestOutUpdateStudentQuestionResponseResult
+                  - $ref: >-
+                      #/components/schemas/PlacementUpdateStudentQuestionResponseResult
                 discriminator:
                   propertyName: lessonType
                   mapping:
@@ -1379,6 +3469,10 @@ paths:
                       #/components/schemas/PowerPath100UpdateStudentQuestionResponseResult
                     quiz: >-
                       #/components/schemas/QuizUpdateStudentQuestionResponseResult
+                    test-out: >-
+                      #/components/schemas/TestOutUpdateStudentQuestionResponseResult
+                    placement: >-
+                      #/components/schemas/PlacementUpdateStudentQuestionResponseResult
         '400':
           description: Bad Request
           content:
@@ -1423,6 +3517,23 @@ paths:
                 $ref: '#/components/schemas/InternalServerErrorResponse'
 components:
   securitySchemes:
+    MCP:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: >-
+            https://alpha-auth-production-idp.auth.us-west-2.amazoncognito.com/oauth2/authorize
+          tokenUrl: >-
+            https://alpha-auth-production-idp.auth.us-west-2.amazoncognito.com/oauth2/token
+          scopes:
+            https://purl.imsglobal.org/spec/or/v1p1/scope/roster-core.readonly: Read access to roster core
+            https://purl.imsglobal.org/spec/or/v1p1/scope/roster.readonly: Read access to roster
+            https://purl.imsglobal.org/spec/or/v1p1/scope/roster-demographics.readonly: Read access to roster demographics
+            https://purl.imsglobal.org/spec/or/v1p1/scope/resource.readonly: Read access to resource
+            https://purl.imsglobal.org/spec/or/v1p1/scope/gradebook.readonly: Read access to gradebook
+            https://purl.imsglobal.org/spec/powerpath/v1p1/scope/powerpath.readonly: Read access to powerpath
+            https://purl.imsglobal.org/spec/ob/v3p0/scope/ob.readonly: Read access to open badges
+            https://purl.imsglobal.org/spec/clr/v2p0/scope/clr.readonly: Read access to CLR
     OAuth2:
       type: oauth2
       flows:
@@ -1445,6 +3556,12 @@ components:
             https://purl.imsglobal.org/spec/powerpath/v1p1/scope/powerpath.readonly: Read access to powerpath
             https://purl.imsglobal.org/spec/powerpath/v1p1/scope/powerpath.createput: Create and update access to powerpath
             https://purl.imsglobal.org/spec/powerpath/v1p1/scope/powerpath.admin: Admin access to powerpath
+            https://purl.imsglobal.org/spec/ob/v3p0/scope/ob.readonly: Read access to open badges
+            https://purl.imsglobal.org/spec/ob/v3p0/scope/ob.createput: Create and update access to open badges
+            https://purl.imsglobal.org/spec/ob/v3p0/scope/ob.delete: Delete access to open badges
+            https://purl.imsglobal.org/spec/clr/v2p0/scope/clr.readonly: Read access to CLR
+            https://purl.imsglobal.org/spec/clr/v2p0/scope/clr.createput: Create and update access to CLR
+            https://purl.imsglobal.org/spec/clr/v2p0/scope/clr.delete: Delete access to CLR
           tokenUrl: >-
             https://alpha-auth-production-idp.auth.us-west-2.amazoncognito.com/oauth2/token
   schemas:
@@ -1478,6 +3595,12 @@ components:
                   - imsx_codeMinorFieldValue
           required:
             - imsx_codeMinorField
+        imsx_error_details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: string
       required:
         - imsx_codeMajor
         - imsx_severity
@@ -1513,6 +3636,12 @@ components:
                   - imsx_codeMinorFieldValue
           required:
             - imsx_codeMinorField
+        imsx_error_details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: string
       required:
         - imsx_codeMajor
         - imsx_severity
@@ -1548,6 +3677,12 @@ components:
                   - imsx_codeMinorFieldValue
           required:
             - imsx_codeMinorField
+        imsx_error_details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: string
       required:
         - imsx_codeMajor
         - imsx_severity
@@ -1583,6 +3718,12 @@ components:
                   - imsx_codeMinorFieldValue
           required:
             - imsx_codeMinorField
+        imsx_error_details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: string
       required:
         - imsx_codeMajor
         - imsx_severity
@@ -1618,6 +3759,12 @@ components:
                   - imsx_codeMinorFieldValue
           required:
             - imsx_codeMinorField
+        imsx_error_details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: string
       required:
         - imsx_codeMajor
         - imsx_severity
@@ -1653,6 +3800,12 @@ components:
                   - imsx_codeMinorFieldValue
           required:
             - imsx_codeMinorField
+        imsx_error_details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: string
       required:
         - imsx_codeMajor
         - imsx_severity
@@ -1688,11 +3841,306 @@ components:
                   - imsx_codeMinorFieldValue
           required:
             - imsx_codeMinorField
+        imsx_error_details:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: string
       required:
         - imsx_codeMajor
         - imsx_severity
         - imsx_description
         - imsx_CodeMinor
+    CreateExternalTestOutInput:
+      type: object
+      properties:
+        courseId:
+          type: string
+          description: The sourcedId of the Course to create the external test for
+        lessonTitle:
+          type: string
+          description: The title of the external test reference
+        launchUrl:
+          type: string
+          description: The URL to the external test system (e.g., Edulastic, QTI, etc.)
+        toolProvider:
+          type: string
+          enum:
+            - edulastic
+          description: 'The type of external service (e.g.: ''edulastic'')'
+        unitTitle:
+          type: string
+          description: The title of the unit containing the external test
+        courseComponentSourcedId:
+          type: string
+          description: >-
+            The sourcedId of an existing CourseComponent (unit) for the test. If
+            not provided, a new unit will be created.
+        vendorId:
+          type: string
+          description: The ID of the test in the spreadsheet
+        description:
+          type: string
+          description: >-
+            Description of the external test that will be added to the Resource
+            entity's metadata
+        resourceMetadata:
+          description: Additional metadata for the external test resource
+        lessonType:
+          type: string
+          const: test-out
+        xp:
+          type: number
+          description: The XP value for the resource
+      required:
+        - courseId
+        - toolProvider
+        - vendorId
+        - lessonType
+        - xp
+      description: Input for creating an external test-out lesson
+    CreateExternalPlacementInput:
+      type: object
+      properties:
+        courseId:
+          type: string
+          description: The sourcedId of the Course to create the external test for
+        lessonTitle:
+          type: string
+          description: The title of the external test reference
+        launchUrl:
+          type: string
+          description: The URL to the external test system (e.g., Edulastic, QTI, etc.)
+        toolProvider:
+          type: string
+          enum:
+            - edulastic
+          description: 'The type of external service (e.g.: ''edulastic'')'
+        unitTitle:
+          type: string
+          description: The title of the unit containing the external test
+        courseComponentSourcedId:
+          type: string
+          description: >-
+            The sourcedId of an existing CourseComponent (unit) for the test. If
+            not provided, a new unit will be created.
+        vendorId:
+          type: string
+          description: The ID of the test in the spreadsheet
+        description:
+          type: string
+          description: >-
+            Description of the external test that will be added to the Resource
+            entity's metadata
+        resourceMetadata:
+          description: Additional metadata for the external test resource
+        lessonType:
+          type: string
+          const: placement
+        grades:
+          type: array
+          items:
+            type: number
+          description: The grades for the resource
+        courseIdOnFail:
+          type:
+            - string
+            - 'null'
+          description: >-
+            The courseId to enroll the student in if they fail the placement
+            test (optional)
+        xp:
+          type: number
+          description: The XP value for the resource
+      required:
+        - courseId
+        - toolProvider
+        - vendorId
+        - lessonType
+        - grades
+      description: Input for creating an external placement test
+    TestOutResult:
+      type: object
+      properties:
+        lessonType:
+          type: string
+          const: test-out
+        lessonId:
+          type:
+            - string
+            - 'null'
+          description: The id of the testOut lesson
+        finalized:
+          type: boolean
+          description: Whether the Test Out has been finalized in the current attempt
+        toolProvider:
+          type:
+            - string
+            - 'null'
+          description: The tool provider for the testOut lesson
+        attempt:
+          type: number
+          description: The attempt number
+        credentials:
+          type: object
+          properties:
+            email:
+              type: string
+              format: email
+            password:
+              type: string
+          required:
+            - email
+            - password
+          description: The credentials for accessing the assigned test on Edulastic
+        assignmentId:
+          type: string
+          description: The id of the assignment on Edulastic for results retrieval
+        classId:
+          type: string
+          description: The id of the class on Edulastic for results retrieval
+        testUrl:
+          type: string
+          format: uri
+          description: The URL of the test on Edulastic
+        testId:
+          type: string
+          description: The id of the test on Edulastic
+      required:
+        - lessonType
+        - lessonId
+        - finalized
+        - toolProvider
+      description: >-
+        Holds the id of the TestOut lesson (ComponentResource), or its results
+        in case it was previously attempted
+    LessonPlanTreeComponent:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the lesson plan item
+        sourcedId:
+          type: string
+          description: The Sourced ID of the component
+        status:
+          type: string
+          enum:
+            - active
+            - tobedeleted
+        title:
+          type: string
+        sortOrder:
+          type: number
+        unlockDate:
+          type: string
+        metadata:
+          type: object
+          additionalProperties: {}
+        prerequisites:
+          type: array
+          items:
+            type: string
+        prerequisiteCriteria:
+          type: string
+        componentResources:
+          type: array
+          items:
+            type: object
+            properties:
+              tenantId:
+                type:
+                  - string
+                  - 'null'
+              clientAppId:
+                type:
+                  - string
+                  - 'null'
+              id:
+                type: string
+                description: The ID of the lesson plan item
+              sortOrder:
+                type: number
+              metadata:
+                type: object
+                additionalProperties: {}
+              courseComponentSourcedId:
+                type: string
+              resource:
+                allOf:
+                  - $ref: '#/components/schemas/Resource'
+                properties:
+                  metadataDetails:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                    required:
+                      - type
+                required:
+                  - metadataDetails
+            required:
+              - tenantId
+              - clientAppId
+              - id
+              - courseComponentSourcedId
+              - resource
+        subComponents:
+          type: array
+          items:
+            $ref: '#/components/schemas/LessonPlanTreeComponent'
+      required:
+        - id
+        - sourcedId
+        - status
+        - title
+    Resource:
+      type: object
+      properties:
+        sourcedId:
+          type: string
+        status:
+          type: string
+          enum: *ref_0
+        dateLastModified:
+          type: string
+          format: date-time
+        metadata:
+          type:
+            - object
+            - 'null'
+          additionalProperties: {}
+        title:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+            enum:
+              - primary
+              - secondary
+        importance:
+          type: string
+          enum:
+            - primary
+            - secondary
+        vendorResourceId:
+          type: string
+        vendorId:
+          type:
+            - string
+            - 'null'
+        applicationId:
+          type:
+            - string
+            - 'null'
+      required:
+        - sourcedId
+        - status
+        - title
+        - vendorResourceId
+      description: Represents a digital resource of some kind.
     AssessmentLineItem:
       type: object
       properties:
@@ -1724,7 +4172,7 @@ components:
               type: string
           required:
             - sourcedId
-        parent:
+        parentAssessmentLineItem:
           type:
             - object
             - 'null'
@@ -1794,16 +4242,7 @@ components:
           learningObjectiveIds:
             type: array
             items:
-              type: object
-              properties:
-                learningObjectiveId:
-                  type: string
-                score:
-                  type: number
-                textScore:
-                  type: string
-              required:
-                - learningObjectiveId
+              type: string
         required:
           - source
           - learningObjectiveIds
@@ -1864,7 +4303,7 @@ components:
             - 'null'
         scoreStatus:
           type: string
-          enum: *ref_1
+          enum: *ref_2
         comment:
           type:
             - string
@@ -1878,7 +4317,7 @@ components:
             properties:
               source:
                 type: string
-              learningObjectiveIds:
+              learningObjectiveResults:
                 type: array
                 items:
                   type: object
@@ -1893,7 +4332,7 @@ components:
                     - learningObjectiveId
             required:
               - source
-              - learningObjectiveIds
+              - learningObjectiveResults
         inProgress:
           type:
             - string
@@ -1917,6 +4356,135 @@ components:
         - scoreDate
         - scoreStatus
       description: Represents an assessment result.
+    PowerPath100ProgressResult:
+      type: object
+      properties:
+        lessonType:
+          type: string
+          const: powerpath-100
+        remainingQuestionsPerDifficulty:
+          type: object
+          properties:
+            easy:
+              type: number
+            medium:
+              type: number
+            hard:
+              type: number
+          required:
+            - easy
+            - medium
+            - hard
+        score:
+          type: number
+          description: The current score for this attempt
+        seenQuestions:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: The ID that represents the question in the test
+              index:
+                type: number
+                description: The index of the question in the test
+              title:
+                type: string
+                description: The title of the question
+              url:
+                type: string
+                format: uri
+                description: The URL of the QTI question
+              difficulty:
+                type: string
+                enum: &ref_4
+                  - easy
+                  - medium
+                  - hard
+                default: medium
+                description: The difficulty of the question
+              content:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    description: The type of the question
+                  rawXml:
+                    type: string
+                    description: The raw XML question in QTI format
+                required:
+                  - rawXml
+                description: The QTI content of the question
+              response:
+                anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+                description: The student's response to the question
+              correct:
+                type: boolean
+                description: Whether the student's response is correct
+              result:
+                type: object
+                properties:
+                  score:
+                    type: number
+                    description: >-
+                      The score assigned to the question, considering the
+                      student's response
+                  feedback:
+                    type: string
+                    description: The feedback for the question
+                required:
+                  - score
+                  - feedback
+                description: The result of the question
+            required:
+              - id
+              - index
+              - title
+              - url
+              - difficulty
+              - response
+            description: A PowerPath Test Question
+        attempt:
+          type: number
+          description: The attempt number
+        xp:
+          type:
+            - number
+            - 'null'
+          description: The XP the student has earned in the lesson
+        multiplier:
+          type:
+            - number
+            - 'null'
+          description: The multiplier for the student's XP
+        accuracy:
+          type: number
+          description: The accuracy of the student's attempted questions
+        correctQuestions:
+          type: number
+          description: >-
+            The number of correct questions the student has answered in the
+            lesson
+        totalQuestions:
+          type: number
+          description: The total number of questions in the lesson
+      required:
+        - lessonType
+        - remainingQuestionsPerDifficulty
+        - score
+        - seenQuestions
+        - attempt
+        - xp
+        - multiplier
+        - accuracy
+        - correctQuestions
+        - totalQuestions
+      description: Represents the progress of the student in the PowerPath100 lesson
     PowerPathTestQuestion:
       type: object
       properties:
@@ -1935,10 +4503,7 @@ components:
           description: The URL of the QTI question
         difficulty:
           type: string
-          enum: &ref_3
-            - easy
-            - medium
-            - hard
+          enum: *ref_4
           default: medium
           description: The difficulty of the question
         content:
@@ -1985,175 +4550,6 @@ components:
         - url
         - difficulty
       description: A PowerPath Test Question
-    PowerPath100ProgressResult:
-      type: object
-      properties:
-        lessonType:
-          type: string
-          const: powerpath-100
-        remainingQuestionsPerDifficulty:
-          type: object
-          properties:
-            easy:
-              type: number
-            medium:
-              type: number
-            hard:
-              type: number
-          required:
-            - easy
-            - medium
-            - hard
-        score:
-          type: number
-          description: The current score for this attempt
-        seenQuestions:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                description: The ID that represents the question in the test
-              index:
-                type: number
-                description: The index of the question in the test
-              title:
-                type: string
-                description: The title of the question
-              url:
-                type: string
-                format: uri
-                description: The URL of the QTI question
-              difficulty:
-                type: string
-                enum: *ref_3
-                default: medium
-                description: The difficulty of the question
-              content:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    description: The type of the question
-                  rawXml:
-                    type: string
-                    description: The raw XML question in QTI format
-                required:
-                  - rawXml
-                description: The QTI content of the question
-              response:
-                anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
-                description: The student's response to the question
-              correct:
-                type: boolean
-                description: Whether the student's response to the question was correct
-              result:
-                type: object
-                properties:
-                  score:
-                    type: number
-                    description: >-
-                      The score assigned to the question, considering the
-                      student's response
-                  feedback:
-                    type: string
-                    description: The feedback for the question
-                required:
-                  - score
-                  - feedback
-                description: The result of the question
-            required:
-              - id
-              - index
-              - title
-              - url
-              - difficulty
-              - response
-            description: A PowerPath Test Question
-        xp:
-          type:
-            - number
-            - 'null'
-          description: The XP the student has earned in the lesson
-        multiplier:
-          type:
-            - number
-            - 'null'
-          description: The multiplier for the student's XP
-        accuracy:
-          type: number
-          description: The accuracy of the student's attempted questions
-        correctQuestions:
-          type: number
-          description: >-
-            The number of correct questions the student has answered in the
-            lesson
-        totalQuestions:
-          type: number
-          description: The total number of questions in the lesson
-      required:
-        - lessonType
-        - remainingQuestionsPerDifficulty
-        - score
-        - seenQuestions
-        - xp
-        - multiplier
-        - accuracy
-        - correctQuestions
-        - totalQuestions
-      description: Represents the progress of the student in the PowerPath lesson
-    QuizProgressResult:
-      type: object
-      properties:
-        lessonType:
-          type: string
-          const: quiz
-        finalized:
-          type: boolean
-          description: Whether the lesson has been finalized in the current attempt
-        score:
-          type: number
-          description: The current score for this attempt
-        questions:
-          type: array
-          items:
-            $ref: '#/components/schemas/PowerPathTestQuestion'
-        xp:
-          type:
-            - number
-            - 'null'
-          description: The XP the student has earned in the lesson
-        multiplier:
-          type:
-            - number
-            - 'null'
-          description: The multiplier for the student's XP
-        accuracy:
-          type: number
-          description: The accuracy of the student's attempted questions
-        correctQuestions:
-          type: number
-          description: >-
-            The number of correct questions the student has answered in the
-            lesson
-        totalQuestions:
-          type: number
-          description: The total number of questions in the lesson
-      required:
-        - lessonType
-        - finalized
-        - questions
-        - xp
-        - multiplier
-        - accuracy
-        - correctQuestions
-        - totalQuestions
-      description: Represents the progress of the student in the PowerPath Quiz lesson
     UpdateStudentQuestionResponseInput:
       type: object
       properties:
@@ -2176,9 +4572,7 @@ components:
             the choice specified in the QTI structure.
         lesson:
           type: string
-          description: >-
-            The sourcedId of the ComponentResource that represents the PowerPath
-            lesson
+          description: The sourcedId of the lesson (ComponentResource)
       required:
         - student
         - question
@@ -2241,17 +4635,43 @@ components:
         - multiplier
       description: >-
         Represents the result of updating the student's response to the question
-        in the PowerPath 100 lesson
+        in the PowerPath100 lesson (ComponentResource)
     QuizUpdateStudentQuestionResponseResult:
       type: object
       properties:
+        questionResult:
+          description: The assessment result object for the question (for debugging)
         lessonType:
           type: string
           const: quiz
-        questionResult:
-          description: The assessment result object for the question (for debugging)
       required:
         - lessonType
       description: >-
         Represents the result of updating the student's response to the question
         in the PowerPath Quiz lesson
+    TestOutUpdateStudentQuestionResponseResult:
+      type: object
+      properties:
+        questionResult:
+          description: The assessment result object for the question (for debugging)
+        lessonType:
+          type: string
+          const: test-out
+      required:
+        - lessonType
+      description: >-
+        Represents the result of updating the student's response to the question
+        in the PowerPath Test Out lesson
+    PlacementUpdateStudentQuestionResponseResult:
+      type: object
+      properties:
+        questionResult:
+          description: The assessment result object for the question (for debugging)
+        lessonType:
+          type: string
+          const: placement
+      required:
+        - lessonType
+      description: >-
+        Represents the result of updating the student's response to the question
+        in the PowerPath Placement test

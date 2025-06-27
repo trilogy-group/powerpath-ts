@@ -9,13 +9,7 @@ let value: LineItemComponent = {
   assessmentLineItemSourcedId: "<id>",
   courseComponentSourcedId: "<id>",
   title: "<value>",
-  results: [
-    {
-      status: "active",
-      scoreDate: new Date("2025-02-04T15:35:16.992Z"),
-      scoreStatus: "submitted",
-    },
-  ],
+  results: [],
 };
 ```
 

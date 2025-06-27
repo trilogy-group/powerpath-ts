@@ -7,8 +7,8 @@ import { env } from "./env.js";
 
 type OAuth2PasswordFlow = {
   username: string;
-  password?: string | undefined;
-  clientID: string;
+  password: string;
+  clientID?: string | undefined;
   clientSecret?: string | undefined;
   tokenURL: string;
 };
@@ -242,14 +242,9 @@ export function resolveGlobalSecurity(
   return resolveSecurity(
     [
       {
-        fieldName: "clientID",
-        type: "oauth2:client_credentials",
-        value: security?.clientID ?? env().POWERPATH_CLIENT_ID,
-      },
-      {
-        fieldName: "clientSecret",
-        type: "oauth2:client_credentials",
-        value: security?.clientSecret ?? env().POWERPATH_CLIENT_SECRET,
+        fieldName: "Authorization",
+        type: "oauth2",
+        value: security?.oAuth2 ?? env().POWERPATH_O_AUTH2,
       },
     ],
   );

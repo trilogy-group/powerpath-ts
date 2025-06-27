@@ -9,19 +9,12 @@ import { QuizProgressResult } from "@superbuilders/powerpath/models/components";
 
 let value: QuizProgressResult = {
   finalized: false,
-  questions: [
-    {
-      id: "<id>",
-      index: 352.18,
-      title: "<value>",
-      url: "https://artistic-sarong.biz",
-    },
-  ],
-  xp: 3203.71,
-  multiplier: 5237.02,
-  accuracy: 6432.13,
-  correctQuestions: 4186.68,
-  totalQuestions: 105.83,
+  questions: [],
+  xp: 5228.28,
+  multiplier: 4835.15,
+  accuracy: 8649.17,
+  correctQuestions: 2905.25,
+  totalQuestions: 9319.55,
 };
 ```
 

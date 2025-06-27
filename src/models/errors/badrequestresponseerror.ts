@@ -6,6 +6,7 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { PowerPathError } from "./powerpatherror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type BadRequestResponseImsxCodeMinorField = {
@@ -24,7 +25,7 @@ export type BadRequestResponseErrorData = {
   imsxCodeMinor: BadRequestResponseImsxCodeMinor;
 };
 
-export class BadRequestResponseError extends Error {
+export class BadRequestResponseError extends PowerPathError {
   imsxCodeMajor: "failure";
   imsxSeverity: "error";
   imsxDescription: string;
@@ -33,13 +34,15 @@ export class BadRequestResponseError extends Error {
   /** The original data that was passed to this error instance. */
   data$: BadRequestResponseErrorData;
 
-  constructor(err: BadRequestResponseErrorData) {
+  constructor(
+    err: BadRequestResponseErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.imsxCodeMajor = err.imsxCodeMajor;
     this.imsxSeverity = err.imsxSeverity;
     this.imsxDescription = err.imsxDescription;
@@ -55,8 +58,11 @@ export const BadRequestResponseImsxCodeMinorField$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  imsx_codeMinorFieldName: z.literal("TargetEndSystem").optional(),
-  imsx_codeMinorFieldValue: z.literal("invaliddata").optional(),
+  imsx_codeMinorFieldName: z.literal("TargetEndSystem").default(
+    "TargetEndSystem",
+  ).optional(),
+  imsx_codeMinorFieldValue: z.literal("invaliddata").default("invaliddata")
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "imsx_codeMinorFieldName": "imsxCodeMinorFieldName",
@@ -199,10 +205,13 @@ export const BadRequestResponseError$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  imsx_codeMajor: z.literal("failure"),
-  imsx_severity: z.literal("error"),
+  imsx_codeMajor: z.literal("failure").default("failure"),
+  imsx_severity: z.literal("error").default("error"),
   imsx_description: z.string(),
   imsx_CodeMinor: z.lazy(() => BadRequestResponseImsxCodeMinor$inboundSchema),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
     const remapped = remap$(v, {
@@ -212,7 +221,11 @@ export const BadRequestResponseError$inboundSchema: z.ZodType<
       "imsx_CodeMinor": "imsxCodeMinor",
     });
 
-    return new BadRequestResponseError(remapped);
+    return new BadRequestResponseError(remapped, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

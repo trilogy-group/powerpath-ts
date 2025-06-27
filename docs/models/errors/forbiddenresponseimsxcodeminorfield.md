@@ -1,11 +1,11 @@
-# UnprocessableEntityResponseImsxCodeMinorField1
+# ForbiddenResponseImsxCodeMinorField
 
 ## Example Usage
 
 ```typescript
-import { UnprocessableEntityResponseImsxCodeMinorField1 } from "@superbuilders/powerpath/models/errors";
+import { ForbiddenResponseImsxCodeMinorField } from "@superbuilders/powerpath/models/errors";
 
-let value: UnprocessableEntityResponseImsxCodeMinorField1 = {};
+let value: ForbiddenResponseImsxCodeMinorField = {};
 ```
 
 ## Fields

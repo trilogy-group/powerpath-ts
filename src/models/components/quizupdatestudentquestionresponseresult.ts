@@ -24,7 +24,7 @@ export const QuizUpdateStudentQuestionResponseResult$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  lessonType: z.literal("quiz").optional(),
+  lessonType: z.literal("quiz").default("quiz").optional(),
   questionResult: z.any().optional(),
 });
 

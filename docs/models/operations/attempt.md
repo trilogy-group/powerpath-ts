@@ -6,11 +6,11 @@
 import { Attempt } from "@superbuilders/powerpath/models/operations";
 
 let value: Attempt = {
-  attempt: 3667.05,
-  score: 9580.01,
-  scoreStatus: "partially graded",
-  startedAt: new Date("2023-08-01T01:18:40.660Z"),
-  completedAt: new Date("2023-06-04T22:35:01.962Z"),
+  attempt: 9580.01,
+  score: 6365.58,
+  scoreStatus: "exempt",
+  startedAt: new Date("2024-09-01T15:17:57.377Z"),
+  completedAt: new Date("2025-07-09T04:07:58.413Z"),
 };
 ```
 

@@ -3,10 +3,7 @@
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -15,7 +12,6 @@ async function run() {
     studentId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 

@@ -16,8 +16,8 @@ const value: components.PowerPath100UpdateStudentQuestionResponseResult = {
   accuracy: 7975.48,
   correctQuestions: 1567.73,
   totalQuestions: 489.68,
-  xp: 2058.74,
-  multiplier: 1745.52,
+  xp: 1745.52,
+  multiplier: null,
 };
 ```
 

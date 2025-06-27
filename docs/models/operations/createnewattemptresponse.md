@@ -8,11 +8,11 @@ Success
 import { CreateNewAttemptResponse } from "@superbuilders/powerpath/models/operations";
 
 let value: CreateNewAttemptResponse = {
-  attempt: 4579.22,
-  score: 231.88,
-  scoreStatus: "exempt",
-  startedAt: new Date("2024-11-07T09:01:04.382Z"),
-  completedAt: new Date("2024-02-05T07:07:27.162Z"),
+  attempt: 231.88,
+  score: 1011.05,
+  scoreStatus: "partially graded",
+  startedAt: new Date("2023-05-12T18:37:59.771Z"),
+  completedAt: new Date("2024-10-26T04:51:22.006Z"),
 };
 ```
 

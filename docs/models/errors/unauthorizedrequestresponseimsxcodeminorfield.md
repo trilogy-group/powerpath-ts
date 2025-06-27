@@ -1,11 +1,11 @@
-# TooManyRequestsResponseImsxCodeMinorField1
+# UnauthorizedRequestResponseImsxCodeMinorField
 
 ## Example Usage
 
 ```typescript
-import { TooManyRequestsResponseImsxCodeMinorField1 } from "@superbuilders/powerpath/models/errors";
+import { UnauthorizedRequestResponseImsxCodeMinorField } from "@superbuilders/powerpath/models/errors";
 
-let value: TooManyRequestsResponseImsxCodeMinorField1 = {};
+let value: UnauthorizedRequestResponseImsxCodeMinorField = {};
 ```
 
 ## Fields

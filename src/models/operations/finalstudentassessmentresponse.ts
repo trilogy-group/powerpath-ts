@@ -123,7 +123,7 @@ export const FinalStudentAssessmentResponseResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  lessonType: z.literal("quiz").optional(),
+  lessonType: z.literal("quiz").default("quiz").optional(),
   finalized: z.boolean(),
   questions: z.array(components.PowerPathTestQuestion$inboundSchema),
   score: z.number(),

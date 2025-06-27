@@ -124,7 +124,7 @@ export const PowerPath100UpdateStudentQuestionResponseResult$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    lessonType: z.literal("powerpath-100").optional(),
+    lessonType: z.literal("powerpath-100").default("powerpath-100").optional(),
     powerpathScore: z.number(),
     responseResult: z.lazy(() => ResponseResult$inboundSchema),
     questionResult: z.any().optional(),

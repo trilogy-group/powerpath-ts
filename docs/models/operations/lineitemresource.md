@@ -11,9 +11,9 @@ let value: LineItemResource = {
   title: "<value>",
   results: [
     {
-      status: "tobedeleted",
-      scoreDate: new Date("2023-07-28T17:10:23.139Z"),
-      scoreStatus: "fully graded",
+      status: "active",
+      scoreDate: new Date("2023-10-14T09:48:15.092Z"),
+      scoreStatus: "not submitted",
     },
   ],
 };

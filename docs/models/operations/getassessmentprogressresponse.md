@@ -18,19 +18,21 @@ const value: components.PowerPath100ProgressResult = {
   seenQuestions: [
     {
       id: "<id>",
-      index: 8958.12,
+      index: 1693.13,
       title: "<value>",
-      url: "https://ashamed-instruction.name/",
+      url: "https://limp-orchid.net/",
       response: [
-        "<value>",
+        "<value 1>",
+        "<value 2>",
+        "<value 3>",
       ],
     },
   ],
-  xp: 7642.29,
-  multiplier: 8036.58,
-  accuracy: 6661.52,
-  correctQuestions: 3299.85,
-  totalQuestions: 3633.46,
+  xp: 3299.85,
+  multiplier: 4630,
+  accuracy: 268.13,
+  correctQuestions: 4568.47,
+  totalQuestions: 9735.68,
 };
 ```
 
@@ -39,19 +41,12 @@ const value: components.PowerPath100ProgressResult = {
 ```typescript
 const value: components.QuizProgressResult = {
   finalized: false,
-  questions: [
-    {
-      id: "<id>",
-      index: 6527.04,
-      title: "<value>",
-      url: "https://guilty-license.org/",
-    },
-  ],
-  xp: 4835.15,
-  multiplier: 8649.17,
-  accuracy: 2905.25,
-  correctQuestions: 9319.55,
-  totalQuestions: 3702.29,
+  questions: [],
+  xp: 5228.28,
+  multiplier: 4835.15,
+  accuracy: 8649.17,
+  correctQuestions: 2905.25,
+  totalQuestions: 9319.55,
 };
 ```
 

@@ -1,9 +1,9 @@
-# ForbiddenResponseError1
+# ForbiddenResponseError
 
 ## Example Usage
 
 ```typescript
-import { ForbiddenResponseError1 } from "@superbuilders/powerpath/models/errors";
+import { ForbiddenResponseError } from "@superbuilders/powerpath/models/errors";
 
 // No examples available for this model
 ```

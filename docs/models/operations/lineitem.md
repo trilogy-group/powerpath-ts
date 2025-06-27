@@ -10,13 +10,7 @@ const value: operations.LineItemComponent = {
   assessmentLineItemSourcedId: "<id>",
   courseComponentSourcedId: "<id>",
   title: "<value>",
-  results: [
-    {
-      status: "active",
-      scoreDate: new Date("2024-04-15T12:59:37.126Z"),
-      scoreStatus: "partially graded",
-    },
-  ],
+  results: [],
 };
 ```
 
@@ -30,7 +24,7 @@ const value: operations.LineItemResource = {
   results: [
     {
       status: "active",
-      scoreDate: new Date("2023-11-06T18:21:31.669Z"),
+      scoreDate: new Date("2023-10-14T09:48:15.092Z"),
       scoreStatus: "not submitted",
     },
   ],

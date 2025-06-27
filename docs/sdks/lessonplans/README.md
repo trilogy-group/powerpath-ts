@@ -30,10 +30,7 @@ Each **line item** contains a list of assessment results in the **results** attr
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -42,7 +39,6 @@ async function run() {
     studentId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -60,10 +56,7 @@ import { lessonPlansGetStudentCourseProgress } from "@superbuilders/powerpath/fu
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -71,15 +64,12 @@ async function run() {
     courseId: "<id>",
     studentId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("lessonPlansGetStudentCourseProgress failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -100,16 +90,16 @@ run();
 
 ### Errors
 
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| errors.BadRequestResponseError           | 400                                      | application/json                         |
-| errors.UnauthorizedRequestResponseError1 | 401                                      | application/json                         |
-| errors.ForbiddenResponseError1           | 403                                      | application/json                         |
-| errors.NotFoundResponseError1            | 404                                      | application/json                         |
-| errors.UnprocessableEntityResponseError1 | 422                                      | application/json                         |
-| errors.TooManyRequestsResponseError1     | 429                                      | application/json                         |
-| errors.InternalServerErrorResponse1      | 500                                      | application/json                         |
-| errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| errors.BadRequestResponseError          | 400                                     | application/json                        |
+| errors.UnauthorizedRequestResponseError | 401                                     | application/json                        |
+| errors.ForbiddenResponseError           | 403                                     | application/json                        |
+| errors.NotFoundResponseError            | 404                                     | application/json                        |
+| errors.UnprocessableEntityResponseError | 422                                     | application/json                        |
+| errors.TooManyRequestsResponseError     | 429                                     | application/json                        |
+| errors.InternalServerErrorResponse      | 500                                     | application/json                        |
+| errors.APIError                         | 4XX, 5XX                                | \*/\*                                   |
 
 ## updateStudentResponse
 
@@ -131,16 +121,12 @@ If you provide the **componentResourceId**, the data in the response payload sho
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
   const result = await powerPath.lessonPlans.updateStudentResponse();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -158,23 +144,17 @@ import { lessonPlansUpdateStudentResponse } from "@superbuilders/powerpath/funcs
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
   const res = await lessonPlansUpdateStudentResponse(powerPath);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("lessonPlansUpdateStudentResponse failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -195,16 +175,16 @@ run();
 
 ### Errors
 
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| errors.BadRequestResponseError           | 400                                      | application/json                         |
-| errors.UnauthorizedRequestResponseError1 | 401                                      | application/json                         |
-| errors.ForbiddenResponseError1           | 403                                      | application/json                         |
-| errors.NotFoundResponseError1            | 404                                      | application/json                         |
-| errors.UnprocessableEntityResponseError1 | 422                                      | application/json                         |
-| errors.TooManyRequestsResponseError2     | 429                                      | application/json                         |
-| errors.InternalServerErrorResponse1      | 500                                      | application/json                         |
-| errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| errors.BadRequestResponseError          | 400                                     | application/json                        |
+| errors.UnauthorizedRequestResponseError | 401                                     | application/json                        |
+| errors.ForbiddenResponseError           | 403                                     | application/json                        |
+| errors.NotFoundResponseError            | 404                                     | application/json                        |
+| errors.UnprocessableEntityResponseError | 422                                     | application/json                        |
+| errors.TooManyRequestsResponseError     | 429                                     | application/json                        |
+| errors.InternalServerErrorResponse      | 500                                     | application/json                        |
+| errors.APIError                         | 4XX, 5XX                                | \*/\*                                   |
 
 ## getSyllabus
 
@@ -216,10 +196,7 @@ Get course syllabus
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -227,7 +204,6 @@ async function run() {
     courseSourcedId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -245,25 +221,19 @@ import { lessonPlansGetSyllabus } from "@superbuilders/powerpath/funcs/lessonPla
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
   const res = await lessonPlansGetSyllabus(powerPath, {
     courseSourcedId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("lessonPlansGetSyllabus failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -284,13 +254,13 @@ run();
 
 ### Errors
 
-| Error Type                               | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| errors.BadRequestResponseError           | 400                                      | application/json                         |
-| errors.UnauthorizedRequestResponseError1 | 401                                      | application/json                         |
-| errors.ForbiddenResponseError1           | 403                                      | application/json                         |
-| errors.NotFoundResponseError2            | 404                                      | application/json                         |
-| errors.UnprocessableEntityResponseError2 | 422                                      | application/json                         |
-| errors.TooManyRequestsResponseError1     | 429                                      | application/json                         |
-| errors.InternalServerErrorResponse1      | 500                                      | application/json                         |
-| errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| errors.BadRequestResponseError          | 400                                     | application/json                        |
+| errors.UnauthorizedRequestResponseError | 401                                     | application/json                        |
+| errors.ForbiddenResponseError           | 403                                     | application/json                        |
+| errors.NotFoundResponseError            | 404                                     | application/json                        |
+| errors.UnprocessableEntityResponseError | 422                                     | application/json                        |
+| errors.TooManyRequestsResponseError     | 429                                     | application/json                        |
+| errors.InternalServerErrorResponse      | 500                                     | application/json                        |
+| errors.APIError                         | 4XX, 5XX                                | \*/\*                                   |

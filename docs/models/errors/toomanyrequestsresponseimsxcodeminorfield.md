@@ -1,11 +1,11 @@
-# InternalServerErrorResponseImsxCodeMinorField1
+# TooManyRequestsResponseImsxCodeMinorField
 
 ## Example Usage
 
 ```typescript
-import { InternalServerErrorResponseImsxCodeMinorField1 } from "@superbuilders/powerpath/models/errors";
+import { TooManyRequestsResponseImsxCodeMinorField } from "@superbuilders/powerpath/models/errors";
 
-let value: InternalServerErrorResponseImsxCodeMinorField1 = {};
+let value: TooManyRequestsResponseImsxCodeMinorField = {};
 ```
 
 ## Fields

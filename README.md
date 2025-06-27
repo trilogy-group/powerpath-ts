@@ -174,9 +174,7 @@ Add the following server definition to your `claude_desktop_config.json` file:
         "-y", "--package", "@superbuilders/powerpath",
         "--",
         "mcp", "start",
-        "--client-id", "...",
-        "--client-secret", "...",
-        "--token-url", "..."
+        "--o-auth2", "..."
       ]
     }
   }
@@ -199,9 +197,7 @@ Create a `.cursor/mcp.json` file in your project root with the following content
         "-y", "--package", "@superbuilders/powerpath",
         "--",
         "mcp", "start",
-        "--client-id", "...",
-        "--client-secret", "...",
-        "--token-url", "..."
+        "--o-auth2", "..."
       ]
     }
   }
@@ -256,10 +252,7 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -268,7 +261,6 @@ async function run() {
     studentId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -284,19 +276,16 @@ run();
 
 This SDK supports the following security scheme globally:
 
-| Name                          | Type   | Scheme                         | Environment Variable                                                          |
-| ----------------------------- | ------ | ------------------------------ | ----------------------------------------------------------------------------- |
-| `clientID`<br/>`clientSecret` | oauth2 | OAuth2 Client Credentials Flow | `POWERPATH_CLIENT_ID`<br/>`POWERPATH_CLIENT_SECRET`<br/>`POWERPATH_TOKEN_URL` |
+| Name     | Type   | Scheme       | Environment Variable |
+| -------- | ------ | ------------ | -------------------- |
+| `oAuth2` | oauth2 | OAuth2 token | `POWERPATH_O_AUTH2`  |
 
-You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+To authenticate with the API the `oAuth2` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -305,7 +294,6 @@ async function run() {
     studentId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -379,10 +367,7 @@ To change the default retry strategy for a single API call, simply provide a ret
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -402,7 +387,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -425,10 +409,7 @@ const powerPath = new PowerPath({
     },
     retryConnectionErrors: false,
   },
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -437,7 +418,6 @@ async function run() {
     studentId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -449,99 +429,48 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `getStudentCourseProgress` method may throw the following errors:
+[`PowerPathError`](./src/models/errors/powerpatherror.ts) is the base class for all HTTP error responses. It has the following properties:
 
-| Error Type                               | Status Code | Content Type     |
-| ---------------------------------------- | ----------- | ---------------- |
-| errors.BadRequestResponseError           | 400         | application/json |
-| errors.UnauthorizedRequestResponseError1 | 401         | application/json |
-| errors.ForbiddenResponseError1           | 403         | application/json |
-| errors.NotFoundResponseError1            | 404         | application/json |
-| errors.UnprocessableEntityResponseError1 | 422         | application/json |
-| errors.TooManyRequestsResponseError1     | 429         | application/json |
-| errors.InternalServerErrorResponse1      | 500         | application/json |
-| errors.APIError                          | 4XX, 5XX    | \*/\*            |
+| Property            | Type       | Description                                                                             |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
+| `error.message`     | `string`   | Error message                                                                           |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
+| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
+| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
+| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
-If the method throws an error and it is not captured by the known errors, it will default to throwing a `APIError`.
-
+### Example
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
-import {
-  BadRequestResponseError,
-  ForbiddenResponseError1,
-  InternalServerErrorResponse1,
-  NotFoundResponseError1,
-  SDKValidationError,
-  TooManyRequestsResponseError1,
-  UnauthorizedRequestResponseError1,
-  UnprocessableEntityResponseError1,
-} from "@superbuilders/powerpath/models/errors";
+import * as errors from "@superbuilders/powerpath/models/errors";
 
 const powerPath = new PowerPath({
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
-  let result;
   try {
-    result = await powerPath.lessonPlans.getStudentCourseProgress({
+    const result = await powerPath.lessonPlans.getStudentCourseProgress({
       courseId: "<id>",
       studentId: "<id>",
     });
 
-    // Handle the result
     console.log(result);
-  } catch (err) {
-    switch (true) {
-      // The server response does not match the expected SDK schema
-      case (err instanceof SDKValidationError): {
-        // Pretty-print will provide a human-readable multi-line error message
-        console.error(err.pretty());
-        // Raw value may also be inspected
-        console.error(err.rawValue);
-        return;
-      }
-      case (err instanceof BadRequestResponseError): {
-        // Handle err.data$: BadRequestResponseErrorData
-        console.error(err);
-        return;
-      }
-      case (err instanceof UnauthorizedRequestResponseError1): {
-        // Handle err.data$: UnauthorizedRequestResponseError1Data
-        console.error(err);
-        return;
-      }
-      case (err instanceof ForbiddenResponseError1): {
-        // Handle err.data$: ForbiddenResponseError1Data
-        console.error(err);
-        return;
-      }
-      case (err instanceof NotFoundResponseError1): {
-        // Handle err.data$: NotFoundResponseError1Data
-        console.error(err);
-        return;
-      }
-      case (err instanceof UnprocessableEntityResponseError1): {
-        // Handle err.data$: UnprocessableEntityResponseError1Data
-        console.error(err);
-        return;
-      }
-      case (err instanceof TooManyRequestsResponseError1): {
-        // Handle err.data$: TooManyRequestsResponseError1Data
-        console.error(err);
-        return;
-      }
-      case (err instanceof InternalServerErrorResponse1): {
-        // Handle err.data$: InternalServerErrorResponse1Data
-        console.error(err);
-        return;
-      }
-      default: {
-        // Other errors such as network errors, see HTTPClientErrors for more details
-        throw err;
+  } catch (error) {
+    // The base class for HTTP error responses
+    if (error instanceof errors.PowerPathError) {
+      console.log(error.message);
+      console.log(error.statusCode);
+      console.log(error.body);
+      console.log(error.headers);
+
+      // Depending on the method different errors may be thrown
+      if (error instanceof errors.BadRequestResponseError) {
+        console.log(error.data$.imsxCodeMajor); // string
+        console.log(error.data$.imsxSeverity); // string
+        console.log(error.data$.imsxDescription); // string
+        console.log(error.data$.imsxCodeMinor); // errors.BadRequestResponseImsxCodeMinor
       }
     }
   }
@@ -551,17 +480,33 @@ run();
 
 ```
 
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted multi-line string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+### Error Classes
+**Primary errors:**
+* [`PowerPathError`](./src/models/errors/powerpatherror.ts): The base class for HTTP error responses.
+  * [`BadRequestResponseError`](docs/models/errors/badrequestresponseerror.md): Bad Request. Status code `400`.
+  * [`UnauthorizedRequestResponseError`](docs/models/errors/unauthorizedrequestresponseerror.md): Unauthorized. Status code `401`.
+  * [`ForbiddenResponseError`](docs/models/errors/forbiddenresponseerror.md): Forbidden. Status code `403`.
+  * [`NotFoundResponseError`](docs/models/errors/notfoundresponseerror.md): Not Found. Status code `404`.
+  * [`UnprocessableEntityResponseError`](docs/models/errors/unprocessableentityresponseerror.md): Unprocessable Entity / Validation Error. Status code `422`.
+  * [`TooManyRequestsResponseError`](docs/models/errors/toomanyrequestsresponseerror.md): Too Many Requests. Status code `429`.
+  * [`InternalServerErrorResponse`](docs/models/errors/internalservererrorresponse.md): Internal Server Error. Status code `500`.
 
-In some rare cases, the SDK can fail to get a response from the server or even make the request due to unexpected circumstances such as network conditions. These types of errors are captured in the `models/errors/httpclienterrors.ts` module:
+<details><summary>Less common errors (6)</summary>
 
-| HTTP Client Error                                    | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- |
-| RequestAbortedError                                  | HTTP request was aborted by the client               |
-| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
-| ConnectionError                                      | HTTP client was unable to make a request to a server |
-| InvalidRequestError                                  | Any input used to create a request is invalid        |
-| UnexpectedClientError                                | Unrecognised or unexpected error                     |
+<br />
+
+**Network errors:**
+* [`ConnectionError`](./src/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
+* [`RequestTimeoutError`](./src/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
+* [`RequestAbortedError`](./src/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
+* [`InvalidRequestError`](./src/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
+* [`UnexpectedClientError`](./src/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
+
+
+**Inherit from [`PowerPathError`](./src/models/errors/powerpatherror.ts)**:
+* [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+
+</details>
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -575,10 +520,7 @@ import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
   serverURL: "https://staging.alpha-1edtech.com/",
-  security: {
-    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
-    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
-  },
+  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
@@ -587,7 +529,6 @@ async function run() {
     studentId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 

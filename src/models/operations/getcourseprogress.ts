@@ -568,7 +568,7 @@ export const LineItemResource$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("resource").optional(),
+  type: z.literal("resource").default("resource").optional(),
   assessmentLineItemSourcedId: z.string(),
   courseComponentResourceSourcedId: z.string(),
   title: z.string(),
@@ -968,7 +968,7 @@ export const LineItemComponent$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("component").optional(),
+  type: z.literal("component").default("component").optional(),
   assessmentLineItemSourcedId: z.string(),
   courseComponentSourcedId: z.string(),
   title: z.string(),

@@ -7,11 +7,7 @@ import { UpdateStudentItemResponseLearningObjectiveSet } from "@superbuilders/po
 
 let value: UpdateStudentItemResponseLearningObjectiveSet = {
   source: "<value>",
-  learningObjectiveIds: [
-    {
-      learningObjectiveId: "<id>",
-    },
-  ],
+  learningObjectiveIds: [],
 };
 ```
 

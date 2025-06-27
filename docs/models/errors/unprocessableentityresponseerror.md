@@ -1,9 +1,9 @@
-# InternalServerErrorResponse1
+# UnprocessableEntityResponseError
 
 ## Example Usage
 
 ```typescript
-import { InternalServerErrorResponse1 } from "@superbuilders/powerpath/models/errors";
+import { UnprocessableEntityResponseError } from "@superbuilders/powerpath/models/errors";
 
 // No examples available for this model
 ```
@@ -15,4 +15,4 @@ import { InternalServerErrorResponse1 } from "@superbuilders/powerpath/models/er
 | `imsxCodeMajor`                                                                                                    | *string*                                                                                                           | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
 | `imsxSeverity`                                                                                                     | *string*                                                                                                           | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
 | `imsxDescription`                                                                                                  | *string*                                                                                                           | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
-| `imsxCodeMinor`                                                                                                    | [errors.InternalServerErrorResponseImsxCodeMinor](../../models/errors/internalservererrorresponseimsxcodeminor.md) | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
+| `imsxCodeMinor`                                                                                                    | [errors.UnprocessableEntityResponseImsxCodeMinor](../../models/errors/unprocessableentityresponseimsxcodeminor.md) | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |

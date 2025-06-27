@@ -55,7 +55,7 @@ export const QuizProgressResult$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  lessonType: z.literal("quiz").optional(),
+  lessonType: z.literal("quiz").default("quiz").optional(),
   finalized: z.boolean(),
   score: z.number().optional(),
   questions: z.array(PowerPathTestQuestion$inboundSchema),

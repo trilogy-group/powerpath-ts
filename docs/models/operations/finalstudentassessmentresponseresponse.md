@@ -8,21 +8,14 @@ Success
 import { FinalStudentAssessmentResponseResponse } from "@superbuilders/powerpath/models/operations";
 
 let value: FinalStudentAssessmentResponseResponse = {
-  finalized: false,
-  questions: [
-    {
-      id: "<id>",
-      index: 4761.86,
-      title: "<value>",
-      url: "https://entire-shadowbox.org/",
-    },
-  ],
-  score: 3900.26,
-  accuracy: 5294.57,
-  correctQuestions: 7693.49,
-  totalQuestions: 5904.55,
-  xp: 8987.09,
-  multiplier: 6828.95,
+  finalized: true,
+  questions: [],
+  score: 2322.81,
+  accuracy: 8044.78,
+  correctQuestions: 9696.24,
+  totalQuestions: 3900.26,
+  xp: 7693.49,
+  multiplier: 8987.09,
 };
 ```
 

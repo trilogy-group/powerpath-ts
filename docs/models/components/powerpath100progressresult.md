@@ -9,25 +9,29 @@ import { PowerPath100ProgressResult } from "@superbuilders/powerpath/models/comp
 
 let value: PowerPath100ProgressResult = {
   remainingQuestionsPerDifficulty: {
-    easy: 2427.62,
-    medium: 3304.78,
-    hard: 8925.41,
+    easy: 1206.47,
+    medium: 2422.78,
+    hard: 3490.99,
   },
-  score: 7076.05,
+  score: 4632.65,
   seenQuestions: [
     {
       id: "<id>",
-      index: 1439.73,
+      index: 1693.13,
       title: "<value>",
-      url: "https://sudden-euphonium.com/",
-      response: "<value>",
+      url: "https://limp-orchid.net/",
+      response: [
+        "<value 1>",
+        "<value 2>",
+        "<value 3>",
+      ],
     },
   ],
-  xp: 1044.67,
-  multiplier: 2188.65,
-  accuracy: 5048.02,
-  correctQuestions: 5422.15,
-  totalQuestions: 7401.15,
+  xp: 3299.85,
+  multiplier: 4630,
+  accuracy: 268.13,
+  correctQuestions: 4568.47,
+  totalQuestions: 9735.68,
 };
 ```
 

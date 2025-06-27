@@ -1,9 +1,9 @@
-# UnprocessableEntityResponseError1
+# UnauthorizedRequestResponseError
 
 ## Example Usage
 
 ```typescript
-import { UnprocessableEntityResponseError1 } from "@superbuilders/powerpath/models/errors";
+import { UnauthorizedRequestResponseError } from "@superbuilders/powerpath/models/errors";
 
 // No examples available for this model
 ```
@@ -15,4 +15,4 @@ import { UnprocessableEntityResponseError1 } from "@superbuilders/powerpath/mode
 | `imsxCodeMajor`                                                                                                    | *string*                                                                                                           | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
 | `imsxSeverity`                                                                                                     | *string*                                                                                                           | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
 | `imsxDescription`                                                                                                  | *string*                                                                                                           | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
-| `imsxCodeMinor`                                                                                                    | [errors.UnprocessableEntityResponseImsxCodeMinor](../../models/errors/unprocessableentityresponseimsxcodeminor.md) | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
+| `imsxCodeMinor`                                                                                                    | [errors.UnauthorizedRequestResponseImsxCodeMinor](../../models/errors/unauthorizedrequestresponseimsxcodeminor.md) | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
