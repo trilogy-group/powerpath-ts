@@ -1,6 +1,6 @@
 # PowerPath100UpdateStudentQuestionResponseResult
 
-Represents the result of updating the student's response to the question in the PowerPath 100 lesson
+Represents the result of updating the student's response to the question in the PowerPath100 lesson (ComponentResource)
 
 ## Example Usage
 

@@ -23,6 +23,22 @@ import { tool$lessonsGetNextQuestion } from "./tools/lessonsGetNextQuestion.js";
 import { tool$lessonsGetProgress } from "./tools/lessonsGetProgress.js";
 import { tool$lessonsResetAttempt } from "./tools/lessonsResetAttempt.js";
 import { tool$lessonsUpdateStudentResponse } from "./tools/lessonsUpdateStudentResponse.js";
+import { tool$powerPathCourseMasteryCreateExternalPlacementTest } from "./tools/powerPathCourseMasteryCreateExternalPlacementTest.js";
+import { tool$powerPathCourseMasteryCreateExternalTestOut } from "./tools/powerPathCourseMasteryCreateExternalTestOut.js";
+import { tool$powerPathCourseMasteryImportExternalTestAssignmentResults } from "./tools/powerPathCourseMasteryImportExternalTestAssignmentResults.js";
+import { tool$powerPathCourseMasteryMakeExternalTestAssignment } from "./tools/powerPathCourseMasteryMakeExternalTestAssignment.js";
+import { tool$powerPathCourseMasteryTestOut } from "./tools/powerPathCourseMasteryTestOut.js";
+import { tool$powerPathLessonPlansAttachComponent } from "./tools/powerPathLessonPlansAttachComponent.js";
+import { tool$powerPathLessonPlansAttachResource } from "./tools/powerPathLessonPlansAttachResource.js";
+import { tool$powerPathLessonPlansCreateLessonPlan } from "./tools/powerPathLessonPlansCreateLessonPlan.js";
+import { tool$powerPathLessonPlansDeleteLessonPlan } from "./tools/powerPathLessonPlansDeleteLessonPlan.js";
+import { tool$powerPathLessonPlansDeleteLessonPlanItem } from "./tools/powerPathLessonPlansDeleteLessonPlanItem.js";
+import { tool$powerPathLessonPlansGetTree } from "./tools/powerPathLessonPlansGetTree.js";
+import { tool$powerPathLessonPlansUpdateLessonPlanItem } from "./tools/powerPathLessonPlansUpdateLessonPlanItem.js";
+import { tool$powerPathPlacementGetAllPlacementTests } from "./tools/powerPathPlacementGetAllPlacementTests.js";
+import { tool$powerPathPlacementGetCurrentLevel } from "./tools/powerPathPlacementGetCurrentLevel.js";
+import { tool$powerPathPlacementGetNextPlacementTest } from "./tools/powerPathPlacementGetNextPlacementTest.js";
+import { tool$powerPathPlacementGetSubjectProgress } from "./tools/powerPathPlacementGetSubjectProgress.js";
 
 export function createMCPServer(deps: {
   logger: ConsoleLogger;
@@ -34,7 +50,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "PowerPath",
-    version: "0.2.0",
+    version: "0.2.2",
   });
 
   const client = new PowerPathCore({
@@ -64,6 +80,22 @@ export function createMCPServer(deps: {
   const register = { tool, resource, resourceTemplate, prompt };
   void register; // suppress unused warnings
 
+  tool(tool$powerPathPlacementGetAllPlacementTests);
+  tool(tool$powerPathPlacementGetCurrentLevel);
+  tool(tool$powerPathPlacementGetNextPlacementTest);
+  tool(tool$powerPathPlacementGetSubjectProgress);
+  tool(tool$powerPathCourseMasteryCreateExternalPlacementTest);
+  tool(tool$powerPathCourseMasteryCreateExternalTestOut);
+  tool(tool$powerPathCourseMasteryImportExternalTestAssignmentResults);
+  tool(tool$powerPathCourseMasteryMakeExternalTestAssignment);
+  tool(tool$powerPathCourseMasteryTestOut);
+  tool(tool$powerPathLessonPlansCreateLessonPlan);
+  tool(tool$powerPathLessonPlansGetTree);
+  tool(tool$powerPathLessonPlansDeleteLessonPlan);
+  tool(tool$powerPathLessonPlansAttachComponent);
+  tool(tool$powerPathLessonPlansAttachResource);
+  tool(tool$powerPathLessonPlansUpdateLessonPlanItem);
+  tool(tool$powerPathLessonPlansDeleteLessonPlanItem);
   tool(tool$lessonPlansGetStudentCourseProgress);
   tool(tool$lessonPlansUpdateStudentResponse);
   tool(tool$lessonPlansGetSyllabus);

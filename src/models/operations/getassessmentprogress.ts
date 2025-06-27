@@ -4,6 +4,7 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -14,21 +15,71 @@ export type GetAssessmentProgressRequest = {
    */
   student: string;
   /**
-   * The sourcedId of the ComponentResource that represents the PowerPath lesson
+   * The sourcedId of the lesson (ComponentResource)
    */
   lesson: string;
   /**
    * The attempt number of the lesson that the student is answering
    */
-  attempt?: number | undefined;
+  attempt?: string | undefined;
+};
+
+export const GetAssessmentProgressLessonType = {
+  Quiz: "quiz",
+  TestOut: "test-out",
+  Placement: "placement",
+} as const;
+export type GetAssessmentProgressLessonType = ClosedEnum<
+  typeof GetAssessmentProgressLessonType
+>;
+
+export type ResponseBody = {
+  lessonType: GetAssessmentProgressLessonType;
+  /**
+   * Whether the lesson has been finalized in the current attempt
+   */
+  finalized: boolean;
+  /**
+   * The current score for this attempt
+   */
+  score?: number | undefined;
+  questions: Array<components.PowerPathTestQuestion>;
+  /**
+   * The tool provider of the lesson if external
+   */
+  toolProvider: string | null;
+  /**
+   * The attempt number
+   */
+  attempt: number;
+  /**
+   * The XP the student has earned in the lesson
+   */
+  xp: number | null;
+  /**
+   * The multiplier for the student's XP
+   */
+  multiplier: number | null;
+  /**
+   * The accuracy of the student's attempted questions
+   */
+  accuracy: number;
+  /**
+   * The number of correct questions the student has answered in the lesson
+   */
+  correctQuestions: number;
+  /**
+   * The total number of questions in the lesson
+   */
+  totalQuestions: number;
 };
 
 /**
  * Success
  */
 export type GetAssessmentProgressResponse =
-  | (components.PowerPath100ProgressResult & { lessonType: "powerpath-100" })
-  | (components.QuizProgressResult & { lessonType: "quiz" });
+  | components.PowerPath100ProgressResult
+  | ResponseBody;
 
 /** @internal */
 export const GetAssessmentProgressRequest$inboundSchema: z.ZodType<
@@ -38,14 +89,14 @@ export const GetAssessmentProgressRequest$inboundSchema: z.ZodType<
 > = z.object({
   student: z.string(),
   lesson: z.string(),
-  attempt: z.number().optional(),
+  attempt: z.string().optional(),
 });
 
 /** @internal */
 export type GetAssessmentProgressRequest$Outbound = {
   student: string;
   lesson: string;
-  attempt?: number | undefined;
+  attempt?: string | undefined;
 };
 
 /** @internal */
@@ -56,7 +107,7 @@ export const GetAssessmentProgressRequest$outboundSchema: z.ZodType<
 > = z.object({
   student: z.string(),
   lesson: z.string(),
-  attempt: z.number().optional(),
+  attempt: z.string().optional(),
 });
 
 /**
@@ -93,29 +144,120 @@ export function getAssessmentProgressRequestFromJSON(
 }
 
 /** @internal */
+export const GetAssessmentProgressLessonType$inboundSchema: z.ZodNativeEnum<
+  typeof GetAssessmentProgressLessonType
+> = z.nativeEnum(GetAssessmentProgressLessonType);
+
+/** @internal */
+export const GetAssessmentProgressLessonType$outboundSchema: z.ZodNativeEnum<
+  typeof GetAssessmentProgressLessonType
+> = GetAssessmentProgressLessonType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetAssessmentProgressLessonType$ {
+  /** @deprecated use `GetAssessmentProgressLessonType$inboundSchema` instead. */
+  export const inboundSchema = GetAssessmentProgressLessonType$inboundSchema;
+  /** @deprecated use `GetAssessmentProgressLessonType$outboundSchema` instead. */
+  export const outboundSchema = GetAssessmentProgressLessonType$outboundSchema;
+}
+
+/** @internal */
+export const ResponseBody$inboundSchema: z.ZodType<
+  ResponseBody,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  lessonType: GetAssessmentProgressLessonType$inboundSchema,
+  finalized: z.boolean(),
+  score: z.number().optional(),
+  questions: z.array(components.PowerPathTestQuestion$inboundSchema),
+  toolProvider: z.nullable(z.string()),
+  attempt: z.number(),
+  xp: z.nullable(z.number()),
+  multiplier: z.nullable(z.number()),
+  accuracy: z.number(),
+  correctQuestions: z.number(),
+  totalQuestions: z.number(),
+});
+
+/** @internal */
+export type ResponseBody$Outbound = {
+  lessonType: string;
+  finalized: boolean;
+  score?: number | undefined;
+  questions: Array<components.PowerPathTestQuestion$Outbound>;
+  toolProvider: string | null;
+  attempt: number;
+  xp: number | null;
+  multiplier: number | null;
+  accuracy: number;
+  correctQuestions: number;
+  totalQuestions: number;
+};
+
+/** @internal */
+export const ResponseBody$outboundSchema: z.ZodType<
+  ResponseBody$Outbound,
+  z.ZodTypeDef,
+  ResponseBody
+> = z.object({
+  lessonType: GetAssessmentProgressLessonType$outboundSchema,
+  finalized: z.boolean(),
+  score: z.number().optional(),
+  questions: z.array(components.PowerPathTestQuestion$outboundSchema),
+  toolProvider: z.nullable(z.string()),
+  attempt: z.number(),
+  xp: z.nullable(z.number()),
+  multiplier: z.nullable(z.number()),
+  accuracy: z.number(),
+  correctQuestions: z.number(),
+  totalQuestions: z.number(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ResponseBody$ {
+  /** @deprecated use `ResponseBody$inboundSchema` instead. */
+  export const inboundSchema = ResponseBody$inboundSchema;
+  /** @deprecated use `ResponseBody$outboundSchema` instead. */
+  export const outboundSchema = ResponseBody$outboundSchema;
+  /** @deprecated use `ResponseBody$Outbound` instead. */
+  export type Outbound = ResponseBody$Outbound;
+}
+
+export function responseBodyToJSON(responseBody: ResponseBody): string {
+  return JSON.stringify(ResponseBody$outboundSchema.parse(responseBody));
+}
+
+export function responseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<ResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ResponseBody' from JSON`,
+  );
+}
+
+/** @internal */
 export const GetAssessmentProgressResponse$inboundSchema: z.ZodType<
   GetAssessmentProgressResponse,
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.PowerPath100ProgressResult$inboundSchema.and(
-    z.object({ lessonType: z.literal("powerpath-100") }).transform((v) => ({
-      lessonType: v.lessonType,
-    })),
-  ),
-  components.QuizProgressResult$inboundSchema.and(
-    z.object({ lessonType: z.literal("quiz") }).transform((v) => ({
-      lessonType: v.lessonType,
-    })),
-  ),
+  components.PowerPath100ProgressResult$inboundSchema,
+  z.lazy(() => ResponseBody$inboundSchema),
 ]);
 
 /** @internal */
 export type GetAssessmentProgressResponse$Outbound =
-  | (components.PowerPath100ProgressResult$Outbound & {
-    lessonType: "powerpath-100";
-  })
-  | (components.QuizProgressResult$Outbound & { lessonType: "quiz" });
+  | components.PowerPath100ProgressResult$Outbound
+  | ResponseBody$Outbound;
 
 /** @internal */
 export const GetAssessmentProgressResponse$outboundSchema: z.ZodType<
@@ -123,16 +265,8 @@ export const GetAssessmentProgressResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetAssessmentProgressResponse
 > = z.union([
-  components.PowerPath100ProgressResult$outboundSchema.and(
-    z.object({ lessonType: z.literal("powerpath-100") }).transform((v) => ({
-      lessonType: v.lessonType,
-    })),
-  ),
-  components.QuizProgressResult$outboundSchema.and(
-    z.object({ lessonType: z.literal("quiz") }).transform((v) => ({
-      lessonType: v.lessonType,
-    })),
-  ),
+  components.PowerPath100ProgressResult$outboundSchema,
+  z.lazy(() => ResponseBody$outboundSchema),
 ]);
 
 /**

@@ -16,6 +16,7 @@ export const tool$lessonPlansUpdateStudentResponse: ToolDefinition<
   name: "lesson-plans-update-student-response",
   description: `Update student item response
 
+
 Update the student item response for a student in a course.
 
 ---
@@ -26,7 +27,8 @@ You should provide either the **componentId** or the **componentResourceId**.
 
 If you provide the **componentId**, the data in the response payload should be in relation to the student's response to the entire component.
 
-If you provide the **componentResourceId**, the data in the response payload should be in relation to the student's response to the specific resource.`,
+If you provide the **componentResourceId**, the data in the response payload should be in relation to the student's response to the specific resource.
+    `,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await lessonPlansUpdateStudentResponse(

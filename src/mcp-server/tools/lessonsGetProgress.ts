@@ -14,7 +14,10 @@ export const tool$lessonsGetProgress: ToolDefinition<typeof args> = {
   name: "lessons-get-progress",
   description: `Get assessment progress
 
-Returns the progress the student has made in the given PowerPath lesson`,
+Returns the progress the student has made in the given PowerPath lesson.
+
+A 'Lesson' in this context is a ComponentResource object paired with a Resource object representing an activity.
+`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await lessonsGetProgress(

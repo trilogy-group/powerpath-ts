@@ -27,3 +27,15 @@ const value: components.PowerPath100UpdateStudentQuestionResponseResult = {
 const value: components.QuizUpdateStudentQuestionResponseResult = {};
 ```
 
+### `components.TestOutUpdateStudentQuestionResponseResult`
+
+```typescript
+const value: components.TestOutUpdateStudentQuestionResponseResult = {};
+```
+
+### `components.PlacementUpdateStudentQuestionResponseResult`
+
+```typescript
+const value: components.PlacementUpdateStudentQuestionResponseResult = {};
+```
+

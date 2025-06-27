@@ -29,7 +29,11 @@ import { Result } from "../types/fp.js";
  * Get next question
  *
  * @remarks
- * Returns the next question in the given PowerPath lesson
+ * Returns the next question in the given PowerPath component resource.
+ *
+ * Works only with lessons of type 'powerpath-100'.
+ *
+ * A 'Lesson' in this context is a ComponentResource object which has a Resource object associated with it.
  */
 export function lessonsGetNextQuestion(
   client: PowerPathCore,

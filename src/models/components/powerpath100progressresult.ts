@@ -95,7 +95,7 @@ export type SeenQuestion = {
    */
   response: string | Array<string>;
   /**
-   * Whether the student's response to the question was correct
+   * Whether the student's response is correct
    */
   correct?: boolean | undefined;
   /**
@@ -105,7 +105,7 @@ export type SeenQuestion = {
 };
 
 /**
- * Represents the progress of the student in the PowerPath lesson
+ * Represents the progress of the student in the PowerPath100 lesson
  */
 export type PowerPath100ProgressResult = {
   lessonType?: "powerpath-100" | undefined;
@@ -115,6 +115,10 @@ export type PowerPath100ProgressResult = {
    */
   score: number;
   seenQuestions: Array<SeenQuestion>;
+  /**
+   * The attempt number
+   */
+  attempt: number;
   /**
    * The XP the student has earned in the lesson
    */
@@ -490,6 +494,7 @@ export const PowerPath100ProgressResult$inboundSchema: z.ZodType<
   ),
   score: z.number(),
   seenQuestions: z.array(z.lazy(() => SeenQuestion$inboundSchema)),
+  attempt: z.number(),
   xp: z.nullable(z.number()),
   multiplier: z.nullable(z.number()),
   accuracy: z.number(),
@@ -503,6 +508,7 @@ export type PowerPath100ProgressResult$Outbound = {
   remainingQuestionsPerDifficulty: RemainingQuestionsPerDifficulty$Outbound;
   score: number;
   seenQuestions: Array<SeenQuestion$Outbound>;
+  attempt: number;
   xp: number | null;
   multiplier: number | null;
   accuracy: number;
@@ -522,6 +528,7 @@ export const PowerPath100ProgressResult$outboundSchema: z.ZodType<
   ),
   score: z.number(),
   seenQuestions: z.array(z.lazy(() => SeenQuestion$outboundSchema)),
+  attempt: z.number(),
   xp: z.nullable(z.number()),
   multiplier: z.nullable(z.number()),
   accuracy: z.number(),

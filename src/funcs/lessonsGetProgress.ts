@@ -29,7 +29,9 @@ import { Result } from "../types/fp.js";
  * Get assessment progress
  *
  * @remarks
- * Returns the progress the student has made in the given PowerPath lesson
+ * Returns the progress the student has made in the given PowerPath lesson.
+ *
+ * A 'Lesson' in this context is a ComponentResource object paired with a Resource object representing an activity.
  */
 export function lessonsGetProgress(
   client: PowerPathCore,

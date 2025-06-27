@@ -23,6 +23,7 @@ export type ForbiddenResponseErrorData = {
   imsxSeverity: "error";
   imsxDescription: string;
   imsxCodeMinor: ForbiddenResponseImsxCodeMinor;
+  imsxErrorDetails?: Array<{ [k: string]: string }> | undefined;
 };
 
 export class ForbiddenResponseError extends PowerPathError {
@@ -30,6 +31,7 @@ export class ForbiddenResponseError extends PowerPathError {
   imsxSeverity: "error";
   imsxDescription: string;
   imsxCodeMinor: ForbiddenResponseImsxCodeMinor;
+  imsxErrorDetails?: Array<{ [k: string]: string }> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: ForbiddenResponseErrorData;
@@ -47,6 +49,9 @@ export class ForbiddenResponseError extends PowerPathError {
     this.imsxSeverity = err.imsxSeverity;
     this.imsxDescription = err.imsxDescription;
     this.imsxCodeMinor = err.imsxCodeMinor;
+    if (err.imsxErrorDetails != null) {
+      this.imsxErrorDetails = err.imsxErrorDetails;
+    }
 
     this.name = "ForbiddenResponseError";
   }
@@ -207,6 +212,7 @@ export const ForbiddenResponseError$inboundSchema: z.ZodType<
   imsx_severity: z.literal("error").default("error"),
   imsx_description: z.string(),
   imsx_CodeMinor: z.lazy(() => ForbiddenResponseImsxCodeMinor$inboundSchema),
+  imsx_error_details: z.array(z.record(z.string())).optional(),
   request$: z.instanceof(Request),
   response$: z.instanceof(Response),
   body$: z.string(),
@@ -217,6 +223,7 @@ export const ForbiddenResponseError$inboundSchema: z.ZodType<
       "imsx_severity": "imsxSeverity",
       "imsx_description": "imsxDescription",
       "imsx_CodeMinor": "imsxCodeMinor",
+      "imsx_error_details": "imsxErrorDetails",
     });
 
     return new ForbiddenResponseError(remapped, {
@@ -232,6 +239,7 @@ export type ForbiddenResponseError$Outbound = {
   imsx_severity: "error";
   imsx_description: string;
   imsx_CodeMinor: ForbiddenResponseImsxCodeMinor$Outbound;
+  imsx_error_details?: Array<{ [k: string]: string }> | undefined;
 };
 
 /** @internal */
@@ -249,12 +257,14 @@ export const ForbiddenResponseError$outboundSchema: z.ZodType<
       imsxCodeMinor: z.lazy(() =>
         ForbiddenResponseImsxCodeMinor$outboundSchema
       ),
+      imsxErrorDetails: z.array(z.record(z.string())).optional(),
     }).transform((v) => {
       return remap$(v, {
         imsxCodeMajor: "imsx_codeMajor",
         imsxSeverity: "imsx_severity",
         imsxDescription: "imsx_description",
         imsxCodeMinor: "imsx_CodeMinor",
+        imsxErrorDetails: "imsx_error_details",
       });
     }),
   );

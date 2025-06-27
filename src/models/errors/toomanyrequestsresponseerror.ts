@@ -23,6 +23,7 @@ export type TooManyRequestsResponseErrorData = {
   imsxSeverity: "error";
   imsxDescription: string;
   imsxCodeMinor: TooManyRequestsResponseImsxCodeMinor;
+  imsxErrorDetails?: Array<{ [k: string]: string }> | undefined;
 };
 
 export class TooManyRequestsResponseError extends PowerPathError {
@@ -30,6 +31,7 @@ export class TooManyRequestsResponseError extends PowerPathError {
   imsxSeverity: "error";
   imsxDescription: string;
   imsxCodeMinor: TooManyRequestsResponseImsxCodeMinor;
+  imsxErrorDetails?: Array<{ [k: string]: string }> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: TooManyRequestsResponseErrorData;
@@ -47,6 +49,9 @@ export class TooManyRequestsResponseError extends PowerPathError {
     this.imsxSeverity = err.imsxSeverity;
     this.imsxDescription = err.imsxDescription;
     this.imsxCodeMinor = err.imsxCodeMinor;
+    if (err.imsxErrorDetails != null) {
+      this.imsxErrorDetails = err.imsxErrorDetails;
+    }
 
     this.name = "TooManyRequestsResponseError";
   }
@@ -223,6 +228,7 @@ export const TooManyRequestsResponseError$inboundSchema: z.ZodType<
   imsx_CodeMinor: z.lazy(() =>
     TooManyRequestsResponseImsxCodeMinor$inboundSchema
   ),
+  imsx_error_details: z.array(z.record(z.string())).optional(),
   request$: z.instanceof(Request),
   response$: z.instanceof(Response),
   body$: z.string(),
@@ -233,6 +239,7 @@ export const TooManyRequestsResponseError$inboundSchema: z.ZodType<
       "imsx_severity": "imsxSeverity",
       "imsx_description": "imsxDescription",
       "imsx_CodeMinor": "imsxCodeMinor",
+      "imsx_error_details": "imsxErrorDetails",
     });
 
     return new TooManyRequestsResponseError(remapped, {
@@ -248,6 +255,7 @@ export type TooManyRequestsResponseError$Outbound = {
   imsx_severity: "error";
   imsx_description: string;
   imsx_CodeMinor: TooManyRequestsResponseImsxCodeMinor$Outbound;
+  imsx_error_details?: Array<{ [k: string]: string }> | undefined;
 };
 
 /** @internal */
@@ -265,12 +273,14 @@ export const TooManyRequestsResponseError$outboundSchema: z.ZodType<
       imsxCodeMinor: z.lazy(() =>
         TooManyRequestsResponseImsxCodeMinor$outboundSchema
       ),
+      imsxErrorDetails: z.array(z.record(z.string())).optional(),
     }).transform((v) => {
       return remap$(v, {
         imsxCodeMajor: "imsx_codeMajor",
         imsxSeverity: "imsx_severity",
         imsxDescription: "imsx_description",
         imsxCodeMinor: "imsx_CodeMinor",
+        imsxErrorDetails: "imsx_error_details",
       });
     }),
   );

@@ -17,6 +17,12 @@ export type UpdateStudentQuestionResponseResponse =
   })
   | (components.QuizUpdateStudentQuestionResponseResult & {
     lessonType: "quiz";
+  })
+  | (components.TestOutUpdateStudentQuestionResponseResult & {
+    lessonType: "test-out";
+  })
+  | (components.PlacementUpdateStudentQuestionResponseResult & {
+    lessonType: "placement";
   });
 
 /** @internal */
@@ -35,6 +41,16 @@ export const UpdateStudentQuestionResponseResponse$inboundSchema: z.ZodType<
       lessonType: v.lessonType,
     })),
   ),
+  components.TestOutUpdateStudentQuestionResponseResult$inboundSchema.and(
+    z.object({ lessonType: z.literal("test-out") }).transform((v) => ({
+      lessonType: v.lessonType,
+    })),
+  ),
+  components.PlacementUpdateStudentQuestionResponseResult$inboundSchema.and(
+    z.object({ lessonType: z.literal("placement") }).transform((v) => ({
+      lessonType: v.lessonType,
+    })),
+  ),
 ]);
 
 /** @internal */
@@ -44,6 +60,12 @@ export type UpdateStudentQuestionResponseResponse$Outbound =
   })
   | (components.QuizUpdateStudentQuestionResponseResult$Outbound & {
     lessonType: "quiz";
+  })
+  | (components.TestOutUpdateStudentQuestionResponseResult$Outbound & {
+    lessonType: "test-out";
+  })
+  | (components.PlacementUpdateStudentQuestionResponseResult$Outbound & {
+    lessonType: "placement";
   });
 
 /** @internal */
@@ -59,6 +81,16 @@ export const UpdateStudentQuestionResponseResponse$outboundSchema: z.ZodType<
   ),
   components.QuizUpdateStudentQuestionResponseResult$outboundSchema.and(
     z.object({ lessonType: z.literal("quiz") }).transform((v) => ({
+      lessonType: v.lessonType,
+    })),
+  ),
+  components.TestOutUpdateStudentQuestionResponseResult$outboundSchema.and(
+    z.object({ lessonType: z.literal("test-out") }).transform((v) => ({
+      lessonType: v.lessonType,
+    })),
+  ),
+  components.PlacementUpdateStudentQuestionResponseResult$outboundSchema.and(
+    z.object({ lessonType: z.literal("placement") }).transform((v) => ({
       lessonType: v.lessonType,
     })),
   ),

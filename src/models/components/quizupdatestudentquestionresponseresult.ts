@@ -11,11 +11,11 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Represents the result of updating the student's response to the question in the PowerPath Quiz lesson
  */
 export type QuizUpdateStudentQuestionResponseResult = {
-  lessonType?: "quiz" | undefined;
   /**
    * The assessment result object for the question (for debugging)
    */
   questionResult?: any | undefined;
+  lessonType?: "quiz" | undefined;
 };
 
 /** @internal */
@@ -24,14 +24,14 @@ export const QuizUpdateStudentQuestionResponseResult$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  lessonType: z.literal("quiz").default("quiz").optional(),
   questionResult: z.any().optional(),
+  lessonType: z.literal("quiz").default("quiz").optional(),
 });
 
 /** @internal */
 export type QuizUpdateStudentQuestionResponseResult$Outbound = {
-  lessonType: "quiz";
   questionResult?: any | undefined;
+  lessonType: "quiz";
 };
 
 /** @internal */
@@ -40,8 +40,8 @@ export const QuizUpdateStudentQuestionResponseResult$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   QuizUpdateStudentQuestionResponseResult
 > = z.object({
-  lessonType: z.literal("quiz").default("quiz" as const),
   questionResult: z.any().optional(),
+  lessonType: z.literal("quiz").default("quiz" as const),
 });
 
 /**

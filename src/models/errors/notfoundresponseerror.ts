@@ -23,6 +23,7 @@ export type NotFoundResponseErrorData = {
   imsxSeverity: "error";
   imsxDescription: string;
   imsxCodeMinor: NotFoundResponseImsxCodeMinor;
+  imsxErrorDetails?: Array<{ [k: string]: string }> | undefined;
 };
 
 export class NotFoundResponseError extends PowerPathError {
@@ -30,6 +31,7 @@ export class NotFoundResponseError extends PowerPathError {
   imsxSeverity: "error";
   imsxDescription: string;
   imsxCodeMinor: NotFoundResponseImsxCodeMinor;
+  imsxErrorDetails?: Array<{ [k: string]: string }> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: NotFoundResponseErrorData;
@@ -47,6 +49,9 @@ export class NotFoundResponseError extends PowerPathError {
     this.imsxSeverity = err.imsxSeverity;
     this.imsxDescription = err.imsxDescription;
     this.imsxCodeMinor = err.imsxCodeMinor;
+    if (err.imsxErrorDetails != null) {
+      this.imsxErrorDetails = err.imsxErrorDetails;
+    }
 
     this.name = "NotFoundResponseError";
   }
@@ -208,6 +213,7 @@ export const NotFoundResponseError$inboundSchema: z.ZodType<
   imsx_severity: z.literal("error").default("error"),
   imsx_description: z.string(),
   imsx_CodeMinor: z.lazy(() => NotFoundResponseImsxCodeMinor$inboundSchema),
+  imsx_error_details: z.array(z.record(z.string())).optional(),
   request$: z.instanceof(Request),
   response$: z.instanceof(Response),
   body$: z.string(),
@@ -218,6 +224,7 @@ export const NotFoundResponseError$inboundSchema: z.ZodType<
       "imsx_severity": "imsxSeverity",
       "imsx_description": "imsxDescription",
       "imsx_CodeMinor": "imsxCodeMinor",
+      "imsx_error_details": "imsxErrorDetails",
     });
 
     return new NotFoundResponseError(remapped, {
@@ -233,6 +240,7 @@ export type NotFoundResponseError$Outbound = {
   imsx_severity: "error";
   imsx_description: string;
   imsx_CodeMinor: NotFoundResponseImsxCodeMinor$Outbound;
+  imsx_error_details?: Array<{ [k: string]: string }> | undefined;
 };
 
 /** @internal */
@@ -248,12 +256,14 @@ export const NotFoundResponseError$outboundSchema: z.ZodType<
       imsxSeverity: z.literal("error").default("error" as const),
       imsxDescription: z.string(),
       imsxCodeMinor: z.lazy(() => NotFoundResponseImsxCodeMinor$outboundSchema),
+      imsxErrorDetails: z.array(z.record(z.string())).optional(),
     }).transform((v) => {
       return remap$(v, {
         imsxCodeMajor: "imsx_codeMajor",
         imsxSeverity: "imsx_severity",
         imsxDescription: "imsx_description",
         imsxCodeMinor: "imsx_CodeMinor",
+        imsxErrorDetails: "imsx_error_details",
       });
     }),
   );

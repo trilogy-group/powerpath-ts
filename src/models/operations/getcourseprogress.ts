@@ -42,7 +42,7 @@ export type GetCourseProgressScoreStatus2 = ClosedEnum<
   typeof GetCourseProgressScoreStatus2
 >;
 
-export type GetCourseProgressLearningObjectiveId2 = {
+export type GetCourseProgressLearningObjectiveResult2 = {
   learningObjectiveId: string;
   score?: number | undefined;
   textScore?: string | undefined;
@@ -50,7 +50,7 @@ export type GetCourseProgressLearningObjectiveId2 = {
 
 export type GetCourseProgressLearningObjectiveSet2 = {
   source: string;
-  learningObjectiveIds: Array<GetCourseProgressLearningObjectiveId2>;
+  learningObjectiveResults: Array<GetCourseProgressLearningObjectiveResult2>;
 };
 
 /**
@@ -112,7 +112,7 @@ export type GetCourseProgressScoreStatus1 = ClosedEnum<
   typeof GetCourseProgressScoreStatus1
 >;
 
-export type GetCourseProgressLearningObjectiveId1 = {
+export type GetCourseProgressLearningObjectiveResult1 = {
   learningObjectiveId: string;
   score?: number | undefined;
   textScore?: string | undefined;
@@ -120,7 +120,7 @@ export type GetCourseProgressLearningObjectiveId1 = {
 
 export type GetCourseProgressLearningObjectiveSet1 = {
   source: string;
-  learningObjectiveIds: Array<GetCourseProgressLearningObjectiveId1>;
+  learningObjectiveResults: Array<GetCourseProgressLearningObjectiveResult1>;
 };
 
 /**
@@ -321,8 +321,8 @@ export namespace GetCourseProgressScoreStatus2$ {
 }
 
 /** @internal */
-export const GetCourseProgressLearningObjectiveId2$inboundSchema: z.ZodType<
-  GetCourseProgressLearningObjectiveId2,
+export const GetCourseProgressLearningObjectiveResult2$inboundSchema: z.ZodType<
+  GetCourseProgressLearningObjectiveResult2,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -332,56 +332,63 @@ export const GetCourseProgressLearningObjectiveId2$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type GetCourseProgressLearningObjectiveId2$Outbound = {
+export type GetCourseProgressLearningObjectiveResult2$Outbound = {
   learningObjectiveId: string;
   score?: number | undefined;
   textScore?: string | undefined;
 };
 
 /** @internal */
-export const GetCourseProgressLearningObjectiveId2$outboundSchema: z.ZodType<
-  GetCourseProgressLearningObjectiveId2$Outbound,
-  z.ZodTypeDef,
-  GetCourseProgressLearningObjectiveId2
-> = z.object({
-  learningObjectiveId: z.string(),
-  score: z.number().optional(),
-  textScore: z.string().optional(),
-});
+export const GetCourseProgressLearningObjectiveResult2$outboundSchema:
+  z.ZodType<
+    GetCourseProgressLearningObjectiveResult2$Outbound,
+    z.ZodTypeDef,
+    GetCourseProgressLearningObjectiveResult2
+  > = z.object({
+    learningObjectiveId: z.string(),
+    score: z.number().optional(),
+    textScore: z.string().optional(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetCourseProgressLearningObjectiveId2$ {
-  /** @deprecated use `GetCourseProgressLearningObjectiveId2$inboundSchema` instead. */
+export namespace GetCourseProgressLearningObjectiveResult2$ {
+  /** @deprecated use `GetCourseProgressLearningObjectiveResult2$inboundSchema` instead. */
   export const inboundSchema =
-    GetCourseProgressLearningObjectiveId2$inboundSchema;
-  /** @deprecated use `GetCourseProgressLearningObjectiveId2$outboundSchema` instead. */
+    GetCourseProgressLearningObjectiveResult2$inboundSchema;
+  /** @deprecated use `GetCourseProgressLearningObjectiveResult2$outboundSchema` instead. */
   export const outboundSchema =
-    GetCourseProgressLearningObjectiveId2$outboundSchema;
-  /** @deprecated use `GetCourseProgressLearningObjectiveId2$Outbound` instead. */
-  export type Outbound = GetCourseProgressLearningObjectiveId2$Outbound;
+    GetCourseProgressLearningObjectiveResult2$outboundSchema;
+  /** @deprecated use `GetCourseProgressLearningObjectiveResult2$Outbound` instead. */
+  export type Outbound = GetCourseProgressLearningObjectiveResult2$Outbound;
 }
 
-export function getCourseProgressLearningObjectiveId2ToJSON(
-  getCourseProgressLearningObjectiveId2: GetCourseProgressLearningObjectiveId2,
+export function getCourseProgressLearningObjectiveResult2ToJSON(
+  getCourseProgressLearningObjectiveResult2:
+    GetCourseProgressLearningObjectiveResult2,
 ): string {
   return JSON.stringify(
-    GetCourseProgressLearningObjectiveId2$outboundSchema.parse(
-      getCourseProgressLearningObjectiveId2,
+    GetCourseProgressLearningObjectiveResult2$outboundSchema.parse(
+      getCourseProgressLearningObjectiveResult2,
     ),
   );
 }
 
-export function getCourseProgressLearningObjectiveId2FromJSON(
+export function getCourseProgressLearningObjectiveResult2FromJSON(
   jsonString: string,
-): SafeParseResult<GetCourseProgressLearningObjectiveId2, SDKValidationError> {
+): SafeParseResult<
+  GetCourseProgressLearningObjectiveResult2,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
     (x) =>
-      GetCourseProgressLearningObjectiveId2$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetCourseProgressLearningObjectiveId2' from JSON`,
+      GetCourseProgressLearningObjectiveResult2$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetCourseProgressLearningObjectiveResult2' from JSON`,
   );
 }
 
@@ -392,15 +399,17 @@ export const GetCourseProgressLearningObjectiveSet2$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   source: z.string(),
-  learningObjectiveIds: z.array(
-    z.lazy(() => GetCourseProgressLearningObjectiveId2$inboundSchema),
+  learningObjectiveResults: z.array(
+    z.lazy(() => GetCourseProgressLearningObjectiveResult2$inboundSchema),
   ),
 });
 
 /** @internal */
 export type GetCourseProgressLearningObjectiveSet2$Outbound = {
   source: string;
-  learningObjectiveIds: Array<GetCourseProgressLearningObjectiveId2$Outbound>;
+  learningObjectiveResults: Array<
+    GetCourseProgressLearningObjectiveResult2$Outbound
+  >;
 };
 
 /** @internal */
@@ -410,8 +419,8 @@ export const GetCourseProgressLearningObjectiveSet2$outboundSchema: z.ZodType<
   GetCourseProgressLearningObjectiveSet2
 > = z.object({
   source: z.string(),
-  learningObjectiveIds: z.array(
-    z.lazy(() => GetCourseProgressLearningObjectiveId2$outboundSchema),
+  learningObjectiveResults: z.array(
+    z.lazy(() => GetCourseProgressLearningObjectiveResult2$outboundSchema),
   ),
 });
 
@@ -721,8 +730,8 @@ export namespace GetCourseProgressScoreStatus1$ {
 }
 
 /** @internal */
-export const GetCourseProgressLearningObjectiveId1$inboundSchema: z.ZodType<
-  GetCourseProgressLearningObjectiveId1,
+export const GetCourseProgressLearningObjectiveResult1$inboundSchema: z.ZodType<
+  GetCourseProgressLearningObjectiveResult1,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -732,56 +741,63 @@ export const GetCourseProgressLearningObjectiveId1$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type GetCourseProgressLearningObjectiveId1$Outbound = {
+export type GetCourseProgressLearningObjectiveResult1$Outbound = {
   learningObjectiveId: string;
   score?: number | undefined;
   textScore?: string | undefined;
 };
 
 /** @internal */
-export const GetCourseProgressLearningObjectiveId1$outboundSchema: z.ZodType<
-  GetCourseProgressLearningObjectiveId1$Outbound,
-  z.ZodTypeDef,
-  GetCourseProgressLearningObjectiveId1
-> = z.object({
-  learningObjectiveId: z.string(),
-  score: z.number().optional(),
-  textScore: z.string().optional(),
-});
+export const GetCourseProgressLearningObjectiveResult1$outboundSchema:
+  z.ZodType<
+    GetCourseProgressLearningObjectiveResult1$Outbound,
+    z.ZodTypeDef,
+    GetCourseProgressLearningObjectiveResult1
+  > = z.object({
+    learningObjectiveId: z.string(),
+    score: z.number().optional(),
+    textScore: z.string().optional(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetCourseProgressLearningObjectiveId1$ {
-  /** @deprecated use `GetCourseProgressLearningObjectiveId1$inboundSchema` instead. */
+export namespace GetCourseProgressLearningObjectiveResult1$ {
+  /** @deprecated use `GetCourseProgressLearningObjectiveResult1$inboundSchema` instead. */
   export const inboundSchema =
-    GetCourseProgressLearningObjectiveId1$inboundSchema;
-  /** @deprecated use `GetCourseProgressLearningObjectiveId1$outboundSchema` instead. */
+    GetCourseProgressLearningObjectiveResult1$inboundSchema;
+  /** @deprecated use `GetCourseProgressLearningObjectiveResult1$outboundSchema` instead. */
   export const outboundSchema =
-    GetCourseProgressLearningObjectiveId1$outboundSchema;
-  /** @deprecated use `GetCourseProgressLearningObjectiveId1$Outbound` instead. */
-  export type Outbound = GetCourseProgressLearningObjectiveId1$Outbound;
+    GetCourseProgressLearningObjectiveResult1$outboundSchema;
+  /** @deprecated use `GetCourseProgressLearningObjectiveResult1$Outbound` instead. */
+  export type Outbound = GetCourseProgressLearningObjectiveResult1$Outbound;
 }
 
-export function getCourseProgressLearningObjectiveId1ToJSON(
-  getCourseProgressLearningObjectiveId1: GetCourseProgressLearningObjectiveId1,
+export function getCourseProgressLearningObjectiveResult1ToJSON(
+  getCourseProgressLearningObjectiveResult1:
+    GetCourseProgressLearningObjectiveResult1,
 ): string {
   return JSON.stringify(
-    GetCourseProgressLearningObjectiveId1$outboundSchema.parse(
-      getCourseProgressLearningObjectiveId1,
+    GetCourseProgressLearningObjectiveResult1$outboundSchema.parse(
+      getCourseProgressLearningObjectiveResult1,
     ),
   );
 }
 
-export function getCourseProgressLearningObjectiveId1FromJSON(
+export function getCourseProgressLearningObjectiveResult1FromJSON(
   jsonString: string,
-): SafeParseResult<GetCourseProgressLearningObjectiveId1, SDKValidationError> {
+): SafeParseResult<
+  GetCourseProgressLearningObjectiveResult1,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
     (x) =>
-      GetCourseProgressLearningObjectiveId1$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetCourseProgressLearningObjectiveId1' from JSON`,
+      GetCourseProgressLearningObjectiveResult1$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetCourseProgressLearningObjectiveResult1' from JSON`,
   );
 }
 
@@ -792,15 +808,17 @@ export const GetCourseProgressLearningObjectiveSet1$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   source: z.string(),
-  learningObjectiveIds: z.array(
-    z.lazy(() => GetCourseProgressLearningObjectiveId1$inboundSchema),
+  learningObjectiveResults: z.array(
+    z.lazy(() => GetCourseProgressLearningObjectiveResult1$inboundSchema),
   ),
 });
 
 /** @internal */
 export type GetCourseProgressLearningObjectiveSet1$Outbound = {
   source: string;
-  learningObjectiveIds: Array<GetCourseProgressLearningObjectiveId1$Outbound>;
+  learningObjectiveResults: Array<
+    GetCourseProgressLearningObjectiveResult1$Outbound
+  >;
 };
 
 /** @internal */
@@ -810,8 +828,8 @@ export const GetCourseProgressLearningObjectiveSet1$outboundSchema: z.ZodType<
   GetCourseProgressLearningObjectiveSet1
 > = z.object({
   source: z.string(),
-  learningObjectiveIds: z.array(
-    z.lazy(() => GetCourseProgressLearningObjectiveId1$outboundSchema),
+  learningObjectiveResults: z.array(
+    z.lazy(() => GetCourseProgressLearningObjectiveResult1$outboundSchema),
   ),
 });
 

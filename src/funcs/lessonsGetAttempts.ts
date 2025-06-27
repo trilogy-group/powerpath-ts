@@ -30,6 +30,10 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Returns a list of all attempts for a student in a lesson
+ *
+ * For Assessment Bank lessons, each attempt may represent a different sub test of the bank. Review results with care.
+ *
+ * A 'Lesson' in this context is a ComponentResource object which has a Resource object associated with it.
  */
 export function lessonsGetAttempts(
   client: PowerPathCore,

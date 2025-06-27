@@ -23,6 +23,7 @@ export type UnprocessableEntityResponseErrorData = {
   imsxSeverity: "error";
   imsxDescription: string;
   imsxCodeMinor: UnprocessableEntityResponseImsxCodeMinor;
+  imsxErrorDetails?: Array<{ [k: string]: string }> | undefined;
 };
 
 export class UnprocessableEntityResponseError extends PowerPathError {
@@ -30,6 +31,7 @@ export class UnprocessableEntityResponseError extends PowerPathError {
   imsxSeverity: "error";
   imsxDescription: string;
   imsxCodeMinor: UnprocessableEntityResponseImsxCodeMinor;
+  imsxErrorDetails?: Array<{ [k: string]: string }> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: UnprocessableEntityResponseErrorData;
@@ -47,6 +49,9 @@ export class UnprocessableEntityResponseError extends PowerPathError {
     this.imsxSeverity = err.imsxSeverity;
     this.imsxDescription = err.imsxDescription;
     this.imsxCodeMinor = err.imsxCodeMinor;
+    if (err.imsxErrorDetails != null) {
+      this.imsxErrorDetails = err.imsxErrorDetails;
+    }
 
     this.name = "UnprocessableEntityResponseError";
   }
@@ -230,6 +235,7 @@ export const UnprocessableEntityResponseError$inboundSchema: z.ZodType<
   imsx_CodeMinor: z.lazy(() =>
     UnprocessableEntityResponseImsxCodeMinor$inboundSchema
   ),
+  imsx_error_details: z.array(z.record(z.string())).optional(),
   request$: z.instanceof(Request),
   response$: z.instanceof(Response),
   body$: z.string(),
@@ -240,6 +246,7 @@ export const UnprocessableEntityResponseError$inboundSchema: z.ZodType<
       "imsx_severity": "imsxSeverity",
       "imsx_description": "imsxDescription",
       "imsx_CodeMinor": "imsxCodeMinor",
+      "imsx_error_details": "imsxErrorDetails",
     });
 
     return new UnprocessableEntityResponseError(remapped, {
@@ -255,6 +262,7 @@ export type UnprocessableEntityResponseError$Outbound = {
   imsx_severity: "error";
   imsx_description: string;
   imsx_CodeMinor: UnprocessableEntityResponseImsxCodeMinor$Outbound;
+  imsx_error_details?: Array<{ [k: string]: string }> | undefined;
 };
 
 /** @internal */
@@ -272,12 +280,14 @@ export const UnprocessableEntityResponseError$outboundSchema: z.ZodType<
       imsxCodeMinor: z.lazy(() =>
         UnprocessableEntityResponseImsxCodeMinor$outboundSchema
       ),
+      imsxErrorDetails: z.array(z.record(z.string())).optional(),
     }).transform((v) => {
       return remap$(v, {
         imsxCodeMajor: "imsx_codeMajor",
         imsxSeverity: "imsx_severity",
         imsxDescription: "imsx_description",
         imsxCodeMinor: "imsx_CodeMinor",
+        imsxErrorDetails: "imsx_error_details",
       });
     }),
   );

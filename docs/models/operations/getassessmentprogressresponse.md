@@ -28,25 +28,36 @@ const value: components.PowerPath100ProgressResult = {
       ],
     },
   ],
-  xp: 3299.85,
-  multiplier: 4630,
-  accuracy: 268.13,
-  correctQuestions: 4568.47,
-  totalQuestions: 9735.68,
+  attempt: 6661.52,
+  xp: 3633.46,
+  multiplier: 268.13,
+  accuracy: 4568.47,
+  correctQuestions: 9735.68,
+  totalQuestions: 6431.26,
 };
 ```
 
-### `components.QuizProgressResult`
+### `operations.ResponseBody`
 
 ```typescript
-const value: components.QuizProgressResult = {
-  finalized: false,
-  questions: [],
-  xp: 5228.28,
-  multiplier: 4835.15,
-  accuracy: 8649.17,
-  correctQuestions: 2905.25,
-  totalQuestions: 9319.55,
+const value: operations.ResponseBody = {
+  lessonType: "placement",
+  finalized: true,
+  questions: [
+    {
+      id: "<id>",
+      index: 4486.02,
+      title: "<value>",
+      url: "https://lumpy-pliers.biz/",
+    },
+  ],
+  toolProvider: "<value>",
+  attempt: 7741,
+  xp: 1654.04,
+  multiplier: 9755.1,
+  accuracy: 748.16,
+  correctQuestions: 2713.13,
+  totalQuestions: 50.13,
 };
 ```
 

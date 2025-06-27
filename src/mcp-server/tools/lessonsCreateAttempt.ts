@@ -14,7 +14,17 @@ export const tool$lessonsCreateAttempt: ToolDefinition<typeof args> = {
   name: "lessons-create-attempt",
   description: `Create new attempt
 
-Creates a new attempt for a student in a lesson if current attempt is completed`,
+Creates a new attempt for a student in a lesson if the current attempt is completed.
+
+For Assessment Bank lessons:
+- This will also update the state for the student, creating a new entry to associate the new attempt number with a different sub-resource of the test bank.
+- If the lesson is taken again by the student, a different test may be served, considering the new resource it points to configures a different test.
+- The sub-test is determined using round-robin logic over the sub-resources of the lesson's Assessment Bank Resource object.
+
+  - So for example, if a lesson configures 2 sub-tests, the first attempt serves test 1, the second attempt serves test 2, the third attempt serves test 1 again, and so on.
+
+A 'Lesson' in this context is a ComponentResource object which has a Resource object associated with it.
+`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await lessonsCreateAttempt(

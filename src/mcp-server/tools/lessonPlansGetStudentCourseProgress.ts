@@ -16,6 +16,7 @@ export const tool$lessonPlansGetStudentCourseProgress: ToolDefinition<
   name: "lesson-plans-get-student-course-progress",
   description: `Get course progress
 
+
 Get the course progress for a student in a course.
 
 ---
@@ -27,7 +28,8 @@ A type "**component**" indicates a component of the lesson plan such as a unit o
 A type "**resource**" indicates a resource such as a video, audio,
 or document file as well as a quiz or question.
 
-Each **line item** contains a list of assessment results in the **results** attribute, related to student and course.`,
+Each **line item** contains a list of assessment results in the **results** attribute, related to student and course.
+    `,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await lessonPlansGetStudentCourseProgress(

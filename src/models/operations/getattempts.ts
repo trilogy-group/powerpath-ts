@@ -14,7 +14,7 @@ export type GetAttemptsRequest = {
    */
   student: string;
   /**
-   * The sourcedId of the lesson
+   * The sourcedId of the lesson (ComponentResource)
    */
   lesson: string;
 };
@@ -34,7 +34,7 @@ export const GetAttemptsScoreStatus = {
  */
 export type GetAttemptsScoreStatus = ClosedEnum<typeof GetAttemptsScoreStatus>;
 
-export type Attempt = {
+export type GetAttemptsAttempt = {
   /**
    * The attempt number
    */
@@ -61,7 +61,7 @@ export type Attempt = {
  * Success
  */
 export type GetAttemptsResponse = {
-  attempts: Array<Attempt>;
+  attempts: Array<GetAttemptsAttempt>;
 };
 
 /** @internal */
@@ -143,21 +143,24 @@ export namespace GetAttemptsScoreStatus$ {
 }
 
 /** @internal */
-export const Attempt$inboundSchema: z.ZodType<Attempt, z.ZodTypeDef, unknown> =
-  z.object({
-    attempt: z.nullable(z.number()),
-    score: z.number(),
-    scoreStatus: GetAttemptsScoreStatus$inboundSchema,
-    startedAt: z.nullable(
-      z.string().datetime({ offset: true }).transform(v => new Date(v)),
-    ),
-    completedAt: z.nullable(
-      z.string().datetime({ offset: true }).transform(v => new Date(v)),
-    ),
-  });
+export const GetAttemptsAttempt$inboundSchema: z.ZodType<
+  GetAttemptsAttempt,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  attempt: z.nullable(z.number()),
+  score: z.number(),
+  scoreStatus: GetAttemptsScoreStatus$inboundSchema,
+  startedAt: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
+  completedAt: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
+});
 
 /** @internal */
-export type Attempt$Outbound = {
+export type GetAttemptsAttempt$Outbound = {
   attempt: number | null;
   score: number;
   scoreStatus: string;
@@ -166,10 +169,10 @@ export type Attempt$Outbound = {
 };
 
 /** @internal */
-export const Attempt$outboundSchema: z.ZodType<
-  Attempt$Outbound,
+export const GetAttemptsAttempt$outboundSchema: z.ZodType<
+  GetAttemptsAttempt$Outbound,
   z.ZodTypeDef,
-  Attempt
+  GetAttemptsAttempt
 > = z.object({
   attempt: z.nullable(z.number()),
   score: z.number(),
@@ -182,26 +185,30 @@ export const Attempt$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Attempt$ {
-  /** @deprecated use `Attempt$inboundSchema` instead. */
-  export const inboundSchema = Attempt$inboundSchema;
-  /** @deprecated use `Attempt$outboundSchema` instead. */
-  export const outboundSchema = Attempt$outboundSchema;
-  /** @deprecated use `Attempt$Outbound` instead. */
-  export type Outbound = Attempt$Outbound;
+export namespace GetAttemptsAttempt$ {
+  /** @deprecated use `GetAttemptsAttempt$inboundSchema` instead. */
+  export const inboundSchema = GetAttemptsAttempt$inboundSchema;
+  /** @deprecated use `GetAttemptsAttempt$outboundSchema` instead. */
+  export const outboundSchema = GetAttemptsAttempt$outboundSchema;
+  /** @deprecated use `GetAttemptsAttempt$Outbound` instead. */
+  export type Outbound = GetAttemptsAttempt$Outbound;
 }
 
-export function attemptToJSON(attempt: Attempt): string {
-  return JSON.stringify(Attempt$outboundSchema.parse(attempt));
+export function getAttemptsAttemptToJSON(
+  getAttemptsAttempt: GetAttemptsAttempt,
+): string {
+  return JSON.stringify(
+    GetAttemptsAttempt$outboundSchema.parse(getAttemptsAttempt),
+  );
 }
 
-export function attemptFromJSON(
+export function getAttemptsAttemptFromJSON(
   jsonString: string,
-): SafeParseResult<Attempt, SDKValidationError> {
+): SafeParseResult<GetAttemptsAttempt, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Attempt$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Attempt' from JSON`,
+    (x) => GetAttemptsAttempt$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetAttemptsAttempt' from JSON`,
   );
 }
 
@@ -211,12 +218,12 @@ export const GetAttemptsResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  attempts: z.array(z.lazy(() => Attempt$inboundSchema)),
+  attempts: z.array(z.lazy(() => GetAttemptsAttempt$inboundSchema)),
 });
 
 /** @internal */
 export type GetAttemptsResponse$Outbound = {
-  attempts: Array<Attempt$Outbound>;
+  attempts: Array<GetAttemptsAttempt$Outbound>;
 };
 
 /** @internal */
@@ -225,7 +232,7 @@ export const GetAttemptsResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetAttemptsResponse
 > = z.object({
-  attempts: z.array(z.lazy(() => Attempt$outboundSchema)),
+  attempts: z.array(z.lazy(() => GetAttemptsAttempt$outboundSchema)),
 });
 
 /**

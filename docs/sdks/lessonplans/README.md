@@ -11,6 +11,7 @@
 
 ## getStudentCourseProgress
 
+
 Get the course progress for a student in a course.
 
 ---
@@ -23,6 +24,7 @@ A type "**resource**" indicates a resource such as a video, audio,
 or document file as well as a quiz or question.
 
 Each **line item** contains a list of assessment results in the **results** attribute, related to student and course.
+    
 
 ### Example Usage
 
@@ -103,6 +105,7 @@ run();
 
 ## updateStudentResponse
 
+
 Update the student item response for a student in a course.
 
 ---
@@ -114,6 +117,7 @@ You should provide either the **componentId** or the **componentResourceId**.
 If you provide the **componentId**, the data in the response payload should be in relation to the student's response to the entire component.
 
 If you provide the **componentResourceId**, the data in the response payload should be in relation to the student's response to the specific resource.
+    
 
 ### Example Usage
 

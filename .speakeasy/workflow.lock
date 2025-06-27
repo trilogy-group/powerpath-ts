@@ -2,8 +2,8 @@ speakeasyVersion: 1.571.1
 sources:
     PowerPath API:
         sourceNamespace: power-path-api
-        sourceRevisionDigest: sha256:7d15a058c8e2d59b0229185627dde12f17acfb5f784c0fa5e2bbc5afeb09eeba
-        sourceBlobDigest: sha256:747823a0de059da78abaa617f9b39930f3e96c30984c2aaae55cfc6786b2a740
+        sourceRevisionDigest: sha256:940a9046c4dce48289bed8f5d1ad9ba810660abc3975275f6ce094994b566404
+        sourceBlobDigest: sha256:9aa4c2da5074f8b5ce68b1dcfe84491caba3437f55e071ff75ccbff899724361
         tags:
             - latest
             - 1.0.0
@@ -11,19 +11,19 @@ targets:
     power-path:
         source: PowerPath API
         sourceNamespace: power-path-api
-        sourceRevisionDigest: sha256:7d15a058c8e2d59b0229185627dde12f17acfb5f784c0fa5e2bbc5afeb09eeba
-        sourceBlobDigest: sha256:747823a0de059da78abaa617f9b39930f3e96c30984c2aaae55cfc6786b2a740
+        sourceRevisionDigest: sha256:940a9046c4dce48289bed8f5d1ad9ba810660abc3975275f6ce094994b566404
+        sourceBlobDigest: sha256:9aa4c2da5074f8b5ce68b1dcfe84491caba3437f55e071ff75ccbff899724361
         codeSamplesNamespace: power-path-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:28a35ef23d9c6c1ede53e6bd76465010478b9a841c797bf236d6a84034fa5ab5
+        codeSamplesRevisionDigest: sha256:5de92531a2cfb0635960554ce33e25c0132928dae83bb32c84d751a2ca5363fe
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
         PowerPath API:
             inputs:
-                - location: .speakeasy/openapi-fixes.yaml
+                - location: .speakeasy/openapi.yaml
             overlays:
-                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+                - location: .speakeasy/openapi-modifications-overlay.yaml
             registry:
                 location: registry.speakeasyapi.dev/emu-farm/timeback/power-path-api
     targets:

@@ -13,17 +13,16 @@ const args = {
 
 export const tool$lessonsFinalizeResponse: ToolDefinition<typeof args> = {
   name: "lessons-finalize-response",
-  description: `Finalize a quiz assessment
+  description: `Finalize a test assessments
 
-Finalize a lesson/assessment of 'quiz' type after all questions have been answered.
+Finalize a lesson of type \`quiz\`, \`test-out\`, or \`placement\` after all questions have been answered:
+- Evaluates answered questions, attribute scores for each question, and overall lesson score.
+- Checks the correctness of the response using the QTI question's \`<qti-response-declaration>\` element and update the score accordingly.
+- Creates/updates the AssessmentLineItem and AssessmentResult objects for the student/question pair if it doesn't exist yet.
 
-Evaluates answered questions, attribute scores for each question, and overall lesson score.
+Not supported for external test lessons as the 3rd party tool is responsible for finalizing the test. Use the **importExternalTestAssignmentResults** endpoint instead.
 
-PowerPath will check the correctness of the response using the QTI question \`<qti-response-declaration>\` element and update the score accordingly.
-
-PowerPath will create/update the required AssessmentLineItem and AssessmentResult objects for the student/question pair if it doesn't exist yet.
-
-Returns the final assessment result for the student.
+A 'Lesson' in this context is a ComponentResource object which has a Resource object with metadata.lessonType = "quiz", "test-out", or "placement" associated with it.
 `,
   args,
   tool: async (client, args, ctx) => {

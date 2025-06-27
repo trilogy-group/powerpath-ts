@@ -14,6 +14,7 @@ export class LessonPlans extends ClientSDK {
    * Get course progress
    *
    * @remarks
+   *
    * Get the course progress for a student in a course.
    *
    * ---
@@ -42,6 +43,7 @@ export class LessonPlans extends ClientSDK {
    * Update student item response
    *
    * @remarks
+   *
    * Update the student item response for a student in a course.
    *
    * ---

@@ -22,7 +22,7 @@ export type ResponseResult = {
 };
 
 /**
- * Represents the result of updating the student's response to the question in the PowerPath 100 lesson
+ * Represents the result of updating the student's response to the question in the PowerPath100 lesson (ComponentResource)
  */
 export type PowerPath100UpdateStudentQuestionResponseResult = {
   lessonType?: "powerpath-100" | undefined;

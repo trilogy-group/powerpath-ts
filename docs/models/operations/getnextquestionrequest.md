@@ -13,7 +13,7 @@ let value: GetNextQuestionRequest = {
 
 ## Fields
 
-| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `student`                                                                   | *string*                                                                    | :heavy_check_mark:                                                          | The sourcedId of the student who is answering the question                  |
-| `lesson`                                                                    | *string*                                                                    | :heavy_check_mark:                                                          | The sourcedId of the ComponentResource that represents the PowerPath lesson |
+| Field                                                      | Type                                                       | Required                                                   | Description                                                |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| `student`                                                  | *string*                                                   | :heavy_check_mark:                                         | The sourcedId of the student who is answering the question |
+| `lesson`                                                   | *string*                                                   | :heavy_check_mark:                                         | The sourcedId of the lesson (ComponentResource)            |

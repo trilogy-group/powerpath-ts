@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { PowerPathCore } from "@superbuilders/powerpath/core.js";
-import { lessonPlansGetStudentCourseProgress } from "@superbuilders/powerpath/funcs/lessonPlansGetStudentCourseProgress.js";
+import { powerPathPlacementGetAllPlacementTests } from "@superbuilders/powerpath/funcs/powerPathPlacementGetAllPlacementTests.js";
 
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -29,15 +29,15 @@ const powerPath = new PowerPathCore({
 });
 
 async function run() {
-  const res = await lessonPlansGetStudentCourseProgress(powerPath, {
-    courseId: "<id>",
-    studentId: "<id>",
+  const res = await powerPathPlacementGetAllPlacementTests(powerPath, {
+    student: "<value>",
+    subject: "<value>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("lessonPlansGetStudentCourseProgress failed:", res.error);
+    console.log("powerPathPlacementGetAllPlacementTests failed:", res.error);
   }
 }
 

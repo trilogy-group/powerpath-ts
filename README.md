@@ -256,9 +256,9 @@ const powerPath = new PowerPath({
 });
 
 async function run() {
-  const result = await powerPath.lessonPlans.getStudentCourseProgress({
-    courseId: "<id>",
-    studentId: "<id>",
+  const result = await powerPath.powerPathPlacement.getAllPlacementTests({
+    student: "<value>",
+    subject: "<value>",
   });
 
   console.log(result);
@@ -289,9 +289,9 @@ const powerPath = new PowerPath({
 });
 
 async function run() {
-  const result = await powerPath.lessonPlans.getStudentCourseProgress({
-    courseId: "<id>",
-    studentId: "<id>",
+  const result = await powerPath.powerPathPlacement.getAllPlacementTests({
+    student: "<value>",
+    subject: "<value>",
   });
 
   console.log(result);
@@ -317,13 +317,38 @@ run();
 ### [lessons](docs/sdks/lessons/README.md)
 
 * [createAttempt](docs/sdks/lessons/README.md#createattempt) - Create new attempt
-* [finalizeResponse](docs/sdks/lessons/README.md#finalizeresponse) - Finalize a quiz assessment
+* [finalizeResponse](docs/sdks/lessons/README.md#finalizeresponse) - Finalize a test assessments
 * [getProgress](docs/sdks/lessons/README.md#getprogress) - Get assessment progress
 * [getAttempts](docs/sdks/lessons/README.md#getattempts) - Get all attempts
 * [getNextQuestion](docs/sdks/lessons/README.md#getnextquestion) - Get next question
 * [resetAttempt](docs/sdks/lessons/README.md#resetattempt) - Reset attempt
 * [updateStudentResponse](docs/sdks/lessons/README.md#updatestudentresponse) - Update student question response
 
+
+### [powerPathCourseMastery](docs/sdks/powerpathcoursemastery/README.md)
+
+* [createExternalPlacementTest](docs/sdks/powerpathcoursemastery/README.md#createexternalplacementtest) - Create an External Placement Test
+* [createExternalTestOut](docs/sdks/powerpathcoursemastery/README.md#createexternaltestout) - Create an External TestOut
+* [importExternalTestAssignmentResults](docs/sdks/powerpathcoursemastery/README.md#importexternaltestassignmentresults) - Import external test assignment results
+* [makeExternalTestAssignment](docs/sdks/powerpathcoursemastery/README.md#makeexternaltestassignment) - Make external test assignment
+* [testOut](docs/sdks/powerpathcoursemastery/README.md#testout) - Test out
+
+### [powerPathLessonPlans](docs/sdks/powerpathlessonplans/README.md)
+
+* [createLessonPlan](docs/sdks/powerpathlessonplans/README.md#createlessonplan) - Create a lesson plan
+* [getTree](docs/sdks/powerpathlessonplans/README.md#gettree) - Returns the lesson plan tree for a course and student
+* [deleteLessonPlan](docs/sdks/powerpathlessonplans/README.md#deletelessonplan) - Delete a lesson plan
+* [attachComponent](docs/sdks/powerpathlessonplans/README.md#attachcomponent) - Create a lesson plan item to attach a component to a lesson plan
+* [attachResource](docs/sdks/powerpathlessonplans/README.md#attachresource) - Create a lesson plan item to attach a resource to a lesson plan
+* [updateLessonPlanItem](docs/sdks/powerpathlessonplans/README.md#updatelessonplanitem) - Update a lesson plan item
+* [deleteLessonPlanItem](docs/sdks/powerpathlessonplans/README.md#deletelessonplanitem) - Delete a lesson plan item
+
+### [powerPathPlacement](docs/sdks/powerpathplacement/README.md)
+
+* [getAllPlacementTests](docs/sdks/powerpathplacement/README.md#getallplacementtests) - Get all placement tests
+* [getCurrentLevel](docs/sdks/powerpathplacement/README.md#getcurrentlevel) - Get current level
+* [getNextPlacementTest](docs/sdks/powerpathplacement/README.md#getnextplacementtest) - Get next placement test
+* [getSubjectProgress](docs/sdks/powerpathplacement/README.md#getsubjectprogress) - Get subject progress
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -347,12 +372,28 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`lessonPlansGetSyllabus`](docs/sdks/lessonplans/README.md#getsyllabus) - Get course syllabus
 - [`lessonPlansUpdateStudentResponse`](docs/sdks/lessonplans/README.md#updatestudentresponse) - Update student item response
 - [`lessonsCreateAttempt`](docs/sdks/lessons/README.md#createattempt) - Create new attempt
-- [`lessonsFinalizeResponse`](docs/sdks/lessons/README.md#finalizeresponse) - Finalize a quiz assessment
+- [`lessonsFinalizeResponse`](docs/sdks/lessons/README.md#finalizeresponse) - Finalize a test assessments
 - [`lessonsGetAttempts`](docs/sdks/lessons/README.md#getattempts) - Get all attempts
 - [`lessonsGetNextQuestion`](docs/sdks/lessons/README.md#getnextquestion) - Get next question
 - [`lessonsGetProgress`](docs/sdks/lessons/README.md#getprogress) - Get assessment progress
 - [`lessonsResetAttempt`](docs/sdks/lessons/README.md#resetattempt) - Reset attempt
 - [`lessonsUpdateStudentResponse`](docs/sdks/lessons/README.md#updatestudentresponse) - Update student question response
+- [`powerPathCourseMasteryCreateExternalPlacementTest`](docs/sdks/powerpathcoursemastery/README.md#createexternalplacementtest) - Create an External Placement Test
+- [`powerPathCourseMasteryCreateExternalTestOut`](docs/sdks/powerpathcoursemastery/README.md#createexternaltestout) - Create an External TestOut
+- [`powerPathCourseMasteryImportExternalTestAssignmentResults`](docs/sdks/powerpathcoursemastery/README.md#importexternaltestassignmentresults) - Import external test assignment results
+- [`powerPathCourseMasteryMakeExternalTestAssignment`](docs/sdks/powerpathcoursemastery/README.md#makeexternaltestassignment) - Make external test assignment
+- [`powerPathCourseMasteryTestOut`](docs/sdks/powerpathcoursemastery/README.md#testout) - Test out
+- [`powerPathLessonPlansAttachComponent`](docs/sdks/powerpathlessonplans/README.md#attachcomponent) - Create a lesson plan item to attach a component to a lesson plan
+- [`powerPathLessonPlansAttachResource`](docs/sdks/powerpathlessonplans/README.md#attachresource) - Create a lesson plan item to attach a resource to a lesson plan
+- [`powerPathLessonPlansCreateLessonPlan`](docs/sdks/powerpathlessonplans/README.md#createlessonplan) - Create a lesson plan
+- [`powerPathLessonPlansDeleteLessonPlan`](docs/sdks/powerpathlessonplans/README.md#deletelessonplan) - Delete a lesson plan
+- [`powerPathLessonPlansDeleteLessonPlanItem`](docs/sdks/powerpathlessonplans/README.md#deletelessonplanitem) - Delete a lesson plan item
+- [`powerPathLessonPlansGetTree`](docs/sdks/powerpathlessonplans/README.md#gettree) - Returns the lesson plan tree for a course and student
+- [`powerPathLessonPlansUpdateLessonPlanItem`](docs/sdks/powerpathlessonplans/README.md#updatelessonplanitem) - Update a lesson plan item
+- [`powerPathPlacementGetAllPlacementTests`](docs/sdks/powerpathplacement/README.md#getallplacementtests) - Get all placement tests
+- [`powerPathPlacementGetCurrentLevel`](docs/sdks/powerpathplacement/README.md#getcurrentlevel) - Get current level
+- [`powerPathPlacementGetNextPlacementTest`](docs/sdks/powerpathplacement/README.md#getnextplacementtest) - Get next placement test
+- [`powerPathPlacementGetSubjectProgress`](docs/sdks/powerpathplacement/README.md#getsubjectprogress) - Get subject progress
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -371,9 +412,9 @@ const powerPath = new PowerPath({
 });
 
 async function run() {
-  const result = await powerPath.lessonPlans.getStudentCourseProgress({
-    courseId: "<id>",
-    studentId: "<id>",
+  const result = await powerPath.powerPathPlacement.getAllPlacementTests({
+    student: "<value>",
+    subject: "<value>",
   }, {
     retries: {
       strategy: "backoff",
@@ -413,9 +454,9 @@ const powerPath = new PowerPath({
 });
 
 async function run() {
-  const result = await powerPath.lessonPlans.getStudentCourseProgress({
-    courseId: "<id>",
-    studentId: "<id>",
+  const result = await powerPath.powerPathPlacement.getAllPlacementTests({
+    student: "<value>",
+    subject: "<value>",
   });
 
   console.log(result);
@@ -451,9 +492,9 @@ const powerPath = new PowerPath({
 
 async function run() {
   try {
-    const result = await powerPath.lessonPlans.getStudentCourseProgress({
-      courseId: "<id>",
-      studentId: "<id>",
+    const result = await powerPath.powerPathPlacement.getAllPlacementTests({
+      student: "<value>",
+      subject: "<value>",
     });
 
     console.log(result);
@@ -471,6 +512,7 @@ async function run() {
         console.log(error.data$.imsxSeverity); // string
         console.log(error.data$.imsxDescription); // string
         console.log(error.data$.imsxCodeMinor); // errors.BadRequestResponseImsxCodeMinor
+        console.log(error.data$.imsxErrorDetails); // { [k: string]: string }[]
       }
     }
   }
@@ -483,15 +525,10 @@ run();
 ### Error Classes
 **Primary errors:**
 * [`PowerPathError`](./src/models/errors/powerpatherror.ts): The base class for HTTP error responses.
-  * [`BadRequestResponseError`](docs/models/errors/badrequestresponseerror.md): Bad Request. Status code `400`.
   * [`UnauthorizedRequestResponseError`](docs/models/errors/unauthorizedrequestresponseerror.md): Unauthorized. Status code `401`.
   * [`ForbiddenResponseError`](docs/models/errors/forbiddenresponseerror.md): Forbidden. Status code `403`.
-  * [`NotFoundResponseError`](docs/models/errors/notfoundresponseerror.md): Not Found. Status code `404`.
-  * [`UnprocessableEntityResponseError`](docs/models/errors/unprocessableentityresponseerror.md): Unprocessable Entity / Validation Error. Status code `422`.
-  * [`TooManyRequestsResponseError`](docs/models/errors/toomanyrequestsresponseerror.md): Too Many Requests. Status code `429`.
-  * [`InternalServerErrorResponse`](docs/models/errors/internalservererrorresponse.md): Internal Server Error. Status code `500`.
 
-<details><summary>Less common errors (6)</summary>
+<details><summary>Less common errors (11)</summary>
 
 <br />
 
@@ -504,9 +541,16 @@ run();
 
 
 **Inherit from [`PowerPathError`](./src/models/errors/powerpatherror.ts)**:
+* [`BadRequestResponseError`](docs/models/errors/badrequestresponseerror.md): Bad Request. Status code `400`. Applicable to 19 of 26 methods.*
+* [`NotFoundResponseError`](docs/models/errors/notfoundresponseerror.md): Not Found. Status code `404`. Applicable to 19 of 26 methods.*
+* [`UnprocessableEntityResponseError`](docs/models/errors/unprocessableentityresponseerror.md): Unprocessable Entity / Validation Error. Status code `422`. Applicable to 19 of 26 methods.*
+* [`TooManyRequestsResponseError`](docs/models/errors/toomanyrequestsresponseerror.md): Too Many Requests. Status code `429`. Applicable to 19 of 26 methods.*
+* [`InternalServerErrorResponse`](docs/models/errors/internalservererrorresponse.md): Internal Server Error. Status code `500`. Applicable to 19 of 26 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
+
+\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -519,14 +563,14 @@ The default server can be overridden globally by passing a URL to the `serverURL
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  serverURL: "https://staging.alpha-1edtech.com/",
+  serverURL: "https://api.alpha-1edtech.com",
   oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
 });
 
 async function run() {
-  const result = await powerPath.lessonPlans.getStudentCourseProgress({
-    courseId: "<id>",
-    studentId: "<id>",
+  const result = await powerPath.powerPathPlacement.getAllPlacementTests({
+    student: "<value>",
+    subject: "<value>",
   });
 
   console.log(result);

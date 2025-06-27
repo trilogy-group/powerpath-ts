@@ -29,6 +29,7 @@ import { Result } from "../types/fp.js";
  * Update student item response
  *
  * @remarks
+ *
  * Update the student item response for a student in a course.
  *
  * ---

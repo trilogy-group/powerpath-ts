@@ -4,11 +4,16 @@
 
 export * from "./assessmentlineitem.js";
 export * from "./assessmentresult.js";
+export * from "./createexternalplacementinput.js";
+export * from "./createexternaltestoutinput.js";
 export * from "./learningobjectiveset.js";
+export * from "./lessonplantreecomponent.js";
+export * from "./placementupdatestudentquestionresponseresult.js";
 export * from "./powerpath100progressresult.js";
 export * from "./powerpath100updatestudentquestionresponseresult.js";
 export * from "./powerpathtestquestion.js";
-export * from "./quizprogressresult.js";
 export * from "./quizupdatestudentquestionresponseresult.js";
 export * from "./security.js";
+export * from "./testoutresult.js";
+export * from "./testoutupdatestudentquestionresponseresult.js";
 export * from "./updatestudentquestionresponseinput.js";

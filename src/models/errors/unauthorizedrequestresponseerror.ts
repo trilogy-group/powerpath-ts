@@ -23,6 +23,7 @@ export type UnauthorizedRequestResponseErrorData = {
   imsxSeverity: "error";
   imsxDescription: string;
   imsxCodeMinor: UnauthorizedRequestResponseImsxCodeMinor;
+  imsxErrorDetails?: Array<{ [k: string]: string }> | undefined;
 };
 
 export class UnauthorizedRequestResponseError extends PowerPathError {
@@ -30,6 +31,7 @@ export class UnauthorizedRequestResponseError extends PowerPathError {
   imsxSeverity: "error";
   imsxDescription: string;
   imsxCodeMinor: UnauthorizedRequestResponseImsxCodeMinor;
+  imsxErrorDetails?: Array<{ [k: string]: string }> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: UnauthorizedRequestResponseErrorData;
@@ -47,6 +49,9 @@ export class UnauthorizedRequestResponseError extends PowerPathError {
     this.imsxSeverity = err.imsxSeverity;
     this.imsxDescription = err.imsxDescription;
     this.imsxCodeMinor = err.imsxCodeMinor;
+    if (err.imsxErrorDetails != null) {
+      this.imsxErrorDetails = err.imsxErrorDetails;
+    }
 
     this.name = "UnauthorizedRequestResponseError";
   }
@@ -231,6 +236,7 @@ export const UnauthorizedRequestResponseError$inboundSchema: z.ZodType<
   imsx_CodeMinor: z.lazy(() =>
     UnauthorizedRequestResponseImsxCodeMinor$inboundSchema
   ),
+  imsx_error_details: z.array(z.record(z.string())).optional(),
   request$: z.instanceof(Request),
   response$: z.instanceof(Response),
   body$: z.string(),
@@ -241,6 +247,7 @@ export const UnauthorizedRequestResponseError$inboundSchema: z.ZodType<
       "imsx_severity": "imsxSeverity",
       "imsx_description": "imsxDescription",
       "imsx_CodeMinor": "imsxCodeMinor",
+      "imsx_error_details": "imsxErrorDetails",
     });
 
     return new UnauthorizedRequestResponseError(remapped, {
@@ -256,6 +263,7 @@ export type UnauthorizedRequestResponseError$Outbound = {
   imsx_severity: "error";
   imsx_description: string;
   imsx_CodeMinor: UnauthorizedRequestResponseImsxCodeMinor$Outbound;
+  imsx_error_details?: Array<{ [k: string]: string }> | undefined;
 };
 
 /** @internal */
@@ -273,12 +281,14 @@ export const UnauthorizedRequestResponseError$outboundSchema: z.ZodType<
       imsxCodeMinor: z.lazy(() =>
         UnauthorizedRequestResponseImsxCodeMinor$outboundSchema
       ),
+      imsxErrorDetails: z.array(z.record(z.string())).optional(),
     }).transform((v) => {
       return remap$(v, {
         imsxCodeMajor: "imsx_codeMajor",
         imsxSeverity: "imsx_severity",
         imsxDescription: "imsx_description",
         imsxCodeMinor: "imsx_CodeMinor",
+        imsxErrorDetails: "imsx_error_details",
       });
     }),
   );

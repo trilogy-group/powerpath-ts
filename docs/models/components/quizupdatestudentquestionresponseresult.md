@@ -14,5 +14,5 @@ let value: QuizUpdateStudentQuestionResponseResult = {};
 
 | Field                                                         | Type                                                          | Required                                                      | Description                                                   |
 | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| `lessonType`                                                  | *string*                                                      | :heavy_check_mark:                                            | N/A                                                           |
 | `questionResult`                                              | *any*                                                         | :heavy_minus_sign:                                            | The assessment result object for the question (for debugging) |
+| `lessonType`                                                  | *string*                                                      | :heavy_check_mark:                                            | N/A                                                           |

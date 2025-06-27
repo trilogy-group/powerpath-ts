@@ -15,11 +15,11 @@ export const tool$lessonsUpdateStudentResponse: ToolDefinition<typeof args> = {
   name: "lessons-update-student-response",
   description: `Update student question response
 
-Updates the student's response to a question and returns the updated PowerPath score.
+Updates the student's response to a question and returns the updated PowerPath score:
+- Checks the correctness of the response using the QTI question \`<qti-response-declaration>\` element and update the score accordingly.
+- Creates/updates the AssessmentLineItem and AssessmentResult objects for the student/question pair if it doesn't exist yet.
 
-PowerPath will check the correctness of the response using the QTI question \`<qti-response-declaration>\` element and update the score accordingly.
-
-PowerPath will create/update the required AssessmentLineItem and AssessmentResult objects for the student/question pair if it doesn't exist yet.
+A 'Lesson' in this context is a ComponentResource object which has a Resource object associated with it.
 `,
   args,
   tool: async (client, args, ctx) => {

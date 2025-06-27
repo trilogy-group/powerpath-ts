@@ -28,7 +28,7 @@ export type UpdateStudentItemResponseScoreStatus = ClosedEnum<
   typeof UpdateStudentItemResponseScoreStatus
 >;
 
-export type UpdateStudentItemResponseLearningObjectiveId = {
+export type UpdateStudentItemResponseLearningObjectiveResult = {
   learningObjectiveId: string;
   score?: number | undefined;
   textScore?: string | undefined;
@@ -36,7 +36,9 @@ export type UpdateStudentItemResponseLearningObjectiveId = {
 
 export type UpdateStudentItemResponseLearningObjectiveSet = {
   source: string;
-  learningObjectiveIds: Array<UpdateStudentItemResponseLearningObjectiveId>;
+  learningObjectiveResults: Array<
+    UpdateStudentItemResponseLearningObjectiveResult
+  >;
 };
 
 /**
@@ -63,8 +65,7 @@ export type UpdateStudentItemResponseResult = {
 
 export type UpdateStudentItemResponseRequest = {
   studentId: string;
-  componentId?: string | undefined;
-  componentResourceId?: string | undefined;
+  componentResourceId: string;
   /**
    * The student's result for the item, either a component or a componentResource
    */
@@ -75,14 +76,6 @@ export type UpdateStudentItemResponseRequest = {
  * Student item response updated
  */
 export type UpdateStudentItemResponseResponse = {
-  /**
-   * Represents an assessment line item.
-   */
-  componentLineItem?: components.AssessmentLineItem | undefined;
-  /**
-   * Represents an assessment result.
-   */
-  componentResult?: components.AssessmentResult | undefined;
   /**
    * Represents an assessment line item.
    */
@@ -139,9 +132,9 @@ export namespace UpdateStudentItemResponseScoreStatus$ {
 }
 
 /** @internal */
-export const UpdateStudentItemResponseLearningObjectiveId$inboundSchema:
+export const UpdateStudentItemResponseLearningObjectiveResult$inboundSchema:
   z.ZodType<
-    UpdateStudentItemResponseLearningObjectiveId,
+    UpdateStudentItemResponseLearningObjectiveResult,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -151,18 +144,18 @@ export const UpdateStudentItemResponseLearningObjectiveId$inboundSchema:
   });
 
 /** @internal */
-export type UpdateStudentItemResponseLearningObjectiveId$Outbound = {
+export type UpdateStudentItemResponseLearningObjectiveResult$Outbound = {
   learningObjectiveId: string;
   score?: number | undefined;
   textScore?: string | undefined;
 };
 
 /** @internal */
-export const UpdateStudentItemResponseLearningObjectiveId$outboundSchema:
+export const UpdateStudentItemResponseLearningObjectiveResult$outboundSchema:
   z.ZodType<
-    UpdateStudentItemResponseLearningObjectiveId$Outbound,
+    UpdateStudentItemResponseLearningObjectiveResult$Outbound,
     z.ZodTypeDef,
-    UpdateStudentItemResponseLearningObjectiveId
+    UpdateStudentItemResponseLearningObjectiveResult
   > = z.object({
     learningObjectiveId: z.string(),
     score: z.number().optional(),
@@ -173,41 +166,42 @@ export const UpdateStudentItemResponseLearningObjectiveId$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace UpdateStudentItemResponseLearningObjectiveId$ {
-  /** @deprecated use `UpdateStudentItemResponseLearningObjectiveId$inboundSchema` instead. */
+export namespace UpdateStudentItemResponseLearningObjectiveResult$ {
+  /** @deprecated use `UpdateStudentItemResponseLearningObjectiveResult$inboundSchema` instead. */
   export const inboundSchema =
-    UpdateStudentItemResponseLearningObjectiveId$inboundSchema;
-  /** @deprecated use `UpdateStudentItemResponseLearningObjectiveId$outboundSchema` instead. */
+    UpdateStudentItemResponseLearningObjectiveResult$inboundSchema;
+  /** @deprecated use `UpdateStudentItemResponseLearningObjectiveResult$outboundSchema` instead. */
   export const outboundSchema =
-    UpdateStudentItemResponseLearningObjectiveId$outboundSchema;
-  /** @deprecated use `UpdateStudentItemResponseLearningObjectiveId$Outbound` instead. */
-  export type Outbound = UpdateStudentItemResponseLearningObjectiveId$Outbound;
+    UpdateStudentItemResponseLearningObjectiveResult$outboundSchema;
+  /** @deprecated use `UpdateStudentItemResponseLearningObjectiveResult$Outbound` instead. */
+  export type Outbound =
+    UpdateStudentItemResponseLearningObjectiveResult$Outbound;
 }
 
-export function updateStudentItemResponseLearningObjectiveIdToJSON(
-  updateStudentItemResponseLearningObjectiveId:
-    UpdateStudentItemResponseLearningObjectiveId,
+export function updateStudentItemResponseLearningObjectiveResultToJSON(
+  updateStudentItemResponseLearningObjectiveResult:
+    UpdateStudentItemResponseLearningObjectiveResult,
 ): string {
   return JSON.stringify(
-    UpdateStudentItemResponseLearningObjectiveId$outboundSchema.parse(
-      updateStudentItemResponseLearningObjectiveId,
+    UpdateStudentItemResponseLearningObjectiveResult$outboundSchema.parse(
+      updateStudentItemResponseLearningObjectiveResult,
     ),
   );
 }
 
-export function updateStudentItemResponseLearningObjectiveIdFromJSON(
+export function updateStudentItemResponseLearningObjectiveResultFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  UpdateStudentItemResponseLearningObjectiveId,
+  UpdateStudentItemResponseLearningObjectiveResult,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      UpdateStudentItemResponseLearningObjectiveId$inboundSchema.parse(
+      UpdateStudentItemResponseLearningObjectiveResult$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'UpdateStudentItemResponseLearningObjectiveId' from JSON`,
+    `Failed to parse 'UpdateStudentItemResponseLearningObjectiveResult' from JSON`,
   );
 }
 
@@ -219,16 +213,18 @@ export const UpdateStudentItemResponseLearningObjectiveSet$inboundSchema:
     unknown
   > = z.object({
     source: z.string(),
-    learningObjectiveIds: z.array(
-      z.lazy(() => UpdateStudentItemResponseLearningObjectiveId$inboundSchema),
+    learningObjectiveResults: z.array(
+      z.lazy(() =>
+        UpdateStudentItemResponseLearningObjectiveResult$inboundSchema
+      ),
     ),
   });
 
 /** @internal */
 export type UpdateStudentItemResponseLearningObjectiveSet$Outbound = {
   source: string;
-  learningObjectiveIds: Array<
-    UpdateStudentItemResponseLearningObjectiveId$Outbound
+  learningObjectiveResults: Array<
+    UpdateStudentItemResponseLearningObjectiveResult$Outbound
   >;
 };
 
@@ -240,8 +236,10 @@ export const UpdateStudentItemResponseLearningObjectiveSet$outboundSchema:
     UpdateStudentItemResponseLearningObjectiveSet
   > = z.object({
     source: z.string(),
-    learningObjectiveIds: z.array(
-      z.lazy(() => UpdateStudentItemResponseLearningObjectiveId$outboundSchema),
+    learningObjectiveResults: z.array(
+      z.lazy(() =>
+        UpdateStudentItemResponseLearningObjectiveResult$outboundSchema
+      ),
     ),
   });
 
@@ -397,16 +395,14 @@ export const UpdateStudentItemResponseRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   studentId: z.string(),
-  componentId: z.string().optional(),
-  componentResourceId: z.string().optional(),
+  componentResourceId: z.string(),
   result: z.lazy(() => UpdateStudentItemResponseResult$inboundSchema),
 });
 
 /** @internal */
 export type UpdateStudentItemResponseRequest$Outbound = {
   studentId: string;
-  componentId?: string | undefined;
-  componentResourceId?: string | undefined;
+  componentResourceId: string;
   result: UpdateStudentItemResponseResult$Outbound;
 };
 
@@ -417,8 +413,7 @@ export const UpdateStudentItemResponseRequest$outboundSchema: z.ZodType<
   UpdateStudentItemResponseRequest
 > = z.object({
   studentId: z.string(),
-  componentId: z.string().optional(),
-  componentResourceId: z.string().optional(),
+  componentResourceId: z.string(),
   result: z.lazy(() => UpdateStudentItemResponseResult$outboundSchema),
 });
 
@@ -461,8 +456,6 @@ export const UpdateStudentItemResponseResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  componentLineItem: components.AssessmentLineItem$inboundSchema.optional(),
-  componentResult: components.AssessmentResult$inboundSchema.optional(),
   componentResourceLineItem: components.AssessmentLineItem$inboundSchema
     .optional(),
   componentResourceResult: components.AssessmentResult$inboundSchema.optional(),
@@ -470,8 +463,6 @@ export const UpdateStudentItemResponseResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type UpdateStudentItemResponseResponse$Outbound = {
-  componentLineItem?: components.AssessmentLineItem$Outbound | undefined;
-  componentResult?: components.AssessmentResult$Outbound | undefined;
   componentResourceLineItem?:
     | components.AssessmentLineItem$Outbound
     | undefined;
@@ -484,8 +475,6 @@ export const UpdateStudentItemResponseResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   UpdateStudentItemResponseResponse
 > = z.object({
-  componentLineItem: components.AssessmentLineItem$outboundSchema.optional(),
-  componentResult: components.AssessmentResult$outboundSchema.optional(),
   componentResourceLineItem: components.AssessmentLineItem$outboundSchema
     .optional(),
   componentResourceResult: components.AssessmentResult$outboundSchema

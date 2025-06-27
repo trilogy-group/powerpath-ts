@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: bf2d5496-2406-413a-9727-ddaa0a56268e
 management:
-  docChecksum: 3b706c7d2ccab437b0e1df838fc2d054
+  docChecksum: 041e2c11d1a6fde2edcc5236c6634374
   docVersion: 1.0.0
   speakeasyVersion: 1.571.1
   generationVersion: 2.640.2
-  releaseVersion: 0.2.0
-  configChecksum: abefbc6143c406e46ef91d8ab3e898c0
+  releaseVersion: 0.2.2
+  configChecksum: 776cfb59aa5444e1d03064a4cc675341
   repoURL: https://github.com/trilogy-group/powerpath-ts.git
   installationURL: https://github.com/trilogy-group/powerpath-ts
   published: true
@@ -42,20 +42,30 @@ generatedFiles:
   - USAGE.md
   - docs/lib/utils/retryconfig.md
   - docs/models/components/assessmentlineitem.md
+  - docs/models/components/assessmentlineitemcomponentresource.md
   - docs/models/components/assessmentlineitemscorescale.md
   - docs/models/components/assessmentlineitemstatus.md
   - docs/models/components/assessmentresult.md
   - docs/models/components/assessmentresultassessmentlineitem.md
-  - docs/models/components/assessmentresultlearningobjectiveid.md
   - docs/models/components/assessmentresultlearningobjectiveset.md
   - docs/models/components/assessmentresultscorescale.md
   - docs/models/components/assessmentresultstatus.md
   - docs/models/components/class.md
   - docs/models/components/component.md
-  - docs/models/components/componentresource.md
+  - docs/models/components/createexternalplacementinput.md
+  - docs/models/components/createexternalplacementinputtoolprovider.md
+  - docs/models/components/createexternaltestoutinput.md
+  - docs/models/components/createexternaltestoutinputtoolprovider.md
+  - docs/models/components/credentials.md
+  - docs/models/components/importance.md
+  - docs/models/components/learningobjectiveresult.md
   - docs/models/components/learningobjectiveset.md
-  - docs/models/components/learningobjectivesetlearningobjectiveid.md
-  - docs/models/components/parent.md
+  - docs/models/components/lessonplantreecomponent.md
+  - docs/models/components/lessonplantreecomponentcomponentresource.md
+  - docs/models/components/lessonplantreecomponentstatus.md
+  - docs/models/components/metadatadetails.md
+  - docs/models/components/parentassessmentlineitem.md
+  - docs/models/components/placementupdatestudentquestionresponseresult.md
   - docs/models/components/powerpath100progressresult.md
   - docs/models/components/powerpath100progressresultcontent.md
   - docs/models/components/powerpath100progressresultdifficulty.md
@@ -67,14 +77,18 @@ generatedFiles:
   - docs/models/components/powerpathtestquestiondifficulty.md
   - docs/models/components/powerpathtestquestionresponse.md
   - docs/models/components/powerpathtestquestionresult.md
-  - docs/models/components/quizprogressresult.md
   - docs/models/components/quizupdatestudentquestionresponseresult.md
   - docs/models/components/remainingquestionsperdifficulty.md
+  - docs/models/components/resource.md
+  - docs/models/components/resourcestatus.md
   - docs/models/components/responseresult.md
+  - docs/models/components/role.md
   - docs/models/components/scorestatus.md
   - docs/models/components/security.md
   - docs/models/components/seenquestion.md
   - docs/models/components/student.md
+  - docs/models/components/testoutresult.md
+  - docs/models/components/testoutupdatestudentquestionresponseresult.md
   - docs/models/components/updatestudentquestionresponseinput.md
   - docs/models/components/updatestudentquestionresponseinputresponse.md
   - docs/models/errors/badrequestresponseerror.md
@@ -98,19 +112,61 @@ generatedFiles:
   - docs/models/errors/unprocessableentityresponseerror.md
   - docs/models/errors/unprocessableentityresponseimsxcodeminor.md
   - docs/models/errors/unprocessableentityresponseimsxcodeminorfield.md
-  - docs/models/operations/attempt.md
+  - docs/models/operations/assessmentlineitems.md
+  - docs/models/operations/assessmentresult.md
+  - docs/models/operations/attachcomponentlessonplanitem.md
+  - docs/models/operations/attachcomponentrequest.md
+  - docs/models/operations/attachcomponentrequestbody.md
+  - docs/models/operations/attachcomponentresponse.md
+  - docs/models/operations/attachcomponenttype.md
+  - docs/models/operations/attachresourcelessonplanitem.md
+  - docs/models/operations/attachresourcerequest.md
+  - docs/models/operations/attachresourcerequestbody.md
+  - docs/models/operations/attachresourceresponse.md
+  - docs/models/operations/attachresourcetype.md
+  - docs/models/operations/componentresources.md
+  - docs/models/operations/createexternalplacementtestlessontype.md
+  - docs/models/operations/createexternalplacementtestrequest.md
+  - docs/models/operations/createexternalplacementtestresponse.md
+  - docs/models/operations/createexternaltestoutlessontype.md
+  - docs/models/operations/createexternaltestoutrequest.md
+  - docs/models/operations/createexternaltestoutresponse.md
+  - docs/models/operations/createlessonplanacademicsession1.md
+  - docs/models/operations/createlessonplanacademicsession2.md
+  - docs/models/operations/createlessonplancourse1.md
+  - docs/models/operations/createlessonplancourse2.md
+  - docs/models/operations/createlessonplanlessonplan1.md
+  - docs/models/operations/createlessonplanlessonplan2.md
+  - docs/models/operations/createlessonplanlessonplanlessonplan1.md
+  - docs/models/operations/createlessonplanlessonplanlessonplan2.md
+  - docs/models/operations/createlessonplanorg1.md
+  - docs/models/operations/createlessonplanorg2.md
+  - docs/models/operations/createlessonplanrequest.md
+  - docs/models/operations/createlessonplanresponse.md
+  - docs/models/operations/createlessonplanresponsebody1.md
+  - docs/models/operations/createlessonplanresponsebody2.md
+  - docs/models/operations/createlessonplanstatus1.md
+  - docs/models/operations/createlessonplanstatus2.md
+  - docs/models/operations/createnewattemptattempt.md
   - docs/models/operations/createnewattemptrequest.md
   - docs/models/operations/createnewattemptresponse.md
   - docs/models/operations/createnewattemptscorestatus.md
+  - docs/models/operations/deletelessonplanitemrequest.md
+  - docs/models/operations/deletelessonplanrequest.md
+  - docs/models/operations/finalstudentassessmentresponselessontype.md
   - docs/models/operations/finalstudentassessmentresponserequest.md
   - docs/models/operations/finalstudentassessmentresponseresponse.md
+  - docs/models/operations/getallplacementtestsrequest.md
+  - docs/models/operations/getallplacementtestsresponse.md
+  - docs/models/operations/getassessmentprogresslessontype.md
   - docs/models/operations/getassessmentprogressrequest.md
   - docs/models/operations/getassessmentprogressresponse.md
+  - docs/models/operations/getattemptsattempt.md
   - docs/models/operations/getattemptsrequest.md
   - docs/models/operations/getattemptsresponse.md
   - docs/models/operations/getattemptsscorestatus.md
-  - docs/models/operations/getcourseprogresslearningobjectiveid1.md
-  - docs/models/operations/getcourseprogresslearningobjectiveid2.md
+  - docs/models/operations/getcourseprogresslearningobjectiveresult1.md
+  - docs/models/operations/getcourseprogresslearningobjectiveresult2.md
   - docs/models/operations/getcourseprogresslearningobjectiveset1.md
   - docs/models/operations/getcourseprogresslearningobjectiveset2.md
   - docs/models/operations/getcourseprogressrequest.md
@@ -123,16 +179,49 @@ generatedFiles:
   - docs/models/operations/getcourseprogressstatus2.md
   - docs/models/operations/getcoursesyllabusrequest.md
   - docs/models/operations/getcoursesyllabusresponse.md
+  - docs/models/operations/getcurrentlevelrequest.md
+  - docs/models/operations/getcurrentlevelresponse.md
+  - docs/models/operations/getnextplacementtestrequest.md
+  - docs/models/operations/getnextplacementtestresponse.md
   - docs/models/operations/getnextquestionrequest.md
   - docs/models/operations/getnextquestionresponse.md
+  - docs/models/operations/getsubjectprogresscourse.md
+  - docs/models/operations/getsubjectprogressrequest.md
+  - docs/models/operations/getsubjectprogressresponse.md
+  - docs/models/operations/gettreeacademicsession.md
+  - docs/models/operations/gettreecourse.md
+  - docs/models/operations/gettreelessonplan.md
+  - docs/models/operations/gettreelessonplanlessonplan.md
+  - docs/models/operations/gettreeorg.md
+  - docs/models/operations/gettreerequest.md
+  - docs/models/operations/gettreeresponse.md
+  - docs/models/operations/gettreestatus.md
+  - docs/models/operations/importexternaltestassignmentresultscredentials.md
+  - docs/models/operations/importexternaltestassignmentresultslessontype.md
+  - docs/models/operations/importexternaltestassignmentresultsrequest.md
+  - docs/models/operations/importexternaltestassignmentresultsresponse.md
   - docs/models/operations/lineitem.md
   - docs/models/operations/lineitemcomponent.md
   - docs/models/operations/lineitemresource.md
+  - docs/models/operations/makeexternaltestassignmentcredentials.md
+  - docs/models/operations/makeexternaltestassignmentlessontype.md
+  - docs/models/operations/makeexternaltestassignmentrequest.md
+  - docs/models/operations/makeexternaltestassignmentresponse.md
+  - docs/models/operations/placementtest.md
+  - docs/models/operations/progress.md
   - docs/models/operations/resetattemptrequest.md
   - docs/models/operations/resetattemptresponse.md
+  - docs/models/operations/resources.md
+  - docs/models/operations/resourcesmetadata.md
+  - docs/models/operations/responsebody.md
   - docs/models/operations/scorescale1.md
   - docs/models/operations/scorescale2.md
-  - docs/models/operations/updatestudentitemresponselearningobjectiveid.md
+  - docs/models/operations/testoutrequest.md
+  - docs/models/operations/toolprovider.md
+  - docs/models/operations/updatelessonplanitemrequest.md
+  - docs/models/operations/updatelessonplanitemrequestbody.md
+  - docs/models/operations/updatelessonplanitemtype.md
+  - docs/models/operations/updatestudentitemresponselearningobjectiveresult.md
   - docs/models/operations/updatestudentitemresponselearningobjectiveset.md
   - docs/models/operations/updatestudentitemresponserequest.md
   - docs/models/operations/updatestudentitemresponseresponse.md
@@ -143,6 +232,9 @@ generatedFiles:
   - docs/sdks/lessonplans/README.md
   - docs/sdks/lessons/README.md
   - docs/sdks/powerpath/README.md
+  - docs/sdks/powerpathcoursemastery/README.md
+  - docs/sdks/powerpathlessonplans/README.md
+  - docs/sdks/powerpathplacement/README.md
   - eslint.config.mjs
   - jsr.json
   - package.json
@@ -157,6 +249,22 @@ generatedFiles:
   - src/funcs/lessonsGetProgress.ts
   - src/funcs/lessonsResetAttempt.ts
   - src/funcs/lessonsUpdateStudentResponse.ts
+  - src/funcs/powerPathCourseMasteryCreateExternalPlacementTest.ts
+  - src/funcs/powerPathCourseMasteryCreateExternalTestOut.ts
+  - src/funcs/powerPathCourseMasteryImportExternalTestAssignmentResults.ts
+  - src/funcs/powerPathCourseMasteryMakeExternalTestAssignment.ts
+  - src/funcs/powerPathCourseMasteryTestOut.ts
+  - src/funcs/powerPathLessonPlansAttachComponent.ts
+  - src/funcs/powerPathLessonPlansAttachResource.ts
+  - src/funcs/powerPathLessonPlansCreateLessonPlan.ts
+  - src/funcs/powerPathLessonPlansDeleteLessonPlan.ts
+  - src/funcs/powerPathLessonPlansDeleteLessonPlanItem.ts
+  - src/funcs/powerPathLessonPlansGetTree.ts
+  - src/funcs/powerPathLessonPlansUpdateLessonPlanItem.ts
+  - src/funcs/powerPathPlacementGetAllPlacementTests.ts
+  - src/funcs/powerPathPlacementGetCurrentLevel.ts
+  - src/funcs/powerPathPlacementGetNextPlacementTest.ts
+  - src/funcs/powerPathPlacementGetSubjectProgress.ts
   - src/hooks/hooks.ts
   - src/hooks/index.ts
   - src/hooks/types.ts
@@ -200,16 +308,37 @@ generatedFiles:
   - src/mcp-server/tools/lessonsGetProgress.ts
   - src/mcp-server/tools/lessonsResetAttempt.ts
   - src/mcp-server/tools/lessonsUpdateStudentResponse.ts
+  - src/mcp-server/tools/powerPathCourseMasteryCreateExternalPlacementTest.ts
+  - src/mcp-server/tools/powerPathCourseMasteryCreateExternalTestOut.ts
+  - src/mcp-server/tools/powerPathCourseMasteryImportExternalTestAssignmentResults.ts
+  - src/mcp-server/tools/powerPathCourseMasteryMakeExternalTestAssignment.ts
+  - src/mcp-server/tools/powerPathCourseMasteryTestOut.ts
+  - src/mcp-server/tools/powerPathLessonPlansAttachComponent.ts
+  - src/mcp-server/tools/powerPathLessonPlansAttachResource.ts
+  - src/mcp-server/tools/powerPathLessonPlansCreateLessonPlan.ts
+  - src/mcp-server/tools/powerPathLessonPlansDeleteLessonPlan.ts
+  - src/mcp-server/tools/powerPathLessonPlansDeleteLessonPlanItem.ts
+  - src/mcp-server/tools/powerPathLessonPlansGetTree.ts
+  - src/mcp-server/tools/powerPathLessonPlansUpdateLessonPlanItem.ts
+  - src/mcp-server/tools/powerPathPlacementGetAllPlacementTests.ts
+  - src/mcp-server/tools/powerPathPlacementGetCurrentLevel.ts
+  - src/mcp-server/tools/powerPathPlacementGetNextPlacementTest.ts
+  - src/mcp-server/tools/powerPathPlacementGetSubjectProgress.ts
   - src/models/components/assessmentlineitem.ts
   - src/models/components/assessmentresult.ts
+  - src/models/components/createexternalplacementinput.ts
+  - src/models/components/createexternaltestoutinput.ts
   - src/models/components/index.ts
   - src/models/components/learningobjectiveset.ts
+  - src/models/components/lessonplantreecomponent.ts
+  - src/models/components/placementupdatestudentquestionresponseresult.ts
   - src/models/components/powerpath100progressresult.ts
   - src/models/components/powerpath100updatestudentquestionresponseresult.ts
   - src/models/components/powerpathtestquestion.ts
-  - src/models/components/quizprogressresult.ts
   - src/models/components/quizupdatestudentquestionresponseresult.ts
   - src/models/components/security.ts
+  - src/models/components/testoutresult.ts
+  - src/models/components/testoutupdatestudentquestionresponseresult.ts
   - src/models/components/updatestudentquestionresponseinput.ts
   - src/models/errors/apierror.ts
   - src/models/errors/badrequestresponseerror.ts
@@ -224,20 +353,39 @@ generatedFiles:
   - src/models/errors/toomanyrequestsresponseerror.ts
   - src/models/errors/unauthorizedrequestresponseerror.ts
   - src/models/errors/unprocessableentityresponseerror.ts
+  - src/models/operations/attachcomponent.ts
+  - src/models/operations/attachresource.ts
+  - src/models/operations/createexternalplacementtest.ts
+  - src/models/operations/createexternaltestout.ts
+  - src/models/operations/createlessonplan.ts
   - src/models/operations/createnewattempt.ts
+  - src/models/operations/deletelessonplan.ts
+  - src/models/operations/deletelessonplanitem.ts
   - src/models/operations/finalstudentassessmentresponse.ts
+  - src/models/operations/getallplacementtests.ts
   - src/models/operations/getassessmentprogress.ts
   - src/models/operations/getattempts.ts
   - src/models/operations/getcourseprogress.ts
   - src/models/operations/getcoursesyllabus.ts
+  - src/models/operations/getcurrentlevel.ts
+  - src/models/operations/getnextplacementtest.ts
   - src/models/operations/getnextquestion.ts
+  - src/models/operations/getsubjectprogress.ts
+  - src/models/operations/gettree.ts
+  - src/models/operations/importexternaltestassignmentresults.ts
   - src/models/operations/index.ts
+  - src/models/operations/makeexternaltestassignment.ts
   - src/models/operations/resetattempt.ts
+  - src/models/operations/testout.ts
+  - src/models/operations/updatelessonplanitem.ts
   - src/models/operations/updatestudentitemresponse.ts
   - src/models/operations/updatestudentquestionresponse.ts
   - src/sdk/index.ts
   - src/sdk/lessonplans.ts
   - src/sdk/lessons.ts
+  - src/sdk/powerpathcoursemastery.ts
+  - src/sdk/powerpathlessonplans.ts
+  - src/sdk/powerpathplacement.ts
   - src/sdk/sdk.ts
   - src/types/async.ts
   - src/types/blobs.ts
@@ -318,7 +466,7 @@ examples:
     speakeasy-default-create-new-attempt:
       responses:
         "200":
-          application/json: {"attempt": 574.76, "score": 6694.14, "scoreStatus": "exempt", "startedAt": "2025-12-09T08:59:12.222Z", "completedAt": "2023-08-02T13:08:02.067Z"}
+          application/json: {"attempt": {"attempt": 574.76, "score": 6694.14, "scoreStatus": "exempt", "startedAt": "2025-12-09T08:59:12.222Z", "completedAt": "2023-08-02T13:08:02.067Z"}}
         "400":
           application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
         "401":
@@ -337,7 +485,7 @@ examples:
     speakeasy-default-final-student-assessment-response:
       responses:
         "200":
-          application/json: {"lessonType": "quiz", "finalized": true, "questions": [{"id": "<id>", "index": 5252.86, "title": "<value>", "url": "https://devoted-gym.info/", "difficulty": "medium"}], "score": 9260.11, "accuracy": 6018.84, "correctQuestions": 1933.97, "totalQuestions": 154.28, "xp": 5881.18, "multiplier": 9670.55}
+          application/json: {"lessonType": "quiz", "finalized": true, "attempt": 925.99}
         "400":
           application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "invaliddata"}]}}
         "401":
@@ -360,7 +508,7 @@ examples:
           lesson: "<value>"
       responses:
         "200":
-          application/json: {"lessonType": "quiz", "finalized": true, "questions": [{"id": "<id>", "index": 7741.67, "title": "<value>", "url": "https://overcooked-knitting.info/", "difficulty": "medium"}], "xp": 1076.13, "multiplier": 3077.59, "accuracy": 8542.9, "correctQuestions": 5933.98, "totalQuestions": 8944.87}
+          application/json: {"lessonType": "quiz", "finalized": true, "questions": [{"id": "<id>", "index": 7741.67, "title": "<value>", "url": "https://overcooked-knitting.info/", "difficulty": "medium"}], "toolProvider": "<value>", "attempt": 6838.09, "xp": 1076.13, "multiplier": 3077.59, "accuracy": 8542.9, "correctQuestions": 5933.98, "totalQuestions": 8944.87}
         "400":
           application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "invaliddata"}]}}
         "401":
@@ -459,5 +607,278 @@ examples:
           application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "server_busy"}]}}
         "500":
           application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "internal_server_error"}]}}
+  getAllPlacementTests:
+    speakeasy-default-get-all-placement-tests:
+      parameters:
+        query:
+          student: "<value>"
+          subject: "<value>"
+      responses:
+        "200":
+          application/json: {"placementTests": [{"component_resources": {}, "resources": {}, "resources_metadata": {}, "assessment_line_items": {}, "assessment_results": [{}]}]}
+        "400":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "invaliddata"}]}}
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "unauthorisedrequest"}]}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "forbidden"}]}}
+        "404":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "422":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "429":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "500":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "internal_server_error"}]}}
+  getCurrentLevel:
+    speakeasy-default-get-current-level:
+      parameters:
+        query:
+          student: "<value>"
+          subject: "<value>"
+      responses:
+        "200":
+          application/json: {"gradeLevel": 7266.77, "onboarded": false, "availableTests": 8978.42}
+        "400":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "forbidden"}]}}
+        "404":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "unknownobject"}]}}
+        "422":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "invaliddata"}]}}
+        "429":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "server_busy"}]}}
+        "500":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "internal_server_error"}]}}
+  getNextPlacementTest:
+    speakeasy-default-get-next-placement-test:
+      parameters:
+        query:
+          student: "<value>"
+          subject: "<value>"
+      responses:
+        "200":
+          application/json: {"exhaustedTests": false, "gradeLevel": 2405.44, "lesson": "<value>", "onboarded": true, "availableTests": 6244.94}
+        "400":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "invaliddata"}]}}
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "forbidden"}]}}
+        "404":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "422":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "429":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "server_busy"}]}}
+        "500":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "internal_server_error"}]}}
+  getSubjectProgress:
+    speakeasy-default-get-subject-progress:
+      parameters:
+        query:
+          student: "<value>"
+          subject: "<value>"
+      responses:
+        "200":
+          application/json: {"progress": []}
+        "400":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "404":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "unknownobject"}]}}
+        "422":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "429":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "server_busy"}]}}
+        "500":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "internal_server_error"}]}}
+  createExternalPlacementTest:
+    speakeasy-default-create-external-placement-test:
+      responses:
+        "200":
+          application/json: {"lessonType": "quiz", "lessonId": "<id>", "courseComponentId": "<id>", "resourceId": "<id>", "toolProvider": "<value>", "vendorId": "<id>"}
+        "400":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "invaliddata"}]}}
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "unauthorisedrequest"}]}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "404":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "unknownobject"}]}}
+        "422":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "invaliddata"}]}}
+        "429":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "500":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+  createExternalTestOut:
+    speakeasy-default-create-external-test-out:
+      responses:
+        "200":
+          application/json: {"lessonType": "placement", "lessonId": "<id>", "courseComponentId": "<id>", "resourceId": "<id>", "toolProvider": "<value>", "vendorId": "<id>"}
+        "400":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "unauthorisedrequest"}]}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "404":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "unknownobject"}]}}
+        "422":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "invaliddata"}]}}
+        "429":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "500":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+  importExternalTestAssignmentResults:
+    speakeasy-default-import-external-test-assignment-results:
+      parameters:
+        query:
+          student: "<value>"
+          lesson: "<value>"
+      responses:
+        "200":
+          application/json: {"lessonType": "placement", "lessonId": "<id>", "toolProvider": "<value>", "finalized": true, "attempt": 7302.49, "courseIdOnFail": "<value>", "hasFallbackCourse": false}
+        "400":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "forbidden"}]}}
+        "404":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "422":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "429":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "500":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "internal_server_error"}]}}
+  makeExternalTestAssignment:
+    speakeasy-default-make-external-test-assignment:
+      responses:
+        "200":
+          application/json: {"toolProvider": "edulastic", "lessonType": "test-out", "attempt": 8383.49}
+        "400":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "invaliddata"}]}}
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "unauthorisedrequest"}]}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "404":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "unknownobject"}]}}
+        "422":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "invaliddata"}]}}
+        "429":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "server_busy"}]}}
+        "500":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+  testOut:
+    speakeasy-default-test-out:
+      parameters:
+        query:
+          student: "<value>"
+          course: "<value>"
+      responses:
+        "200":
+          application/json: {"lessonType": "test-out", "lessonId": "<id>", "finalized": false, "toolProvider": "<value>"}
+        "400":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "forbidden"}]}}
+        "404":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "422":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "429":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "server_busy"}]}}
+        "500":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+  createLessonPlan:
+    speakeasy-default-create-lesson-plan:
+      responses:
+        "200":
+          application/json: {"lessonPlan": {"lessonPlan": {"course": {"status": "active", "title": "<value>", "org": {"sourcedId": "<id>"}}, "subComponents": [{"id": "<id>", "sourcedId": "<id>", "status": "active", "title": "<value>"}]}}}
+        "201":
+          application/json: {"lessonPlan": {"lessonPlan": {"course": {"status": "tobedeleted", "title": "<value>", "org": {"sourcedId": "<id>"}}, "subComponents": []}}}
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "unauthorisedrequest"}]}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "forbidden"}]}}
+  getTree:
+    speakeasy-default-get-tree:
+      parameters:
+        path:
+          courseId: "<id>"
+          userId: "<id>"
+      responses:
+        "200":
+          application/json: {"lessonPlan": {"lessonPlan": {"course": {"status": "active", "title": "<value>", "org": {"sourcedId": "<id>"}}, "subComponents": [{"id": "<id>", "sourcedId": "<id>", "status": "tobedeleted", "title": "<value>"}]}}}
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "forbidden"}]}}
+  deleteLessonPlan:
+    speakeasy-default-delete-lesson-plan:
+      parameters:
+        path:
+          lessonPlanId: "<id>"
+      responses:
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+  attachComponent:
+    speakeasy-default-attach-component:
+      parameters:
+        path:
+          lessonPlanId: "<id>"
+      responses:
+        "201":
+          application/json: {"lessonPlanItem": {"lessonPlanId": "<id>", "type": "resource", "order": 7578.58, "skipped": false}}
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "unauthorisedrequest"}]}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+  attachResource:
+    speakeasy-default-attach-resource:
+      parameters:
+        path:
+          lessonPlanId: "<id>"
+      responses:
+        "201":
+          application/json: {"lessonPlanItem": {"lessonPlanId": "<id>", "type": "resource", "order": 4233.26, "skipped": false}}
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "unauthorisedrequest"}]}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+  updateLessonPlanItem:
+    speakeasy-default-update-lesson-plan-item:
+      parameters:
+        path:
+          lessonPlanItemId: "<id>"
+      responses:
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": [{"imsx_codeMinorFieldName": "TargetEndSystem", "imsx_codeMinorFieldValue": "forbidden"}]}}
+  deleteLessonPlanItem:
+    speakeasy-default-delete-lesson-plan-item:
+      parameters:
+        path:
+          lessonPlanItemId: "<id>"
+      responses:
+        "401":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
+        "403":
+          application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
 examplesVersion: 1.0.2
 generatedTests: {}

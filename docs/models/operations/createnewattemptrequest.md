@@ -13,7 +13,7 @@ let value: CreateNewAttemptRequest = {
 
 ## Fields
 
-| Field                        | Type                         | Required                     | Description                  |
-| ---------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
-| `student`                    | *string*                     | :heavy_check_mark:           | The sourcedId of the student |
-| `lesson`                     | *string*                     | :heavy_check_mark:           | The sourcedId of the lesson  |
+| Field                                           | Type                                            | Required                                        | Description                                     |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| `student`                                       | *string*                                        | :heavy_check_mark:                              | The sourcedId of the student                    |
+| `lesson`                                        | *string*                                        | :heavy_check_mark:                              | The sourcedId of the lesson (ComponentResource) |

@@ -19,7 +19,16 @@ export class Lessons extends ClientSDK {
    * Create new attempt
    *
    * @remarks
-   * Creates a new attempt for a student in a lesson if current attempt is completed
+   * Creates a new attempt for a student in a lesson if the current attempt is completed.
+   *
+   * For Assessment Bank lessons:
+   * - This will also update the state for the student, creating a new entry to associate the new attempt number with a different sub-resource of the test bank.
+   * - If the lesson is taken again by the student, a different test may be served, considering the new resource it points to configures a different test.
+   * - The sub-test is determined using round-robin logic over the sub-resources of the lesson's Assessment Bank Resource object.
+   *
+   *   - So for example, if a lesson configures 2 sub-tests, the first attempt serves test 1, the second attempt serves test 2, the third attempt serves test 1 again, and so on.
+   *
+   * A 'Lesson' in this context is a ComponentResource object which has a Resource object associated with it.
    */
   async createAttempt(
     request?: operations.CreateNewAttemptRequest | undefined,
@@ -33,18 +42,17 @@ export class Lessons extends ClientSDK {
   }
 
   /**
-   * Finalize a quiz assessment
+   * Finalize a test assessments
    *
    * @remarks
-   * Finalize a lesson/assessment of 'quiz' type after all questions have been answered.
+   * Finalize a lesson of type `quiz`, `test-out`, or `placement` after all questions have been answered:
+   * - Evaluates answered questions, attribute scores for each question, and overall lesson score.
+   * - Checks the correctness of the response using the QTI question's `<qti-response-declaration>` element and update the score accordingly.
+   * - Creates/updates the AssessmentLineItem and AssessmentResult objects for the student/question pair if it doesn't exist yet.
    *
-   * Evaluates answered questions, attribute scores for each question, and overall lesson score.
+   * Not supported for external test lessons as the 3rd party tool is responsible for finalizing the test. Use the **importExternalTestAssignmentResults** endpoint instead.
    *
-   * PowerPath will check the correctness of the response using the QTI question `<qti-response-declaration>` element and update the score accordingly.
-   *
-   * PowerPath will create/update the required AssessmentLineItem and AssessmentResult objects for the student/question pair if it doesn't exist yet.
-   *
-   * Returns the final assessment result for the student.
+   * A 'Lesson' in this context is a ComponentResource object which has a Resource object with metadata.lessonType = "quiz", "test-out", or "placement" associated with it.
    */
   async finalizeResponse(
     request?: operations.FinalStudentAssessmentResponseRequest | undefined,
@@ -61,7 +69,9 @@ export class Lessons extends ClientSDK {
    * Get assessment progress
    *
    * @remarks
-   * Returns the progress the student has made in the given PowerPath lesson
+   * Returns the progress the student has made in the given PowerPath lesson.
+   *
+   * A 'Lesson' in this context is a ComponentResource object paired with a Resource object representing an activity.
    */
   async getProgress(
     request: operations.GetAssessmentProgressRequest,
@@ -79,6 +89,10 @@ export class Lessons extends ClientSDK {
    *
    * @remarks
    * Returns a list of all attempts for a student in a lesson
+   *
+   * For Assessment Bank lessons, each attempt may represent a different sub test of the bank. Review results with care.
+   *
+   * A 'Lesson' in this context is a ComponentResource object which has a Resource object associated with it.
    */
   async getAttempts(
     request: operations.GetAttemptsRequest,
@@ -95,7 +109,11 @@ export class Lessons extends ClientSDK {
    * Get next question
    *
    * @remarks
-   * Returns the next question in the given PowerPath lesson
+   * Returns the next question in the given PowerPath component resource.
+   *
+   * Works only with lessons of type 'powerpath-100'.
+   *
+   * A 'Lesson' in this context is a ComponentResource object which has a Resource object associated with it.
    */
   async getNextQuestion(
     request: operations.GetNextQuestionRequest,
@@ -112,7 +130,13 @@ export class Lessons extends ClientSDK {
    * Reset attempt
    *
    * @remarks
-   * Resets the attempt for the given PowerPath lesson of a student, removing all previous responses and resetting the score to 0
+   * Resets the attempt for the given PowerPath lesson of a student:
+   * - Soft-deletes all previous question responses, resets the test score to 0, and updates its 'scoreStatus' to "not submitted".
+   * - If the lesson is an external test, only resets the test score to 0.
+   *
+   * For Assessment Bank lessons, this will keep the user state in the same bank test for the current attempt.
+   *
+   * A 'Lesson' in this context is a ComponentResource object which has a Resource object associated with it.
    */
   async resetAttempt(
     request?: operations.ResetAttemptRequest | undefined,
@@ -129,11 +153,11 @@ export class Lessons extends ClientSDK {
    * Update student question response
    *
    * @remarks
-   * Updates the student's response to a question and returns the updated PowerPath score.
+   * Updates the student's response to a question and returns the updated PowerPath score:
+   * - Checks the correctness of the response using the QTI question `<qti-response-declaration>` element and update the score accordingly.
+   * - Creates/updates the AssessmentLineItem and AssessmentResult objects for the student/question pair if it doesn't exist yet.
    *
-   * PowerPath will check the correctness of the response using the QTI question `<qti-response-declaration>` element and update the score accordingly.
-   *
-   * PowerPath will create/update the required AssessmentLineItem and AssessmentResult objects for the student/question pair if it doesn't exist yet.
+   * A 'Lesson' in this context is a ComponentResource object which has a Resource object associated with it.
    */
   async updateStudentResponse(
     request?: components.UpdateStudentQuestionResponseInput | undefined,

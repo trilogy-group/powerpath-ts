@@ -1,0 +1,35 @@
+# CreateLessonPlanCourse1
+
+Represents a course.
+
+## Example Usage
+
+```typescript
+import { CreateLessonPlanCourse1 } from "@superbuilders/powerpath/models/operations";
+
+let value: CreateLessonPlanCourse1 = {
+  status: "active",
+  title: "<value>",
+  org: {
+    sourcedId: "<id>",
+  },
+};
+```
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `sourcedId`                                                                                                | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `status`                                                                                                   | [operations.CreateLessonPlanStatus1](../../models/operations/createlessonplanstatus1.md)                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `dateLastModified`                                                                                         | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)              | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `metadata`                                                                                                 | Record<string, *any*>                                                                                      | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `title`                                                                                                    | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `academicSession`                                                                                          | [operations.CreateLessonPlanAcademicSession1](../../models/operations/createlessonplanacademicsession1.md) | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `courseCode`                                                                                               | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `grades`                                                                                                   | *string*[]                                                                                                 | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `subjects`                                                                                                 | *string*[]                                                                                                 | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `subjectCodes`                                                                                             | *string*[]                                                                                                 | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `org`                                                                                                      | [operations.CreateLessonPlanOrg1](../../models/operations/createlessonplanorg1.md)                         | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `level`                                                                                                    | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `gradingScheme`                                                                                            | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |

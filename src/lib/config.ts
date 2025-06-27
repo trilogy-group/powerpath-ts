@@ -14,7 +14,7 @@ export const ServerList = [
   /**
    * PowerPath API
    */
-  "https://staging.alpha-1edtech.com/",
+  "https://api.alpha-1edtech.com",
 ] as const;
 
 export type SDKOptions = {
@@ -61,8 +61,8 @@ export function serverURLFromOptions(options: SDKOptions): URL | null {
 export const SDK_METADATA = {
   language: "typescript",
   openapiDocVersion: "1.0.0",
-  sdkVersion: "0.2.0",
+  sdkVersion: "0.2.2",
   genVersion: "2.640.2",
   userAgent:
-    "speakeasy-sdk/typescript 0.2.0 2.640.2 1.0.0 @superbuilders/powerpath",
+    "speakeasy-sdk/typescript 0.2.2 2.640.2 1.0.0 @superbuilders/powerpath",
 } as const;

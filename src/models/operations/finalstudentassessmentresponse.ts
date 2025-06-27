@@ -4,8 +4,8 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type FinalStudentAssessmentResponseRequest = {
@@ -14,45 +14,33 @@ export type FinalStudentAssessmentResponseRequest = {
    */
   student: string;
   /**
-   * The sourcedId of the lesson
+   * The sourcedId of the lesson (ComponentResource)
    */
   lesson: string;
 };
+
+export const FinalStudentAssessmentResponseLessonType = {
+  Quiz: "quiz",
+  TestOut: "test-out",
+  Placement: "placement",
+} as const;
+export type FinalStudentAssessmentResponseLessonType = ClosedEnum<
+  typeof FinalStudentAssessmentResponseLessonType
+>;
 
 /**
  * Success
  */
 export type FinalStudentAssessmentResponseResponse = {
-  lessonType?: "quiz" | undefined;
+  lessonType: FinalStudentAssessmentResponseLessonType;
   /**
    * Whether the lesson has been finalized in the current attempt
    */
   finalized: boolean;
-  questions: Array<components.PowerPathTestQuestion>;
   /**
-   * The final score for the student
+   * The attempt number
    */
-  score: number;
-  /**
-   * The accuracy of the student's attempted questions
-   */
-  accuracy: number;
-  /**
-   * The number of correct questions the student has answered in the lesson
-   */
-  correctQuestions: number;
-  /**
-   * The total number of questions in the lesson
-   */
-  totalQuestions: number;
-  /**
-   * The XP the student has earned in the lesson
-   */
-  xp: number | null;
-  /**
-   * The multiplier for the student's XP
-   */
-  multiplier: number | null;
+  attempt: number;
 };
 
 /** @internal */
@@ -118,33 +106,44 @@ export function finalStudentAssessmentResponseRequestFromJSON(
 }
 
 /** @internal */
+export const FinalStudentAssessmentResponseLessonType$inboundSchema:
+  z.ZodNativeEnum<typeof FinalStudentAssessmentResponseLessonType> = z
+    .nativeEnum(FinalStudentAssessmentResponseLessonType);
+
+/** @internal */
+export const FinalStudentAssessmentResponseLessonType$outboundSchema:
+  z.ZodNativeEnum<typeof FinalStudentAssessmentResponseLessonType> =
+    FinalStudentAssessmentResponseLessonType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FinalStudentAssessmentResponseLessonType$ {
+  /** @deprecated use `FinalStudentAssessmentResponseLessonType$inboundSchema` instead. */
+  export const inboundSchema =
+    FinalStudentAssessmentResponseLessonType$inboundSchema;
+  /** @deprecated use `FinalStudentAssessmentResponseLessonType$outboundSchema` instead. */
+  export const outboundSchema =
+    FinalStudentAssessmentResponseLessonType$outboundSchema;
+}
+
+/** @internal */
 export const FinalStudentAssessmentResponseResponse$inboundSchema: z.ZodType<
   FinalStudentAssessmentResponseResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  lessonType: z.literal("quiz").default("quiz").optional(),
+  lessonType: FinalStudentAssessmentResponseLessonType$inboundSchema,
   finalized: z.boolean(),
-  questions: z.array(components.PowerPathTestQuestion$inboundSchema),
-  score: z.number(),
-  accuracy: z.number(),
-  correctQuestions: z.number(),
-  totalQuestions: z.number(),
-  xp: z.nullable(z.number()),
-  multiplier: z.nullable(z.number()),
+  attempt: z.number(),
 });
 
 /** @internal */
 export type FinalStudentAssessmentResponseResponse$Outbound = {
-  lessonType: "quiz";
+  lessonType: string;
   finalized: boolean;
-  questions: Array<components.PowerPathTestQuestion$Outbound>;
-  score: number;
-  accuracy: number;
-  correctQuestions: number;
-  totalQuestions: number;
-  xp: number | null;
-  multiplier: number | null;
+  attempt: number;
 };
 
 /** @internal */
@@ -153,15 +152,9 @@ export const FinalStudentAssessmentResponseResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FinalStudentAssessmentResponseResponse
 > = z.object({
-  lessonType: z.literal("quiz").default("quiz" as const),
+  lessonType: FinalStudentAssessmentResponseLessonType$outboundSchema,
   finalized: z.boolean(),
-  questions: z.array(components.PowerPathTestQuestion$outboundSchema),
-  score: z.number(),
-  accuracy: z.number(),
-  correctQuestions: z.number(),
-  totalQuestions: z.number(),
-  xp: z.nullable(z.number()),
-  multiplier: z.nullable(z.number()),
+  attempt: z.number(),
 });
 
 /**

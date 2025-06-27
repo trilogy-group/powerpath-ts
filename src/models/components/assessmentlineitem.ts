@@ -29,7 +29,7 @@ export type Class = {
 /**
  * Represents a parent assessment line item.
  */
-export type Parent = {
+export type ParentAssessmentLineItem = {
   sourcedId: string;
 };
 
@@ -50,7 +50,7 @@ export type Component = {
 /**
  * Reference to the Component Resource that this assessment line item is associated with.
  */
-export type ComponentResource = {
+export type AssessmentLineItemComponentResource = {
   sourcedId: string;
 };
 
@@ -68,7 +68,7 @@ export type AssessmentLineItem = {
   /**
    * Represents a parent assessment line item.
    */
-  parent?: Parent | null | undefined;
+  parentAssessmentLineItem?: ParentAssessmentLineItem | null | undefined;
   /**
    * Represents a score scale.
    */
@@ -82,7 +82,7 @@ export type AssessmentLineItem = {
   /**
    * Reference to the Component Resource that this assessment line item is associated with.
    */
-  componentResource?: ComponentResource | null | undefined;
+  componentResource?: AssessmentLineItemComponentResource | null | undefined;
   /**
    * Represents a learning objective set.
    */
@@ -158,21 +158,24 @@ export function classFromJSON(
 }
 
 /** @internal */
-export const Parent$inboundSchema: z.ZodType<Parent, z.ZodTypeDef, unknown> = z
-  .object({
-    sourcedId: z.string(),
-  });
+export const ParentAssessmentLineItem$inboundSchema: z.ZodType<
+  ParentAssessmentLineItem,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  sourcedId: z.string(),
+});
 
 /** @internal */
-export type Parent$Outbound = {
+export type ParentAssessmentLineItem$Outbound = {
   sourcedId: string;
 };
 
 /** @internal */
-export const Parent$outboundSchema: z.ZodType<
-  Parent$Outbound,
+export const ParentAssessmentLineItem$outboundSchema: z.ZodType<
+  ParentAssessmentLineItem$Outbound,
   z.ZodTypeDef,
-  Parent
+  ParentAssessmentLineItem
 > = z.object({
   sourcedId: z.string(),
 });
@@ -181,26 +184,30 @@ export const Parent$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Parent$ {
-  /** @deprecated use `Parent$inboundSchema` instead. */
-  export const inboundSchema = Parent$inboundSchema;
-  /** @deprecated use `Parent$outboundSchema` instead. */
-  export const outboundSchema = Parent$outboundSchema;
-  /** @deprecated use `Parent$Outbound` instead. */
-  export type Outbound = Parent$Outbound;
+export namespace ParentAssessmentLineItem$ {
+  /** @deprecated use `ParentAssessmentLineItem$inboundSchema` instead. */
+  export const inboundSchema = ParentAssessmentLineItem$inboundSchema;
+  /** @deprecated use `ParentAssessmentLineItem$outboundSchema` instead. */
+  export const outboundSchema = ParentAssessmentLineItem$outboundSchema;
+  /** @deprecated use `ParentAssessmentLineItem$Outbound` instead. */
+  export type Outbound = ParentAssessmentLineItem$Outbound;
 }
 
-export function parentToJSON(parent: Parent): string {
-  return JSON.stringify(Parent$outboundSchema.parse(parent));
+export function parentAssessmentLineItemToJSON(
+  parentAssessmentLineItem: ParentAssessmentLineItem,
+): string {
+  return JSON.stringify(
+    ParentAssessmentLineItem$outboundSchema.parse(parentAssessmentLineItem),
+  );
 }
 
-export function parentFromJSON(
+export function parentAssessmentLineItemFromJSON(
   jsonString: string,
-): SafeParseResult<Parent, SDKValidationError> {
+): SafeParseResult<ParentAssessmentLineItem, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Parent$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Parent' from JSON`,
+    (x) => ParentAssessmentLineItem$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ParentAssessmentLineItem' from JSON`,
   );
 }
 
@@ -311,8 +318,8 @@ export function componentFromJSON(
 }
 
 /** @internal */
-export const ComponentResource$inboundSchema: z.ZodType<
-  ComponentResource,
+export const AssessmentLineItemComponentResource$inboundSchema: z.ZodType<
+  AssessmentLineItemComponentResource,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -320,15 +327,15 @@ export const ComponentResource$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type ComponentResource$Outbound = {
+export type AssessmentLineItemComponentResource$Outbound = {
   sourcedId: string;
 };
 
 /** @internal */
-export const ComponentResource$outboundSchema: z.ZodType<
-  ComponentResource$Outbound,
+export const AssessmentLineItemComponentResource$outboundSchema: z.ZodType<
+  AssessmentLineItemComponentResource$Outbound,
   z.ZodTypeDef,
-  ComponentResource
+  AssessmentLineItemComponentResource
 > = z.object({
   sourcedId: z.string(),
 });
@@ -337,30 +344,35 @@ export const ComponentResource$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ComponentResource$ {
-  /** @deprecated use `ComponentResource$inboundSchema` instead. */
-  export const inboundSchema = ComponentResource$inboundSchema;
-  /** @deprecated use `ComponentResource$outboundSchema` instead. */
-  export const outboundSchema = ComponentResource$outboundSchema;
-  /** @deprecated use `ComponentResource$Outbound` instead. */
-  export type Outbound = ComponentResource$Outbound;
+export namespace AssessmentLineItemComponentResource$ {
+  /** @deprecated use `AssessmentLineItemComponentResource$inboundSchema` instead. */
+  export const inboundSchema =
+    AssessmentLineItemComponentResource$inboundSchema;
+  /** @deprecated use `AssessmentLineItemComponentResource$outboundSchema` instead. */
+  export const outboundSchema =
+    AssessmentLineItemComponentResource$outboundSchema;
+  /** @deprecated use `AssessmentLineItemComponentResource$Outbound` instead. */
+  export type Outbound = AssessmentLineItemComponentResource$Outbound;
 }
 
-export function componentResourceToJSON(
-  componentResource: ComponentResource,
+export function assessmentLineItemComponentResourceToJSON(
+  assessmentLineItemComponentResource: AssessmentLineItemComponentResource,
 ): string {
   return JSON.stringify(
-    ComponentResource$outboundSchema.parse(componentResource),
+    AssessmentLineItemComponentResource$outboundSchema.parse(
+      assessmentLineItemComponentResource,
+    ),
   );
 }
 
-export function componentResourceFromJSON(
+export function assessmentLineItemComponentResourceFromJSON(
   jsonString: string,
-): SafeParseResult<ComponentResource, SDKValidationError> {
+): SafeParseResult<AssessmentLineItemComponentResource, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ComponentResource$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ComponentResource' from JSON`,
+    (x) =>
+      AssessmentLineItemComponentResource$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AssessmentLineItemComponentResource' from JSON`,
   );
 }
 
@@ -379,15 +391,18 @@ export const AssessmentLineItem$inboundSchema: z.ZodType<
   title: z.string(),
   description: z.nullable(z.string()).optional(),
   class: z.nullable(z.lazy(() => Class$inboundSchema)).optional(),
-  parent: z.nullable(z.lazy(() => Parent$inboundSchema)).optional(),
+  parentAssessmentLineItem: z.nullable(
+    z.lazy(() => ParentAssessmentLineItem$inboundSchema),
+  ).optional(),
   scoreScale: z.nullable(
     z.lazy(() => AssessmentLineItemScoreScale$inboundSchema),
   ).optional(),
   resultValueMin: z.nullable(z.number()).optional(),
   resultValueMax: z.nullable(z.number()).optional(),
   component: z.nullable(z.lazy(() => Component$inboundSchema)).optional(),
-  componentResource: z.nullable(z.lazy(() => ComponentResource$inboundSchema))
-    .optional(),
+  componentResource: z.nullable(
+    z.lazy(() => AssessmentLineItemComponentResource$inboundSchema),
+  ).optional(),
   learningObjectiveSet: z.nullable(z.array(LearningObjectiveSet$inboundSchema))
     .optional(),
 });
@@ -401,12 +416,18 @@ export type AssessmentLineItem$Outbound = {
   title: string;
   description?: string | null | undefined;
   class?: Class$Outbound | null | undefined;
-  parent?: Parent$Outbound | null | undefined;
+  parentAssessmentLineItem?:
+    | ParentAssessmentLineItem$Outbound
+    | null
+    | undefined;
   scoreScale?: AssessmentLineItemScoreScale$Outbound | null | undefined;
   resultValueMin?: number | null | undefined;
   resultValueMax?: number | null | undefined;
   component?: Component$Outbound | null | undefined;
-  componentResource?: ComponentResource$Outbound | null | undefined;
+  componentResource?:
+    | AssessmentLineItemComponentResource$Outbound
+    | null
+    | undefined;
   learningObjectiveSet?:
     | Array<LearningObjectiveSet$Outbound>
     | null
@@ -426,15 +447,18 @@ export const AssessmentLineItem$outboundSchema: z.ZodType<
   title: z.string(),
   description: z.nullable(z.string()).optional(),
   class: z.nullable(z.lazy(() => Class$outboundSchema)).optional(),
-  parent: z.nullable(z.lazy(() => Parent$outboundSchema)).optional(),
+  parentAssessmentLineItem: z.nullable(
+    z.lazy(() => ParentAssessmentLineItem$outboundSchema),
+  ).optional(),
   scoreScale: z.nullable(
     z.lazy(() => AssessmentLineItemScoreScale$outboundSchema),
   ).optional(),
   resultValueMin: z.nullable(z.number()).optional(),
   resultValueMax: z.nullable(z.number()).optional(),
   component: z.nullable(z.lazy(() => Component$outboundSchema)).optional(),
-  componentResource: z.nullable(z.lazy(() => ComponentResource$outboundSchema))
-    .optional(),
+  componentResource: z.nullable(
+    z.lazy(() => AssessmentLineItemComponentResource$outboundSchema),
+  ).optional(),
   learningObjectiveSet: z.nullable(z.array(LearningObjectiveSet$outboundSchema))
     .optional(),
 });

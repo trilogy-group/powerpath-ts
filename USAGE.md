@@ -7,9 +7,9 @@ const powerPath = new PowerPath({
 });
 
 async function run() {
-  const result = await powerPath.lessonPlans.getStudentCourseProgress({
-    courseId: "<id>",
-    studentId: "<id>",
+  const result = await powerPath.powerPathPlacement.getAllPlacementTests({
+    student: "<value>",
+    subject: "<value>",
   });
 
   console.log(result);

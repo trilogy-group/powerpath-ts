@@ -5,8 +5,30 @@
 import { ClientSDK } from "../lib/sdks.js";
 import { LessonPlans } from "./lessonplans.js";
 import { Lessons } from "./lessons.js";
+import { PowerPathCourseMastery } from "./powerpathcoursemastery.js";
+import { PowerPathLessonPlans } from "./powerpathlessonplans.js";
+import { PowerPathPlacement } from "./powerpathplacement.js";
 
 export class PowerPath extends ClientSDK {
+  private _powerPathPlacement?: PowerPathPlacement;
+  get powerPathPlacement(): PowerPathPlacement {
+    return (this._powerPathPlacement ??= new PowerPathPlacement(this._options));
+  }
+
+  private _powerPathCourseMastery?: PowerPathCourseMastery;
+  get powerPathCourseMastery(): PowerPathCourseMastery {
+    return (this._powerPathCourseMastery ??= new PowerPathCourseMastery(
+      this._options,
+    ));
+  }
+
+  private _powerPathLessonPlans?: PowerPathLessonPlans;
+  get powerPathLessonPlans(): PowerPathLessonPlans {
+    return (this._powerPathLessonPlans ??= new PowerPathLessonPlans(
+      this._options,
+    ));
+  }
+
   private _lessonPlans?: LessonPlans;
   get lessonPlans(): LessonPlans {
     return (this._lessonPlans ??= new LessonPlans(this._options));

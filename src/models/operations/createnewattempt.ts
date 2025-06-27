@@ -14,7 +14,7 @@ export type CreateNewAttemptRequest = {
    */
   student: string;
   /**
-   * The sourcedId of the lesson
+   * The sourcedId of the lesson (ComponentResource)
    */
   lesson: string;
 };
@@ -36,10 +36,7 @@ export type CreateNewAttemptScoreStatus = ClosedEnum<
   typeof CreateNewAttemptScoreStatus
 >;
 
-/**
- * Success
- */
-export type CreateNewAttemptResponse = {
+export type CreateNewAttemptAttempt = {
   /**
    * The attempt number
    */
@@ -60,6 +57,13 @@ export type CreateNewAttemptResponse = {
    * When this attempt was completed
    */
   completedAt: Date | null;
+};
+
+/**
+ * Success
+ */
+export type CreateNewAttemptResponse = {
+  attempt: CreateNewAttemptAttempt;
 };
 
 /** @internal */
@@ -141,8 +145,8 @@ export namespace CreateNewAttemptScoreStatus$ {
 }
 
 /** @internal */
-export const CreateNewAttemptResponse$inboundSchema: z.ZodType<
-  CreateNewAttemptResponse,
+export const CreateNewAttemptAttempt$inboundSchema: z.ZodType<
+  CreateNewAttemptAttempt,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -158,7 +162,7 @@ export const CreateNewAttemptResponse$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type CreateNewAttemptResponse$Outbound = {
+export type CreateNewAttemptAttempt$Outbound = {
   attempt: number | null;
   score: number;
   scoreStatus: string;
@@ -167,16 +171,70 @@ export type CreateNewAttemptResponse$Outbound = {
 };
 
 /** @internal */
-export const CreateNewAttemptResponse$outboundSchema: z.ZodType<
-  CreateNewAttemptResponse$Outbound,
+export const CreateNewAttemptAttempt$outboundSchema: z.ZodType<
+  CreateNewAttemptAttempt$Outbound,
   z.ZodTypeDef,
-  CreateNewAttemptResponse
+  CreateNewAttemptAttempt
 > = z.object({
   attempt: z.nullable(z.number()),
   score: z.number(),
   scoreStatus: CreateNewAttemptScoreStatus$outboundSchema,
   startedAt: z.nullable(z.date().transform(v => v.toISOString())),
   completedAt: z.nullable(z.date().transform(v => v.toISOString())),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateNewAttemptAttempt$ {
+  /** @deprecated use `CreateNewAttemptAttempt$inboundSchema` instead. */
+  export const inboundSchema = CreateNewAttemptAttempt$inboundSchema;
+  /** @deprecated use `CreateNewAttemptAttempt$outboundSchema` instead. */
+  export const outboundSchema = CreateNewAttemptAttempt$outboundSchema;
+  /** @deprecated use `CreateNewAttemptAttempt$Outbound` instead. */
+  export type Outbound = CreateNewAttemptAttempt$Outbound;
+}
+
+export function createNewAttemptAttemptToJSON(
+  createNewAttemptAttempt: CreateNewAttemptAttempt,
+): string {
+  return JSON.stringify(
+    CreateNewAttemptAttempt$outboundSchema.parse(createNewAttemptAttempt),
+  );
+}
+
+export function createNewAttemptAttemptFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateNewAttemptAttempt, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateNewAttemptAttempt$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateNewAttemptAttempt' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateNewAttemptResponse$inboundSchema: z.ZodType<
+  CreateNewAttemptResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  attempt: z.lazy(() => CreateNewAttemptAttempt$inboundSchema),
+});
+
+/** @internal */
+export type CreateNewAttemptResponse$Outbound = {
+  attempt: CreateNewAttemptAttempt$Outbound;
+};
+
+/** @internal */
+export const CreateNewAttemptResponse$outboundSchema: z.ZodType<
+  CreateNewAttemptResponse$Outbound,
+  z.ZodTypeDef,
+  CreateNewAttemptResponse
+> = z.object({
+  attempt: z.lazy(() => CreateNewAttemptAttempt$outboundSchema),
 });
 
 /**

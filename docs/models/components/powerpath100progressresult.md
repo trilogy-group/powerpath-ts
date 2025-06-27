@@ -1,6 +1,6 @@
 # PowerPath100ProgressResult
 
-Represents the progress of the student in the PowerPath lesson
+Represents the progress of the student in the PowerPath100 lesson
 
 ## Example Usage
 
@@ -27,11 +27,12 @@ let value: PowerPath100ProgressResult = {
       ],
     },
   ],
-  xp: 3299.85,
-  multiplier: 4630,
-  accuracy: 268.13,
-  correctQuestions: 4568.47,
-  totalQuestions: 9735.68,
+  attempt: 6661.52,
+  xp: 3633.46,
+  multiplier: 268.13,
+  accuracy: 4568.47,
+  correctQuestions: 9735.68,
+  totalQuestions: 6431.26,
 };
 ```
 
@@ -43,6 +44,7 @@ let value: PowerPath100ProgressResult = {
 | `remainingQuestionsPerDifficulty`                                                                        | [components.RemainingQuestionsPerDifficulty](../../models/components/remainingquestionsperdifficulty.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
 | `score`                                                                                                  | *number*                                                                                                 | :heavy_check_mark:                                                                                       | The current score for this attempt                                                                       |
 | `seenQuestions`                                                                                          | [components.SeenQuestion](../../models/components/seenquestion.md)[]                                     | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `attempt`                                                                                                | *number*                                                                                                 | :heavy_check_mark:                                                                                       | The attempt number                                                                                       |
 | `xp`                                                                                                     | *number*                                                                                                 | :heavy_check_mark:                                                                                       | The XP the student has earned in the lesson                                                              |
 | `multiplier`                                                                                             | *number*                                                                                                 | :heavy_check_mark:                                                                                       | The multiplier for the student's XP                                                                      |
 | `accuracy`                                                                                               | *number*                                                                                                 | :heavy_check_mark:                                                                                       | The accuracy of the student's attempted questions                                                        |

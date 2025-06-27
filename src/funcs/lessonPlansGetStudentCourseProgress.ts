@@ -29,6 +29,7 @@ import { Result } from "../types/fp.js";
  * Get course progress
  *
  * @remarks
+ *
  * Get the course progress for a student in a course.
  *
  * ---

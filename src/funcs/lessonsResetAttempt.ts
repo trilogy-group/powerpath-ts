@@ -29,7 +29,13 @@ import { Result } from "../types/fp.js";
  * Reset attempt
  *
  * @remarks
- * Resets the attempt for the given PowerPath lesson of a student, removing all previous responses and resetting the score to 0
+ * Resets the attempt for the given PowerPath lesson of a student:
+ * - Soft-deletes all previous question responses, resets the test score to 0, and updates its 'scoreStatus' to "not submitted".
+ * - If the lesson is an external test, only resets the test score to 0.
+ *
+ * For Assessment Bank lessons, this will keep the user state in the same bank test for the current attempt.
+ *
+ * A 'Lesson' in this context is a ComponentResource object which has a Resource object associated with it.
  */
 export function lessonsResetAttempt(
   client: PowerPathCore,

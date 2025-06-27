@@ -13,7 +13,7 @@ export type ResetAttemptRequest = {
    */
   student: string;
   /**
-   * The sourcedId of the ComponentResource that represents the PowerPath lesson
+   * The sourcedId of the lesson (ComponentResource)
    */
   lesson: string;
 };
