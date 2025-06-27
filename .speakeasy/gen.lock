@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.571.1
   generationVersion: 2.640.2
-  releaseVersion: 0.2.0
-  configChecksum: abefbc6143c406e46ef91d8ab3e898c0
+  releaseVersion: 0.2.1
+  configChecksum: a0c9d07463e0bee5f7f81311122e447d
   repoURL: https://github.com/trilogy-group/powerpath-ts.git
   installationURL: https://github.com/trilogy-group/powerpath-ts
   published: true

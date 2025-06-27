@@ -17,14 +17,14 @@ generation:
     securityFeb2025: true
     sharedErrorComponentsApr2025: false
   auth:
-    oAuth2ClientCredentialsEnabled: true
-    oAuth2PasswordEnabled: true
+    oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.2.0
+  version: 0.2.1
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
