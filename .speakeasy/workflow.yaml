@@ -3,9 +3,9 @@ speakeasyVersion: latest
 sources:
     PowerPath API:
         inputs:
-            - location: .speakeasy/openapi-fixes.yaml
+            - location: .speakeasy/openapi.yaml
         overlays:
-            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            - location: .speakeasy/openapi-modifications-overlay.yaml
         registry:
             location: registry.speakeasyapi.dev/emu-farm/timeback/power-path-api
 targets:
