@@ -3,7 +3,10 @@
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {

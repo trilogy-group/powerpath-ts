@@ -25,7 +25,10 @@ import { powerPathPlacementGetAllPlacementTests } from "@superbuilders/powerpath
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {

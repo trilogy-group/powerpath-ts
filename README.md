@@ -174,7 +174,9 @@ Add the following server definition to your `claude_desktop_config.json` file:
         "-y", "--package", "@superbuilders/powerpath",
         "--",
         "mcp", "start",
-        "--o-auth2", "..."
+        "--client-id", "...",
+        "--client-secret", "...",
+        "--token-url", "..."
       ]
     }
   }
@@ -197,7 +199,9 @@ Create a `.cursor/mcp.json` file in your project root with the following content
         "-y", "--package", "@superbuilders/powerpath",
         "--",
         "mcp", "start",
-        "--o-auth2", "..."
+        "--client-id", "...",
+        "--client-secret", "...",
+        "--token-url", "..."
       ]
     }
   }
@@ -252,7 +256,10 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -276,16 +283,19 @@ run();
 
 This SDK supports the following security scheme globally:
 
-| Name     | Type   | Scheme       | Environment Variable |
-| -------- | ------ | ------------ | -------------------- |
-| `oAuth2` | oauth2 | OAuth2 token | `POWERPATH_O_AUTH2`  |
+| Name                          | Type   | Scheme                         | Environment Variable                                                          |
+| ----------------------------- | ------ | ------------------------------ | ----------------------------------------------------------------------------- |
+| `clientID`<br/>`clientSecret` | oauth2 | OAuth2 Client Credentials Flow | `POWERPATH_CLIENT_ID`<br/>`POWERPATH_CLIENT_SECRET`<br/>`POWERPATH_TOKEN_URL` |
 
-To authenticate with the API the `oAuth2` parameter must be set when initializing the SDK client instance. For example:
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -408,7 +418,10 @@ To change the default retry strategy for a single API call, simply provide a ret
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -450,7 +463,10 @@ const powerPath = new PowerPath({
     },
     retryConnectionErrors: false,
   },
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -487,7 +503,10 @@ import { PowerPath } from "@superbuilders/powerpath";
 import * as errors from "@superbuilders/powerpath/models/errors";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -564,7 +583,10 @@ import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
   serverURL: "https://api.alpha-1edtech.com",
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {

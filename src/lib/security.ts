@@ -242,9 +242,14 @@ export function resolveGlobalSecurity(
   return resolveSecurity(
     [
       {
-        fieldName: "Authorization",
-        type: "oauth2",
-        value: security?.oAuth2 ?? env().POWERPATH_O_AUTH2,
+        fieldName: "clientID",
+        type: "oauth2:client_credentials",
+        value: security?.clientID ?? env().POWERPATH_CLIENT_ID,
+      },
+      {
+        fieldName: "clientSecret",
+        type: "oauth2:client_credentials",
+        value: security?.clientSecret ?? env().POWERPATH_CLIENT_SECRET,
       },
     ],
   );

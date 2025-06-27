@@ -19,7 +19,9 @@ interface StartCommandFlags {
   readonly port: number;
   readonly tool?: string[];
   readonly scope?: MCPScope[];
-  readonly "o-auth2"?: string | undefined;
+  readonly "client-id"?: string | undefined;
+  readonly "client-secret"?: string | undefined;
+  readonly "token-url": string;
   readonly "server-url"?: string;
   readonly "server-index"?: SDKOptions["serverIdx"];
   readonly "log-level": ConsoleLoggerLevel;
@@ -50,7 +52,12 @@ async function startStdio(flags: StartCommandFlags) {
     logger,
     allowedTools: flags.tool,
     scopes: flags.scope,
-    ...{ oAuth2: flags["o-auth2"] ?? "" },
+    security: {
+      clientID: flags["client-id"] ?? "",
+      clientSecret: flags["client-secret"] ?? "",
+      tokenURL: flags["token-url"]
+        ?? "https://alpha-auth-production-idp.auth.us-west-2.amazoncognito.com/oauth2/token",
+    },
     serverURL: flags["server-url"],
     serverIdx: flags["server-index"],
   });
@@ -71,7 +78,12 @@ async function startSSE(flags: StartCommandFlags) {
     logger,
     allowedTools: flags.tool,
     scopes: flags.scope,
-    ...{ oAuth2: flags["o-auth2"] ?? "" },
+    security: {
+      clientID: flags["client-id"] ?? "",
+      clientSecret: flags["client-secret"] ?? "",
+      tokenURL: flags["token-url"]
+        ?? "https://alpha-auth-production-idp.auth.us-west-2.amazoncognito.com/oauth2/token",
+    },
     serverURL: flags["server-url"],
     serverIdx: flags["server-index"],
   });

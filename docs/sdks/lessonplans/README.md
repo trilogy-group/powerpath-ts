@@ -32,7 +32,10 @@ Each **line item** contains a list of assessment results in the **results** attr
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -58,7 +61,10 @@ import { lessonPlansGetStudentCourseProgress } from "@superbuilders/powerpath/fu
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -125,7 +131,10 @@ If you provide the **componentResourceId**, the data in the response payload sho
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -148,7 +157,10 @@ import { lessonPlansUpdateStudentResponse } from "@superbuilders/powerpath/funcs
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -200,7 +212,10 @@ Get course syllabus
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -225,7 +240,10 @@ import { lessonPlansGetSyllabus } from "@superbuilders/powerpath/funcs/lessonPla
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {

@@ -7,13 +7,19 @@ import { dlv } from "./dlv.js";
 import * as z from "zod";
 
 export interface Env {
-  POWERPATH_O_AUTH2?: string | undefined;
+  POWERPATH_CLIENT_ID?: string | undefined;
+  POWERPATH_CLIENT_SECRET?: string | undefined;
+  POWERPATH_TOKEN_URL: string;
 
   POWERPATH_DEBUG?: boolean | undefined;
 }
 
 export const envSchema: z.ZodType<Env, z.ZodTypeDef, unknown> = z.object({
-  POWERPATH_O_AUTH2: z.string().optional(),
+  POWERPATH_CLIENT_ID: z.string().optional(),
+  POWERPATH_CLIENT_SECRET: z.string().optional(),
+  POWERPATH_TOKEN_URL: z.string().default(
+    "https://alpha-auth-production-idp.auth.us-west-2.amazoncognito.com/oauth2/token",
+  ),
 
   POWERPATH_DEBUG: z.coerce.boolean().optional(),
 });

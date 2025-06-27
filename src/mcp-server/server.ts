@@ -45,16 +45,16 @@ export function createMCPServer(deps: {
   allowedTools?: string[] | undefined;
   scopes?: MCPScope[] | undefined;
   serverURL?: string | undefined;
-  oAuth2?: SDKOptions["oAuth2"] | undefined;
+  security?: SDKOptions["security"] | undefined;
   serverIdx?: SDKOptions["serverIdx"] | undefined;
 }) {
   const server = new McpServer({
     name: "PowerPath",
-    version: "0.2.2",
+    version: "0.3.1",
   });
 
   const client = new PowerPathCore({
-    oAuth2: deps.oAuth2,
+    security: deps.security,
     serverURL: deps.serverURL,
     serverIdx: deps.serverIdx,
   });

@@ -23,7 +23,10 @@ A 'Lesson' (placement test) in this context is a ComponentResource object which 
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -49,7 +52,10 @@ import { powerPathPlacementGetAllPlacementTests } from "@superbuilders/powerpath
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -111,7 +117,10 @@ Also returns the 'onboarded' boolean that indicates if the student completed the
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -137,7 +146,10 @@ import { powerPathPlacementGetCurrentLevel } from "@superbuilders/powerpath/func
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -203,7 +215,10 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -229,7 +244,10 @@ import { powerPathPlacementGetNextPlacementTest } from "@superbuilders/powerpath
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -285,7 +303,10 @@ Returns the progress the student has made in the given subject
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -311,7 +332,10 @@ import { powerPathPlacementGetSubjectProgress } from "@superbuilders/powerpath/f
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {

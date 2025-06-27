@@ -32,7 +32,10 @@ Manage lesson plans and instructional content
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -55,7 +58,10 @@ import { powerPathLessonPlansCreateLessonPlan } from "@superbuilders/powerpath/f
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -113,7 +119,10 @@ run();
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -139,7 +148,10 @@ import { powerPathLessonPlansGetTree } from "@superbuilders/powerpath/funcs/powe
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -192,7 +204,10 @@ run();
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -217,7 +232,10 @@ import { powerPathLessonPlansDeleteLessonPlan } from "@superbuilders/powerpath/f
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -271,7 +289,10 @@ run();
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -296,7 +317,10 @@ import { powerPathLessonPlansAttachComponent } from "@superbuilders/powerpath/fu
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -350,7 +374,10 @@ run();
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -375,7 +402,10 @@ import { powerPathLessonPlansAttachResource } from "@superbuilders/powerpath/fun
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -429,7 +459,10 @@ run();
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -454,7 +487,10 @@ import { powerPathLessonPlansUpdateLessonPlanItem } from "@superbuilders/powerpa
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -508,7 +544,10 @@ run();
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -533,7 +572,10 @@ import { powerPathLessonPlansDeleteLessonPlanItem } from "@superbuilders/powerpa
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {

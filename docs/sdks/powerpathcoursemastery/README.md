@@ -40,7 +40,10 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -63,7 +66,10 @@ import { powerPathCourseMasteryCreateExternalPlacementTest } from "@superbuilder
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -132,7 +138,10 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -155,7 +164,10 @@ import { powerPathCourseMasteryCreateExternalTestOut } from "@superbuilders/powe
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -224,7 +236,10 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -250,7 +265,10 @@ import { powerPathCourseMasteryImportExternalTestAssignmentResults } from "@supe
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -322,7 +340,10 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -345,7 +366,10 @@ import { powerPathCourseMasteryMakeExternalTestAssignment } from "@superbuilders
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -408,7 +432,10 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 import { PowerPath } from "@superbuilders/powerpath";
 
 const powerPath = new PowerPath({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {
@@ -434,7 +461,10 @@ import { powerPathCourseMasteryTestOut } from "@superbuilders/powerpath/funcs/po
 // Use `PowerPathCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const powerPath = new PowerPathCore({
-  oAuth2: process.env["POWERPATH_O_AUTH2"] ?? "",
+  security: {
+    clientID: process.env["POWERPATH_CLIENT_ID"] ?? "",
+    clientSecret: process.env["POWERPATH_CLIENT_SECRET"] ?? "",
+  },
 });
 
 async function run() {

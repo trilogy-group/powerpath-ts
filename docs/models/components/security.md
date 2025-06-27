@@ -12,4 +12,6 @@ let value: Security = {};
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `oAuth2`           | *string*           | :heavy_minus_sign: | N/A                |
+| `clientID`         | *string*           | :heavy_minus_sign: | N/A                |
+| `clientSecret`     | *string*           | :heavy_minus_sign: | N/A                |
+| `tokenURL`         | *string*           | :heavy_minus_sign: | N/A                |
