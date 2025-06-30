@@ -3,10 +3,10 @@ id: bf2d5496-2406-413a-9727-ddaa0a56268e
 management:
   docChecksum: 041e2c11d1a6fde2edcc5236c6634374
   docVersion: 1.0.0
-  speakeasyVersion: 1.571.1
+  speakeasyVersion: 1.571.2
   generationVersion: 2.640.2
-  releaseVersion: 0.3.1
-  configChecksum: eef3d5eb314b671c5890b7fcbf10faba
+  releaseVersion: 0.3.2
+  configChecksum: a6b9601bb110d90b8d6a5317328f1950
   repoURL: https://github.com/trilogy-group/powerpath-ts.git
   installationURL: https://github.com/trilogy-group/powerpath-ts
   published: true
