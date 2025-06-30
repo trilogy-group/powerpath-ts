@@ -1,20 +1,21 @@
-speakeasyVersion: 1.571.1
+speakeasyVersion: 1.571.2
 sources:
     PowerPath API:
         sourceNamespace: power-path-api
-        sourceRevisionDigest: sha256:59885be5c52aa2250ea04578a4b4d9528ab28277c930b5fc3860d588e13e229e
+        sourceRevisionDigest: sha256:5dba2f3968778daf3eb5543f561792ef1be723b3e4470a436e00ce1c8483377e
         sourceBlobDigest: sha256:9aa4c2da5074f8b5ce68b1dcfe84491caba3437f55e071ff75ccbff899724361
         tags:
             - latest
+            - speakeasy-sdk-regen-1751069491
             - 1.0.0
 targets:
     power-path:
         source: PowerPath API
         sourceNamespace: power-path-api
-        sourceRevisionDigest: sha256:59885be5c52aa2250ea04578a4b4d9528ab28277c930b5fc3860d588e13e229e
+        sourceRevisionDigest: sha256:5dba2f3968778daf3eb5543f561792ef1be723b3e4470a436e00ce1c8483377e
         sourceBlobDigest: sha256:9aa4c2da5074f8b5ce68b1dcfe84491caba3437f55e071ff75ccbff899724361
         codeSamplesNamespace: power-path-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:9cd79c3cee20a8da918234f8dcca890f6b7eb94c7844910bb5dff37166e5d111
+        codeSamplesRevisionDigest: sha256:45e754b59b74a97ecf519e8ccd64a3161de6da7d54b23be488112696fee8ff71
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
