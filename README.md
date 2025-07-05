@@ -544,8 +544,8 @@ run();
 ### Error Classes
 **Primary errors:**
 * [`PowerPathError`](./src/models/errors/powerpatherror.ts): The base class for HTTP error responses.
-  * [`UnauthorizedRequestResponseError`](docs/models/errors/unauthorizedrequestresponseerror.md): Unauthorized. Status code `401`.
-  * [`ForbiddenResponseError`](docs/models/errors/forbiddenresponseerror.md): Forbidden. Status code `403`.
+  * [`UnauthorizedRequestResponseError`](./src/models/errors/unauthorizedrequestresponseerror.ts): Unauthorized. Status code `401`.
+  * [`ForbiddenResponseError`](./src/models/errors/forbiddenresponseerror.ts): Forbidden. Status code `403`.
 
 <details><summary>Less common errors (11)</summary>
 
@@ -560,11 +560,11 @@ run();
 
 
 **Inherit from [`PowerPathError`](./src/models/errors/powerpatherror.ts)**:
-* [`BadRequestResponseError`](docs/models/errors/badrequestresponseerror.md): Bad Request. Status code `400`. Applicable to 19 of 26 methods.*
-* [`NotFoundResponseError`](docs/models/errors/notfoundresponseerror.md): Not Found. Status code `404`. Applicable to 19 of 26 methods.*
-* [`UnprocessableEntityResponseError`](docs/models/errors/unprocessableentityresponseerror.md): Unprocessable Entity / Validation Error. Status code `422`. Applicable to 19 of 26 methods.*
-* [`TooManyRequestsResponseError`](docs/models/errors/toomanyrequestsresponseerror.md): Too Many Requests. Status code `429`. Applicable to 19 of 26 methods.*
-* [`InternalServerErrorResponse`](docs/models/errors/internalservererrorresponse.md): Internal Server Error. Status code `500`. Applicable to 19 of 26 methods.*
+* [`BadRequestResponseError`](./src/models/errors/badrequestresponseerror.ts): Bad Request. Status code `400`. Applicable to 19 of 26 methods.*
+* [`NotFoundResponseError`](./src/models/errors/notfoundresponseerror.ts): Not Found. Status code `404`. Applicable to 19 of 26 methods.*
+* [`UnprocessableEntityResponseError`](./src/models/errors/unprocessableentityresponseerror.ts): Unprocessable Entity / Validation Error. Status code `422`. Applicable to 19 of 26 methods.*
+* [`TooManyRequestsResponseError`](./src/models/errors/toomanyrequestsresponseerror.ts): Too Many Requests. Status code `429`. Applicable to 19 of 26 methods.*
+* [`InternalServerErrorResponse`](./src/models/errors/internalservererrorresponse.ts): Internal Server Error. Status code `500`. Applicable to 19 of 26 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

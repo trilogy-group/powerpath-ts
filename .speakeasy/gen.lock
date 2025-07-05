@@ -3,10 +3,10 @@ id: bf2d5496-2406-413a-9727-ddaa0a56268e
 management:
   docChecksum: 041e2c11d1a6fde2edcc5236c6634374
   docVersion: 1.0.0
-  speakeasyVersion: 1.571.1
-  generationVersion: 2.640.2
-  releaseVersion: 0.3.1
-  configChecksum: eef3d5eb314b671c5890b7fcbf10faba
+  speakeasyVersion: 1.575.5
+  generationVersion: 2.648.7
+  releaseVersion: 0.3.2
+  configChecksum: a6b9601bb110d90b8d6a5317328f1950
   repoURL: https://github.com/trilogy-group/powerpath-ts.git
   installationURL: https://github.com/trilogy-group/powerpath-ts
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.11
+    core: 3.21.13
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     enumUnions: 0.1.0
@@ -23,7 +23,7 @@ features:
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.5
     groups: 2.81.2
-    mcpServer: 0.9.2
+    mcpServer: 0.9.3
     nameOverrides: 2.81.2
     nullables: 0.1.1
     oauth2ClientCredentials: 0.4.1
