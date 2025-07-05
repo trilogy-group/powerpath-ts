@@ -9,3 +9,13 @@ Based on:
 - [typescript v0.1.1] .
 ### Releases
 - [NPM v0.1.1] https://www.npmjs.com/package/@superbuilders/powerpath/v/0.1.1 - .
+
+## 2025-07-05 00:11:12
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.575.5 (2.648.7) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.3.2] .
+### Releases
+- [NPM v0.3.2] https://www.npmjs.com/package/@superbuilders/powerpath/v/0.3.2 - .
