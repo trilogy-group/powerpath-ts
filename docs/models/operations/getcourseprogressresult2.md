@@ -9,7 +9,7 @@ import { GetCourseProgressResult2 } from "@superbuilders/powerpath/models/operat
 
 let value: GetCourseProgressResult2 = {
   status: "active",
-  scoreDate: new Date("2025-12-23T07:03:04.602Z"),
+  scoreDate: new Date("2026-12-23T07:03:04.602Z"),
   scoreStatus: "exempt",
 };
 ```

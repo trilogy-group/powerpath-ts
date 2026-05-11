@@ -9,6 +9,7 @@ Success
 
 ```typescript
 const value: components.PowerPath100ProgressResult = {
+  lessonType: "powerpath-100",
   remainingQuestionsPerDifficulty: {
     easy: 1206.47,
     medium: 2422.78,
@@ -34,6 +35,54 @@ const value: components.PowerPath100ProgressResult = {
   accuracy: 4568.47,
   correctQuestions: 9735.68,
   totalQuestions: 6431.26,
+};
+```
+
+### `operations.ResponseBody`
+
+```typescript
+const value: operations.ResponseBody = {
+  lessonType: "placement",
+  finalized: true,
+  questions: [
+    {
+      id: "<id>",
+      index: 4486.02,
+      title: "<value>",
+      url: "https://lumpy-pliers.biz/",
+    },
+  ],
+  toolProvider: "<value>",
+  attempt: 7741,
+  xp: 1654.04,
+  multiplier: 9755.1,
+  accuracy: 748.16,
+  correctQuestions: 2713.13,
+  totalQuestions: 50.13,
+};
+```
+
+### `operations.ResponseBody`
+
+```typescript
+const value: operations.ResponseBody = {
+  lessonType: "placement",
+  finalized: true,
+  questions: [
+    {
+      id: "<id>",
+      index: 4486.02,
+      title: "<value>",
+      url: "https://lumpy-pliers.biz/",
+    },
+  ],
+  toolProvider: "<value>",
+  attempt: 7741,
+  xp: 1654.04,
+  multiplier: 9755.1,
+  accuracy: 748.16,
+  correctQuestions: 2713.13,
+  totalQuestions: 50.13,
 };
 ```
 

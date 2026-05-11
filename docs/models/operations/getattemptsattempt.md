@@ -9,8 +9,8 @@ let value: GetAttemptsAttempt = {
   attempt: 3907.21,
   score: 4685.17,
   scoreStatus: "submitted",
-  startedAt: new Date("2024-08-21T06:28:06.689Z"),
-  completedAt: new Date("2025-02-08T03:09:23.443Z"),
+  startedAt: new Date("2025-08-21T06:28:06.689Z"),
+  completedAt: new Date("2026-02-08T03:09:23.443Z"),
 };
 ```
 

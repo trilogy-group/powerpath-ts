@@ -7,7 +7,10 @@ import { BadRequestResponseImsxCodeMinor } from "@superbuilders/powerpath/models
 
 let value: BadRequestResponseImsxCodeMinor = {
   imsxCodeMinorField: [
-    {},
+    {
+      imsxCodeMinorFieldName: "TargetEndSystem",
+      imsxCodeMinorFieldValue: "invaliddata",
+    },
   ],
 };
 ```

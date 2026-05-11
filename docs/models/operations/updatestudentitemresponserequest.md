@@ -10,7 +10,7 @@ let value: UpdateStudentItemResponseRequest = {
   componentResourceId: "<id>",
   result: {
     status: "active",
-    scoreDate: new Date("2025-10-10T01:11:16.050Z"),
+    scoreDate: new Date("2026-10-10T01:11:16.050Z"),
     scoreStatus: "not submitted",
   },
 };

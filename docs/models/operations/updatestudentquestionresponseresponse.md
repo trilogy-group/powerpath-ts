@@ -9,6 +9,7 @@ Success
 
 ```typescript
 const value: components.PowerPath100UpdateStudentQuestionResponseResult = {
+  lessonType: "powerpath-100",
   powerpathScore: 7701.48,
   responseResult: {
     score: 3665.39,
@@ -24,18 +25,24 @@ const value: components.PowerPath100UpdateStudentQuestionResponseResult = {
 ### `components.QuizUpdateStudentQuestionResponseResult`
 
 ```typescript
-const value: components.QuizUpdateStudentQuestionResponseResult = {};
+const value: components.QuizUpdateStudentQuestionResponseResult = {
+  lessonType: "quiz",
+};
 ```
 
 ### `components.TestOutUpdateStudentQuestionResponseResult`
 
 ```typescript
-const value: components.TestOutUpdateStudentQuestionResponseResult = {};
+const value: components.TestOutUpdateStudentQuestionResponseResult = {
+  lessonType: "test-out",
+};
 ```
 
 ### `components.PlacementUpdateStudentQuestionResponseResult`
 
 ```typescript
-const value: components.PlacementUpdateStudentQuestionResponseResult = {};
+const value: components.PlacementUpdateStudentQuestionResponseResult = {
+  lessonType: "placement",
+};
 ```
 

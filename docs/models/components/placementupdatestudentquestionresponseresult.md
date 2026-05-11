@@ -7,7 +7,9 @@ Represents the result of updating the student's response to the question in the 
 ```typescript
 import { PlacementUpdateStudentQuestionResponseResult } from "@superbuilders/powerpath/models/components";
 
-let value: PlacementUpdateStudentQuestionResponseResult = {};
+let value: PlacementUpdateStudentQuestionResponseResult = {
+  lessonType: "placement",
+};
 ```
 
 ## Fields
@@ -15,4 +17,4 @@ let value: PlacementUpdateStudentQuestionResponseResult = {};
 | Field                                                         | Type                                                          | Required                                                      | Description                                                   |
 | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
 | `questionResult`                                              | *any*                                                         | :heavy_minus_sign:                                            | The assessment result object for the question (for debugging) |
-| `lessonType`                                                  | *string*                                                      | :heavy_check_mark:                                            | N/A                                                           |
+| `lessonType`                                                  | *"placement"*                                                 | :heavy_check_mark:                                            | N/A                                                           |

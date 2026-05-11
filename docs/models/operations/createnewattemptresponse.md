@@ -12,8 +12,8 @@ let value: CreateNewAttemptResponse = {
     attempt: 231.88,
     score: 1011.05,
     scoreStatus: "partially graded",
-    startedAt: new Date("2023-05-12T18:37:59.771Z"),
-    completedAt: new Date("2024-10-26T04:51:22.006Z"),
+    startedAt: new Date("2024-05-11T18:37:59.771Z"),
+    completedAt: new Date("2025-10-26T04:51:22.006Z"),
   },
 };
 ```

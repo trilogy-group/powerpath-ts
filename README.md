@@ -143,10 +143,7 @@ bun add @superbuilders/powerpath
 ### Yarn
 
 ```bash
-yarn add @superbuilders/powerpath zod
-
-# Note that Yarn does not install peer dependencies automatically. You will need
-# to install zod as shown above.
+yarn add @superbuilders/powerpath
 ```
 
 > [!NOTE]
@@ -283,9 +280,9 @@ run();
 
 This SDK supports the following security scheme globally:
 
-| Name                          | Type   | Scheme                         | Environment Variable                                                          |
-| ----------------------------- | ------ | ------------------------------ | ----------------------------------------------------------------------------- |
-| `clientID`<br/>`clientSecret` | oauth2 | OAuth2 Client Credentials Flow | `POWERPATH_CLIENT_ID`<br/>`POWERPATH_CLIENT_SECRET`<br/>`POWERPATH_TOKEN_URL` |
+| Name                                         | Type   | Scheme                         | Environment Variable                                                          |
+| -------------------------------------------- | ------ | ------------------------------ | ----------------------------------------------------------------------------- |
+| `clientID`<br/>`clientSecret`<br/>`tokenURL` | oauth2 | OAuth2 Client Credentials Flow | `POWERPATH_CLIENT_ID`<br/>`POWERPATH_CLIENT_SECRET`<br/>`POWERPATH_TOKEN_URL` |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```typescript
@@ -318,13 +315,13 @@ run();
 <details open>
 <summary>Available methods</summary>
 
-### [lessonPlans](docs/sdks/lessonplans/README.md)
+### [LessonPlans](docs/sdks/lessonplans/README.md)
 
 * [getStudentCourseProgress](docs/sdks/lessonplans/README.md#getstudentcourseprogress) - Get course progress
 * [updateStudentResponse](docs/sdks/lessonplans/README.md#updatestudentresponse) - Update student item response
 * [getSyllabus](docs/sdks/lessonplans/README.md#getsyllabus) - Get course syllabus
 
-### [lessons](docs/sdks/lessons/README.md)
+### [Lessons](docs/sdks/lessons/README.md)
 
 * [createAttempt](docs/sdks/lessons/README.md#createattempt) - Create new attempt
 * [finalizeResponse](docs/sdks/lessons/README.md#finalizeresponse) - Finalize a test assessments
@@ -334,8 +331,7 @@ run();
 * [resetAttempt](docs/sdks/lessons/README.md#resetattempt) - Reset attempt
 * [updateStudentResponse](docs/sdks/lessons/README.md#updatestudentresponse) - Update student question response
 
-
-### [powerPathCourseMastery](docs/sdks/powerpathcoursemastery/README.md)
+### [PowerPathCourseMastery](docs/sdks/powerpathcoursemastery/README.md)
 
 * [createExternalPlacementTest](docs/sdks/powerpathcoursemastery/README.md#createexternalplacementtest) - Create an External Placement Test
 * [createExternalTestOut](docs/sdks/powerpathcoursemastery/README.md#createexternaltestout) - Create an External TestOut
@@ -343,7 +339,7 @@ run();
 * [makeExternalTestAssignment](docs/sdks/powerpathcoursemastery/README.md#makeexternaltestassignment) - Make external test assignment
 * [testOut](docs/sdks/powerpathcoursemastery/README.md#testout) - Test out
 
-### [powerPathLessonPlans](docs/sdks/powerpathlessonplans/README.md)
+### [PowerPathLessonPlans](docs/sdks/powerpathlessonplans/README.md)
 
 * [createLessonPlan](docs/sdks/powerpathlessonplans/README.md#createlessonplan) - Create a lesson plan
 * [getTree](docs/sdks/powerpathlessonplans/README.md#gettree) - Returns the lesson plan tree for a course and student
@@ -353,7 +349,7 @@ run();
 * [updateLessonPlanItem](docs/sdks/powerpathlessonplans/README.md#updatelessonplanitem) - Update a lesson plan item
 * [deleteLessonPlanItem](docs/sdks/powerpathlessonplans/README.md#deletelessonplanitem) - Delete a lesson plan item
 
-### [powerPathPlacement](docs/sdks/powerpathplacement/README.md)
+### [PowerPathPlacement](docs/sdks/powerpathplacement/README.md)
 
 * [getAllPlacementTests](docs/sdks/powerpathplacement/README.md#getallplacementtests) - Get all placement tests
 * [getCurrentLevel](docs/sdks/powerpathplacement/README.md#getcurrentlevel) - Get current level
@@ -544,8 +540,8 @@ run();
 ### Error Classes
 **Primary errors:**
 * [`PowerPathError`](./src/models/errors/powerpatherror.ts): The base class for HTTP error responses.
-  * [`UnauthorizedRequestResponseError`](docs/models/errors/unauthorizedrequestresponseerror.md): Unauthorized. Status code `401`.
-  * [`ForbiddenResponseError`](docs/models/errors/forbiddenresponseerror.md): Forbidden. Status code `403`.
+  * [`UnauthorizedRequestResponseError`](./src/models/errors/unauthorizedrequestresponseerror.ts): Unauthorized. Status code `401`.
+  * [`ForbiddenResponseError`](./src/models/errors/forbiddenresponseerror.ts): Forbidden. Status code `403`.
 
 <details><summary>Less common errors (11)</summary>
 
@@ -560,11 +556,11 @@ run();
 
 
 **Inherit from [`PowerPathError`](./src/models/errors/powerpatherror.ts)**:
-* [`BadRequestResponseError`](docs/models/errors/badrequestresponseerror.md): Bad Request. Status code `400`. Applicable to 19 of 26 methods.*
-* [`NotFoundResponseError`](docs/models/errors/notfoundresponseerror.md): Not Found. Status code `404`. Applicable to 19 of 26 methods.*
-* [`UnprocessableEntityResponseError`](docs/models/errors/unprocessableentityresponseerror.md): Unprocessable Entity / Validation Error. Status code `422`. Applicable to 19 of 26 methods.*
-* [`TooManyRequestsResponseError`](docs/models/errors/toomanyrequestsresponseerror.md): Too Many Requests. Status code `429`. Applicable to 19 of 26 methods.*
-* [`InternalServerErrorResponse`](docs/models/errors/internalservererrorresponse.md): Internal Server Error. Status code `500`. Applicable to 19 of 26 methods.*
+* [`BadRequestResponseError`](./src/models/errors/badrequestresponseerror.ts): Bad Request. Status code `400`. Applicable to 19 of 26 methods.*
+* [`NotFoundResponseError`](./src/models/errors/notfoundresponseerror.ts): Not Found. Status code `404`. Applicable to 19 of 26 methods.*
+* [`UnprocessableEntityResponseError`](./src/models/errors/unprocessableentityresponseerror.ts): Unprocessable Entity / Validation Error. Status code `422`. Applicable to 19 of 26 methods.*
+* [`TooManyRequestsResponseError`](./src/models/errors/toomanyrequestsresponseerror.ts): Too Many Requests. Status code `429`. Applicable to 19 of 26 methods.*
+* [`InternalServerErrorResponse`](./src/models/errors/internalservererrorresponse.ts): Internal Server Error. Status code `500`. Applicable to 19 of 26 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
@@ -616,19 +612,23 @@ The `HTTPClient` constructor takes an optional `fetcher` argument that can be
 used to integrate a third-party HTTP client or when writing tests to mock out
 the HTTP client and feed in fixtures.
 
-The following example shows how to use the `"beforeRequest"` hook to to add a
-custom header and a timeout to requests and how to use the `"requestError"` hook
-to log errors:
+The following example shows how to:
+- route requests through a proxy server using [undici](https://www.npmjs.com/package/undici)'s ProxyAgent
+- use the `"beforeRequest"` hook to add a custom header and a timeout to requests
+- use the `"requestError"` hook to log errors
 
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
+import { ProxyAgent } from "undici";
 import { HTTPClient } from "@superbuilders/powerpath/lib/http";
 
+const dispatcher = new ProxyAgent("http://proxy.example.com:8080");
+
 const httpClient = new HTTPClient({
-  // fetcher takes a function that has the same signature as native `fetch`.
-  fetcher: (request) => {
-    return fetch(request);
-  }
+  // 'fetcher' takes a function that has the same signature as native 'fetch'.
+  fetcher: (input, init) =>
+    // 'dispatcher' is specific to undici and not part of the standard Fetch API.
+    fetch(input, { ...init, dispatcher } as RequestInit),
 });
 
 httpClient.addHook("beforeRequest", (request) => {
@@ -648,7 +648,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new PowerPath({ httpClient });
+const sdk = new PowerPath({ httpClient: httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 

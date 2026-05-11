@@ -7,7 +7,10 @@ import { NotFoundResponseImsxCodeMinor } from "@superbuilders/powerpath/models/e
 
 let value: NotFoundResponseImsxCodeMinor = {
   imsxCodeMinorField: [
-    {},
+    {
+      imsxCodeMinorFieldName: "TargetEndSystem",
+      imsxCodeMinorFieldValue: "unknownobject",
+    },
   ],
 };
 ```

@@ -10,6 +10,7 @@ const value: components.CreateExternalTestOutInput = {
   courseId: "<id>",
   toolProvider: "edulastic",
   vendorId: "<id>",
+  lessonType: "test-out",
   xp: 6159.35,
 };
 ```
@@ -21,6 +22,7 @@ const value: components.CreateExternalPlacementInput = {
   courseId: "<id>",
   toolProvider: "edulastic",
   vendorId: "<id>",
+  lessonType: "placement",
   grades: [
     531.6,
     3406.02,

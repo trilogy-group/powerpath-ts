@@ -7,7 +7,10 @@ import { InternalServerErrorResponseImsxCodeMinor } from "@superbuilders/powerpa
 
 let value: InternalServerErrorResponseImsxCodeMinor = {
   imsxCodeMinorField: [
-    {},
+    {
+      imsxCodeMinorFieldName: "TargetEndSystem",
+      imsxCodeMinorFieldValue: "internal_server_error",
+    },
   ],
 };
 ```

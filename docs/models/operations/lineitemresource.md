@@ -6,13 +6,14 @@
 import { LineItemResource } from "@superbuilders/powerpath/models/operations";
 
 let value: LineItemResource = {
+  type: "resource",
   assessmentLineItemSourcedId: "<id>",
   courseComponentResourceSourcedId: "<id>",
   title: "<value>",
   results: [
     {
       status: "active",
-      scoreDate: new Date("2023-10-14T09:48:15.092Z"),
+      scoreDate: new Date("2024-10-13T09:48:15.092Z"),
       scoreStatus: "not submitted",
     },
   ],
@@ -23,7 +24,7 @@ let value: LineItemResource = {
 
 | Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `type`                                                                                       | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `type`                                                                                       | *"resource"*                                                                                 | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `assessmentLineItemSourcedId`                                                                | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `courseComponentResourceSourcedId`                                                           | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `title`                                                                                      | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |

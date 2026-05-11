@@ -1,5 +1,4 @@
 # LessonPlans
-(*lessonPlans*)
 
 ## Overview
 
@@ -28,6 +27,7 @@ Each **line item** contains a list of assessment results in the **results** attr
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getCourseProgress" method="get" path="/powerpath/lessonPlans/getCourseProgress/{courseId}/student/{studentId}" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -127,6 +127,7 @@ If you provide the **componentResourceId**, the data in the response payload sho
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="updateStudentItemResponse" method="post" path="/powerpath/lessonPlans/updateStudentItemResponse" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -208,6 +209,7 @@ Get course syllabus
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getCourseSyllabus" method="get" path="/powerpath/syllabus/{courseSourcedId}" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
