@@ -9,7 +9,7 @@ import { UpdateStudentItemResponseResult } from "@superbuilders/powerpath/models
 
 let value: UpdateStudentItemResponseResult = {
   status: "tobedeleted",
-  scoreDate: new Date("2024-06-02T23:37:01.318Z"),
+  scoreDate: new Date("2025-06-02T23:37:01.318Z"),
   scoreStatus: "fully graded",
 };
 ```

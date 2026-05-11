@@ -1,5 +1,4 @@
 # PowerPathCourseMastery
-(*powerPathCourseMastery*)
 
 ## Overview
 
@@ -36,6 +35,7 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="createExternalPlacementTest" method="post" path="/powerpath/createExternalPlacementTest" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -134,6 +134,7 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="createExternalTestOut" method="post" path="/powerpath/createExternalTestOut" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -232,6 +233,7 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="importExternalTestAssignmentResults" method="get" path="/powerpath/importExternalTestAssignmentResults" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -336,6 +338,7 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="makeExternalTestAssignment" method="post" path="/powerpath/makeExternalTestAssignment" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -428,6 +431,7 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="testOut" method="get" path="/powerpath/testOut" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 

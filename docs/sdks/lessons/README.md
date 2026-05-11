@@ -1,5 +1,4 @@
 # Lessons
-(*lessons*)
 
 ## Overview
 
@@ -29,6 +28,7 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="createNewAttempt" method="post" path="/powerpath/createNewAttempt" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -118,6 +118,7 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="finalStudentAssessmentResponse" method="post" path="/powerpath/finalStudentAssessmentResponse" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -202,6 +203,7 @@ A 'Lesson' in this context is a ComponentResource object paired with a Resource 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getAssessmentProgress" method="get" path="/powerpath/getAssessmentProgress" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -294,6 +296,7 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getAttempts" method="get" path="/powerpath/getAttempts" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -386,6 +389,7 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getNextQuestion" method="get" path="/powerpath/getNextQuestion" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -480,6 +484,7 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="resetAttempt" method="post" path="/powerpath/resetAttempt" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -566,6 +571,7 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="updateStudentQuestionResponse" method="put" path="/powerpath/updateStudentQuestionResponse" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 

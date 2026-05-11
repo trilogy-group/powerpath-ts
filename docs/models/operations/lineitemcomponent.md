@@ -6,6 +6,7 @@
 import { LineItemComponent } from "@superbuilders/powerpath/models/operations";
 
 let value: LineItemComponent = {
+  type: "component",
   assessmentLineItemSourcedId: "<id>",
   courseComponentSourcedId: "<id>",
   title: "<value>",
@@ -17,7 +18,7 @@ let value: LineItemComponent = {
 
 | Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `type`                                                                                       | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `type`                                                                                       | *"component"*                                                                                | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `assessmentLineItemSourcedId`                                                                | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `courseComponentSourcedId`                                                                   | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `title`                                                                                      | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |

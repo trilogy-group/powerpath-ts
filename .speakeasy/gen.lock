@@ -3,401 +3,1527 @@ id: bf2d5496-2406-413a-9727-ddaa0a56268e
 management:
   docChecksum: 041e2c11d1a6fde2edcc5236c6634374
   docVersion: 1.0.0
-  speakeasyVersion: 1.571.1
-  generationVersion: 2.640.2
-  releaseVersion: 0.3.1
-  configChecksum: eef3d5eb314b671c5890b7fcbf10faba
+  speakeasyVersion: 1.762.0
+  generationVersion: 2.882.0
+  releaseVersion: 0.4.0
+  configChecksum: 323b199bf20434a99449ac801f0f98c9
   repoURL: https://github.com/trilogy-group/powerpath-ts.git
   installationURL: https://github.com/trilogy-group/powerpath-ts
   published: true
+persistentEdits:
+  generation_id: f3218131-c58f-4d6a-969b-cf8aa19a4036
+  pristine_commit_hash: fc013377b387698bd1df04a977bd086a398bed52
+  pristine_tree_hash: 4f88e6c0518d435d4c4773e4e13d5065a1a263bb
 features:
   typescript:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.1.12
-    core: 3.21.11
+    constsAndDefaults: 0.1.14
+    core: 3.26.50
     defaultEnabledRetries: 0.1.0
-    devContainers: 2.90.0
+    devContainers: 2.90.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
-    globalSecurity: 2.82.13
+    globalSecurity: 2.82.16
     globalSecurityCallbacks: 0.1.0
-    globalServerURLs: 2.82.5
-    groups: 2.81.2
-    mcpServer: 0.9.2
-    nameOverrides: 2.81.2
+    globalServerURLs: 2.83.1
+    groups: 2.81.3
+    mcpServer: 0.9.4
+    nameOverrides: 2.81.4
     nullables: 0.1.1
-    oauth2ClientCredentials: 0.4.1
-    responseFormat: 0.2.3
+    oauth2ClientCredentials: 1.1.5
+    responseFormat: 0.3.0
     retries: 2.83.0
-    sdkHooks: 0.3.0
-    unions: 2.85.11
-generatedFiles:
-  - .devcontainer/README.md
-  - .devcontainer/devcontainer.json
-  - .devcontainer/setup.sh
-  - .gitattributes
-  - .npmignore
-  - FUNCTIONS.md
-  - RUNTIMES.md
-  - USAGE.md
-  - docs/lib/utils/retryconfig.md
-  - docs/models/components/assessmentlineitem.md
-  - docs/models/components/assessmentlineitemcomponentresource.md
-  - docs/models/components/assessmentlineitemscorescale.md
-  - docs/models/components/assessmentlineitemstatus.md
-  - docs/models/components/assessmentresult.md
-  - docs/models/components/assessmentresultassessmentlineitem.md
-  - docs/models/components/assessmentresultlearningobjectiveset.md
-  - docs/models/components/assessmentresultscorescale.md
-  - docs/models/components/assessmentresultstatus.md
-  - docs/models/components/class.md
-  - docs/models/components/component.md
-  - docs/models/components/createexternalplacementinput.md
-  - docs/models/components/createexternalplacementinputtoolprovider.md
-  - docs/models/components/createexternaltestoutinput.md
-  - docs/models/components/createexternaltestoutinputtoolprovider.md
-  - docs/models/components/credentials.md
-  - docs/models/components/importance.md
-  - docs/models/components/learningobjectiveresult.md
-  - docs/models/components/learningobjectiveset.md
-  - docs/models/components/lessonplantreecomponent.md
-  - docs/models/components/lessonplantreecomponentcomponentresource.md
-  - docs/models/components/lessonplantreecomponentstatus.md
-  - docs/models/components/metadatadetails.md
-  - docs/models/components/parentassessmentlineitem.md
-  - docs/models/components/placementupdatestudentquestionresponseresult.md
-  - docs/models/components/powerpath100progressresult.md
-  - docs/models/components/powerpath100progressresultcontent.md
-  - docs/models/components/powerpath100progressresultdifficulty.md
-  - docs/models/components/powerpath100progressresultresponse.md
-  - docs/models/components/powerpath100progressresultresult.md
-  - docs/models/components/powerpath100updatestudentquestionresponseresult.md
-  - docs/models/components/powerpathtestquestion.md
-  - docs/models/components/powerpathtestquestioncontent.md
-  - docs/models/components/powerpathtestquestiondifficulty.md
-  - docs/models/components/powerpathtestquestionresponse.md
-  - docs/models/components/powerpathtestquestionresult.md
-  - docs/models/components/quizupdatestudentquestionresponseresult.md
-  - docs/models/components/remainingquestionsperdifficulty.md
-  - docs/models/components/resource.md
-  - docs/models/components/resourcestatus.md
-  - docs/models/components/responseresult.md
-  - docs/models/components/role.md
-  - docs/models/components/scorestatus.md
-  - docs/models/components/security.md
-  - docs/models/components/seenquestion.md
-  - docs/models/components/student.md
-  - docs/models/components/testoutresult.md
-  - docs/models/components/testoutupdatestudentquestionresponseresult.md
-  - docs/models/components/updatestudentquestionresponseinput.md
-  - docs/models/components/updatestudentquestionresponseinputresponse.md
-  - docs/models/errors/badrequestresponseerror.md
-  - docs/models/errors/badrequestresponseimsxcodeminor.md
-  - docs/models/errors/badrequestresponseimsxcodeminorfield.md
-  - docs/models/errors/forbiddenresponseerror.md
-  - docs/models/errors/forbiddenresponseimsxcodeminor.md
-  - docs/models/errors/forbiddenresponseimsxcodeminorfield.md
-  - docs/models/errors/internalservererrorresponse.md
-  - docs/models/errors/internalservererrorresponseimsxcodeminor.md
-  - docs/models/errors/internalservererrorresponseimsxcodeminorfield.md
-  - docs/models/errors/notfoundresponseerror.md
-  - docs/models/errors/notfoundresponseimsxcodeminor.md
-  - docs/models/errors/notfoundresponseimsxcodeminorfield.md
-  - docs/models/errors/toomanyrequestsresponseerror.md
-  - docs/models/errors/toomanyrequestsresponseimsxcodeminor.md
-  - docs/models/errors/toomanyrequestsresponseimsxcodeminorfield.md
-  - docs/models/errors/unauthorizedrequestresponseerror.md
-  - docs/models/errors/unauthorizedrequestresponseimsxcodeminor.md
-  - docs/models/errors/unauthorizedrequestresponseimsxcodeminorfield.md
-  - docs/models/errors/unprocessableentityresponseerror.md
-  - docs/models/errors/unprocessableentityresponseimsxcodeminor.md
-  - docs/models/errors/unprocessableentityresponseimsxcodeminorfield.md
-  - docs/models/operations/assessmentlineitems.md
-  - docs/models/operations/assessmentresult.md
-  - docs/models/operations/attachcomponentlessonplanitem.md
-  - docs/models/operations/attachcomponentrequest.md
-  - docs/models/operations/attachcomponentrequestbody.md
-  - docs/models/operations/attachcomponentresponse.md
-  - docs/models/operations/attachcomponenttype.md
-  - docs/models/operations/attachresourcelessonplanitem.md
-  - docs/models/operations/attachresourcerequest.md
-  - docs/models/operations/attachresourcerequestbody.md
-  - docs/models/operations/attachresourceresponse.md
-  - docs/models/operations/attachresourcetype.md
-  - docs/models/operations/componentresources.md
-  - docs/models/operations/createexternalplacementtestlessontype.md
-  - docs/models/operations/createexternalplacementtestrequest.md
-  - docs/models/operations/createexternalplacementtestresponse.md
-  - docs/models/operations/createexternaltestoutlessontype.md
-  - docs/models/operations/createexternaltestoutrequest.md
-  - docs/models/operations/createexternaltestoutresponse.md
-  - docs/models/operations/createlessonplanacademicsession1.md
-  - docs/models/operations/createlessonplanacademicsession2.md
-  - docs/models/operations/createlessonplancourse1.md
-  - docs/models/operations/createlessonplancourse2.md
-  - docs/models/operations/createlessonplanlessonplan1.md
-  - docs/models/operations/createlessonplanlessonplan2.md
-  - docs/models/operations/createlessonplanlessonplanlessonplan1.md
-  - docs/models/operations/createlessonplanlessonplanlessonplan2.md
-  - docs/models/operations/createlessonplanorg1.md
-  - docs/models/operations/createlessonplanorg2.md
-  - docs/models/operations/createlessonplanrequest.md
-  - docs/models/operations/createlessonplanresponse.md
-  - docs/models/operations/createlessonplanresponsebody1.md
-  - docs/models/operations/createlessonplanresponsebody2.md
-  - docs/models/operations/createlessonplanstatus1.md
-  - docs/models/operations/createlessonplanstatus2.md
-  - docs/models/operations/createnewattemptattempt.md
-  - docs/models/operations/createnewattemptrequest.md
-  - docs/models/operations/createnewattemptresponse.md
-  - docs/models/operations/createnewattemptscorestatus.md
-  - docs/models/operations/deletelessonplanitemrequest.md
-  - docs/models/operations/deletelessonplanrequest.md
-  - docs/models/operations/finalstudentassessmentresponselessontype.md
-  - docs/models/operations/finalstudentassessmentresponserequest.md
-  - docs/models/operations/finalstudentassessmentresponseresponse.md
-  - docs/models/operations/getallplacementtestsrequest.md
-  - docs/models/operations/getallplacementtestsresponse.md
-  - docs/models/operations/getassessmentprogresslessontype.md
-  - docs/models/operations/getassessmentprogressrequest.md
-  - docs/models/operations/getassessmentprogressresponse.md
-  - docs/models/operations/getattemptsattempt.md
-  - docs/models/operations/getattemptsrequest.md
-  - docs/models/operations/getattemptsresponse.md
-  - docs/models/operations/getattemptsscorestatus.md
-  - docs/models/operations/getcourseprogresslearningobjectiveresult1.md
-  - docs/models/operations/getcourseprogresslearningobjectiveresult2.md
-  - docs/models/operations/getcourseprogresslearningobjectiveset1.md
-  - docs/models/operations/getcourseprogresslearningobjectiveset2.md
-  - docs/models/operations/getcourseprogressrequest.md
-  - docs/models/operations/getcourseprogressresponse.md
-  - docs/models/operations/getcourseprogressresult1.md
-  - docs/models/operations/getcourseprogressresult2.md
-  - docs/models/operations/getcourseprogressscorestatus1.md
-  - docs/models/operations/getcourseprogressscorestatus2.md
-  - docs/models/operations/getcourseprogressstatus1.md
-  - docs/models/operations/getcourseprogressstatus2.md
-  - docs/models/operations/getcoursesyllabusrequest.md
-  - docs/models/operations/getcoursesyllabusresponse.md
-  - docs/models/operations/getcurrentlevelrequest.md
-  - docs/models/operations/getcurrentlevelresponse.md
-  - docs/models/operations/getnextplacementtestrequest.md
-  - docs/models/operations/getnextplacementtestresponse.md
-  - docs/models/operations/getnextquestionrequest.md
-  - docs/models/operations/getnextquestionresponse.md
-  - docs/models/operations/getsubjectprogresscourse.md
-  - docs/models/operations/getsubjectprogressrequest.md
-  - docs/models/operations/getsubjectprogressresponse.md
-  - docs/models/operations/gettreeacademicsession.md
-  - docs/models/operations/gettreecourse.md
-  - docs/models/operations/gettreelessonplan.md
-  - docs/models/operations/gettreelessonplanlessonplan.md
-  - docs/models/operations/gettreeorg.md
-  - docs/models/operations/gettreerequest.md
-  - docs/models/operations/gettreeresponse.md
-  - docs/models/operations/gettreestatus.md
-  - docs/models/operations/importexternaltestassignmentresultscredentials.md
-  - docs/models/operations/importexternaltestassignmentresultslessontype.md
-  - docs/models/operations/importexternaltestassignmentresultsrequest.md
-  - docs/models/operations/importexternaltestassignmentresultsresponse.md
-  - docs/models/operations/lineitem.md
-  - docs/models/operations/lineitemcomponent.md
-  - docs/models/operations/lineitemresource.md
-  - docs/models/operations/makeexternaltestassignmentcredentials.md
-  - docs/models/operations/makeexternaltestassignmentlessontype.md
-  - docs/models/operations/makeexternaltestassignmentrequest.md
-  - docs/models/operations/makeexternaltestassignmentresponse.md
-  - docs/models/operations/placementtest.md
-  - docs/models/operations/progress.md
-  - docs/models/operations/resetattemptrequest.md
-  - docs/models/operations/resetattemptresponse.md
-  - docs/models/operations/resources.md
-  - docs/models/operations/resourcesmetadata.md
-  - docs/models/operations/responsebody.md
-  - docs/models/operations/scorescale1.md
-  - docs/models/operations/scorescale2.md
-  - docs/models/operations/testoutrequest.md
-  - docs/models/operations/toolprovider.md
-  - docs/models/operations/updatelessonplanitemrequest.md
-  - docs/models/operations/updatelessonplanitemrequestbody.md
-  - docs/models/operations/updatelessonplanitemtype.md
-  - docs/models/operations/updatestudentitemresponselearningobjectiveresult.md
-  - docs/models/operations/updatestudentitemresponselearningobjectiveset.md
-  - docs/models/operations/updatestudentitemresponserequest.md
-  - docs/models/operations/updatestudentitemresponseresponse.md
-  - docs/models/operations/updatestudentitemresponseresult.md
-  - docs/models/operations/updatestudentitemresponsescorestatus.md
-  - docs/models/operations/updatestudentitemresponsestatus.md
-  - docs/models/operations/updatestudentquestionresponseresponse.md
-  - docs/sdks/lessonplans/README.md
-  - docs/sdks/lessons/README.md
-  - docs/sdks/powerpath/README.md
-  - docs/sdks/powerpathcoursemastery/README.md
-  - docs/sdks/powerpathlessonplans/README.md
-  - docs/sdks/powerpathplacement/README.md
-  - eslint.config.mjs
-  - jsr.json
-  - package.json
-  - src/core.ts
-  - src/funcs/lessonPlansGetStudentCourseProgress.ts
-  - src/funcs/lessonPlansGetSyllabus.ts
-  - src/funcs/lessonPlansUpdateStudentResponse.ts
-  - src/funcs/lessonsCreateAttempt.ts
-  - src/funcs/lessonsFinalizeResponse.ts
-  - src/funcs/lessonsGetAttempts.ts
-  - src/funcs/lessonsGetNextQuestion.ts
-  - src/funcs/lessonsGetProgress.ts
-  - src/funcs/lessonsResetAttempt.ts
-  - src/funcs/lessonsUpdateStudentResponse.ts
-  - src/funcs/powerPathCourseMasteryCreateExternalPlacementTest.ts
-  - src/funcs/powerPathCourseMasteryCreateExternalTestOut.ts
-  - src/funcs/powerPathCourseMasteryImportExternalTestAssignmentResults.ts
-  - src/funcs/powerPathCourseMasteryMakeExternalTestAssignment.ts
-  - src/funcs/powerPathCourseMasteryTestOut.ts
-  - src/funcs/powerPathLessonPlansAttachComponent.ts
-  - src/funcs/powerPathLessonPlansAttachResource.ts
-  - src/funcs/powerPathLessonPlansCreateLessonPlan.ts
-  - src/funcs/powerPathLessonPlansDeleteLessonPlan.ts
-  - src/funcs/powerPathLessonPlansDeleteLessonPlanItem.ts
-  - src/funcs/powerPathLessonPlansGetTree.ts
-  - src/funcs/powerPathLessonPlansUpdateLessonPlanItem.ts
-  - src/funcs/powerPathPlacementGetAllPlacementTests.ts
-  - src/funcs/powerPathPlacementGetCurrentLevel.ts
-  - src/funcs/powerPathPlacementGetNextPlacementTest.ts
-  - src/funcs/powerPathPlacementGetSubjectProgress.ts
-  - src/hooks/clientcredentials.ts
-  - src/hooks/hooks.ts
-  - src/hooks/index.ts
-  - src/hooks/types.ts
-  - src/index.ts
-  - src/lib/base64.ts
-  - src/lib/config.ts
-  - src/lib/dlv.ts
-  - src/lib/encodings.ts
-  - src/lib/env.ts
-  - src/lib/files.ts
-  - src/lib/http.ts
-  - src/lib/is-plain-object.ts
-  - src/lib/logger.ts
-  - src/lib/matchers.ts
-  - src/lib/primitives.ts
-  - src/lib/retries.ts
-  - src/lib/schemas.ts
-  - src/lib/sdks.ts
-  - src/lib/security.ts
-  - src/lib/url.ts
-  - src/mcp-server/build.mts
-  - src/mcp-server/cli.ts
-  - src/mcp-server/cli/start/command.ts
-  - src/mcp-server/cli/start/impl.ts
-  - src/mcp-server/console-logger.ts
-  - src/mcp-server/extensions.ts
-  - src/mcp-server/mcp-server.ts
-  - src/mcp-server/prompts.ts
-  - src/mcp-server/resources.ts
-  - src/mcp-server/scopes.ts
-  - src/mcp-server/server.ts
-  - src/mcp-server/shared.ts
-  - src/mcp-server/tools.ts
-  - src/mcp-server/tools/lessonPlansGetStudentCourseProgress.ts
-  - src/mcp-server/tools/lessonPlansGetSyllabus.ts
-  - src/mcp-server/tools/lessonPlansUpdateStudentResponse.ts
-  - src/mcp-server/tools/lessonsCreateAttempt.ts
-  - src/mcp-server/tools/lessonsFinalizeResponse.ts
-  - src/mcp-server/tools/lessonsGetAttempts.ts
-  - src/mcp-server/tools/lessonsGetNextQuestion.ts
-  - src/mcp-server/tools/lessonsGetProgress.ts
-  - src/mcp-server/tools/lessonsResetAttempt.ts
-  - src/mcp-server/tools/lessonsUpdateStudentResponse.ts
-  - src/mcp-server/tools/powerPathCourseMasteryCreateExternalPlacementTest.ts
-  - src/mcp-server/tools/powerPathCourseMasteryCreateExternalTestOut.ts
-  - src/mcp-server/tools/powerPathCourseMasteryImportExternalTestAssignmentResults.ts
-  - src/mcp-server/tools/powerPathCourseMasteryMakeExternalTestAssignment.ts
-  - src/mcp-server/tools/powerPathCourseMasteryTestOut.ts
-  - src/mcp-server/tools/powerPathLessonPlansAttachComponent.ts
-  - src/mcp-server/tools/powerPathLessonPlansAttachResource.ts
-  - src/mcp-server/tools/powerPathLessonPlansCreateLessonPlan.ts
-  - src/mcp-server/tools/powerPathLessonPlansDeleteLessonPlan.ts
-  - src/mcp-server/tools/powerPathLessonPlansDeleteLessonPlanItem.ts
-  - src/mcp-server/tools/powerPathLessonPlansGetTree.ts
-  - src/mcp-server/tools/powerPathLessonPlansUpdateLessonPlanItem.ts
-  - src/mcp-server/tools/powerPathPlacementGetAllPlacementTests.ts
-  - src/mcp-server/tools/powerPathPlacementGetCurrentLevel.ts
-  - src/mcp-server/tools/powerPathPlacementGetNextPlacementTest.ts
-  - src/mcp-server/tools/powerPathPlacementGetSubjectProgress.ts
-  - src/models/components/assessmentlineitem.ts
-  - src/models/components/assessmentresult.ts
-  - src/models/components/createexternalplacementinput.ts
-  - src/models/components/createexternaltestoutinput.ts
-  - src/models/components/index.ts
-  - src/models/components/learningobjectiveset.ts
-  - src/models/components/lessonplantreecomponent.ts
-  - src/models/components/placementupdatestudentquestionresponseresult.ts
-  - src/models/components/powerpath100progressresult.ts
-  - src/models/components/powerpath100updatestudentquestionresponseresult.ts
-  - src/models/components/powerpathtestquestion.ts
-  - src/models/components/quizupdatestudentquestionresponseresult.ts
-  - src/models/components/security.ts
-  - src/models/components/testoutresult.ts
-  - src/models/components/testoutupdatestudentquestionresponseresult.ts
-  - src/models/components/updatestudentquestionresponseinput.ts
-  - src/models/errors/apierror.ts
-  - src/models/errors/badrequestresponseerror.ts
-  - src/models/errors/forbiddenresponseerror.ts
-  - src/models/errors/httpclienterrors.ts
-  - src/models/errors/index.ts
-  - src/models/errors/internalservererrorresponse.ts
-  - src/models/errors/notfoundresponseerror.ts
-  - src/models/errors/powerpatherror.ts
-  - src/models/errors/responsevalidationerror.ts
-  - src/models/errors/sdkvalidationerror.ts
-  - src/models/errors/toomanyrequestsresponseerror.ts
-  - src/models/errors/unauthorizedrequestresponseerror.ts
-  - src/models/errors/unprocessableentityresponseerror.ts
-  - src/models/operations/attachcomponent.ts
-  - src/models/operations/attachresource.ts
-  - src/models/operations/createexternalplacementtest.ts
-  - src/models/operations/createexternaltestout.ts
-  - src/models/operations/createlessonplan.ts
-  - src/models/operations/createnewattempt.ts
-  - src/models/operations/deletelessonplan.ts
-  - src/models/operations/deletelessonplanitem.ts
-  - src/models/operations/finalstudentassessmentresponse.ts
-  - src/models/operations/getallplacementtests.ts
-  - src/models/operations/getassessmentprogress.ts
-  - src/models/operations/getattempts.ts
-  - src/models/operations/getcourseprogress.ts
-  - src/models/operations/getcoursesyllabus.ts
-  - src/models/operations/getcurrentlevel.ts
-  - src/models/operations/getnextplacementtest.ts
-  - src/models/operations/getnextquestion.ts
-  - src/models/operations/getsubjectprogress.ts
-  - src/models/operations/gettree.ts
-  - src/models/operations/importexternaltestassignmentresults.ts
-  - src/models/operations/index.ts
-  - src/models/operations/makeexternaltestassignment.ts
-  - src/models/operations/resetattempt.ts
-  - src/models/operations/testout.ts
-  - src/models/operations/updatelessonplanitem.ts
-  - src/models/operations/updatestudentitemresponse.ts
-  - src/models/operations/updatestudentquestionresponse.ts
-  - src/sdk/index.ts
-  - src/sdk/lessonplans.ts
-  - src/sdk/lessons.ts
-  - src/sdk/powerpathcoursemastery.ts
-  - src/sdk/powerpathlessonplans.ts
-  - src/sdk/powerpathplacement.ts
-  - src/sdk/sdk.ts
-  - src/types/async.ts
-  - src/types/blobs.ts
-  - src/types/constdatetime.ts
-  - src/types/enums.ts
-  - src/types/fp.ts
-  - src/types/index.ts
-  - src/types/operations.ts
-  - src/types/rfcdate.ts
-  - src/types/streams.ts
-  - tsconfig.json
+    sdkHooks: 0.4.0
+    unions: 2.86.4
+trackedFiles:
+  .devcontainer/README.md:
+    id: b170c0f184ac
+    last_write_checksum: sha1:ec9a5bd34fe8e1d47ea148d4b02cb51ad349077a
+    pristine_git_object: 4fbbcbb7ba596e22ffc983f3001e9d50c1f0bd6c
+  .devcontainer/devcontainer.json:
+    id: b34062a34eb1
+    last_write_checksum: sha1:d0b15193202c961e7d1875864ddb15f9d17c84dd
+    pristine_git_object: 4d560dd5f40afaf10d96eb75b1f02cd48bbd640c
+  .devcontainer/setup.sh:
+    id: 5f1dfbfeb8eb
+    last_write_checksum: sha1:fa664fe04c01c9dd1d4993a08392a85ba9dd2d9c
+    pristine_git_object: 573f5a16e7bfaacc763c7e99c158d107460ec24c
+  .gitattributes:
+    id: 24139dae6567
+    last_write_checksum: sha1:26d16d8297b104945139da8c25bd38feeaad3e25
+    pristine_git_object: 113eead5093c17d43a46159132885318f281a68a
+  .npmignore:
+    id: aa70c1f807c3
+    last_write_checksum: sha1:6572da81f2e7a978ec29c22c2210bf461c5897b2
+    pristine_git_object: 670ac0a62d7e568c9d44a14f5deafb8442a255d8
+  FUNCTIONS.md:
+    id: 21b9df02aaeb
+    last_write_checksum: sha1:1f0982da5f3d7a12cd0fd5c2e21b07ddb09c513f
+    pristine_git_object: 98a108dd946bf2ca9ac043b86c1d4039940cab17
+  RUNTIMES.md:
+    id: 620c490847b6
+    last_write_checksum: sha1:e45b854f02c357cbcfdb8c3663000e8339e16505
+    pristine_git_object: 27731c3b5ace66bedc454ed5acbe15075aacd3dc
+  USAGE.md:
+    id: 3aed33ce6e6f
+    last_write_checksum: sha1:1e33d8afa6799d030cda17c4a32e5b6992457184
+    pristine_git_object: 415f261d1bf08c1794c3a5e387887891b1ccff31
+  docs/lib/utils/retryconfig.md:
+    id: 0ce9707cb848
+    last_write_checksum: sha1:bc4454e196fcd219f5a78da690375a884f5ed07b
+    pristine_git_object: 08f95f4552349360b2c0b01802aa71ec3a55d2c2
+  docs/models/components/assessmentlineitem.md:
+    id: e1bffa4717f4
+    last_write_checksum: sha1:9beb4269a81bdb4eda9e932307ee0921f7984be1
+    pristine_git_object: 721d2e6202f1e85d4e0ae851f7340c0c31eaee6a
+  docs/models/components/assessmentlineitemcomponentresource.md:
+    id: 0715d1eeb22b
+    last_write_checksum: sha1:6483032fc0689fc5597fb97a1d0b5eff7dc78897
+    pristine_git_object: 466f100534108e94554ecf2b6e271283a7b6a670
+  docs/models/components/assessmentlineitemscorescale.md:
+    id: 6673fac9c7bb
+    last_write_checksum: sha1:c2f620848573be44d2e1c87125e50e6d12aea838
+    pristine_git_object: ef394664ecfafbcd568f54cfd75def1c00272533
+  docs/models/components/assessmentlineitemstatus.md:
+    id: 2179d54f5400
+    last_write_checksum: sha1:f58b9931b11a7b54369c941a6a9a28f23c3d9620
+    pristine_git_object: 646ccac1fcf09fd41de0912ee04a0c221c89b954
+  docs/models/components/assessmentresult.md:
+    id: 67cc8331c3bb
+    last_write_checksum: sha1:4ed7c77f3717df938d5e3d358461a61a83646440
+    pristine_git_object: 680bd6a77e45215d2e2eb1207d68bdaae0b32525
+  docs/models/components/assessmentresultassessmentlineitem.md:
+    id: 1bab66c7b037
+    last_write_checksum: sha1:886e3a372154683f6bf8977c6ed0ba4f8d47c61d
+    pristine_git_object: 2371454accf982c0277817c8833f4fcb862ac9cc
+  docs/models/components/assessmentresultlearningobjectiveset.md:
+    id: ba80731b5877
+    last_write_checksum: sha1:cf7c1634b5ae7826b68d2fe16ff37906d2528a94
+    pristine_git_object: b9eef0dafa5b0476107ff5496dc8e2e7a2c9348f
+  docs/models/components/assessmentresultscorescale.md:
+    id: 0b16b88c2d90
+    last_write_checksum: sha1:e222676822a0907f7dfb2280407f5d320574953d
+    pristine_git_object: 1c60a7098a661b41a74985ad1058a4356109da4e
+  docs/models/components/assessmentresultstatus.md:
+    id: 8edb692bae4a
+    last_write_checksum: sha1:4a113b0412f0c817aba346aacfa5cce42ec892c2
+    pristine_git_object: 62b7a70409b560d3a623b3492ab163ced15280bd
+  docs/models/components/class.md:
+    id: 021dfe0ca79e
+    last_write_checksum: sha1:d4e2e26acfc58be060c36b296e822b61d299cc89
+    pristine_git_object: 69dcad23d2e7cedacaec1360ce9af1d76a0af120
+  docs/models/components/component.md:
+    id: 5b087feaee82
+    last_write_checksum: sha1:8f6a3fa1db81f3e9b4b53e2911c204b178ede7b1
+    pristine_git_object: f610eaf67f891773f63ce29fa3326eef27a0e211
+  docs/models/components/createexternalplacementinput.md:
+    id: f4c892a17ff3
+    last_write_checksum: sha1:ad48bffb59315395420b92e77609a1c9097303ae
+    pristine_git_object: 79590706b2f6c3c5aa569400068361942398bcf1
+  docs/models/components/createexternalplacementinputtoolprovider.md:
+    id: 79aca6ec574c
+    last_write_checksum: sha1:fe83a21e545efa005ad79958b3f7156287bc1693
+    pristine_git_object: c8de8233828904f89ddf556501b3328b48da8499
+  docs/models/components/createexternaltestoutinput.md:
+    id: fea616c30f59
+    last_write_checksum: sha1:eab43a72f850f91d455e7d80df212bfc7726ef66
+    pristine_git_object: a184891983c94308a9320e2d6ba9ca4b9ed07697
+  docs/models/components/createexternaltestoutinputtoolprovider.md:
+    id: 095dc2cb4ef0
+    last_write_checksum: sha1:c188c6595cf7ae770c850850045c731c465d819f
+    pristine_git_object: 860bf78db022872060ec29e720d779878063af9c
+  docs/models/components/credentials.md:
+    id: 66da4d7fbaff
+    last_write_checksum: sha1:fe1cba9efda28f5f5bf4f3c8b9ec6608f0782d79
+    pristine_git_object: 31154465d61ad561117a4546be72cf3235d5c62a
+  docs/models/components/importance.md:
+    id: 3e0afe953b2f
+    last_write_checksum: sha1:384448c20c1c70bfbc516360c05be0b4870c0e7e
+    pristine_git_object: 8bb6f2988b90051adb705c457c3f7272da2cc679
+  docs/models/components/learningobjectiveresult.md:
+    id: bba4521f7194
+    last_write_checksum: sha1:0c779994c26c28f0b84c528e506f22cede9d05bf
+    pristine_git_object: 0fb4aef796287e86009e3023503b862d66ca0a05
+  docs/models/components/learningobjectiveset.md:
+    id: 276c2832321f
+    last_write_checksum: sha1:3173c05c70c150fab3b2b3aa2e2309d6503ba92e
+    pristine_git_object: 90b8d5098c108f766756925d350c0251cf0c6a99
+  docs/models/components/lessonplantreecomponent.md:
+    id: e0b346918e80
+    last_write_checksum: sha1:717383b80bbed88b567f1d06c13b5e2069b277b9
+    pristine_git_object: a364db3abf481d4c582848cfcfc2c3c2d20936be
+  docs/models/components/lessonplantreecomponentcomponentresource.md:
+    id: 6aae97de6019
+    last_write_checksum: sha1:0825bbcf801f505d108090cb8d80548879f40769
+    pristine_git_object: 63dc5c35413bd42685e41bf1328dcfd033188847
+  docs/models/components/lessonplantreecomponentstatus.md:
+    id: a64ab25bebc6
+    last_write_checksum: sha1:69a0f4c0e00d665ac761c36ba289563ed6a2ade1
+    pristine_git_object: adc35ca36fe1ef4e0225315dc7b7c0a9b734eae9
+  docs/models/components/metadatadetails.md:
+    id: aff45d26dab0
+    last_write_checksum: sha1:90fceeeefb59951a7d214c67b144ab0745bffa0a
+    pristine_git_object: b53bd51a64e883d7943e5472d2b5ebf87a9d4d36
+  docs/models/components/parentassessmentlineitem.md:
+    id: f8b6e55ee64f
+    last_write_checksum: sha1:55a4ec4105e5a4bcf86d9219bb7b60eb73e0af64
+    pristine_git_object: eb763b92a43386b920704f4796966409eb80f8bf
+  docs/models/components/placementupdatestudentquestionresponseresult.md:
+    id: c01b55a926ab
+    last_write_checksum: sha1:6cb6a0097a75892c6d0e779ce2569d55ce580c9d
+    pristine_git_object: 30f8a28c84e8a46a429e613433cd0e96dcbb732a
+  docs/models/components/powerpath100progressresult.md:
+    id: 73afd488cb6d
+    last_write_checksum: sha1:83635f49f8507cc0936e274070bb37fac05bbd48
+    pristine_git_object: 6f40339ecbfee991fa5aea69ebad6e85681b98d7
+  docs/models/components/powerpath100progressresultcontent.md:
+    id: e3238ac88032
+    last_write_checksum: sha1:659a9caa8c15aa862a34a3fed859dd7a00faace5
+    pristine_git_object: 559ed7ab41f37eb59b959ba61eba2b2a35cbd552
+  docs/models/components/powerpath100progressresultdifficulty.md:
+    id: 0802c7b82ca2
+    last_write_checksum: sha1:f41a1ed9da16f8ad425b47744ecdf6a22a9a44e7
+    pristine_git_object: a75cf0775f4d82db564810444a20cacce53a729f
+  docs/models/components/powerpath100progressresultresponse.md:
+    id: daf89c7949f0
+    last_write_checksum: sha1:3f13f70726b6d6af312f11055eadc34d56eda2d9
+    pristine_git_object: d4e102d90f189c3a6631fe58c2c8b6abdc55bd3b
+  docs/models/components/powerpath100progressresultresult.md:
+    id: 334554890f49
+    last_write_checksum: sha1:35a85a8d8128b6c60a6178fda1c997258ef8944c
+    pristine_git_object: 8c5537789f4849b311976940573d4b2064350c6a
+  docs/models/components/powerpath100updatestudentquestionresponseresult.md:
+    id: 373c7a69abbd
+    last_write_checksum: sha1:4b766d481296332f1043a1949739171f3895ef53
+    pristine_git_object: 09ac444e31291aa4d711aeecea52e3ed05c09622
+  docs/models/components/powerpathtestquestion.md:
+    id: cb2b3d28a190
+    last_write_checksum: sha1:afa94d8ff475444c5b3326fed9301f1250ce4ebd
+    pristine_git_object: b906dec400b8c3668336a419d08e0b5af648b31b
+  docs/models/components/powerpathtestquestioncontent.md:
+    id: 874ba68ac005
+    last_write_checksum: sha1:92ea026f2ad9dc986caacf6e82819f754e4a4636
+    pristine_git_object: 112972c936e36e2849dfa1d8e39289eccc822003
+  docs/models/components/powerpathtestquestiondifficulty.md:
+    id: 75591b52b1ff
+    last_write_checksum: sha1:bc8e39637bbb58f1074b6fbb81e6bfde1f2f47a9
+    pristine_git_object: af287b7da6fdbb5aba1729ccf3f6192e05806fdf
+  docs/models/components/powerpathtestquestionresponse.md:
+    id: ef7eeee8109c
+    last_write_checksum: sha1:e62bc57089c08ca50d8d6a26e574dd369eb8687f
+    pristine_git_object: a2bd20b28e31e14bb9bfe46402dab49d3ee74d24
+  docs/models/components/powerpathtestquestionresult.md:
+    id: bb837e0d8092
+    last_write_checksum: sha1:3c8fb09c9971a1768282fa67e9702581ff574460
+    pristine_git_object: f4c1420085d06920be48677fee2264f9f3a81b68
+  docs/models/components/quizupdatestudentquestionresponseresult.md:
+    id: 38dd60c80106
+    last_write_checksum: sha1:fb7ad7b3caef8ae6f93b9248213b5bce4fe4b8ea
+    pristine_git_object: bb7812e190086ac9430f88ab2c18b772e5e9b8a9
+  docs/models/components/remainingquestionsperdifficulty.md:
+    id: 0e739a934523
+    last_write_checksum: sha1:bd129c057a773c1fdbaf1d634623b089b80b84a0
+    pristine_git_object: 597b0f69a3f76496092e724566c53b72a4b11c78
+  docs/models/components/resource.md:
+    id: 7b2ee3d291d2
+    last_write_checksum: sha1:78cde4ad3a75beae0c008dee3667d30818f9a948
+    pristine_git_object: 6748f5e6c3a41db02b7c95e3f615e8a107acb93d
+  docs/models/components/resourcestatus.md:
+    id: 55dd07e49d9d
+    last_write_checksum: sha1:819c2ccd03a27c7f00f9a4b4c259bff802ddd567
+    pristine_git_object: 20fb500642f7d95e5916c9e990f16d2fce3c9555
+  docs/models/components/responseresult.md:
+    id: b736b2d75d70
+    last_write_checksum: sha1:abfcd971df6af0c4bf687bf557ca98f8d41f6926
+    pristine_git_object: ebc66659194ea29dd917de4f8edfdcff0087bc89
+  docs/models/components/role.md:
+    id: ab26d0e394ad
+    last_write_checksum: sha1:897d353258d274de78d5f52ee03c89ae4f0202e2
+    pristine_git_object: 8b059204597f43e7c33bda1bd3605c380e4876ab
+  docs/models/components/scorestatus.md:
+    id: 59d939559e0f
+    last_write_checksum: sha1:0d27d20aac64088b4e91bdbc38848df62aff1b9a
+    pristine_git_object: e2807d89b1fbc16ce13ad39b04608996e26046ef
+  docs/models/components/security.md:
+    id: 54906b49ea28
+    last_write_checksum: sha1:b88038026fef8fd7fc85e987eeed6759bc3a1cb9
+    pristine_git_object: db652d2a0202b36f7d1efa8c781ce7b7fa4453f0
+  docs/models/components/seenquestion.md:
+    id: 605810ebc51b
+    last_write_checksum: sha1:e2b90e32646ad4fecf91cb0a6f63d047b83802cc
+    pristine_git_object: dcb1b0c190cf4f290d00471a3fe9c7651457f1f8
+  docs/models/components/student.md:
+    id: 31d3a82e684f
+    last_write_checksum: sha1:cbc6b80c535dde38bc475df4bf30064eef5939ef
+    pristine_git_object: 9e0165358b3d1607b177992f240e585b0a9cff45
+  docs/models/components/testoutresult.md:
+    id: 26d634541be6
+    last_write_checksum: sha1:76733ffc474a1b2fb9ddd0ec6a1f2ae91912df73
+    pristine_git_object: 6f6a4d1eff551514d61e473a1e6fc427d4207dea
+  docs/models/components/testoutupdatestudentquestionresponseresult.md:
+    id: df18f064aa19
+    last_write_checksum: sha1:f9860ec6a306e81582e3fc054bb862776d682e85
+    pristine_git_object: 6a6520c6e73d56b78bb8ca4fa7f3db9a2648d5e8
+  docs/models/components/updatestudentquestionresponseinput.md:
+    id: 2ca9dfeef8b5
+    last_write_checksum: sha1:d958c99cbd9956bc4ad80031dd237ce61bf43bf7
+    pristine_git_object: 9c2cbe0e5c90b3ba91e3b27d1160a52380ce2094
+  docs/models/components/updatestudentquestionresponseinputresponse.md:
+    id: 3c255d55e47e
+    last_write_checksum: sha1:fc465f2d8a3cdcc5d8e3c5622e7f5ee0b2af2145
+    pristine_git_object: 074e0bf8abc38190353a746b893a4b344a3aff0f
+  docs/models/errors/badrequestresponseerror.md:
+    id: a4d74f0d0bb5
+    last_write_checksum: sha1:eb9103a819089d846051d22b4ca73fbdbf8a6cff
+    pristine_git_object: 6911cf4c53714eef6ea73b61a96fe7a3eb622b01
+  docs/models/errors/badrequestresponseimsxcodeminor.md:
+    id: f393b084e833
+    last_write_checksum: sha1:72307dcc099be91810f91fe3a6401439a56f4bdd
+    pristine_git_object: 96cbb84c31537f4f0220d62a3be1a757c04ff24e
+  docs/models/errors/badrequestresponseimsxcodeminorfield.md:
+    id: c19ddb4c4c41
+    last_write_checksum: sha1:6f0b827fd4f0f1689326d061d05c5a3642fb1363
+    pristine_git_object: fed69e3246c3eec2bd4a6b6a6ab49280220e0ac5
+  docs/models/errors/forbiddenresponseerror.md:
+    id: a0cdb1abe1e1
+    last_write_checksum: sha1:5a66a122201cb030171641515f3b1c49840fdc83
+    pristine_git_object: 54a39ea126293a633f1027648bf50e545d9b177c
+  docs/models/errors/forbiddenresponseimsxcodeminor.md:
+    id: 5bc21f2d8604
+    last_write_checksum: sha1:264f0b87c64f401420d8ef4ba3b12f2f5c0291a6
+    pristine_git_object: c96527285d1a7a83cbb0f9b25f8c845f5572901f
+  docs/models/errors/forbiddenresponseimsxcodeminorfield.md:
+    id: a0c8989172d9
+    last_write_checksum: sha1:ea901acf96395d581407406b8ca13c1b4da711a5
+    pristine_git_object: b27e9cb7e53bbf4986829ca4f6a7afe414990770
+  docs/models/errors/internalservererrorresponse.md:
+    id: 3f9680b1e22f
+    last_write_checksum: sha1:1ccd76daca5c360e13ea1a40bf1b13c7564814bf
+    pristine_git_object: 79fd8fd372d2f4433855fc1216ca7bf1af11b555
+  docs/models/errors/internalservererrorresponseimsxcodeminor.md:
+    id: 1a7a2bd9f40e
+    last_write_checksum: sha1:cc6009a896437c3e80922a47d508e589ef4d3c2b
+    pristine_git_object: a0850ab2e9e82b5acb1ddb9b27d10b4208de48b4
+  docs/models/errors/internalservererrorresponseimsxcodeminorfield.md:
+    id: da696af3c7d8
+    last_write_checksum: sha1:31fba453a3c9aa457be4fda0e4259dc3856a068a
+    pristine_git_object: 816e93680707e7dd27b504d78daf370423c930fe
+  docs/models/errors/notfoundresponseerror.md:
+    id: 6a3c02f179e2
+    last_write_checksum: sha1:941314b795d7329c77c65f77031dbbd1826d34da
+    pristine_git_object: 2942f5f8076d810330f31a891b10dbe09efe805a
+  docs/models/errors/notfoundresponseimsxcodeminor.md:
+    id: 35c8d8322036
+    last_write_checksum: sha1:5b5891da7bc63283709ae6c1fa97deec853f4067
+    pristine_git_object: 32619c93386e02c1df94725a9e20bfe36f11965e
+  docs/models/errors/notfoundresponseimsxcodeminorfield.md:
+    id: df5317d19215
+    last_write_checksum: sha1:61afb31978a6cd36fb20a01d1bfa387b35fe15dc
+    pristine_git_object: 82336ec52da50f250be73164407f8cf30a4039ce
+  docs/models/errors/toomanyrequestsresponseerror.md:
+    id: 9097038e28a9
+    last_write_checksum: sha1:910f05b66bef09067e172c2aa59ce776f0521b6c
+    pristine_git_object: f96beb02d509dea4ffa12595b8cc7e984ca75d19
+  docs/models/errors/toomanyrequestsresponseimsxcodeminor.md:
+    id: 11755ae61903
+    last_write_checksum: sha1:710e63a31e61b37f87b2fd227957271db1020fba
+    pristine_git_object: ed47ebc7486d8d9bf88ee801fe1f291a4b92dff5
+  docs/models/errors/toomanyrequestsresponseimsxcodeminorfield.md:
+    id: f26868d15e07
+    last_write_checksum: sha1:8fd383c273b6cd5b823c396ee2a74716f16ac7e0
+    pristine_git_object: a4d537bff36a04e09941d99611ee4b8dbf2ff087
+  docs/models/errors/unauthorizedrequestresponseerror.md:
+    id: a2bb1aca92e6
+    last_write_checksum: sha1:daf7e207f3ed4211d5ec615d564c0b4e3070c16c
+    pristine_git_object: bb31681843e6770e80a092c5d203ba155bad8248
+  docs/models/errors/unauthorizedrequestresponseimsxcodeminor.md:
+    id: 059df337d88a
+    last_write_checksum: sha1:8d376e1bf990f7c316a2aee839cfd4c3238722d5
+    pristine_git_object: 09865aab0931e02249fa0f0598a80e1685d515b1
+  docs/models/errors/unauthorizedrequestresponseimsxcodeminorfield.md:
+    id: 9d687d542432
+    last_write_checksum: sha1:8485ab8fde610b16764de48b9ed4c640e819def8
+    pristine_git_object: 7f824c05cea6eabf518be6416d709da88b696af1
+  docs/models/errors/unprocessableentityresponseerror.md:
+    id: ba0b8363bf72
+    last_write_checksum: sha1:6c35dee7b2796863d80740a950e06d165297a1ea
+    pristine_git_object: a2ec1dc17c913a6c508b6527be50145c8c36596d
+  docs/models/errors/unprocessableentityresponseimsxcodeminor.md:
+    id: 05290454c809
+    last_write_checksum: sha1:22097dfaef20a64fe255b661d513c4b186bb2582
+    pristine_git_object: c97b536483037585616d073464548547223a7cb2
+  docs/models/errors/unprocessableentityresponseimsxcodeminorfield.md:
+    id: 641387dde85f
+    last_write_checksum: sha1:8a01ca751587db36f74f00b98d75b63cba3494fe
+    pristine_git_object: 6b1186452b9c0144bed6ca1a86b7e94d1a10a908
+  docs/models/operations/assessmentlineitems.md:
+    id: 12a1942b178a
+    last_write_checksum: sha1:f7caa34e554d06757d130e0051f9279c9ec917ad
+    pristine_git_object: 7f6635d0b68f500795904e7798cb366dfd11ce91
+  docs/models/operations/assessmentresult.md:
+    id: 201c8951c2f5
+    last_write_checksum: sha1:788a39d75e6a80cc948dcd71aee81148a258dd70
+    pristine_git_object: 9d1a8a6ffc462baba5d199530567ad96f44dae81
+  docs/models/operations/attachcomponentlessonplanitem.md:
+    id: cfb89df4f620
+    last_write_checksum: sha1:24cf0e10665d445f9ce99c7f8f782f02a72faa29
+    pristine_git_object: e0a3b070041fd149eae4fd92a1b720b5fced53b4
+  docs/models/operations/attachcomponentrequest.md:
+    id: f26f62a36a51
+    last_write_checksum: sha1:248e7bcb3e50ed74028105449255f42778908c81
+    pristine_git_object: 546d66631f730601983bf86a880a0eec2239b97c
+  docs/models/operations/attachcomponentrequestbody.md:
+    id: 730d8bd285d1
+    last_write_checksum: sha1:524bf15b41ed428f066e0697842387a524986212
+    pristine_git_object: b314307808ca5abad0983c589e44cbab15c39de7
+  docs/models/operations/attachcomponentresponse.md:
+    id: d6967882566e
+    last_write_checksum: sha1:ea9bd29c23acbbb482490e03b8bb93db4e57da49
+    pristine_git_object: 462b50ae30245206e63a7d7422f3f2fbc424316f
+  docs/models/operations/attachcomponenttype.md:
+    id: f9e33fd34c1a
+    last_write_checksum: sha1:a129e7b8ebe3a29f6b8333d4165b585cd5ba97e5
+    pristine_git_object: 6ae63f508f749264b850b687db9e0898815620ba
+  docs/models/operations/attachresourcelessonplanitem.md:
+    id: 328fc7d8eeae
+    last_write_checksum: sha1:c833a2ed277fe6405519a450f65bb1c22832f064
+    pristine_git_object: de46594f01693e895eebc5f42a5d4a9db6892c1c
+  docs/models/operations/attachresourcerequest.md:
+    id: c93dd66c6259
+    last_write_checksum: sha1:799988a30b508972b2f4f120ce9f308c928628c3
+    pristine_git_object: 4765c5824d53bdd642f54773d361915da761293d
+  docs/models/operations/attachresourcerequestbody.md:
+    id: 4eafe5fd8146
+    last_write_checksum: sha1:dd060f6ce24aba56fd4d29f25a34a8de63abb485
+    pristine_git_object: f2885af848ebdd1f1e05c6ea6d501befc3edf3ef
+  docs/models/operations/attachresourceresponse.md:
+    id: 2ce9f7d67075
+    last_write_checksum: sha1:9da8f580f2518d778e8c0e82cdbe285d46ef5d61
+    pristine_git_object: 3734fcfcd66965e0f68264cf18869cc0f9c88576
+  docs/models/operations/attachresourcetype.md:
+    id: 379a46f16582
+    last_write_checksum: sha1:324173deea7dac1304e24951de4a367a1fe313cd
+    pristine_git_object: 76d7d4c97a5e81e0d4977023ca4e519a4ff7bdd2
+  docs/models/operations/componentresources.md:
+    id: ff322e850507
+    last_write_checksum: sha1:cab2db4e39c889dee7644903e6f1c900257863e4
+    pristine_git_object: f69057695203a8963c53b352e03289f6ba176b83
+  docs/models/operations/createexternalplacementtestlessontype.md:
+    id: 03d3c14d1872
+    last_write_checksum: sha1:76f22c3e8fbaaabb2cd613a44778c7ebe6ec0547
+    pristine_git_object: e4d89c963c1df1086677d2f9fd0b35cc69893e2d
+  docs/models/operations/createexternalplacementtestrequest.md:
+    id: cbed6d966cc6
+    last_write_checksum: sha1:2f1c8fd31b5f5e3233869566060d310bc8cf2b05
+    pristine_git_object: 0803c356eeba2d8a958376d503d8dd17e01d11bc
+  docs/models/operations/createexternalplacementtestresponse.md:
+    id: 90a7d6f17d5a
+    last_write_checksum: sha1:0a13319f8e0185c4e076d062c624829f981763aa
+    pristine_git_object: db8589238db6d3da572cf1d9a29fe3fd151a36fa
+  docs/models/operations/createexternaltestoutlessontype.md:
+    id: 074861cb6f8d
+    last_write_checksum: sha1:c339ae4a27f55e1fc2801920cc8a04abdf3cbf27
+    pristine_git_object: c02d2fcd98eb25caba91c72a8dc090dca9a49ceb
+  docs/models/operations/createexternaltestoutrequest.md:
+    id: e9e57149914f
+    last_write_checksum: sha1:2eff0d85198dae2362013b82c3e49274a25ca940
+    pristine_git_object: d038d13d66c293fb832ccd83601738900b8ffda3
+  docs/models/operations/createexternaltestoutresponse.md:
+    id: 79b19c872135
+    last_write_checksum: sha1:e78fcb5ade573017990e0fe67571a67ba2a36563
+    pristine_git_object: 9c302443ef97ce318caddaebcdd9d4c63c6febf7
+  docs/models/operations/createlessonplanacademicsession1.md:
+    id: 6a22d8a71f87
+    last_write_checksum: sha1:98b5a5216a3b0449259b041de8d7c58868987bfa
+    pristine_git_object: e34c1cf8c68de3586f512f7121db704e86bf3766
+  docs/models/operations/createlessonplanacademicsession2.md:
+    id: 4823b8e80e44
+    last_write_checksum: sha1:d06d177e9260f6093da2b16f8be50969e8e3d524
+    pristine_git_object: d9a4ff698033b1a1ed51e442681e171255e4c17a
+  docs/models/operations/createlessonplancourse1.md:
+    id: a34a5c45c7ff
+    last_write_checksum: sha1:c0e9b69dc26bfb93883b2bf1e83f9ada53bc0132
+    pristine_git_object: 62b8ed83147dbcbeb864e0107d92403f31a9b2b4
+  docs/models/operations/createlessonplancourse2.md:
+    id: 9f483969d8bc
+    last_write_checksum: sha1:3d4216f2318b807340dcaa9c010854264929c5d6
+    pristine_git_object: 169fccd6894642d125ae817716daeec5507066ee
+  docs/models/operations/createlessonplanlessonplan1.md:
+    id: 2827acad4397
+    last_write_checksum: sha1:74d9286cf537ab5205600f22723c3dba0b037a09
+    pristine_git_object: eded1d9704bfc5fc7831381890af91aede6b3bc9
+  docs/models/operations/createlessonplanlessonplan2.md:
+    id: cd2f722d82e4
+    last_write_checksum: sha1:bb1daacaa67873e8486d32c007f81d6ef5585fda
+    pristine_git_object: 2ca560e71bf953a2f771a22b6d446031354861d3
+  docs/models/operations/createlessonplanlessonplanlessonplan1.md:
+    id: a3a6dfc63e12
+    last_write_checksum: sha1:693f30a6bedb14f5a0e19e4ba11ac9ceae36bd6e
+    pristine_git_object: 4d66918b4295d151e7c3bf069f1c216308f1237d
+  docs/models/operations/createlessonplanlessonplanlessonplan2.md:
+    id: 3603b6506d84
+    last_write_checksum: sha1:647697b1219ddd7935fdd499d9e29d571d0dadd6
+    pristine_git_object: c15e6ec917da12487be1af1aa02b55b49fc5f53f
+  docs/models/operations/createlessonplanorg1.md:
+    id: 4f48c0885386
+    last_write_checksum: sha1:14bf1d995428a2aa90b5798849e8e026a4693692
+    pristine_git_object: b93c08a3b5f19d07b29cb3ef4414795caeb23ae0
+  docs/models/operations/createlessonplanorg2.md:
+    id: 8bd8f96254a9
+    last_write_checksum: sha1:3548f118a731107e56fed04407276f5fb36cd03d
+    pristine_git_object: 10c1ecd26a6f3ac231c61b603ac6ec4caf9ca909
+  docs/models/operations/createlessonplanrequest.md:
+    id: f38787cef3d7
+    last_write_checksum: sha1:1457e096a951bc2c2bd94df8c11a52628e87635c
+    pristine_git_object: d99dd8ac63acc3d0f976311abd45f9c0e0b5a9b6
+  docs/models/operations/createlessonplanresponse.md:
+    id: 1dd41559bbe6
+    last_write_checksum: sha1:7b25b566e40149a71aed32cadf40492acd04957b
+    pristine_git_object: 6289b9db7e798565b037a3c0710c42e734ef6774
+  docs/models/operations/createlessonplanresponsebody1.md:
+    id: 648b70cf6038
+    last_write_checksum: sha1:1827885512b913961d849fe5cbd8b33df7299a06
+    pristine_git_object: d7bce5d729780630c9155a336468acc99ca5dd2a
+  docs/models/operations/createlessonplanresponsebody2.md:
+    id: 513155ddbb97
+    last_write_checksum: sha1:16ad7f46d0c72c82e4427a781224604cf0740a45
+    pristine_git_object: f5e57dcafa9635793202f5940b7cb861e029e52e
+  docs/models/operations/createlessonplanstatus1.md:
+    id: efe07b843758
+    last_write_checksum: sha1:7c4c8014efc7079bacdb5418f5b518d6b82f00b8
+    pristine_git_object: 714a94feb8f0e2185fe577d6e1f35c5e7d9ecb30
+  docs/models/operations/createlessonplanstatus2.md:
+    id: 6a4bba985738
+    last_write_checksum: sha1:37a4552225d29da2967059df452547a0695b5ea8
+    pristine_git_object: d1ba253647e2c22957e83a91720800bdd70da7c6
+  docs/models/operations/createnewattemptattempt.md:
+    id: 09335360c228
+    last_write_checksum: sha1:971b983b6fce84614c00888f0b527917ddfbb3ae
+    pristine_git_object: 6ae291ec3df2b94a4f0982303978a2cacf3609a3
+  docs/models/operations/createnewattemptrequest.md:
+    id: 4f2b1aa4bcaa
+    last_write_checksum: sha1:9e25acc9f34922e5caa6ea917aac4eb5d204ea24
+    pristine_git_object: deac17c81323cd25cb1ecaefe14eca66d1e7d3b7
+  docs/models/operations/createnewattemptresponse.md:
+    id: b7b211c49361
+    last_write_checksum: sha1:f202686c62fe4e8886b92ba0862593f635963aaa
+    pristine_git_object: feca95c2c7b1e01cc920641da323dcf3e54a409d
+  docs/models/operations/createnewattemptscorestatus.md:
+    id: 76684dbdb9d6
+    last_write_checksum: sha1:7dd41cacaf7ff6985634056ee1b1f97ad367a9eb
+    pristine_git_object: 1da4a6065aec40eb00b1262f7406b25b76f68fd6
+  docs/models/operations/deletelessonplanitemrequest.md:
+    id: 783240d39d08
+    last_write_checksum: sha1:242f103e078c43e707726051d542b5a1af7c206d
+    pristine_git_object: 1119c306cdf094c5e559cf0e0ebab4f70554bcf0
+  docs/models/operations/deletelessonplanrequest.md:
+    id: bcc71e79aeff
+    last_write_checksum: sha1:55e1550612e447a799139405b270c6a60557ee0d
+    pristine_git_object: 3f8c13e89311527f4de31362466001aac99e1220
+  docs/models/operations/finalstudentassessmentresponselessontype.md:
+    id: b9387f160cc9
+    last_write_checksum: sha1:561a58b2be3b8566ca48551cc5362b877490b910
+    pristine_git_object: f2ddc45cfbb6d542d9c9e79bc0a0a53c34689968
+  docs/models/operations/finalstudentassessmentresponserequest.md:
+    id: 1216ad8b21f3
+    last_write_checksum: sha1:30a971bdea10e780f49c13ec78135f67e8586f26
+    pristine_git_object: 8274621fd655be2e6e3d14b1157e05129ec70bc0
+  docs/models/operations/finalstudentassessmentresponseresponse.md:
+    id: 3e4d6b0ff708
+    last_write_checksum: sha1:f5f6126cbf8884f19eaec23354d7677914e5a5ff
+    pristine_git_object: bea0569c26b0de6affdd5d47c0b3710c6971157b
+  docs/models/operations/getallplacementtestsrequest.md:
+    id: 4290e0b04df1
+    last_write_checksum: sha1:d15b17082686287345af7812b3df44a36a01cdcc
+    pristine_git_object: a20a722692c114a6d9bebdb85ffbf6ce25d6707b
+  docs/models/operations/getallplacementtestsresponse.md:
+    id: caa5ecfa6590
+    last_write_checksum: sha1:81193cbc51d036d6823872533cb50d32934af111
+    pristine_git_object: 969ba02aa06a1b6712e2a92dba353f31594835fd
+  docs/models/operations/getassessmentprogresslessontype.md:
+    id: 4582e4ee153b
+    last_write_checksum: sha1:9a1bb046ec49b57741636aab0f31f05306f9e42d
+    pristine_git_object: 550a8594a19296d92879632a49ecbcee27fe0cce
+  docs/models/operations/getassessmentprogressrequest.md:
+    id: d033f2570abe
+    last_write_checksum: sha1:515e6774f58cfdc1af86d98bdadb7f8f0d87ffb6
+    pristine_git_object: 72158687501725d1a174639ce7ec53122be32277
+  docs/models/operations/getassessmentprogressresponse.md:
+    id: 2ef99c10bc87
+    last_write_checksum: sha1:13f5b965fec4f1bb995483ff5659d0c9c6cc0142
+    pristine_git_object: bb93bce3d65e63401e3f60b3e04a6649994420dc
+  docs/models/operations/getattemptsattempt.md:
+    id: 32ed946f0a21
+    last_write_checksum: sha1:85467061a490fd93730db46913405c0f4999b3e9
+    pristine_git_object: f6dd5c688a5cc0aee01f4a643c1970d065884dc2
+  docs/models/operations/getattemptsrequest.md:
+    id: a7a7284b82c0
+    last_write_checksum: sha1:e96817e28ca00fdd87a476f7ff0b691f66562a56
+    pristine_git_object: 53da90b77e3a745a07c5c77b15ba241f2c3739d1
+  docs/models/operations/getattemptsresponse.md:
+    id: 66ce0075f628
+    last_write_checksum: sha1:a4bdf69d96ace512ca30c4762a545ab252e62c0e
+    pristine_git_object: 527f0c7d0c5b2e461af8961fe1b95b8179ca9fad
+  docs/models/operations/getattemptsscorestatus.md:
+    id: 7d4051da0004
+    last_write_checksum: sha1:fc1630c60fc0cf0e0e76842122782fc60e95022e
+    pristine_git_object: a338aeb7f917854b8b61c19696949e880ce7d580
+  docs/models/operations/getcourseprogresslearningobjectiveresult1.md:
+    id: 03a4e6761b5f
+    last_write_checksum: sha1:1a80af1000a07fcf625bed18e23e05b930c76a01
+    pristine_git_object: 6a0da55ab3a063c10886839224bcd9cb37a4da95
+  docs/models/operations/getcourseprogresslearningobjectiveresult2.md:
+    id: b2f70540f883
+    last_write_checksum: sha1:8cfe38aca8ae71dbcdce2ad25eae4d6df8cf734e
+    pristine_git_object: 9ca282d5494cd0971169e818d25af8a02b3f09f2
+  docs/models/operations/getcourseprogresslearningobjectiveset1.md:
+    id: af55032c3057
+    last_write_checksum: sha1:cdfef7a78fe7b2bd4292ab7f1e679f6993147d40
+    pristine_git_object: a65c9608b0ace5fbb6cd516261579d9dcf11409f
+  docs/models/operations/getcourseprogresslearningobjectiveset2.md:
+    id: be67c9128cab
+    last_write_checksum: sha1:edb9d33d58b54dc0ff0b23d9bdb260d37ec605cb
+    pristine_git_object: ce5d36d33f36c28d2a1b52891c87028ba7772ebb
+  docs/models/operations/getcourseprogressrequest.md:
+    id: 2d937bdea34f
+    last_write_checksum: sha1:53197f94740bb65742aae1d60280fabdc5a0986f
+    pristine_git_object: e8ee7baed947135406cd8edbe76baa19e1e6def1
+  docs/models/operations/getcourseprogressresponse.md:
+    id: bce3f64aefb3
+    last_write_checksum: sha1:c670c6ddedb500dadc03eb9659bb93555f0ab79d
+    pristine_git_object: e50581761f9ffdaf7d9663b9c594fdecd3e90f89
+  docs/models/operations/getcourseprogressresult1.md:
+    id: 40372ee32254
+    last_write_checksum: sha1:d97c02fd57b1aa040aa867f08b05fb7b5c8995b2
+    pristine_git_object: 6b2371b831f88fa9bd465aab7375036f68aca6d8
+  docs/models/operations/getcourseprogressresult2.md:
+    id: 08298d5851e7
+    last_write_checksum: sha1:a0abfb00e354ab66b94175cf513f84a838fd7f85
+    pristine_git_object: 80e7b6820371e5dc1308d1e259427c1250e7385d
+  docs/models/operations/getcourseprogressscorestatus1.md:
+    id: cf2938faea34
+    last_write_checksum: sha1:5a63f5ec8ed314518561f3e255d66020209832e0
+    pristine_git_object: 86031ccb49f3003c757f1885895e8c53222e5487
+  docs/models/operations/getcourseprogressscorestatus2.md:
+    id: 161ea5a3944f
+    last_write_checksum: sha1:6004fca7e84ea9144e1e4bbaf9154341e1e90a35
+    pristine_git_object: dc156ab0d8c74e8d9b677c5828e2cd56f1f42a33
+  docs/models/operations/getcourseprogressstatus1.md:
+    id: 9f6dc4ab445c
+    last_write_checksum: sha1:ad87c45bf62053abfb9f9b108f1fcdfa37aef3f5
+    pristine_git_object: a7c25c6a5ec3b00947b5178c6bf0c9594b4c9cd3
+  docs/models/operations/getcourseprogressstatus2.md:
+    id: 5b9f9f032efc
+    last_write_checksum: sha1:444efe8050940327658c7f0a2c06bc46fca5be36
+    pristine_git_object: ac915246780e7884a3ae96c96e3ab7116677665f
+  docs/models/operations/getcoursesyllabusrequest.md:
+    id: 22b85d46d291
+    last_write_checksum: sha1:b817fab52ecb361ba2cdc99b29e2b008d972be64
+    pristine_git_object: 8a189f76707bd4f22d44ac39c7ebb07006695279
+  docs/models/operations/getcoursesyllabusresponse.md:
+    id: 88d58564a347
+    last_write_checksum: sha1:0e508b293cf8a9bf16da31776e3d9c684e374f44
+    pristine_git_object: 644047316367031b406e6412a92e21003656f8e9
+  docs/models/operations/getcurrentlevelrequest.md:
+    id: 7fec65f0ac94
+    last_write_checksum: sha1:b9bd2ab363f9a1ad5c13ad1fff1fbc7f6ee828ef
+    pristine_git_object: c5380888339db2fdb41d11e7d8bd5362913f968f
+  docs/models/operations/getcurrentlevelresponse.md:
+    id: 05375953b2ea
+    last_write_checksum: sha1:f4c6b8c1057e1fea35b3d5ec018926af847d8069
+    pristine_git_object: d917b28118847bd799a2caa76a53fe4a8e260f6f
+  docs/models/operations/getnextplacementtestrequest.md:
+    id: 42a1470ced75
+    last_write_checksum: sha1:9494d7880f56810958f77878def037338c53652e
+    pristine_git_object: eb026522044ef2d8e09ba5f072e7b7f551bc6686
+  docs/models/operations/getnextplacementtestresponse.md:
+    id: b51ad20fd5aa
+    last_write_checksum: sha1:d71c0066c8a1cab6ea5c5cb4d15ffefa59a850ca
+    pristine_git_object: a29390da6159ca4288f16729c6d47b1338957e5f
+  docs/models/operations/getnextquestionrequest.md:
+    id: f204859eb917
+    last_write_checksum: sha1:09e86f816a0c6c8837dc3167447bdbaa7c864027
+    pristine_git_object: 4c99dd510ce934ec74e2927a5118410838c3bfd9
+  docs/models/operations/getnextquestionresponse.md:
+    id: 1821e9e145be
+    last_write_checksum: sha1:04cc221f2e9e6f7ebaaab61f536f3582b3b60e4d
+    pristine_git_object: f356413782219dfd36c5edcf95677ec377781b42
+  docs/models/operations/getsubjectprogresscourse.md:
+    id: 375f17127dca
+    last_write_checksum: sha1:8e16a83039becb0b09ffb4f1b4a3d9aa56aefe2f
+    pristine_git_object: d2e82fd9bf319deb93b2e1f5504d2bdccd99c5c0
+  docs/models/operations/getsubjectprogressrequest.md:
+    id: a4cc81c50ff0
+    last_write_checksum: sha1:6403713667e78ba09ae3783ee5f9d7d79c8b1cd7
+    pristine_git_object: 176257952a368965074c784a30d733815b674de7
+  docs/models/operations/getsubjectprogressresponse.md:
+    id: acc71044884f
+    last_write_checksum: sha1:91b2a1b7cbbd06abcc070cd258806ceca0cb0525
+    pristine_git_object: 49ea8696e469a00b37fe61ebb901359ba384233e
+  docs/models/operations/gettreeacademicsession.md:
+    id: dccc607b4d3c
+    last_write_checksum: sha1:395058a08ca3e7b0c17673a86bea67e2d75cb4b0
+    pristine_git_object: 48bb5931dd30f93e4f5c766926bdccd4d618098e
+  docs/models/operations/gettreecourse.md:
+    id: ff1584c06eb9
+    last_write_checksum: sha1:4b8255e150bf212993ee2b6c7377fdd380e990e6
+    pristine_git_object: 96898eaa1d038fcae3d1b40533614250f5769ff3
+  docs/models/operations/gettreelessonplan.md:
+    id: 3af3ff056e6a
+    last_write_checksum: sha1:b52f1639cbdbd11e85735c2876a38dfe3f46dc1d
+    pristine_git_object: cb214984f97ff715b40753535c9652a240f74cb1
+  docs/models/operations/gettreelessonplanlessonplan.md:
+    id: dc34267149e5
+    last_write_checksum: sha1:96cd642b9518bf858201cf455f463638e5b7fae8
+    pristine_git_object: 388c700bd9fbe53da606338d581e59bc0ed8f28b
+  docs/models/operations/gettreeorg.md:
+    id: add9e0ee5661
+    last_write_checksum: sha1:ab5f5fd3d8ee7a353db7865bde0c4dd949d75411
+    pristine_git_object: 4d48eb4435d863480cc3d2d51e0d7d21454db20e
+  docs/models/operations/gettreerequest.md:
+    id: d66bd15a138c
+    last_write_checksum: sha1:b08a597473ad5c05686125101956873f535886eb
+    pristine_git_object: 62f75264d9c09ebb9f992f039414f923d953a49c
+  docs/models/operations/gettreeresponse.md:
+    id: 702bfe2f2233
+    last_write_checksum: sha1:e85047f672d95f2ba6bb1fc7211ad7b9f4efe160
+    pristine_git_object: 1f637d9cec7eba18c9e22a644562e04a13e1fefc
+  docs/models/operations/gettreestatus.md:
+    id: 1d6734fc3085
+    last_write_checksum: sha1:882a5e26723e3aa1fab95cde2a794256f90e1368
+    pristine_git_object: 74086e4f00b8ebf6e60af64b5f0b4f0e468b70e7
+  docs/models/operations/importexternaltestassignmentresultscredentials.md:
+    id: 55ae8f61b2ec
+    last_write_checksum: sha1:3caec85e749075f069020f93a52b68a12ac44ad0
+    pristine_git_object: ab8a1d343dda6b7d7b223f9dc25bc3ef6913bd5a
+  docs/models/operations/importexternaltestassignmentresultslessontype.md:
+    id: b941b1086a76
+    last_write_checksum: sha1:694be8f707bc20a541f5a0627f9d045e693d8cc5
+    pristine_git_object: 231fbce5ed7a949bd12b2d9cf590a8899b99c2cc
+  docs/models/operations/importexternaltestassignmentresultsrequest.md:
+    id: 045e38c9e90e
+    last_write_checksum: sha1:ecd08c1e11b906ca4674615883371aab6784916e
+    pristine_git_object: d8b3bf2bc900614320a3775e45d3f820b499a142
+  docs/models/operations/importexternaltestassignmentresultsresponse.md:
+    id: 21ba9a50c123
+    last_write_checksum: sha1:b177c0bc304965913b2dfa02e04ce7ce13a33288
+    pristine_git_object: ff78e0e902e0788d4a8825042a53b99f0109c3c6
+  docs/models/operations/lineitem.md:
+    id: b1d48dfdda08
+    last_write_checksum: sha1:d4bad516335d5bd779d4a984e31770fad835fcfe
+    pristine_git_object: aa66bf2b5df1fbc8c3f79e422758d42d6993eb03
+  docs/models/operations/lineitemcomponent.md:
+    id: 49fc6ce79d1f
+    last_write_checksum: sha1:adf406a6c4066b075700ae595bf5588f1c640fa8
+    pristine_git_object: 400c5b9d6786ec33cf4aa967bf44de411c606cea
+  docs/models/operations/lineitemresource.md:
+    id: 6155d427f9f0
+    last_write_checksum: sha1:31dc2dd520357ff076fd9c2b9178f57399485f72
+    pristine_git_object: 535efd465937db1df4f277ce14d841c7168e744f
+  docs/models/operations/makeexternaltestassignmentcredentials.md:
+    id: 5d1931e4ad4e
+    last_write_checksum: sha1:44aac7d397dab8ef8f7ba05f84c7d2c8a4dfdd99
+    pristine_git_object: 62bd9fadae1febda3a86e16457d5f2a9e7ff5a75
+  docs/models/operations/makeexternaltestassignmentlessontype.md:
+    id: b4ed4aac7727
+    last_write_checksum: sha1:914cc255a96311bb1437eb3022ffbbef276ccf0d
+    pristine_git_object: 8d92c603efd483b98ec323874f89644c57f27a3f
+  docs/models/operations/makeexternaltestassignmentrequest.md:
+    id: b074d7b5c1fe
+    last_write_checksum: sha1:5401abd73335a3634fcaa8d5e65afc26f14712ef
+    pristine_git_object: 382dd4a8b1e941ba90c75b59024245be2abb3e1c
+  docs/models/operations/makeexternaltestassignmentresponse.md:
+    id: 1300d09a1e9b
+    last_write_checksum: sha1:6d080b2b01594937d30b28f86e7c1a905f6b5969
+    pristine_git_object: 6906679369d8ab8973352c1836814c9804935d03
+  docs/models/operations/placementtest.md:
+    id: 3a1355621416
+    last_write_checksum: sha1:596c86803fbaaf7b2f5a75a635e9dd016858bd7c
+    pristine_git_object: f77aa5dc4a40433735168652034304ba1e3af490
+  docs/models/operations/progress.md:
+    id: 34fa99525333
+    last_write_checksum: sha1:f945f97fed7555bd904455bf380fe1885a52afb2
+    pristine_git_object: 907b9afd351cf227518de32b8bf8bed017e883f7
+  docs/models/operations/resetattemptrequest.md:
+    id: 060c05fc50fc
+    last_write_checksum: sha1:3554b67d384b9b57859b59a995569aedf17d7c05
+    pristine_git_object: 0ce61cce84d106ee4950a111ad9c7344666d0424
+  docs/models/operations/resetattemptresponse.md:
+    id: d1b40d7d6071
+    last_write_checksum: sha1:33b6a6e0d24e7c57fbeb40c38290e6e8bbd2ce02
+    pristine_git_object: 31203e39787fb9c2bb01e6d6934dae74efaf12d3
+  docs/models/operations/resources.md:
+    id: aa8dcd724b7c
+    last_write_checksum: sha1:bf88c5e07e52edbf471223caf4ff57b5c76bfba6
+    pristine_git_object: 1258a1394d5c5ecdfb3d57a875d0071029b23c75
+  docs/models/operations/resourcesmetadata.md:
+    id: ee17690fbe1c
+    last_write_checksum: sha1:599aed24fc0376da1ab7f8fdfc712506fafb6ee7
+    pristine_git_object: 755df38b24bc7e867f71f006f3372e7083bd9e76
+  docs/models/operations/responsebody.md:
+    id: 306a7d8429ef
+    last_write_checksum: sha1:108fa8fa8264b3e02010d8fde14bc57a72ad48b4
+    pristine_git_object: 932e61cfd461ca8eb53053b561ad8354e627b26a
+  docs/models/operations/scorescale1.md:
+    id: ddf08ae72e88
+    last_write_checksum: sha1:92270ea4e5912500b21491bb9dbd9b21e73a8d93
+    pristine_git_object: 5ee639a6fbf5e6cf51f81164e983be01e371a158
+  docs/models/operations/scorescale2.md:
+    id: d7944f6a0315
+    last_write_checksum: sha1:73105fb1a91c89f5735c0acec8498f9b155c1c6c
+    pristine_git_object: c608e7a6cfe83c4fd4ce8adfb8cbbe1b5ab3b24c
+  docs/models/operations/testoutrequest.md:
+    id: 41b78e645b07
+    last_write_checksum: sha1:6288080b585ab680878395acafd5b5d8990c0fa7
+    pristine_git_object: fe11ccf28b53b99be86088be5e2c62a56ba672e7
+  docs/models/operations/toolprovider.md:
+    id: 211604e17811
+    last_write_checksum: sha1:7a3b7123e56b451672a3b4f3a0f8a9a69f46eb9c
+    pristine_git_object: 99af3f91728c2674c458cbaa14c1761e3d5c8bc1
+  docs/models/operations/updatelessonplanitemrequest.md:
+    id: 8c582acafc8a
+    last_write_checksum: sha1:5e77920d09f3645a86e3aec8565ff03c4758e8d8
+    pristine_git_object: c325701f3b36c23d76df10e52b1f7a1b816d7898
+  docs/models/operations/updatelessonplanitemrequestbody.md:
+    id: 1c9ebc4f3dff
+    last_write_checksum: sha1:aab0d2ca8d3dfda06325ce5ba7bc0d6c2d707971
+    pristine_git_object: 9364219b52a05affb0a86354236b4c84c897a703
+  docs/models/operations/updatelessonplanitemtype.md:
+    id: 5a4553a41473
+    last_write_checksum: sha1:85f80a9b489f6f04e87ba37035e652fc11ac141f
+    pristine_git_object: 41aaaf51ba3007efbe2643e63455838c3db0d22c
+  docs/models/operations/updatestudentitemresponselearningobjectiveresult.md:
+    id: 89a081babb52
+    last_write_checksum: sha1:ff2870ea084ad57474fa07b0d3b97c957ac11b7f
+    pristine_git_object: 797cf910b4e4e356fbec500ff182cc34fadaa39b
+  docs/models/operations/updatestudentitemresponselearningobjectiveset.md:
+    id: 79b17f370242
+    last_write_checksum: sha1:7af38032c137af7a0cd0a76844ee9190c2bf5e88
+    pristine_git_object: e7fec0eb8bb31279a9777ecb8108a7423c09d53b
+  docs/models/operations/updatestudentitemresponserequest.md:
+    id: 160ea1a1b975
+    last_write_checksum: sha1:afa14e2e7417972d52ed4080e7b9a9e3a32b7a9e
+    pristine_git_object: 22d272236dcd6a3a2ea59419c8ccb9bc7241c64e
+  docs/models/operations/updatestudentitemresponseresponse.md:
+    id: 7b41b1b20776
+    last_write_checksum: sha1:e10d52e3784eb327b0311ac31895384ab8743b68
+    pristine_git_object: 8d8a7b5f3cd2748be4e40ade5489c9adc50a40ab
+  docs/models/operations/updatestudentitemresponseresult.md:
+    id: f6757722a68e
+    last_write_checksum: sha1:e3810835775398e5669b757454241387921acbe9
+    pristine_git_object: f535f7e61eb8e1d7138871a308cf78be05a8a00d
+  docs/models/operations/updatestudentitemresponsescorestatus.md:
+    id: 8910bed12a8a
+    last_write_checksum: sha1:174ff685ce220c64f6590807e282978b6769af5d
+    pristine_git_object: 4e134f4748b092f6240a2d8fd250857d52f263e1
+  docs/models/operations/updatestudentitemresponsestatus.md:
+    id: 277e1968b884
+    last_write_checksum: sha1:f311ac65fa0494e3281e42fe44c2cd1d192a401b
+    pristine_git_object: a2f12b9594d129ffd7f3e33d5ca902d464798193
+  docs/models/operations/updatestudentquestionresponseresponse.md:
+    id: b56e1faad72c
+    last_write_checksum: sha1:2f8119cb3c396a232dbd4508877486bc79fc6e37
+    pristine_git_object: 8d7cef4369788b17590f790920b13b9986183027
+  docs/sdks/lessonplans/README.md:
+    id: a790075cec77
+    last_write_checksum: sha1:ce44f79c7ee3fd52bdd3fabde752c73adc9efa24
+    pristine_git_object: 8b9a4990d06c10badb8c53a4c6f3a9abdddc00d6
+  docs/sdks/lessons/README.md:
+    id: 3ac0aaa38224
+    last_write_checksum: sha1:fb4f478dcd9099358a1250235fdfcdca15e8a2c1
+    pristine_git_object: bad16e63e05ba88169949e2503fb36400db35940
+  docs/sdks/powerpathcoursemastery/README.md:
+    id: 3e3504161328
+    last_write_checksum: sha1:5baceaa36077354b5206b932878df4e69469eded
+    pristine_git_object: d7081282636caaa7758030a901ae1c2d715357b3
+  docs/sdks/powerpathlessonplans/README.md:
+    id: fcb139d70921
+    last_write_checksum: sha1:c6a8ec2be25e729f30f5cb9db3d635d3fbde7de5
+    pristine_git_object: a1f2e835a6a265588d6334a0d9a4ade927dd3bd0
+  docs/sdks/powerpathplacement/README.md:
+    id: 67d32d18b60f
+    last_write_checksum: sha1:82833fe93ad94079191d88c07a5189456616aa71
+    pristine_git_object: c1fd1734f60ed5e602bade319ea8dbd9d41e8639
+  eslint.config.mjs:
+    id: 461c8d07f6da
+    last_write_checksum: sha1:9398f326377fe47f67af2df6eb6370750c0790b4
+    pristine_git_object: 67bccfec985be20a00970d90155752832dd47135
+  examples/.env.template:
+    id: 52cbe5afed92
+    last_write_checksum: sha1:c67a53d1cbe9749e7146ba3a6c736d6bc0b14ab6
+    pristine_git_object: c98e1617a7b995a0a1b80ecd06b05500895e4f26
+  examples/README.md:
+    id: 9d0f69d6e677
+    last_write_checksum: sha1:47ca2c2bffe967fed49acc0827550e0f68dcfba6
+    pristine_git_object: 64c48bd2e93e9b7e65974f0aa9a5cc73edf884e2
+  examples/package.json:
+    id: c1d7b0ec8e7e
+    last_write_checksum: sha1:815ffa9f756572c5315c848d5c19d422b2f5213e
+    pristine_git_object: 625f0ec6808f09b69eb7262be32ed88c9d63f21b
+  examples/powerPathPlacementGetAllPlacementTests.example.ts:
+    id: 8dfecd86d917
+    last_write_checksum: sha1:03dec51408bc35139f3b893be0d3e1e4972a2333
+    pristine_git_object: d15dd19a3178ba5d30d25348b21af00dbc7e2bf2
+  jsr.json:
+    id: 7f6ab7767282
+    last_write_checksum: sha1:ae03240072361051250fde9df1904d98e197f311
+    pristine_git_object: 72bf9c56a4903d6d81cdf4ebc770e03ba3d3cd5d
+  package.json:
+    id: 7030d0b2f71b
+    last_write_checksum: sha1:a153f34e5cac4082fa9fcd6a179329ce5b7ce287
+    pristine_git_object: cc0cb98c9ff8527a6fade54b65d17135cfdcce78
+  src/core.ts:
+    id: f431fdbcd144
+    last_write_checksum: sha1:7f419fc85234da47a7c5083f85df47d67302ad4d
+    pristine_git_object: 1d2437ac69f912ad58ead3e3786575b4519d279d
+  src/funcs/lessonPlansGetStudentCourseProgress.ts:
+    id: 40bcdd4a72a8
+    last_write_checksum: sha1:9c143a9188cbf66f9012cd330154018ca26bfdb7
+    pristine_git_object: 535838ba2598f4e80a5a125f53223c3be6047a0b
+  src/funcs/lessonPlansGetSyllabus.ts:
+    id: 8929f79a94b7
+    last_write_checksum: sha1:0a9f6b6b7564f441c2d8819a561b93435d54155d
+    pristine_git_object: ac0000f8b72870ff3cd1ad7cc30a6e51ef85b6ac
+  src/funcs/lessonPlansUpdateStudentResponse.ts:
+    id: cd3030a07aa2
+    last_write_checksum: sha1:f9b3aa4dd06394ff59f87193b8393c6e8ae03ed2
+    pristine_git_object: ff607a6ef5d88d19febabc381ab2a6b7a304215b
+  src/funcs/lessonsCreateAttempt.ts:
+    id: 95d0dd2bfdcd
+    last_write_checksum: sha1:cd41d7bf23718ed34b4f9e83d98e4b42f419d3a0
+    pristine_git_object: 3dc94e73650fab2d6b8e1b950a702280d1f111ab
+  src/funcs/lessonsFinalizeResponse.ts:
+    id: dd7cb634c3d5
+    last_write_checksum: sha1:0d0705c0213fb9e8539f82f3ca84dda7d0910e98
+    pristine_git_object: 05b58054d2403a434d9fe56b0e5e7208aa3fc1ce
+  src/funcs/lessonsGetAttempts.ts:
+    id: 18b2d7583f1a
+    last_write_checksum: sha1:d2f1de42fd674ecdd53ff1dbf819a1dfc2a99632
+    pristine_git_object: 7c10b663484f59e634c8cc789a30f71879608b1d
+  src/funcs/lessonsGetNextQuestion.ts:
+    id: 0c4fcbf6f72e
+    last_write_checksum: sha1:aba402829ecfd59119050a8dec95af016805cf9f
+    pristine_git_object: ca11ea3349089cfc2a49a095442b06f7a59477a3
+  src/funcs/lessonsGetProgress.ts:
+    id: e977f61d951a
+    last_write_checksum: sha1:7a82c0252d3d2d9bedd5d1c04123ac3892936375
+    pristine_git_object: 99602d28ff99a17d4487579d22b8b4f9d7f42fa7
+  src/funcs/lessonsResetAttempt.ts:
+    id: 902db0ca49dc
+    last_write_checksum: sha1:acecb21e2a71e56eacdbd251af3cbe811526ad41
+    pristine_git_object: 885003b2d5c013108afef69f3434761646249872
+  src/funcs/lessonsUpdateStudentResponse.ts:
+    id: ff0693ba5df3
+    last_write_checksum: sha1:d6e2e9fb2721ce23d6069d9d97127354cb80f9f7
+    pristine_git_object: c110649b334665632bd320c13e34060876d35e9d
+  src/funcs/powerPathCourseMasteryCreateExternalPlacementTest.ts:
+    id: 15f7e660c107
+    last_write_checksum: sha1:91d5edc2ac5d1867443211f13be2a05b67fea453
+    pristine_git_object: 3265690a92e08a030a4f9c9a70fb1fbb977e4862
+  src/funcs/powerPathCourseMasteryCreateExternalTestOut.ts:
+    id: 85032d6284d8
+    last_write_checksum: sha1:af3aebeb4b1c78ca0318b36a444b27b31cb3e615
+    pristine_git_object: 8141ebd733be1fda4e348c1bbd152ddb5b056a5f
+  src/funcs/powerPathCourseMasteryImportExternalTestAssignmentResults.ts:
+    id: 9dfbb455627d
+    last_write_checksum: sha1:16b435601e5604fa3ab09795903f9e5aae49b9ac
+    pristine_git_object: 961f1e95669d463de283b447ecb1ee02e813b120
+  src/funcs/powerPathCourseMasteryMakeExternalTestAssignment.ts:
+    id: 7444bb0a45a1
+    last_write_checksum: sha1:687033ed0b706d56cb139061a6dab4ed13a9c391
+    pristine_git_object: 2df65212ce75984f46d0caec4a4ece7bf1ac9188
+  src/funcs/powerPathCourseMasteryTestOut.ts:
+    id: f15ffba90a1e
+    last_write_checksum: sha1:5bcca79d296026852d40d9cf92120a2bfbfe9438
+    pristine_git_object: 00ad64f093da05e8a2904a1f7ea1c896343a17ef
+  src/funcs/powerPathLessonPlansAttachComponent.ts:
+    id: 3fac8bf0eba8
+    last_write_checksum: sha1:fe11559f15f08217dc4677cff97e07328b03fa87
+    pristine_git_object: 2f31fec4c555ea2d887d30eeac9f56241e879bb1
+  src/funcs/powerPathLessonPlansAttachResource.ts:
+    id: 27dbd41d641d
+    last_write_checksum: sha1:79da3d13ccda593dde851d88659c5e2bc69f030c
+    pristine_git_object: f4a77e39bbf5078c63bc2f34ac3121e85b603b32
+  src/funcs/powerPathLessonPlansCreateLessonPlan.ts:
+    id: d23dc3dea41c
+    last_write_checksum: sha1:1bb79bb54217ce0fb0bb0b1a686b621fed3c2c96
+    pristine_git_object: f5226371d579d434598c6004459ef1b1686c012f
+  src/funcs/powerPathLessonPlansDeleteLessonPlan.ts:
+    id: 43e26af341a8
+    last_write_checksum: sha1:9365a5d5d1be6914f8b0f0bf5e1d54d41d6803a3
+    pristine_git_object: 6f203ccc15bdde30a4004c565f97ee83872673e9
+  src/funcs/powerPathLessonPlansDeleteLessonPlanItem.ts:
+    id: dbc652c428d2
+    last_write_checksum: sha1:a4c65efc1c5a2ebd634b7424f6ba61d07c6323a3
+    pristine_git_object: cd13ce4b75c3c72b2fc1529db33b701210deb0ae
+  src/funcs/powerPathLessonPlansGetTree.ts:
+    id: 04cc80c9e55e
+    last_write_checksum: sha1:6f77e4e0fd6578f7e50754cd3fa44b984759a894
+    pristine_git_object: ff512c008dd94fe7932ee73f39d682c3a719f220
+  src/funcs/powerPathLessonPlansUpdateLessonPlanItem.ts:
+    id: c1187177555c
+    last_write_checksum: sha1:9d21407c214d50447359e7bc3dc6d4126e79a38d
+    pristine_git_object: 7b171d8511ca2e7203e8574252db9dda7c82cece
+  src/funcs/powerPathPlacementGetAllPlacementTests.ts:
+    id: f2f1a2d74d35
+    last_write_checksum: sha1:b7140baa4bff1c9ee181c1ca1e3c1723e6236bfe
+    pristine_git_object: 765886c403207ff9f848489c4fa20dc305424a4f
+  src/funcs/powerPathPlacementGetCurrentLevel.ts:
+    id: 025b45dbf42e
+    last_write_checksum: sha1:2e6c246501722ecdebde316436382460744ca5d1
+    pristine_git_object: 44faa56f4673784def367a7313d65ed19f18d0a0
+  src/funcs/powerPathPlacementGetNextPlacementTest.ts:
+    id: e23b3ea66485
+    last_write_checksum: sha1:e6cac78142ed0daed76007d999f5536ac2f16cd4
+    pristine_git_object: 62794e41efce8433564184a8dcfe8db6992817c9
+  src/funcs/powerPathPlacementGetSubjectProgress.ts:
+    id: 05f3bc22a378
+    last_write_checksum: sha1:38b05ed4338d5c86d2c00fb66e6ce6e3b1a40133
+    pristine_git_object: bc4c5e3557f3715f4c728f701b710f5c2367a424
+  src/hooks/clientcredentials.ts:
+    id: 81c2e30380d8
+    last_write_checksum: sha1:e612c44ea3b938fcc9b60b474701daf77f2ca7e0
+    pristine_git_object: b7b06e36718c2300ea73cd382845a7ad1ab80865
+  src/hooks/hooks.ts:
+    id: a2463fc6f69b
+    last_write_checksum: sha1:99df2b04a4b09cfc5cd8833df78aa5cbb1d23c5d
+    pristine_git_object: d4b6c62b00eaaf678bfbe94c67cd8d3145fcc531
+  src/hooks/index.ts:
+    id: 5f2dab62b520
+    last_write_checksum: sha1:1a11c073a6cd792932218e1d4ed36b8567bad8ef
+    pristine_git_object: f60ec7acd76141a71d78008c5a362eb0236d8335
+  src/hooks/oauth2scopes.ts:
+    id: a709b8ce2ddb
+    last_write_checksum: sha1:16c70b508e4e39d5705c5cc093093865eaad5cb0
+    pristine_git_object: b4a7e9dfd01c220a2fb5476598bfe737c6145f61
+  src/hooks/types.ts:
+    id: 2a02d86ec24f
+    last_write_checksum: sha1:29372122898cc523fa47576f3f6608a28ec6080e
+    pristine_git_object: 8bfe4fe8137138decea7af0a5ed791bf01201789
+  src/index.ts:
+    id: c5fb850250c7
+    last_write_checksum: sha1:35c9cde3ae14b18b3f893a1afe8b6c44f8760f24
+    pristine_git_object: dbcba164a0082e3bb8c43cf21fa7f8ffb9d35dfc
+  src/lib/base64.ts:
+    id: "598522066688"
+    last_write_checksum: sha1:b0b12ddbd8625efb47c0e955a18641aeb10c6532
+    pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
+  src/lib/config.ts:
+    id: 320761608fb3
+    last_write_checksum: sha1:a5988a49f24f4b05b46a92dc539b30fbb5359734
+    pristine_git_object: 94230dd2d086b0b695d409b79960cee805a4dc6c
+  src/lib/dlv.ts:
+    id: b1988214835a
+    last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
+    pristine_git_object: e81091f5e536f82739f71379b1fddc2d147c49e2
+  src/lib/encodings.ts:
+    id: 3bd8ead98afd
+    last_write_checksum: sha1:d47614c415b37e092965c34cb668562195701004
+    pristine_git_object: 2791d25bc4f7cf6eec17a65f899851e225fa3deb
+  src/lib/env.ts:
+    id: c52972a3b198
+    last_write_checksum: sha1:6f413f37389425e23c84f38025901e1d2a86274b
+    pristine_git_object: 23c21d638f1f877a1160da1eb831d686dd53c870
+  src/lib/files.ts:
+    id: e5efa54fcb95
+    last_write_checksum: sha1:795c14026405d547bfc47012f7ad9666e530fa7f
+    pristine_git_object: 6ca6b37d35a12448da176ee2517cc036db12c81c
+  src/lib/http.ts:
+    id: 63a80782d37e
+    last_write_checksum: sha1:797cbf16d3c7c4d62d3ba0eedb08617524938457
+    pristine_git_object: 13cf1fd7894a89f727b8d2db2ad24313a94f68c7
+  src/lib/is-plain-object.ts:
+    id: b9862591096a
+    last_write_checksum: sha1:df687f25a9590b6fd95d39df41a652ae3fd4e517
+    pristine_git_object: 61070d3d7c7e5e95b1ed7e7ea21869eb0767db77
+  src/lib/logger.ts:
+    id: 7ee7741a02bf
+    last_write_checksum: sha1:0ec9d3a2a34c362746b767e4f9a746c055d57a7b
+    pristine_git_object: d181f2937d4128afbe9b0327e0f81d1fa9c877b7
+  src/lib/matchers.ts:
+    id: d54b2253b719
+    last_write_checksum: sha1:32bda3887292d2b0430bb6688982e34038342919
+    pristine_git_object: b7ef1986eaa94795a3b1a7409e8aeed6591a11e6
+  src/lib/oauth2-sessions.ts:
+    id: 537b7294cec0
+    last_write_checksum: sha1:5dd800929f75f5006fcbaba031a0c21e5f9d9ee9
+    pristine_git_object: 932c170f5c0ab5d76cf789838bd3fe8cba33ba44
+  src/lib/primitives.ts:
+    id: 74859f750b28
+    last_write_checksum: sha1:987869fc54790b9c22e9182099103d6aa7c67016
+    pristine_git_object: d21f1dc49affa4e6d324bdd60811b470fdfa7eb6
+  src/lib/retries.ts:
+    id: b24a69d15639
+    last_write_checksum: sha1:f3da74dffcbe2756c69393f8600205aa1dc06e68
+    pristine_git_object: e3ce9aba72150fc3c18f3105d39b21aba809377b
+  src/lib/schemas.ts:
+    id: deb4b531fae1
+    last_write_checksum: sha1:209cfaabfa7fc1c1310f97453215cb0755619c6e
+    pristine_git_object: 47edb9725c2482c667e2ddc8a56b1fec4285c492
+  src/lib/sdks.ts:
+    id: 8a6d91f1218d
+    last_write_checksum: sha1:c081090393f988cfe79b6ccd3dbf37e9b531d999
+    pristine_git_object: bdd7a261f15aa5164aa603d92949be22c0f0a8a7
+  src/lib/security.ts:
+    id: 0502afa7922e
+    last_write_checksum: sha1:e7957573241130d361b6d3cd942787142dc44f4c
+    pristine_git_object: 342b850d70a666a214f86eacefebd963062c281c
+  src/lib/url.ts:
+    id: b0057e24ed76
+    last_write_checksum: sha1:3bceadd74bf0b31adf13eb06b7531077c3e07d65
+    pristine_git_object: 79e7ce660b3732053e3adcbb5a4cdeb51496e8aa
+  src/mcp-server/build.mts:
+    id: f7a2ed2de4d7
+    last_write_checksum: sha1:1a7a5dc9ace5a5d707bd8d2339f76719e525e7eb
+    pristine_git_object: a04739f2ac2154c097ea821daf364ee4c037a820
+  src/mcp-server/cli.ts:
+    id: 4ade0ef98b00
+    last_write_checksum: sha1:7331efddde881832342fa8779d23be7445d4480c
+    pristine_git_object: b878d8de9f2a0275c3cdbfdcaed48a31092e558a
+  src/mcp-server/cli/start/command.ts:
+    id: b3e53408ccb4
+    last_write_checksum: sha1:b50005e18467eb1f2ce48fc8dfc8cf3e246f80bb
+    pristine_git_object: 84ba885bae3b286dbad9db1c9f912c19fb8e7fce
+  src/mcp-server/cli/start/impl.ts:
+    id: 37494f674015
+    last_write_checksum: sha1:25bb168beda319f58c482ab2f83bdc2fc46628b1
+    pristine_git_object: d7dce53f49a66f5e3a29aba613872864c856d7a8
+  src/mcp-server/console-logger.ts:
+    id: 57aff4ff2e15
+    last_write_checksum: sha1:66e945860c8318f2a6bb9604a7720a979dacce4b
+    pristine_git_object: d65a295b9545bee0599e46f2a75f2ab5a03c4ae4
+  src/mcp-server/extensions.ts:
+    id: 3d9d20ff158f
+    last_write_checksum: sha1:e36e4b49b77347db80debccc2e77706b0ac7f4a4
+    pristine_git_object: 0955a573c2ce989d63c737410ab8cc28706d9f74
+  src/mcp-server/mcp-server.ts:
+    id: aabbc4ab07c1
+    last_write_checksum: sha1:b4bd3b2b3bddb32d07cdc57ef631e03afe71d90b
+    pristine_git_object: f2be11902effe973814a08012971b7bc7c811b97
+  src/mcp-server/prompts.ts:
+    id: 26f3d73cbf31
+    last_write_checksum: sha1:2c3388908845aa1f5f9a8de21cdc3fd444943bd0
+    pristine_git_object: 55c206ea105662eb1d0526ed2b93077f2392203b
+  src/mcp-server/resources.ts:
+    id: cb0c57ebeaea
+    last_write_checksum: sha1:e07cc8271e3296e3727fb8db21fb282e8caf6ec8
+    pristine_git_object: 92c9c3a01a0058072bd0699f8e34e028821ba871
+  src/mcp-server/scopes.ts:
+    id: 8966d24256b2
+    last_write_checksum: sha1:77d0eb95785e84f9fd0b27c4612f8c6470489fe4
+    pristine_git_object: c25696d4c4f70e081fa5d87ad6891874c509a577
+  src/mcp-server/server.ts:
+    id: 2784dd48e82a
+    last_write_checksum: sha1:a2b370a09ee040beb8672a59451d75fc757a9d67
+    pristine_git_object: 9f482a6622fddd098620a76b568d50af5798c6af
+  src/mcp-server/shared.ts:
+    id: 074e80d4be1e
+    last_write_checksum: sha1:d89576cea2bef3856b7fc3e65b868875528be042
+    pristine_git_object: bef212f002cac28cb23333a5f291a4ee5ba08521
+  src/mcp-server/tools.ts:
+    id: 654d5d1f2062
+    last_write_checksum: sha1:60e3f9fb1cae65b0df8276b914fd572dd71fbcfe
+    pristine_git_object: e41474128d5f9e23c911258fb62b99734f9fe7b8
+  src/mcp-server/tools/lessonPlansGetStudentCourseProgress.ts:
+    id: 1290cd52bdc0
+    last_write_checksum: sha1:dc8bd9bd593964eeee7942518582caaaeb25e15d
+    pristine_git_object: fcaa371eae38a5d9f9036f91c0cdc45a55c3cc12
+  src/mcp-server/tools/lessonPlansGetSyllabus.ts:
+    id: ae7d54e6fe53
+    last_write_checksum: sha1:6aaca9c95004c7f750e253cec52a9c7758eea3f6
+    pristine_git_object: 3dc0154b994339421332cf8eda6d6fc9f835140b
+  src/mcp-server/tools/lessonPlansUpdateStudentResponse.ts:
+    id: 196126d29352
+    last_write_checksum: sha1:1f3aac067fbfbe46f627c9e2edcb4e401296e17f
+    pristine_git_object: 9b2353a65dfc18db1c6c7adfc0ef1a02ec9fcdf9
+  src/mcp-server/tools/lessonsCreateAttempt.ts:
+    id: 0c7710ba5a9d
+    last_write_checksum: sha1:cefe20f616fea01f7f2dd50cacca4b86c86124e6
+    pristine_git_object: d2e7a1d3c34d19d9c88ae5144a270b96190ecbdc
+  src/mcp-server/tools/lessonsFinalizeResponse.ts:
+    id: 12e820d86fff
+    last_write_checksum: sha1:be0639c2d374f29b298fbe8125caaf015d75f2fb
+    pristine_git_object: 08f023a7038168b6c365b0d283cdc0aae420dd6e
+  src/mcp-server/tools/lessonsGetAttempts.ts:
+    id: 138dc0b0856f
+    last_write_checksum: sha1:410b2a212ff851713fc1119e76a1fb14d242495d
+    pristine_git_object: 555c465352641be504b50422b637562c39558a40
+  src/mcp-server/tools/lessonsGetNextQuestion.ts:
+    id: 3ba7a3a4d11a
+    last_write_checksum: sha1:fc4a6bf9e912d4f28689950a0681b9759ca9879f
+    pristine_git_object: 280be05ccdee5774af85b1dff2a83c9357518b9e
+  src/mcp-server/tools/lessonsGetProgress.ts:
+    id: 144e36a2cc80
+    last_write_checksum: sha1:99ae82fc1b9464e76e27928338bca0ab7edd7e73
+    pristine_git_object: 52f81b680de08d8bce90979fc40cc15d740352a5
+  src/mcp-server/tools/lessonsResetAttempt.ts:
+    id: abfdd7f36077
+    last_write_checksum: sha1:865469ddbe3c9df38f3764298a84bed3329885c7
+    pristine_git_object: fded620d6813ea735bb6cd608d0b1644248a2fd6
+  src/mcp-server/tools/lessonsUpdateStudentResponse.ts:
+    id: 189084a57b74
+    last_write_checksum: sha1:709c87e47b6ca91c17de71575fdcc017eae822a1
+    pristine_git_object: c5a91c19d90e1deafb6ba67168edba3ec122892f
+  src/mcp-server/tools/powerPathCourseMasteryCreateExternalPlacementTest.ts:
+    id: bb2d71bb5eeb
+    last_write_checksum: sha1:40e2e1af70c2b35d3812124b73ef65e03d83743f
+    pristine_git_object: d622b715893f9bd1daee533f62b5863e738c2623
+  src/mcp-server/tools/powerPathCourseMasteryCreateExternalTestOut.ts:
+    id: 69932698e646
+    last_write_checksum: sha1:44ddd44617ce5e18a997f1fc5bd066549cfe4353
+    pristine_git_object: 9f97f5f204def4ca48fb74cbc39cc63b6484a2f3
+  src/mcp-server/tools/powerPathCourseMasteryImportExternalTestAssignmentResults.ts:
+    id: 4c1d6e424e5a
+    last_write_checksum: sha1:b893cb9588fdc70d98a4c1005ef85182858d2a03
+    pristine_git_object: e46e667e4bb3d330207b817c00619df331538543
+  src/mcp-server/tools/powerPathCourseMasteryMakeExternalTestAssignment.ts:
+    id: 0e91e2226795
+    last_write_checksum: sha1:0041c8055d9ceecd64e6ffb007055c1bdfd35509
+    pristine_git_object: 20eb038a16391095ad3497ff96faede07bb9597e
+  src/mcp-server/tools/powerPathCourseMasteryTestOut.ts:
+    id: 965e50566ea3
+    last_write_checksum: sha1:cce51d936db373680fe4954b5810a6eb75114bdb
+    pristine_git_object: bc2920c05d42a59e88938637142deeb292c86604
+  src/mcp-server/tools/powerPathLessonPlansAttachComponent.ts:
+    id: 1f3bb85fef2b
+    last_write_checksum: sha1:7c182760cacb64e25077f5f56f1e8a114e220ff3
+    pristine_git_object: 1c3db7cd8765d91d3426dfc9769182fa28b58f9b
+  src/mcp-server/tools/powerPathLessonPlansAttachResource.ts:
+    id: 5eae04896d0e
+    last_write_checksum: sha1:3af41a0fde8a2df7f72d6c0f03b6077eec44a78a
+    pristine_git_object: 1f3a16ef6a6d5336d11dc02f5da2c6724f77389b
+  src/mcp-server/tools/powerPathLessonPlansCreateLessonPlan.ts:
+    id: 46b8c6443d8c
+    last_write_checksum: sha1:b37ee14aaba5ebac9c2c65daa9763720a244c73c
+    pristine_git_object: 1c6cafa09389d0425e7ac5201b15132480a72e23
+  src/mcp-server/tools/powerPathLessonPlansDeleteLessonPlan.ts:
+    id: a30ddd459226
+    last_write_checksum: sha1:620e28dec3f5627ccf52510c8cd965e37a5e09ba
+    pristine_git_object: e5ead41adaca2ef539890354a1b92a9967db1e5e
+  src/mcp-server/tools/powerPathLessonPlansDeleteLessonPlanItem.ts:
+    id: bad9573ee930
+    last_write_checksum: sha1:07b03c002c10e9b14d7b469494ad25475d9efbdb
+    pristine_git_object: 0b185ac58f2d3e177abed690002149deeefba3ae
+  src/mcp-server/tools/powerPathLessonPlansGetTree.ts:
+    id: 4e6235719505
+    last_write_checksum: sha1:c2313d792bc4ed3817b8ace95bbfd712286452c4
+    pristine_git_object: 35279d1e0ee7239c2092f393aa89e3707f3fcc57
+  src/mcp-server/tools/powerPathLessonPlansUpdateLessonPlanItem.ts:
+    id: 73b38457b6b2
+    last_write_checksum: sha1:e8f6710750b5e2d66e9d01e7816998bd721e7d12
+    pristine_git_object: 968445c0b5ed6d6726ab01ddbcfab556480e7477
+  src/mcp-server/tools/powerPathPlacementGetAllPlacementTests.ts:
+    id: 557d81a10602
+    last_write_checksum: sha1:49b0275a9d95aadf04dd295c4d3a96e69750f54a
+    pristine_git_object: bc88b2e1f45bd1114b65c0918c4b374c34b0982a
+  src/mcp-server/tools/powerPathPlacementGetCurrentLevel.ts:
+    id: 900ef18cf74a
+    last_write_checksum: sha1:10b2f5380d387f814edda0e18968dfb030fda53b
+    pristine_git_object: 85017f9c9e38987133866f4fac3b99cdd297c312
+  src/mcp-server/tools/powerPathPlacementGetNextPlacementTest.ts:
+    id: cf1e7cf6b4cf
+    last_write_checksum: sha1:a7590aa6d39c72ff86f6775c866a62add5bf71a0
+    pristine_git_object: d2792e27520d228751d90762167bc4f3253802e1
+  src/mcp-server/tools/powerPathPlacementGetSubjectProgress.ts:
+    id: ea8c76de8557
+    last_write_checksum: sha1:3f3c46e2a81ab4278d1a38a81aa375d8b46a3c1c
+    pristine_git_object: 200f8793208c5666311edfdb0239d4f2aaee1f43
+  src/models/components/assessmentlineitem.ts:
+    id: b64f932808b3
+    last_write_checksum: sha1:1ecce42d4cac428fe1ec0fc437d48de1f596d428
+    pristine_git_object: 526ce6bb392508823414beef230f0b0213f85a26
+  src/models/components/assessmentresult.ts:
+    id: d6de123e39a5
+    last_write_checksum: sha1:ae6c99587af72a828e5cef46ffb2726f84ed68b7
+    pristine_git_object: 0e5d50be355ad92da660fe189ad06a6c9bb76424
+  src/models/components/createexternalplacementinput.ts:
+    id: c57fd0d7bcf2
+    last_write_checksum: sha1:12ce21fa252ec1982b6cef4c37e61066583edab9
+    pristine_git_object: daa23f4764293f20e06dba9cc833ab5ea16a9f54
+  src/models/components/createexternaltestoutinput.ts:
+    id: 5b2816888451
+    last_write_checksum: sha1:f68494c12c449ae91c08ea62593774bb15913af4
+    pristine_git_object: 6cafd34ccbd155c7964a1761e5766e607a8f0961
+  src/models/components/index.ts:
+    id: 0aa842dce54d
+    last_write_checksum: sha1:40567db6babca98c8e559a45db38c933f24550fc
+    pristine_git_object: 99f80326662dcf64f56b030efa4f32e71b9875b5
+  src/models/components/learningobjectiveset.ts:
+    id: bba6784cb1ea
+    last_write_checksum: sha1:e7d9679e1230c06ce919a14394ab383664d8d545
+    pristine_git_object: edb5ed99ac79988fd20ae2aafd828b281ee54ed8
+  src/models/components/lessonplantreecomponent.ts:
+    id: c93cf683a147
+    last_write_checksum: sha1:a41c32f62a6089014e67e9f544996bf3567dc936
+    pristine_git_object: c51753ab19f29848b255cb7359bff4f0a6262647
+  src/models/components/placementupdatestudentquestionresponseresult.ts:
+    id: e4c06279ab88
+    last_write_checksum: sha1:af36cd9bcae2da0e93d5770c7d9dfa6e475f53d3
+    pristine_git_object: 3a6f58d3a7f377cdb8c13923eeca8e629dc7b79e
+  src/models/components/powerpath100progressresult.ts:
+    id: 915f36f02478
+    last_write_checksum: sha1:713bb17d5540c319c98b7c204274923875c99d20
+    pristine_git_object: 233eca574f962e949cc26cf82502a3a9ee4eb322
+  src/models/components/powerpath100updatestudentquestionresponseresult.ts:
+    id: da3f484cbbed
+    last_write_checksum: sha1:03b1467d0e7f1e2f4e5bbd58751eb5a71c7da328
+    pristine_git_object: b58ed89cecf86867c061758454cfd12ef55bc4d4
+  src/models/components/powerpathtestquestion.ts:
+    id: 40cce7f21d2a
+    last_write_checksum: sha1:7de46519e9b973cec26e28d9a8efa8391e8028f4
+    pristine_git_object: 8f8ffb3a255eb2acf00b26083bec87041a29e8ac
+  src/models/components/quizupdatestudentquestionresponseresult.ts:
+    id: 6bcee08f1361
+    last_write_checksum: sha1:c5907a5b2f21d1d9f05fcb68541498c030cc4912
+    pristine_git_object: 4348614878160163aeb7fa6366fe347fbeaa2464
+  src/models/components/security.ts:
+    id: 472dde81bb1c
+    last_write_checksum: sha1:e022e16eca24de6cbbc5ff5f71a74c6ef7a36d85
+    pristine_git_object: 1e9dc2341c0b8b7a6ef70dfc34f215b1c2da1a5b
+  src/models/components/testoutresult.ts:
+    id: aa2f43869579
+    last_write_checksum: sha1:fd943626706d30fe6ef2c4edd86ceffb7c708cf1
+    pristine_git_object: 53f8c0b0ab5f566f0ea86381d2b852d8b3800d65
+  src/models/components/testoutupdatestudentquestionresponseresult.ts:
+    id: 050a39136f99
+    last_write_checksum: sha1:30a5b725cd5ab956eb937395b24b2a89fea409fb
+    pristine_git_object: 559c8ef816ab9e0ffdbe2b07336181f2902b82da
+  src/models/components/updatestudentquestionresponseinput.ts:
+    id: 260cca5a15a6
+    last_write_checksum: sha1:55fcc3556215691a7bd09c887ba7c7e3c9da0485
+    pristine_git_object: 069eab9edb54b6b9b42355ec9ce990a1b0be7deb
+  src/models/errors/apierror.ts:
+    id: e2280e075454
+    last_write_checksum: sha1:2e7c801204f521a1dbdde957bd331eea11c67d14
+    pristine_git_object: b486205ac1e327bd7e22ad89758d55a4538abc31
+  src/models/errors/badrequestresponseerror.ts:
+    id: beddfd22a313
+    last_write_checksum: sha1:472a8a6eed8650cf2be6cd4f1fa3f546d4ff3781
+    pristine_git_object: 289c271f9289115d83fbe7744612d40d39539f18
+  src/models/errors/forbiddenresponseerror.ts:
+    id: d08a9d9ee588
+    last_write_checksum: sha1:4e3aa94a074cbb3cb1162c5c691fe385dca1bb9e
+    pristine_git_object: e5bf27a6e4ebe2f1d2c299c59e13500b198009bd
+  src/models/errors/httpclienterrors.ts:
+    id: 6948de76af99
+    last_write_checksum: sha1:994ced121c54fecd0af038ccfb7855fbfd3868ec
+    pristine_git_object: b34f612124c797c2a1106b9735708f679a90b74f
+  src/models/errors/index.ts:
+    id: c4e22507cb83
+    last_write_checksum: sha1:406f9ff7b1def7b2ed0936692a186e688b7d9db5
+    pristine_git_object: 8dde0f5e5d9051a7f02ea33277ff49dd450f5e09
+  src/models/errors/internalservererrorresponse.ts:
+    id: 983ffc73644d
+    last_write_checksum: sha1:ddeb98513bdc7b528e19a43774bd36d6eda77f64
+    pristine_git_object: 167fc66414cad96c8cf3fe14cad1440f91a8a384
+  src/models/errors/notfoundresponseerror.ts:
+    id: 1914d6d7fbaf
+    last_write_checksum: sha1:61d8ec5b81436106e987d931e74a3aced0835d9a
+    pristine_git_object: ae2a9caccbc521b0bd78e0c832d65b1b15aedf8e
+  src/models/errors/powerpatherror.ts:
+    id: d6433470ea2f
+    last_write_checksum: sha1:8c5ff0178f39f328655f3449bc1820adf30316fa
+    pristine_git_object: 574e2d6f0deb4ff61200f82b616ddab2e6b1e95e
+  src/models/errors/responsevalidationerror.ts:
+    id: 88ff98a41be9
+    last_write_checksum: sha1:b46d430a4fedc3fd682d47dfddf7f55db9b1e40b
+    pristine_git_object: bd512c75829516cdb0268137a78c9dab58427504
+  src/models/errors/sdkvalidationerror.ts:
+    id: fb6b2b49c445
+    last_write_checksum: sha1:a69da17627bcc32b820544608f3400423ea53f26
+    pristine_git_object: 6826e1208a5d7b7d310535d18909646522bf0fbd
+  src/models/errors/toomanyrequestsresponseerror.ts:
+    id: ab15bfa145f3
+    last_write_checksum: sha1:5ff94977b113a65dfc5a7058a7f02063f2b1222a
+    pristine_git_object: b4b654c62f9d9a8e75e1a59e27f814882d79b138
+  src/models/errors/unauthorizedrequestresponseerror.ts:
+    id: a8bbbc1fc7e1
+    last_write_checksum: sha1:f5cc205923e1e455bbb12d8ad7f0415f139cb764
+    pristine_git_object: d5ea34f24baba92a6b70dacfed0c22c744726d6d
+  src/models/errors/unprocessableentityresponseerror.ts:
+    id: d81e01bbb5e3
+    last_write_checksum: sha1:49896829e0700ca10dbb606a1397f5e6fd3e27ad
+    pristine_git_object: 6aafc82fef94af53dec97e1f485ad02e44ebeac8
+  src/models/operations/attachcomponent.ts:
+    id: 0012ae61c69b
+    last_write_checksum: sha1:9307bcdead4c7391a7e377e6e75b43e07a28000a
+    pristine_git_object: 14bce8bfab56d3f7c603432fa3e1e852b100a1e0
+  src/models/operations/attachresource.ts:
+    id: c4a1da5c5260
+    last_write_checksum: sha1:f8b77ca91c5f5f7f9c2795add5b0eb54e7a38f00
+    pristine_git_object: 3bfb2b2cfc31289cb248ddb554f0a5d154dc5d70
+  src/models/operations/createexternalplacementtest.ts:
+    id: c685407f00b7
+    last_write_checksum: sha1:1f8e074c86b753319308eb6510a1226b81edf64e
+    pristine_git_object: 1288ac44f89d1192abd76b7d5dd55d231b0a6dad
+  src/models/operations/createexternaltestout.ts:
+    id: 878f2ec1612f
+    last_write_checksum: sha1:7be3bc0394511dfc7c617a7a8919bfc44c984505
+    pristine_git_object: 92f772fda76917c529f877500cbee3a07786f027
+  src/models/operations/createlessonplan.ts:
+    id: d48f54f4add3
+    last_write_checksum: sha1:27a5255ff146e76e6963447da46f297ce2765e89
+    pristine_git_object: ebd9408f2b23be34a941b4c5994218cfb5075de7
+  src/models/operations/createnewattempt.ts:
+    id: 6e963a9d84fa
+    last_write_checksum: sha1:1b83f9cc4dff244fdd60c89dc9763c24a4849d67
+    pristine_git_object: 33f49a7d33c8dea9a4b703de2543f26a277adb5b
+  src/models/operations/deletelessonplan.ts:
+    id: 419da468acb9
+    last_write_checksum: sha1:b07fbf56f4fe716d67fb30dc94d61f5c6a349a17
+    pristine_git_object: d0c4eccf26d9daaf4de069c598432edaebe2ae52
+  src/models/operations/deletelessonplanitem.ts:
+    id: 5249851d18ad
+    last_write_checksum: sha1:f9e9035e0c19785f43c50b8df22848f6016d1a4a
+    pristine_git_object: c13853b4bd9e96967960fb2824e8ccac7fc123f1
+  src/models/operations/finalstudentassessmentresponse.ts:
+    id: dbfc3338c326
+    last_write_checksum: sha1:5b54ee721573cd31858345b22218f7eccd2151f9
+    pristine_git_object: 8fb977fbd3f640de7c2c23b711b1d93a30a4af0d
+  src/models/operations/getallplacementtests.ts:
+    id: 4cbfe2583e3c
+    last_write_checksum: sha1:923679e24a2fe367a8b73bb355d8e047cdf38897
+    pristine_git_object: eb83f890f7d65445191e5c2a6e5aa7ef461cda15
+  src/models/operations/getassessmentprogress.ts:
+    id: e7aa5bd113ce
+    last_write_checksum: sha1:74326a6d2322724f671d5b1850caefa2941055b7
+    pristine_git_object: 84e55724b65a2bbfd88175c906e0fb2b95ad6b51
+  src/models/operations/getattempts.ts:
+    id: 61da4f37a161
+    last_write_checksum: sha1:0946a4d0a482572285a812683ffd91c8311d33b1
+    pristine_git_object: 6d923acc0b32c499a88a3b534d762d8d9e468f8b
+  src/models/operations/getcourseprogress.ts:
+    id: 2072a6bf97a3
+    last_write_checksum: sha1:2b2667ff5d2e018aa156566be91eb538373c8e98
+    pristine_git_object: 075d3e5003edbc5ab65ec33f46405bf661e5aaff
+  src/models/operations/getcoursesyllabus.ts:
+    id: aa1a77ff9f12
+    last_write_checksum: sha1:142d199bbcbc541c124941e40cb00006af423369
+    pristine_git_object: 0063d4bafe77aebfd351caad3d940eb0d42b9415
+  src/models/operations/getcurrentlevel.ts:
+    id: 2cf952752d31
+    last_write_checksum: sha1:fe56125f4523146fc0b17576a2c807d77d9746c5
+    pristine_git_object: c86e3af7093a0523cc48ef161e190e07895b72c4
+  src/models/operations/getnextplacementtest.ts:
+    id: a4142dc7b61b
+    last_write_checksum: sha1:6908a0171007c160aaf3339c25b46430a4c16b03
+    pristine_git_object: cbbd02dc03548d8bc56ad659f4777d224d390d2f
+  src/models/operations/getnextquestion.ts:
+    id: e4226f66896e
+    last_write_checksum: sha1:648bdac09baa11449f9ceec51a77a92410e6f5c1
+    pristine_git_object: d427443093f34b86d399841814a4d81bead4db3e
+  src/models/operations/getsubjectprogress.ts:
+    id: ac73c839cc45
+    last_write_checksum: sha1:6b0e103ef922136e3b7cc88a50be9051b85f9706
+    pristine_git_object: 94c42c9d76b6d437bc5fb9ae796fb02a917380d3
+  src/models/operations/gettree.ts:
+    id: 705cb5fd696e
+    last_write_checksum: sha1:0cb66f9c082537671c3c47883cc2d2fa180cabcc
+    pristine_git_object: bda8fd95efea43e7c8d4836dce2ea8ac5f0b7a82
+  src/models/operations/importexternaltestassignmentresults.ts:
+    id: 9a3ed8fd6de1
+    last_write_checksum: sha1:192c950aeb329157ea5fdec37ce54845a4ae7dc1
+    pristine_git_object: f82db7367138abdc0fa084ff93d5e54aac7ed149
+  src/models/operations/index.ts:
+    id: 0d9ffaf774d2
+    last_write_checksum: sha1:0a1af395fc07f753e594c2ca8a2b5f91280b34eb
+    pristine_git_object: 939cc16b01d2fad6d7421c7ce750c391cd6235cb
+  src/models/operations/makeexternaltestassignment.ts:
+    id: da3bb7c864af
+    last_write_checksum: sha1:63241dd50bdcca4591ff1504f07d0ceadca2e7c3
+    pristine_git_object: 632d2269126b4f28da5042c1503037dcb0732ede
+  src/models/operations/resetattempt.ts:
+    id: 706ed11f9132
+    last_write_checksum: sha1:71b4a29cacd313a293325f8f2d794cddcf659fc2
+    pristine_git_object: 399cdd50d8e7f790f3fc7f51d106c3d20014fe7a
+  src/models/operations/testout.ts:
+    id: d268bf29419a
+    last_write_checksum: sha1:32365558ce139bee766bcfc0773709a75694ee26
+    pristine_git_object: d7f237e1b3a22d7fdf9d9d90cf06c44f35192d67
+  src/models/operations/updatelessonplanitem.ts:
+    id: 68d53eaa2c91
+    last_write_checksum: sha1:f5a6c7ff273047399dbcb5d94b1aa26a57d3d69b
+    pristine_git_object: 849b35094ebed6fc0fd2e1d71e987dbac23767b8
+  src/models/operations/updatestudentitemresponse.ts:
+    id: 3b4fdc6d7d34
+    last_write_checksum: sha1:4775a630998d84b9e8419ed9b5718b7471b49add
+    pristine_git_object: fa1872e4c091551ed0b4227ed8251e23f6d29b64
+  src/models/operations/updatestudentquestionresponse.ts:
+    id: 9aaff8cf4bab
+    last_write_checksum: sha1:6068c5eda07f4de42018aa0abf4960c2baa57be7
+    pristine_git_object: 53a9bf82408a72df9b188416b8821b7feb6015aa
+  src/sdk/index.ts:
+    id: a857902a703f
+    last_write_checksum: sha1:ed6d64f2a6135349aa8498b8d8cff9ba85c7fb8f
+    pristine_git_object: ecac2264817bb369ff2dbf0f0e9029807e67ff77
+  src/sdk/lessonplans.ts:
+    id: b98e3fce597b
+    last_write_checksum: sha1:b7e941e2ea0b9e9d10c915e4e3e893a8eb35de4b
+    pristine_git_object: ebb85387a2c8d4b59ec92948e2ca8ac5f1166cf0
+  src/sdk/lessons.ts:
+    id: 942286ed41db
+    last_write_checksum: sha1:02d28284efc9d6d26df560f83b3c6b8eb902fc25
+    pristine_git_object: 0890459c8fe93fec1b65f02ab0c9188b6899ccae
+  src/sdk/powerpathcoursemastery.ts:
+    id: b56e7bb82fc6
+    last_write_checksum: sha1:9108064cb5798dd83adccaff76fe9d778c4d40a0
+    pristine_git_object: 0288113aa3010f31f0f88a1b682fc0ff3e91e65d
+  src/sdk/powerpathlessonplans.ts:
+    id: 0a26aa7efdc1
+    last_write_checksum: sha1:b56a3664f4a5c09d9eae73ba80036f82d3fbcbe3
+    pristine_git_object: e3b068532cb2d5eac323518dca83b5c2194d2a80
+  src/sdk/powerpathplacement.ts:
+    id: c2d094be8ed2
+    last_write_checksum: sha1:6f063ddbf82e027014453741ed2c7ba638a7d451
+    pristine_git_object: d12fcb6565bd76ea5ffea7ff586f1cbf69c5437a
+  src/sdk/sdk.ts:
+    id: 784571af2f69
+    last_write_checksum: sha1:06405d225272f86d945997e6ffbc534c9ab96e91
+    pristine_git_object: 933cad52dd4a3ffea861cc51e59aff3f6fd3e9dc
+  src/types/async.ts:
+    id: fac8da972f86
+    last_write_checksum: sha1:3ff07b3feaf390ec1aeb18ff938e139c6c4a9585
+    pristine_git_object: 689dba5de50e8769e5f3bb913e3f42a146d15bc1
+  src/types/blobs.ts:
+    id: f8ab9b326c86
+    last_write_checksum: sha1:cf45d78916671cb6345a11c97c633c64402bc27c
+    pristine_git_object: cce2892d4f573a120ef3907db90ab15f5979cfda
+  src/types/constdatetime.ts:
+    id: 0f7b6f513917
+    last_write_checksum: sha1:dfaaf9adfaf49808bd4c9dea0039f21b7088d9c0
+    pristine_git_object: fe62144eaf6a2054fc8ca9a98466e70f41b5434d
+  src/types/enums.ts:
+    id: 4d03ddfe5100
+    last_write_checksum: sha1:ee590453d2c87e33e89c633d37ee46907eca0e58
+    pristine_git_object: aba0ffd2a3308a31e516d83b52823d80aa65a8f9
+  src/types/fp.ts:
+    id: ae9f0fb8aab6
+    last_write_checksum: sha1:d24994d58f37a1ca106847fcc6d2e976c6f1c093
+    pristine_git_object: ccbe51eac69dfb0da5131f14fd753c4b47c1d527
+  src/types/index.ts:
+    id: cd7a0a5ed005
+    last_write_checksum: sha1:bf43b3dccb960ca9ae9c5ab940da4786255881cd
+    pristine_git_object: abf0b7ab8f196829df8946da40d627a46da68e3c
+  src/types/operations.ts:
+    id: 314da01dca47
+    last_write_checksum: sha1:c49e724cfb1259296381cb57bc0fcdd2eae45865
+    pristine_git_object: beb81e10f0b9eee2ed398a853fe6f737b743f818
+  src/types/rfcdate.ts:
+    id: 9eb64906dcd6
+    last_write_checksum: sha1:8e5f382e02fe21c2f2e24deb1b7bbf8cddd3dd16
+    pristine_git_object: c79b3f53a3dd922aa2ace5a4191c8652cf9a8e89
+  src/types/streams.ts:
+    id: f99be9c4bf14
+    last_write_checksum: sha1:cc9ced2dd34a76c3a1bd7784ccda1cc3b37ab9a9
+    pristine_git_object: a0163e7a99cea88f21d0ad4ce3af1c720180ee20
+  src/types/unrecognized.ts:
+    id: 476605c40716
+    last_write_checksum: sha1:d33ac686528492f4cdc0dbf81ed343b4afe020fe
+    pristine_git_object: b7a2a13f3dff50663429df24ae2f55b647ff1084
+  tsconfig.json:
+    id: 61ebb9fd6e8c
+    last_write_checksum: sha1:79dc1550d921fefec69f8632ed3b24dad41ca2f6
+    pristine_git_object: 76110f883cac40bb04fb2f376cd69ea8c8d6d215
 examples:
   getCourseProgress:
     speakeasy-default-get-course-progress:
@@ -883,3 +2009,370 @@ examples:
           application/json: {"imsx_codeMajor": "failure", "imsx_severity": "error", "imsx_description": "<value>", "imsx_CodeMinor": {"imsx_codeMinorField": []}}
 examplesVersion: 1.0.2
 generatedTests: {}
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - .npmignore
+  - FUNCTIONS.md
+  - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/components/assessmentlineitem.md
+  - docs/models/components/assessmentlineitemcomponentresource.md
+  - docs/models/components/assessmentlineitemscorescale.md
+  - docs/models/components/assessmentlineitemstatus.md
+  - docs/models/components/assessmentresult.md
+  - docs/models/components/assessmentresultassessmentlineitem.md
+  - docs/models/components/assessmentresultlearningobjectiveset.md
+  - docs/models/components/assessmentresultscorescale.md
+  - docs/models/components/assessmentresultstatus.md
+  - docs/models/components/class.md
+  - docs/models/components/component.md
+  - docs/models/components/createexternalplacementinput.md
+  - docs/models/components/createexternalplacementinputtoolprovider.md
+  - docs/models/components/createexternaltestoutinput.md
+  - docs/models/components/createexternaltestoutinputtoolprovider.md
+  - docs/models/components/credentials.md
+  - docs/models/components/importance.md
+  - docs/models/components/learningobjectiveresult.md
+  - docs/models/components/learningobjectiveset.md
+  - docs/models/components/lessonplantreecomponent.md
+  - docs/models/components/lessonplantreecomponentcomponentresource.md
+  - docs/models/components/lessonplantreecomponentstatus.md
+  - docs/models/components/metadatadetails.md
+  - docs/models/components/parentassessmentlineitem.md
+  - docs/models/components/placementupdatestudentquestionresponseresult.md
+  - docs/models/components/powerpath100progressresult.md
+  - docs/models/components/powerpath100progressresultcontent.md
+  - docs/models/components/powerpath100progressresultdifficulty.md
+  - docs/models/components/powerpath100progressresultresponse.md
+  - docs/models/components/powerpath100progressresultresult.md
+  - docs/models/components/powerpath100updatestudentquestionresponseresult.md
+  - docs/models/components/powerpathtestquestion.md
+  - docs/models/components/powerpathtestquestioncontent.md
+  - docs/models/components/powerpathtestquestiondifficulty.md
+  - docs/models/components/powerpathtestquestionresponse.md
+  - docs/models/components/powerpathtestquestionresult.md
+  - docs/models/components/quizupdatestudentquestionresponseresult.md
+  - docs/models/components/remainingquestionsperdifficulty.md
+  - docs/models/components/resource.md
+  - docs/models/components/resourcestatus.md
+  - docs/models/components/responseresult.md
+  - docs/models/components/role.md
+  - docs/models/components/scorestatus.md
+  - docs/models/components/security.md
+  - docs/models/components/seenquestion.md
+  - docs/models/components/student.md
+  - docs/models/components/testoutresult.md
+  - docs/models/components/testoutupdatestudentquestionresponseresult.md
+  - docs/models/components/updatestudentquestionresponseinput.md
+  - docs/models/components/updatestudentquestionresponseinputresponse.md
+  - docs/models/errors/badrequestresponseerror.md
+  - docs/models/errors/badrequestresponseimsxcodeminor.md
+  - docs/models/errors/badrequestresponseimsxcodeminorfield.md
+  - docs/models/errors/forbiddenresponseerror.md
+  - docs/models/errors/forbiddenresponseimsxcodeminor.md
+  - docs/models/errors/forbiddenresponseimsxcodeminorfield.md
+  - docs/models/errors/internalservererrorresponse.md
+  - docs/models/errors/internalservererrorresponseimsxcodeminor.md
+  - docs/models/errors/internalservererrorresponseimsxcodeminorfield.md
+  - docs/models/errors/notfoundresponseerror.md
+  - docs/models/errors/notfoundresponseimsxcodeminor.md
+  - docs/models/errors/notfoundresponseimsxcodeminorfield.md
+  - docs/models/errors/toomanyrequestsresponseerror.md
+  - docs/models/errors/toomanyrequestsresponseimsxcodeminor.md
+  - docs/models/errors/toomanyrequestsresponseimsxcodeminorfield.md
+  - docs/models/errors/unauthorizedrequestresponseerror.md
+  - docs/models/errors/unauthorizedrequestresponseimsxcodeminor.md
+  - docs/models/errors/unauthorizedrequestresponseimsxcodeminorfield.md
+  - docs/models/errors/unprocessableentityresponseerror.md
+  - docs/models/errors/unprocessableentityresponseimsxcodeminor.md
+  - docs/models/errors/unprocessableentityresponseimsxcodeminorfield.md
+  - docs/models/operations/assessmentlineitems.md
+  - docs/models/operations/assessmentresult.md
+  - docs/models/operations/attachcomponentlessonplanitem.md
+  - docs/models/operations/attachcomponentrequest.md
+  - docs/models/operations/attachcomponentrequestbody.md
+  - docs/models/operations/attachcomponentresponse.md
+  - docs/models/operations/attachcomponenttype.md
+  - docs/models/operations/attachresourcelessonplanitem.md
+  - docs/models/operations/attachresourcerequest.md
+  - docs/models/operations/attachresourcerequestbody.md
+  - docs/models/operations/attachresourceresponse.md
+  - docs/models/operations/attachresourcetype.md
+  - docs/models/operations/componentresources.md
+  - docs/models/operations/createexternalplacementtestlessontype.md
+  - docs/models/operations/createexternalplacementtestrequest.md
+  - docs/models/operations/createexternalplacementtestresponse.md
+  - docs/models/operations/createexternaltestoutlessontype.md
+  - docs/models/operations/createexternaltestoutrequest.md
+  - docs/models/operations/createexternaltestoutresponse.md
+  - docs/models/operations/createlessonplanacademicsession1.md
+  - docs/models/operations/createlessonplanacademicsession2.md
+  - docs/models/operations/createlessonplancourse1.md
+  - docs/models/operations/createlessonplancourse2.md
+  - docs/models/operations/createlessonplanlessonplan1.md
+  - docs/models/operations/createlessonplanlessonplan2.md
+  - docs/models/operations/createlessonplanlessonplanlessonplan1.md
+  - docs/models/operations/createlessonplanlessonplanlessonplan2.md
+  - docs/models/operations/createlessonplanorg1.md
+  - docs/models/operations/createlessonplanorg2.md
+  - docs/models/operations/createlessonplanrequest.md
+  - docs/models/operations/createlessonplanresponse.md
+  - docs/models/operations/createlessonplanresponsebody1.md
+  - docs/models/operations/createlessonplanresponsebody2.md
+  - docs/models/operations/createlessonplanstatus1.md
+  - docs/models/operations/createlessonplanstatus2.md
+  - docs/models/operations/createnewattemptattempt.md
+  - docs/models/operations/createnewattemptrequest.md
+  - docs/models/operations/createnewattemptresponse.md
+  - docs/models/operations/createnewattemptscorestatus.md
+  - docs/models/operations/deletelessonplanitemrequest.md
+  - docs/models/operations/deletelessonplanrequest.md
+  - docs/models/operations/finalstudentassessmentresponselessontype.md
+  - docs/models/operations/finalstudentassessmentresponserequest.md
+  - docs/models/operations/finalstudentassessmentresponseresponse.md
+  - docs/models/operations/getallplacementtestsrequest.md
+  - docs/models/operations/getallplacementtestsresponse.md
+  - docs/models/operations/getassessmentprogresslessontype.md
+  - docs/models/operations/getassessmentprogressrequest.md
+  - docs/models/operations/getassessmentprogressresponse.md
+  - docs/models/operations/getattemptsattempt.md
+  - docs/models/operations/getattemptsrequest.md
+  - docs/models/operations/getattemptsresponse.md
+  - docs/models/operations/getattemptsscorestatus.md
+  - docs/models/operations/getcourseprogresslearningobjectiveresult1.md
+  - docs/models/operations/getcourseprogresslearningobjectiveresult2.md
+  - docs/models/operations/getcourseprogresslearningobjectiveset1.md
+  - docs/models/operations/getcourseprogresslearningobjectiveset2.md
+  - docs/models/operations/getcourseprogressrequest.md
+  - docs/models/operations/getcourseprogressresponse.md
+  - docs/models/operations/getcourseprogressresult1.md
+  - docs/models/operations/getcourseprogressresult2.md
+  - docs/models/operations/getcourseprogressscorestatus1.md
+  - docs/models/operations/getcourseprogressscorestatus2.md
+  - docs/models/operations/getcourseprogressstatus1.md
+  - docs/models/operations/getcourseprogressstatus2.md
+  - docs/models/operations/getcoursesyllabusrequest.md
+  - docs/models/operations/getcoursesyllabusresponse.md
+  - docs/models/operations/getcurrentlevelrequest.md
+  - docs/models/operations/getcurrentlevelresponse.md
+  - docs/models/operations/getnextplacementtestrequest.md
+  - docs/models/operations/getnextplacementtestresponse.md
+  - docs/models/operations/getnextquestionrequest.md
+  - docs/models/operations/getnextquestionresponse.md
+  - docs/models/operations/getsubjectprogresscourse.md
+  - docs/models/operations/getsubjectprogressrequest.md
+  - docs/models/operations/getsubjectprogressresponse.md
+  - docs/models/operations/gettreeacademicsession.md
+  - docs/models/operations/gettreecourse.md
+  - docs/models/operations/gettreelessonplan.md
+  - docs/models/operations/gettreelessonplanlessonplan.md
+  - docs/models/operations/gettreeorg.md
+  - docs/models/operations/gettreerequest.md
+  - docs/models/operations/gettreeresponse.md
+  - docs/models/operations/gettreestatus.md
+  - docs/models/operations/importexternaltestassignmentresultscredentials.md
+  - docs/models/operations/importexternaltestassignmentresultslessontype.md
+  - docs/models/operations/importexternaltestassignmentresultsrequest.md
+  - docs/models/operations/importexternaltestassignmentresultsresponse.md
+  - docs/models/operations/lineitem.md
+  - docs/models/operations/lineitemcomponent.md
+  - docs/models/operations/lineitemresource.md
+  - docs/models/operations/makeexternaltestassignmentcredentials.md
+  - docs/models/operations/makeexternaltestassignmentlessontype.md
+  - docs/models/operations/makeexternaltestassignmentrequest.md
+  - docs/models/operations/makeexternaltestassignmentresponse.md
+  - docs/models/operations/placementtest.md
+  - docs/models/operations/progress.md
+  - docs/models/operations/resetattemptrequest.md
+  - docs/models/operations/resetattemptresponse.md
+  - docs/models/operations/resources.md
+  - docs/models/operations/resourcesmetadata.md
+  - docs/models/operations/responsebody.md
+  - docs/models/operations/scorescale1.md
+  - docs/models/operations/scorescale2.md
+  - docs/models/operations/testoutrequest.md
+  - docs/models/operations/toolprovider.md
+  - docs/models/operations/updatelessonplanitemrequest.md
+  - docs/models/operations/updatelessonplanitemrequestbody.md
+  - docs/models/operations/updatelessonplanitemtype.md
+  - docs/models/operations/updatestudentitemresponselearningobjectiveresult.md
+  - docs/models/operations/updatestudentitemresponselearningobjectiveset.md
+  - docs/models/operations/updatestudentitemresponserequest.md
+  - docs/models/operations/updatestudentitemresponseresponse.md
+  - docs/models/operations/updatestudentitemresponseresult.md
+  - docs/models/operations/updatestudentitemresponsescorestatus.md
+  - docs/models/operations/updatestudentitemresponsestatus.md
+  - docs/models/operations/updatestudentquestionresponseresponse.md
+  - docs/sdks/lessonplans/README.md
+  - docs/sdks/lessons/README.md
+  - docs/sdks/powerpath/README.md
+  - docs/sdks/powerpathcoursemastery/README.md
+  - docs/sdks/powerpathlessonplans/README.md
+  - docs/sdks/powerpathplacement/README.md
+  - eslint.config.mjs
+  - jsr.json
+  - package.json
+  - src/core.ts
+  - src/funcs/lessonPlansGetStudentCourseProgress.ts
+  - src/funcs/lessonPlansGetSyllabus.ts
+  - src/funcs/lessonPlansUpdateStudentResponse.ts
+  - src/funcs/lessonsCreateAttempt.ts
+  - src/funcs/lessonsFinalizeResponse.ts
+  - src/funcs/lessonsGetAttempts.ts
+  - src/funcs/lessonsGetNextQuestion.ts
+  - src/funcs/lessonsGetProgress.ts
+  - src/funcs/lessonsResetAttempt.ts
+  - src/funcs/lessonsUpdateStudentResponse.ts
+  - src/funcs/powerPathCourseMasteryCreateExternalPlacementTest.ts
+  - src/funcs/powerPathCourseMasteryCreateExternalTestOut.ts
+  - src/funcs/powerPathCourseMasteryImportExternalTestAssignmentResults.ts
+  - src/funcs/powerPathCourseMasteryMakeExternalTestAssignment.ts
+  - src/funcs/powerPathCourseMasteryTestOut.ts
+  - src/funcs/powerPathLessonPlansAttachComponent.ts
+  - src/funcs/powerPathLessonPlansAttachResource.ts
+  - src/funcs/powerPathLessonPlansCreateLessonPlan.ts
+  - src/funcs/powerPathLessonPlansDeleteLessonPlan.ts
+  - src/funcs/powerPathLessonPlansDeleteLessonPlanItem.ts
+  - src/funcs/powerPathLessonPlansGetTree.ts
+  - src/funcs/powerPathLessonPlansUpdateLessonPlanItem.ts
+  - src/funcs/powerPathPlacementGetAllPlacementTests.ts
+  - src/funcs/powerPathPlacementGetCurrentLevel.ts
+  - src/funcs/powerPathPlacementGetNextPlacementTest.ts
+  - src/funcs/powerPathPlacementGetSubjectProgress.ts
+  - src/hooks/clientcredentials.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
+  - src/index.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/dlv.ts
+  - src/lib/encodings.ts
+  - src/lib/env.ts
+  - src/lib/files.ts
+  - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
+  - src/lib/primitives.ts
+  - src/lib/retries.ts
+  - src/lib/schemas.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
+  - src/mcp-server/build.mts
+  - src/mcp-server/cli.ts
+  - src/mcp-server/cli/start/command.ts
+  - src/mcp-server/cli/start/impl.ts
+  - src/mcp-server/console-logger.ts
+  - src/mcp-server/extensions.ts
+  - src/mcp-server/mcp-server.ts
+  - src/mcp-server/prompts.ts
+  - src/mcp-server/resources.ts
+  - src/mcp-server/scopes.ts
+  - src/mcp-server/server.ts
+  - src/mcp-server/shared.ts
+  - src/mcp-server/tools.ts
+  - src/mcp-server/tools/lessonPlansGetStudentCourseProgress.ts
+  - src/mcp-server/tools/lessonPlansGetSyllabus.ts
+  - src/mcp-server/tools/lessonPlansUpdateStudentResponse.ts
+  - src/mcp-server/tools/lessonsCreateAttempt.ts
+  - src/mcp-server/tools/lessonsFinalizeResponse.ts
+  - src/mcp-server/tools/lessonsGetAttempts.ts
+  - src/mcp-server/tools/lessonsGetNextQuestion.ts
+  - src/mcp-server/tools/lessonsGetProgress.ts
+  - src/mcp-server/tools/lessonsResetAttempt.ts
+  - src/mcp-server/tools/lessonsUpdateStudentResponse.ts
+  - src/mcp-server/tools/powerPathCourseMasteryCreateExternalPlacementTest.ts
+  - src/mcp-server/tools/powerPathCourseMasteryCreateExternalTestOut.ts
+  - src/mcp-server/tools/powerPathCourseMasteryImportExternalTestAssignmentResults.ts
+  - src/mcp-server/tools/powerPathCourseMasteryMakeExternalTestAssignment.ts
+  - src/mcp-server/tools/powerPathCourseMasteryTestOut.ts
+  - src/mcp-server/tools/powerPathLessonPlansAttachComponent.ts
+  - src/mcp-server/tools/powerPathLessonPlansAttachResource.ts
+  - src/mcp-server/tools/powerPathLessonPlansCreateLessonPlan.ts
+  - src/mcp-server/tools/powerPathLessonPlansDeleteLessonPlan.ts
+  - src/mcp-server/tools/powerPathLessonPlansDeleteLessonPlanItem.ts
+  - src/mcp-server/tools/powerPathLessonPlansGetTree.ts
+  - src/mcp-server/tools/powerPathLessonPlansUpdateLessonPlanItem.ts
+  - src/mcp-server/tools/powerPathPlacementGetAllPlacementTests.ts
+  - src/mcp-server/tools/powerPathPlacementGetCurrentLevel.ts
+  - src/mcp-server/tools/powerPathPlacementGetNextPlacementTest.ts
+  - src/mcp-server/tools/powerPathPlacementGetSubjectProgress.ts
+  - src/models/components/assessmentlineitem.ts
+  - src/models/components/assessmentresult.ts
+  - src/models/components/createexternalplacementinput.ts
+  - src/models/components/createexternaltestoutinput.ts
+  - src/models/components/index.ts
+  - src/models/components/learningobjectiveset.ts
+  - src/models/components/lessonplantreecomponent.ts
+  - src/models/components/placementupdatestudentquestionresponseresult.ts
+  - src/models/components/powerpath100progressresult.ts
+  - src/models/components/powerpath100updatestudentquestionresponseresult.ts
+  - src/models/components/powerpathtestquestion.ts
+  - src/models/components/quizupdatestudentquestionresponseresult.ts
+  - src/models/components/security.ts
+  - src/models/components/testoutresult.ts
+  - src/models/components/testoutupdatestudentquestionresponseresult.ts
+  - src/models/components/updatestudentquestionresponseinput.ts
+  - src/models/errors/apierror.ts
+  - src/models/errors/badrequestresponseerror.ts
+  - src/models/errors/forbiddenresponseerror.ts
+  - src/models/errors/httpclienterrors.ts
+  - src/models/errors/index.ts
+  - src/models/errors/internalservererrorresponse.ts
+  - src/models/errors/notfoundresponseerror.ts
+  - src/models/errors/powerpatherror.ts
+  - src/models/errors/responsevalidationerror.ts
+  - src/models/errors/sdkvalidationerror.ts
+  - src/models/errors/toomanyrequestsresponseerror.ts
+  - src/models/errors/unauthorizedrequestresponseerror.ts
+  - src/models/errors/unprocessableentityresponseerror.ts
+  - src/models/operations/attachcomponent.ts
+  - src/models/operations/attachresource.ts
+  - src/models/operations/createexternalplacementtest.ts
+  - src/models/operations/createexternaltestout.ts
+  - src/models/operations/createlessonplan.ts
+  - src/models/operations/createnewattempt.ts
+  - src/models/operations/deletelessonplan.ts
+  - src/models/operations/deletelessonplanitem.ts
+  - src/models/operations/finalstudentassessmentresponse.ts
+  - src/models/operations/getallplacementtests.ts
+  - src/models/operations/getassessmentprogress.ts
+  - src/models/operations/getattempts.ts
+  - src/models/operations/getcourseprogress.ts
+  - src/models/operations/getcoursesyllabus.ts
+  - src/models/operations/getcurrentlevel.ts
+  - src/models/operations/getnextplacementtest.ts
+  - src/models/operations/getnextquestion.ts
+  - src/models/operations/getsubjectprogress.ts
+  - src/models/operations/gettree.ts
+  - src/models/operations/importexternaltestassignmentresults.ts
+  - src/models/operations/index.ts
+  - src/models/operations/makeexternaltestassignment.ts
+  - src/models/operations/resetattempt.ts
+  - src/models/operations/testout.ts
+  - src/models/operations/updatelessonplanitem.ts
+  - src/models/operations/updatestudentitemresponse.ts
+  - src/models/operations/updatestudentquestionresponse.ts
+  - src/sdk/index.ts
+  - src/sdk/lessonplans.ts
+  - src/sdk/lessons.ts
+  - src/sdk/powerpathcoursemastery.ts
+  - src/sdk/powerpathlessonplans.ts
+  - src/sdk/powerpathplacement.ts
+  - src/sdk/sdk.ts
+  - src/types/async.ts
+  - src/types/blobs.ts
+  - src/types/constdatetime.ts
+  - src/types/enums.ts
+  - src/types/fp.ts
+  - src/types/index.ts
+  - src/types/operations.ts
+  - src/types/rfcdate.ts
+  - src/types/streams.ts
+  - tsconfig.json

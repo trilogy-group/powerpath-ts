@@ -9,8 +9,8 @@ let value: CreateNewAttemptAttempt = {
   attempt: 7757.1,
   score: 9222.66,
   scoreStatus: "exempt",
-  startedAt: new Date("2025-05-23T23:56:16.532Z"),
-  completedAt: new Date("2025-04-07T02:07:47.770Z"),
+  startedAt: new Date("2026-05-23T23:56:16.532Z"),
+  completedAt: new Date("2026-04-07T02:07:47.770Z"),
 };
 ```
 

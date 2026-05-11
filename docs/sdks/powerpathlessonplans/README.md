@@ -1,5 +1,4 @@
 # PowerPathLessonPlans
-(*powerPathLessonPlans*)
 
 ## Overview
 
@@ -28,6 +27,7 @@ Manage lesson plans and instructional content
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="createLessonPlan" method="post" path="/powerpath/lessonPlans/" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -115,6 +115,7 @@ run();
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getTree" method="get" path="/powerpath/lessonPlans/{courseId}/{userId}" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -200,6 +201,7 @@ run();
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="deleteLessonPlan" method="delete" path="/powerpath/lessonPlans/{lessonPlanId}" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -285,6 +287,7 @@ run();
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="attachComponent" method="post" path="/powerpath/lessonPlans/{lessonPlanId}/component" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -370,6 +373,7 @@ run();
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="attachResource" method="post" path="/powerpath/lessonPlans/{lessonPlanId}/resource" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -455,6 +459,7 @@ run();
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="updateLessonPlanItem" method="patch" path="/powerpath/lessonPlans/items/{lessonPlanItemId}" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -540,6 +545,7 @@ run();
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="deleteLessonPlanItem" method="delete" path="/powerpath/lessonPlans/items/{lessonPlanItemId}" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 

@@ -8,6 +8,7 @@ Holds the id of the TestOut lesson (ComponentResource), or its results in case i
 import { TestOutResult } from "@superbuilders/powerpath/models/components";
 
 let value: TestOutResult = {
+  lessonType: "test-out",
   lessonId: "<id>",
   finalized: false,
   toolProvider: "<value>",
@@ -18,7 +19,7 @@ let value: TestOutResult = {
 
 | Field                                                            | Type                                                             | Required                                                         | Description                                                      |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `lessonType`                                                     | *string*                                                         | :heavy_check_mark:                                               | N/A                                                              |
+| `lessonType`                                                     | *"test-out"*                                                     | :heavy_check_mark:                                               | N/A                                                              |
 | `lessonId`                                                       | *string*                                                         | :heavy_check_mark:                                               | The id of the testOut lesson                                     |
 | `finalized`                                                      | *boolean*                                                        | :heavy_check_mark:                                               | Whether the Test Out has been finalized in the current attempt   |
 | `toolProvider`                                                   | *string*                                                         | :heavy_check_mark:                                               | The tool provider for the testOut lesson                         |

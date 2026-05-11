@@ -1,5 +1,4 @@
 # PowerPathPlacement
-(*powerPathPlacement*)
 
 ## Overview
 
@@ -19,6 +18,7 @@ A 'Lesson' (placement test) in this context is a ComponentResource object which 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getAllPlacementTests" method="get" path="/powerpath/placement/getAllPlacementTests" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -113,6 +113,7 @@ Also returns the 'onboarded' boolean that indicates if the student completed the
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getCurrentLevel" method="get" path="/powerpath/placement/getCurrentLevel" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -211,6 +212,7 @@ A 'Lesson' in this context is a ComponentResource object which has a Resource ob
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getNextPlacementTest" method="get" path="/powerpath/placement/getNextPlacementTest" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 
@@ -299,6 +301,7 @@ Returns the progress the student has made in the given subject
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getSubjectProgress" method="get" path="/powerpath/placement/getSubjectProgress" -->
 ```typescript
 import { PowerPath } from "@superbuilders/powerpath";
 

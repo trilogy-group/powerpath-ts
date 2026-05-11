@@ -7,7 +7,9 @@ Represents the result of updating the student's response to the question in the 
 ```typescript
 import { QuizUpdateStudentQuestionResponseResult } from "@superbuilders/powerpath/models/components";
 
-let value: QuizUpdateStudentQuestionResponseResult = {};
+let value: QuizUpdateStudentQuestionResponseResult = {
+  lessonType: "quiz",
+};
 ```
 
 ## Fields
@@ -15,4 +17,4 @@ let value: QuizUpdateStudentQuestionResponseResult = {};
 | Field                                                         | Type                                                          | Required                                                      | Description                                                   |
 | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
 | `questionResult`                                              | *any*                                                         | :heavy_minus_sign:                                            | The assessment result object for the question (for debugging) |
-| `lessonType`                                                  | *string*                                                      | :heavy_check_mark:                                            | N/A                                                           |
+| `lessonType`                                                  | *"quiz"*                                                      | :heavy_check_mark:                                            | N/A                                                           |
